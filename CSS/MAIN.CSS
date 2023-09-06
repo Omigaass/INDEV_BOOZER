@@ -1,0 +1,66 @@
+*{
+    margin: 0 auto;
+    padding: 0;
+}
+
+/* 
+?██████   █████  ██      ███████ ████████  █████  
+?██   ██ ██   ██ ██      ██         ██    ██   ██ 
+?██████  ███████ ██      █████      ██    ███████ 
+?██      ██   ██ ██      ██         ██    ██   ██ 
+?██      ██   ██ ███████ ███████    ██    ██   ██ 
+*/
+
+:root {
+    --bege: #F2E1C2;
+    --bege-light: #FFFBF2;
+    --bege-dark: #D5C4A3;
+    
+    /** ████████████████████████ */
+
+    --roxo: #261824;
+    --roxo-light: #3A2735;
+    --roxo-dark: #1C0E17;
+    
+    /** ████████████████████████ */
+
+    --cinza: #2F343B;
+    --cinza-light: #444A53;
+    --cinza-dark: #1F242B;
+    
+    /** ████████████████████████ */
+
+    --vinho: #59252E;
+    --vinho-light: #7C3B44;
+    --vinho-dark: #3D191F;
+    
+    /** ████████████████████████ */
+
+    --preto: #1C1C26;
+    --preto-light: #22222C;
+    --preto-dark: #17171F;
+
+    /** ████████████████████████ */
+
+    --variante1: #D9D0C1;
+    --variante1-light: #ECE6DA;
+    --variante1-dark: #C8BDAE;
+
+    /** ████████████████████████ */
+
+    --claro: #f2f2f2;
+    --claro-light: #FFFFFF;
+    --claro-dark: #CCCCCC;
+
+    /** ████████████████████████ */
+
+    --azul: #3598DC;
+    --azul-light: #64ABE8;
+    --azul-dark: #1E6DBA;
+
+    /** ████████████████████████ */
+
+    --marrom: #B4A09C;
+    --marrom-light: #CFC3BD;
+    --marrom-dark: #8D7B76;
+}
