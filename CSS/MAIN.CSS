@@ -49,18 +49,80 @@
     /** ████████████████████████ */
 
     --claro: #f2f2f2;
-    --claro-light: #FFFFFF;
-    --claro-dark: #CCCCCC;
+    --claro-light: #f5f5f5;
+    --claro-dark: #e0e0e0;
 
     /** ████████████████████████ */
 
     --azul: #3598DC;
     --azul-light: #64ABE8;
     --azul-dark: #1E6DBA;
+    --azul-frio: #5BC2D9;
+    --azul-morno: #4E8DA6;
+    --azul-quente: #205373;
+    --azul-escuro: #223440;
 
     /** ████████████████████████ */
 
     --marrom: #B4A09C;
     --marrom-light: #CFC3BD;
     --marrom-dark: #8D7B76;
+
+    /** ████████████████████████ */
+
+    --softcolor01: #D4f0f0;
+    --strongcolor01: #66c2c2;
+    
+    --softcolor02: #A2E1DB;
+    --strongcolor02: #00a7a0;
+    
+    --softcolor03: #8FCACA;
+    --strongcolor03: #1f8b8a;
+    
+    --softcolor04: #CCE2CB;
+    --strongcolor04: #52b66a;
+    
+    --softcolor05: #B6CFB6;
+    --strongcolor05: #33994f;
+    
+    --softcolor06: #97C1A9;
+    --strongcolor06: #0b9576;
+    
+    --softcolor07: #ABDEE6;
+    --strongcolor07: #06b5e0;
+    
+    --softcolor08: #CBAACB;
+    --strongcolor08: #9b48a0;
+    
+    --softcolor09: #FFFFB5;
+    --strongcolor09: #fffc6a;
+    
+    --softcolor10: #FFCCB6;
+    --strongcolor10: #ff9e54;
+    
+    --softcolor11: #F3B0C3;
+    --strongcolor11: #f5627c;
+    
+    --softcolor12: #FF968A;
+    --strongcolor12: #ff2c0f;
+    
+    --softcolor13: #FFAEA5;
+    --strongcolor13: #ff6b52;
+    
+    --softcolor14: #FFC5BF;
+    --strongcolor14: #ffa188;
+    
+    --softcolor15: #FFD8BE;
+    --strongcolor15: #ffbb78;
+    
+    --softcolor16: #FFC8A2;
+    --strongcolor16: #ff9333;
+
+    --softcolor17: #cfa1c9;
+    --strongcolor17: #8b1f70;
+
+    --softcolor18: #9c7b9a;
+    --strongcolor18: #61164e;
+
+    /** ████████████████████████ */
 }
