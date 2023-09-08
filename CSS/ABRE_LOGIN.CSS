@@ -28,7 +28,11 @@
     font-size: 78px;
     font-family: BilboSwashCapsRegular;
     color: var(--bege-light);
+    transition: all 0.3s;
+}   .title:hover{
+    font-size: 80px;
 }
+
 
 .subtitle{
     font-size: 17px;
@@ -53,7 +57,6 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.2);
 }
 
 .login_sec form{
@@ -72,34 +75,47 @@
     flex-direction: column;
 }
 
-.textfield label{
-    font-size: 20px;
+.label {
+    font-size: 16px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     color: var(--claro);
     padding-bottom: 5px;
-}
-
-.textfield input{
+    transition: top 0.3s ease-out, left 0.3s ease-out, font-size 0.3s ease-out;
+    pointer-events: none;
+  }
+  
+  .input {
     width: 40vh;
     height: 5vh;
     background-color: var(--azul-quente);
-    border: 1px solid var(--claro);
+    border: 0px;
+    border-bottom: 1px solid var(--softcolor01);
     border-radius: 5px;
     padding: 0px 0px 0px 10px;
-}
-
-.textfield input:focus-visible{
-    border: 1px solid var(--claro-dark);
+    transition: all 0.4s;
+  }
+  
+  .input:focus-visible {
+    background-color: var(--softcolor01);
     border-radius: 15px;
     outline: 0;
-}
+  }
 
 .btn_login{
     width: 50%;
     padding: 10px 20px;
     border-radius: 12px;
     border: 0px solid;
-    background-color: var(--vinho);
+    box-shadow: 3px 3px 0px 0px var(--softcolor17);
+    background-color: var(--softcolor01);
+    color: var(--preto-light);
+    font-size: 15px;
+    transition: all 0.3s;
+    font-weight: 700;
+}
+
+.btn_login:hover{
+    background-color: var(--strongcolor17);
     color: var(--claro);
     font-size: 15px;
 }
