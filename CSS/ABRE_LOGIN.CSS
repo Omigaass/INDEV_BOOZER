@@ -28,7 +28,7 @@
     font-size: 78px;
     font-family: BilboSwashCapsRegular;
     color: var(--bege-light);
-    transition: all 0.3s;
+    transition: all 0.4s;
 }   .title:hover{
     font-size: 80px;
 }
@@ -36,8 +36,11 @@
 
 .subtitle{
     font-size: 17px;
+    position: fixed;
+    top: 58%;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     color: var(--softcolor09);
+    transition: font-size 0.3s;
 }
 
 .right_sec{
@@ -46,9 +49,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--azul-quente);
+    background-image: linear-gradient(to left, var(--azul-escuro), var(--azul-quente) 35%);
     box-shadow: 0 0 12px 0px var(--preto-light);
-}
+}   
 
 .login_sec{
     width: 60%;
@@ -57,6 +60,10 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    background-color: var(--softcolor01);
+    border-radius: 15px;
+    transition: box-shadow 0.2s ease-in-out;
+    box-shadow: 0 0 12px 0px var(--preto-light);
 }
 
 .login_sec form{
@@ -65,44 +72,56 @@
     flex-direction: column;
     justify-content: center;
     height: 90%;
+    transition: box-shadow 0.4s ease-in-out;
 }
 
 .textfield{
     width: 100%;
-    margin-bottom: 4vh;
+    height: 30%;
     text-align: center;
     display: flex;
     flex-direction: column;
+    justify-content: end;
 }
 
 .label {
     font-size: 16px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    color: var(--claro);
+    color: var(--preto-light);
+    font-weight: 700;
     padding-bottom: 5px;
     transition: top 0.3s ease-out, left 0.3s ease-out, font-size 0.3s ease-out;
     pointer-events: none;
   }
   
   .input {
-    width: 40vh;
-    height: 5vh;
-    background-color: var(--azul-quente);
+    width: 45vh;
+    height: 6vh;
+    background-color: var(--softcolor01);
     border: 0px;
-    border-bottom: 1px solid var(--softcolor01);
+    border-bottom: 1px solid var(--azul-quente);
     border-radius: 5px;
     padding: 0px 0px 0px 10px;
     transition: all 0.4s;
   }
   
   .input:focus-visible {
-    background-color: var(--softcolor01);
-    border-radius: 15px;
+    background-color: var(--azul-morno);
+    border-radius: 12px;
     outline: 0;
   }
 
+.login_btn_sec{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .btn_login{
     width: 50%;
+    height: 7vh;
     padding: 10px 20px;
     border-radius: 12px;
     border: 0px solid;
@@ -112,6 +131,7 @@
     font-size: 15px;
     transition: all 0.3s;
     font-weight: 700;
+    cursor: pointer;
 }
 
 .btn_login:hover{
@@ -119,3 +139,428 @@
     color: var(--claro);
     font-size: 15px;
 }
+
+.login_menu{
+    height: 10%;
+    display: flex;
+    align-items: end;
+}   .login_menu a{
+    text-decoration: none;
+    color: var(--strongcolor17);
+    transition: font-weight 0.3 s ease;
+}   .login_menu a:hover{
+    font-weight: 700;
+}
+
+@media (max-width: 1200px) {
+    .title{
+        font-size: 68px;
+        font-family: BilboSwashCapsRegular;
+        color: var(--bege-light);
+        transition: font-size 0.3s;
+    }   .title:hover{
+        font-size: 70px;
+    }
+
+    .subtitle{
+        font-size: 14px;
+        position: fixed;
+        top: 58%;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        color: var(--softcolor09);
+        transition: all 0.4s;
+    }
+    .login_sec{
+        width: 75%;
+        height: 60%;
+        border-radius: 12px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-color: var(--softcolor01);
+        border-radius: 15px;
+        transition: box-shadow 0.2s ease-in-out;
+        box-shadow: 0 0 12px 0px var(--preto-light);
+    }
+    
+    .login_sec form{
+        width: calc(100% - 5vh);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 90%;
+        transition: box-shadow 0.4s ease-in-out;
+    }
+    
+    .textfield{
+        width: 100%;
+        height: 30%;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+    }
+    
+    .label {
+        font-size: 16px;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        color: var(--preto-light);
+        font-weight: 700;
+        padding-bottom: 5px;
+        transition: top 0.3s ease-out, left 0.3s ease-out, font-size 0.3s ease-out;
+        pointer-events: none;
+      }
+      
+      .input {
+        width: 75%;
+        height: 6vh;
+        background-color: var(--softcolor01);
+        border: 0px;
+        border-bottom: 1px solid var(--azul-quente);
+        border-radius: 5px;
+        padding: 0px 0px 0px 10px;
+        transition: all 0.4s;
+      }
+      
+      .input:focus-visible {
+        background-color: var(--azul-morno);
+        border-radius: 12px;
+        outline: 0;
+      }
+    
+    .login_btn_sec{
+        width: 100%;
+        height: 30%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .btn_login{
+        width: 60%;
+        height: 7vh;
+        padding: 10px 20px;
+        border-radius: 12px;
+        border: 0px solid;
+        box-shadow: 3px 3px 0px 0px var(--softcolor17);
+        background-color: var(--softcolor01);
+        color: var(--preto-light);
+        font-size: 15px;
+        transition: all 0.4s;
+        font-weight: 700;
+        cursor: pointer;
+    }
+    
+    .btn_login:hover{
+        background-color: var(--strongcolor17);
+        color: var(--claro);
+        font-size: 15px;
+    }
+    
+    .login_menu{
+        height: 10%;
+        display: flex;
+        align-items: end;
+    }   .login_menu a{
+        text-decoration: none;
+        color: var(--strongcolor17);
+        transition: font-weight 0.3 s ease;
+    }   .login_menu a:hover{
+        font-weight: 700;
+    }
+}
+
+@media (max-width: 1024px) {
+    
+    .main_sec{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .left_sec{
+        width: 50%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-image: url(../IMG/library_background2.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        transition: background-image 0.5s ease;
+    }
+
+    .title{
+        font-size: 78px;
+        font-family: BilboSwashCapsRegular;
+        color: var(--bege-light);
+        transition: all 0.4s ease-in-out;
+        text-align: center;
+    }   .title:hover{
+        font-size: 80px;
+    }
+
+
+    .subtitle{
+        display: none;
+    }
+
+    .right_sec{
+        width: 50%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-image: linear-gradient(to left, var(--azul-escuro), var(--azul-quente) 35%);
+        box-shadow: 0 0 12px 0px var(--preto-light);
+        }   
+        
+    .login_sec{
+        width: 90%;
+        height: 60%;
+        border-radius: 12px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-color: var(--softcolor01);
+        border-radius: 15px;
+        transition: box-shadow 0.2s ease-in-out;
+        box-shadow: 0 0 12px 0px var(--preto-light);
+    }
+
+    .login_sec form{
+        width: calc(100% - 5vh);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 90%;
+        transition: box-shadow 0.4s ease-in-out;
+    }
+
+    .textfield{
+        width: 100%;
+        height: 30%;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+    }
+
+    .label {
+        font-size: 18px;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        color: var(--preto-light);
+        font-weight: 700;
+        padding-bottom: 5px;
+        transition: top 0.3s ease-out, left 0.3s ease-out, font-size 0.3s ease-out;
+        pointer-events: none;
+    }
+    
+    .input {
+        width: 90%;
+        height: 6vh;
+        background-color: var(--softcolor01);
+        border: 0px;
+        border-bottom: 1px solid var(--azul-quente);
+        border-radius: 5px;
+        padding: 0px 0px 0px 10px;
+        transition: all 0.4s;
+    }
+    
+    .input:focus-visible {
+        background-color: var(--azul-morno);
+        border-radius: 12px;
+        outline: 0;
+    }
+
+    .login_btn_sec{
+        width: 100%;
+        height: 30%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .btn_login{
+        width: 50%;
+        height: 7vh;
+        padding: 10px 20px;
+        border-radius: 12px;
+        border: 0px solid;
+        box-shadow: 3px 3px 0px 0px var(--softcolor17);
+        background-color: var(--softcolor01);
+        color: var(--preto-light);
+        font-size: 15px;
+        transition: all 0.3s;
+        font-weight: 700;
+        cursor: pointer;
+    }
+
+    .btn_login:hover{
+        background-color: var(--strongcolor17);
+        color: var(--claro);
+        font-size: 15px;
+    }
+
+    .login_menu{
+        height: 10%;
+        display: flex;
+        align-items: end;
+    }   .login_menu a{
+        text-decoration: none;
+        color: var(--strongcolor17);
+        transition: font-weight 0.3 s ease;
+    }   .login_menu a:hover{
+        font-weight: 700;
+    }
+}
+
+@media (max-width: 768px) {
+    .main_sec{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .left_sec{
+        width: 100%;
+        height: 50%;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-image: url(../IMG/library_background.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        transition: background-image 0.5s ease;
+    }
+    
+    .title{
+        font-size: 38px;
+        font-family: BilboSwashCapsRegular;
+        color: var(--bege-light);
+        transition: all 0.4s ease-in-out;
+    }   .title:hover{
+        font-size: 38px;
+    }
+
+    .subtitle{
+        display: none;
+    }
+
+    .right_sec{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-image: linear-gradient(to left, var(--azul-escuro), var(--azul-quente) 35%);
+        box-shadow: 0 0 12px 0px var(--preto-light);
+    }   
+        
+    .login_sec{
+        width: 90%;
+        height: 90%;
+        border-radius: 12px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-color: var(--softcolor01);
+        border-radius: 15px;
+        transition: box-shadow 0.2s ease-in-out;
+        box-shadow: 0 0 12px 0px var(--preto-light);
+        transition: all 0.4s ease-in-out;
+    }
+
+    .login_sec form{
+        width: calc(100% - 5vh);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 90%;
+        transition: all 0.4s ease-in-out;
+    }
+
+    .textfield{
+        width: 100%;
+        height: 30%;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+    }
+
+    .label {
+        font-size: 20px;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        color: var(--preto-light);
+        font-weight: 700;
+        padding-bottom: 5px;
+        pointer-events: none;
+    }
+    
+    .input {
+        width: 90%;
+        height: 7vh;
+        background-color: var(--softcolor01);
+        border: 0px;
+        border-bottom: 1px solid var(--azul-quente);
+        border-radius: 5px;
+        padding: 0px 0px 0px 10px;
+        transition: all 0.4s ease-in-out;
+    }
+    
+    .input:focus-visible {
+        background-color: var(--azul-morno);
+        border-radius: 12px;
+        outline: 0;
+    }
+
+    .login_btn_sec{
+        width: 100%;
+        height: 30%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.4s ease-in-out;
+    }
+
+    .btn_login{
+        width: 50%;
+        height: 7vh;
+        padding: 10px 20px;
+        border-radius: 12px;
+        border: 0px solid;
+        box-shadow: 3px 3px 0px 0px var(--softcolor17);
+        background-color: var(--strongcolor17);
+        color: var(--claro);
+        font-size: 15px;
+        transition: all 0.3s;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.4s ease-in-out;
+    }
+
+    .login_menu{
+        height: 10%;
+        display: flex;
+        align-items: end;
+        font-size: 20px;
+        transition: all 0.4s ease-in-out;
+    }   .login_menu a{
+        text-decoration: none;
+        color: var(--strongcolor17);
+        transition: font-weight 0.3 s ease;
+    }   .login_menu a:hover{
+        font-weight: 700;
+    }
+
+}
+
