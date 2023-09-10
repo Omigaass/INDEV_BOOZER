@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CSS/ABRE_LOGIN.CSS">
-    <link rel="stylesheet" href="CSS/MAIN.CSS">
+    <link rel="stylesheet" href="../CSS/ABRE_LOGIN.CSS">
+    <link rel="stylesheet" href="../CSS/MAIN.CSS">
     <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/bilbo" type="text/css" />
     <title>Boozer</title>
 </head>
@@ -17,23 +17,37 @@
             </div>
             <div class="right_sec">
                 <div class="login_sec">
-                    <form action="" class="login_card">
+                    <form id="loginForm" class="login_card">
                         <div class="textfield">
                             <label class="label" for="usuario">Usuário</label>
-                            <input class="input" type="text" name="usuario" required>
+                            <input class="input" type="text" name="usuario" id="username" required>
                         </div>
                         <div class="textfield">
                             <label class="label" for="senha">Senha</label>
-                            <input class="input" type="password" name="senha" required>
+                            <input class="input" type="password" name="senha" id="password" required>
                         </div>
                         <div class="login_btn_sec">
                             <button type="submit" class="btn_login">Login</button>
                         </div>
-                        <div class="login_menu"><a href="" class="register">Não tem conta?</a></div>
+                        <div class="login_menu"><a href="ABRE_LOGON.html" class="register">Não tem conta?</a></div>
                     </form>
                 </div>
             </div>
         </main>
     </div>
 </body>
+<script>
+    document.getElementById("loginForm").addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+
+        if (username === "teste" && password === "123") {
+            window.location.href = "ABRE_MENU.html";
+        } else {
+            alert("Login falhou. Verifique suas credenciais.");
+        }
+    });
+</script>
 </html>

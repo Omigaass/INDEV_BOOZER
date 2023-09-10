@@ -1,0 +1,139 @@
+/* 
+?███████ ████████ ██    ██ ██      ███████ 
+?██         ██     ██  ██  ██      ██      
+?███████    ██      ████   ██      █████   
+?     ██    ██       ██    ██      ██      
+?███████    ██       ██    ███████ ███████ 
+*/
+
+.header_sec{
+    margin: 0;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--softcolor06);
+    height: 10vh;
+    box-shadow: 0px 0px 5px var(--cinza);
+}
+
+.logo_body{
+    margin: 0;
+    width: 50%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 5vh;
+	animation: wobble-hor-bottom 0.8s both;
+}
+
+.logo_body a{
+    margin: 0;
+    font-family: BilboSwashCapsRegular;
+    font-size: 45px;
+    text-decoration: none;
+    color: var(--softcolor01);
+    transition: color 350ms ease-in-out;
+}   .logo_body a:hover{
+        color: #fff;
+        animation: jello-vertical 0.8s both;
+}
+
+.logo_body img{
+    margin: 0;
+    display: none;
+}
+
+.header_btn_sec{
+    margin: 0;
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 5vh;
+	animation: wobble-hor-bottom 0.8s both;
+}
+
+.header_btn_sec button{
+    margin: 0;
+    padding: 12px 32px;
+    border: 0;
+    border-radius: 12px;
+    cursor: pointer;
+    background-color: var(--softcolor01);
+    color: var(--strongcolor01);
+    font-weight: 700;
+    font-size: 16px;
+    transition: background-color 0.4s ease, color 0.4s ease;
+    box-shadow: 0px 0px 5px -2px var(--cinza);
+}   .header_btn_sec button:hover{
+        background-color: var(--strongcolor01);
+        color: #fff;
+        animation: jello-vertical 0.8s both;
+}
+
+/* 
+?██████  ███████ ███████ ██████   ██████  ███    ██ ███████ ██ ██    ██ ██ ██████   █████  ██████  ███████ 
+?██   ██ ██      ██      ██   ██ ██    ██ ████   ██ ██      ██ ██    ██ ██ ██   ██ ██   ██ ██   ██ ██      
+?██████  █████   ███████ ██████  ██    ██ ██ ██  ██ ███████ ██ ██    ██ ██ ██   ██ ███████ ██   ██ █████   
+?██   ██ ██           ██ ██      ██    ██ ██  ██ ██      ██ ██  ██  ██  ██ ██   ██ ██   ██ ██   ██ ██     
+?██   ██ ███████ ███████ ██       ██████  ██   ████ ███████ ██   ████   ██ ██████  ██   ██ ██████  ███████
+*/
+
+
+
+/* 
+? █████  ███    ██ ██ ███    ███  █████  ████████ ██  ██████  ███    ██ 
+?██   ██ ████   ██ ██ ████  ████ ██   ██    ██    ██ ██    ██ ████   ██ 
+?███████ ██ ██  ██ ██ ██ ████ ██ ███████    ██    ██ ██    ██ ██ ██  ██ 
+?██   ██ ██  ██ ██ ██ ██  ██  ██ ██   ██    ██    ██ ██    ██ ██  ██ ██ 
+?██   ██ ██   ████ ██ ██      ██ ██   ██    ██    ██  ██████  ██   ████  
+*/
+
+@keyframes wobble-hor-bottom {
+    0%,
+    100% {
+        transform: translateX(0%);
+        transform-origin: 50% 50%;
+    }
+    15% {
+        transform: translateX(-10px) rotate(-2deg);
+    }
+    30% {
+        transform: translateX(5px) rotate(2deg);
+    }
+    45% {
+        transform: translateX(-5px) rotate(-1.2deg);
+    }
+    60% {
+        transform: translateX(3px) rotate(0.8deg);
+    }
+    75% {
+        transform: translateX(-2px) rotate(-0.4deg);
+    }
+}
+
+@keyframes jello-vertical {
+    0% {
+        transform: scale3d(1, 1, 1);
+    }
+    15% {
+        transform: scale3d(0.95, 1.05, 1);
+    }
+    30% {
+        transform: scale3d(1.05, 0.95, 1);
+    }
+    45% {
+        transform: scale3d(0.98, 1.02, 1);
+    }
+    60% {
+        transform: scale3d(1.02, 0.98, 1);
+    }
+    75% {
+        transform: scale3d(0.99, 1.01, 1);
+    }
+    100% {
+        transform: scale3d(1, 1, 1);
+    }
+}

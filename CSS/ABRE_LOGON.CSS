@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Phudu&family=Roboto:wght@900&display=swap');
+/* 
+?███████ ████████ ██    ██ ██      ███████ 
+?██         ██     ██  ██  ██      ██      
+?███████    ██      ████   ██      █████   
+?     ██    ██       ██    ██      ██      
+?███████    ██       ██    ███████ ███████ 
+*/
+
+
+body {
+    margin: 0%;
+    font-family: 'Phudu', cursive;
+    font-family: 'Roboto', sans-serif;
+}
+
+.main-login {
+    width: 100vw;
+    height: 100vh;
+    background: #4aa7cf;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-login {
+    width: 50vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-login>h1 {
+    color: aliceblue;
+    font-size: 45px;
+    position: fixed;
+    line-height: 390px;
+}
+
+img{
+    position: fixed;
+    top: 42px;
+}
+
+.right-login {
+    width: 50vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-login {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 30px 35px;
+    background: #8dceeb;
+    border-radius: 20px;
+    box-shadow: 0px 10px 40px #00000036;
+}
+
+.card-login>h1 {
+    color: rgb(240, 245, 243);
+    font-weight: 800;
+    margin: 0;
+}
+
+.textfield {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 70%;
+    margin: 10px 0px;
+}
+
+.textfield>input {
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    background: #8dceeb;
+    color: beige;
+    font-size: 12pt;
+    box-shadow: 0px 10px 40px #00000036;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.textfield>label {
+    color: beige;
+    margin-bottom: 10px;
+}
+
+.textfield>input::placeholder {
+    color: azure;
+}
+
+.btn-login {
+    width: 70%;
+    padding: 16px 0px;
+    margin: 25px;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: black;
+    background: #ffffff;
+    cursor: pointer;
+    box-shadow: opx 10px 40px -12px #abbac0;
+}
+
+.login_menu{
+    height: 10%;
+    display: flex;
+    align-items: end;
+}   .login_menu a{
+    text-decoration: none;
+    color: var(--strongcolor17);
+    transition: font-weight 0.3 s ease;
+}

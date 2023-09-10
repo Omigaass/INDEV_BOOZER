@@ -1,3 +1,11 @@
+/* 
+?███████ ████████ ██    ██ ██      ███████ 
+?██         ██     ██  ██  ██      ██      
+?███████    ██      ████   ██      █████   
+?     ██    ██       ██    ██      ██      
+?███████    ██       ██    ███████ ███████ 
+*/
+
 .fullscreen{
     width: 100%;
     height: 100vh;
@@ -22,15 +30,15 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+	animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
 }
 
 .title{
     font-size: 78px;
     font-family: BilboSwashCapsRegular;
     color: var(--bege-light);
-    transition: all 0.4s;
 }   .title:hover{
-    font-size: 80px;
+    animation: jello-vertical 0.9s both;
 }
 
 
@@ -72,7 +80,6 @@
     flex-direction: column;
     justify-content: center;
     height: 90%;
-    transition: box-shadow 0.4s ease-in-out;
 }
 
 .textfield{
@@ -90,7 +97,6 @@
     color: var(--preto-light);
     font-weight: 700;
     padding-bottom: 5px;
-    transition: top 0.3s ease-out, left 0.3s ease-out, font-size 0.3s ease-out;
     pointer-events: none;
   }
   
@@ -103,12 +109,15 @@
     border-radius: 5px;
     padding: 0px 0px 0px 10px;
     transition: all 0.4s;
+    font-weight: 600;
+    color: var(--azul-quente);
   }
   
   .input:focus-visible {
     background-color: var(--azul-morno);
     border-radius: 12px;
     outline: 0;
+    color: var(--softcolor01);
   }
 
 .login_btn_sec{
@@ -151,6 +160,14 @@
 }   .login_menu a:hover{
     font-weight: 700;
 }
+
+/* 
+?██████  ███████ ███████ ██████   ██████  ███    ██ ███████ ██ ██    ██ ██ ██████   █████  ██████  ███████ 
+?██   ██ ██      ██      ██   ██ ██    ██ ████   ██ ██      ██ ██    ██ ██ ██   ██ ██   ██ ██   ██ ██      
+?██████  █████   ███████ ██████  ██    ██ ██ ██  ██ ███████ ██ ██    ██ ██ ██   ██ ███████ ██   ██ █████   
+?██   ██ ██           ██ ██      ██    ██ ██  ██ ██      ██ ██  ██  ██  ██ ██   ██ ██   ██ ██   ██ ██     
+?██   ██ ███████ ███████ ██       ██████  ██   ████ ███████ ██   ████   ██ ██████  ██   ██ ██████  ███████
+*/
 
 @media (max-width: 1200px) {
     .title{
@@ -564,3 +581,49 @@
 
 }
 
+
+/* 
+? █████  ███    ██ ██ ███    ███  █████  ████████ ██  ██████  ███    ██ 
+?██   ██ ████   ██ ██ ████  ████ ██   ██    ██    ██ ██    ██ ████   ██ 
+?███████ ██ ██  ██ ██ ██ ████ ██ ███████    ██    ██ ██    ██ ██ ██  ██ 
+?██   ██ ██  ██ ██ ██ ██  ██  ██ ██   ██    ██    ██ ██    ██ ██  ██ ██ 
+?██   ██ ██   ████ ██ ██      ██ ██   ██    ██    ██  ██████  ██   ████  
+*/
+
+
+@keyframes tracking-in-expand {
+    0% {
+      letter-spacing: -0.5em;
+      opacity: 0;
+    }
+    40% {
+      opacity: 0.6;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes jello-vertical {
+    0% {
+        transform: scale3d(1, 1, 1);
+    }
+    15% {
+        transform: scale3d(0.95, 1.05, 1);
+    }
+    30% {
+        transform: scale3d(1.05, 0.95, 1);
+    }
+    45% {
+        transform: scale3d(0.98, 1.02, 1);
+    }
+    60% {
+        transform: scale3d(1.02, 0.98, 1);
+    }
+    75% {
+        transform: scale3d(0.99, 1.01, 1);
+    }
+    100% {
+        transform: scale3d(1, 1, 1);
+    }
+}

@@ -70,6 +70,110 @@
 
     /** ████████████████████████ */
 
+    --white: #FFFFFF;
+
+    --red: #FF0000;
+    --red-light: #FF6666;
+    --red-dark: #CC0000;
+
+    --blue: #0000FF;
+    --blue-light: #6666FF;
+    --blue-dark: #0000CC;
+
+    --green: #00FF00;
+    --green-light: #66FF66;
+    --green-dark: #00CC00;
+
+    --yellow: #FFFF00;
+    --yellow-light: #FFFF66;
+    --yellow-dark: #CCCC00;
+
+    --purple: #800080;
+    --purple-light: #B266B2;
+    --purple-dark: #660066;
+
+    --orange: #FFA500;
+    --orange-light: #FFCC66;
+    --orange-dark: #CC8400;
+
+    --pink: #FF69B4;
+    --pink-light: #FF94CC;
+    --pink-dark: #CC468A;
+
+    --teal: #008080;
+    --teal-light: #66B2B2;
+    --teal-dark: #004D4D;
+
+    --cyan: #00FFFF;
+    --cyan-light: #66FFFF;
+    --cyan-dark: #00CCCC;
+
+    --magenta: #FF00FF;
+    --magenta-light: #FF66FF;
+    --magenta-dark: #CC00CC;
+
+    --lime: #00FF00;
+    --lime-light: #66FF66;
+    --lime-dark: #00CC00;
+
+    --brown: #A52A2A;
+    --brown-light: #CC6666;
+    --brown-dark: #802828;
+
+    --gray: #808080;
+    --gray-light: #B2B2B2;
+    --gray-dark: #4D4D4D;
+
+    --indigo: #4B0082;
+    --indigo-light: #824BFF;
+    --indigo-dark: #28006B;
+
+    --turquoise: #40E0D0;
+    --turquoise-light: #8CEEEE;
+    --turquoise-dark: #00BFBF;
+
+    --coral: #FF6B6B;
+    --coral-light: #FFA6A6;
+    --coral-dark: #CC5252;
+
+    --lavender: #E6E6FA;
+    --lavender-light: #EFEFFB;
+    --lavender-dark: #B4B4DD;
+
+    --gold: #FFD700;
+    --gold-light: #FFEC80;
+    --gold-dark: #CCB300;
+
+    --slate: #708090;
+    --slate-light: #AEBCCB;
+    --slate-dark: #4A5969;
+
+    --olive: #808000;
+    --olive-light: #A4A400;
+    --olive-dark: #666600;
+
+    --teal: #008080;
+    --teal-light: #66B2B2;
+    --teal-dark: #004D4D;
+
+    --navy: #000080;
+    --navy-light: #6666FF;
+    --navy-dark: #00004D;
+
+    --violet: #8A2BE2;
+    --violet-light: #B77BFF;
+    --violet-dark: #691ACC;  
+
+    --lime: #00FF00;
+    --lime-light: #66FF66;
+    --lime-dark: #00CC00;
+
+    --maroon: #800000;
+    --maroon-light: #CC6666;
+    --maroon-dark: #800000;
+
+    /** ████████████████████████ */
+
     --softcolor01: #D4f0f0;
     --strongcolor01: #66c2c2;
     
@@ -125,4 +229,24 @@
     --strongcolor18: #61164e;
 
     /** ████████████████████████ */
+
+    --card1-soft-color: #ffe3b3;
+    --card1-default-color: #ffd080;
+    --card1-dark-color: #ffd080;
+    --card1-strong-color: #ffb433;
+    
+    --card2-soft-color: #c2ffc2;
+    --card2-default-color: #99ff99;
+    --card2-dark-color: #99ff99;
+    --card2-strong-color: #66ff66;
+
+    --card3-soft-color: #ccdaff;
+    --card3-default-color: #b3c7ff;
+    --card3-dark-color: #668fff;
+    --card3-strong-color: #3369ff;
+
+    --card4-soft-color: #ffe5e5;
+    --card4-default-color: #ffb3b3;
+    --card4-dark-color: #ff4d4d;
+    --card4-strong-color: #ff1a1a;
 }
