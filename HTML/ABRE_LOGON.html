@@ -16,20 +16,34 @@
             <h1>Faça login <br> E entre em nosso site</h1>
         </div>
         <div class="right-login">
-            <div class="card-login">
+            <div class="card-login" id="RegisterForm">
                 <h1>Nova conta</h1>
                 <div class="textfield">
-                    <label for="usuario">Usuário</label>
-                    <input type="text" name="usuario" placeholder="Usuário">
+                    <label for="username">Usuário</label>
+                    <input type="text" name="usuario" id="username" placeholder="Usuário">
                 </div>
                 <div class="textfield">
-                    <label for="senha">senha</label>
-                    <input type="password" name="senha" placeholder="senha">
+                    <label for="password">senha</label>
+                    <input type="password" name="senha" id="password" placeholder="senha">
                 </div>
-                <button class="btn-login">Criar Conta</button>
-                <div class="login_menu"><a href="INDEX.html" class="register">Já tem conta?</a></div>
+                <button class="btn-login" type="submit">Criar Conta</button>
+                <div class="login_menu"><a href="../INDEX.html" class="register">Já tem conta?</a></div>
             </div>
         </div>
     </div>
 </body>
+<script>
+    document.getElementById("RegisterForm").addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+
+        if (username === "" && password === "") {
+            window.location.href = "ABRE_MENU.html";
+        } else {
+            alert("Tente deixar os campos vazios.");
+        }
+    });
+</script>
 </html>
