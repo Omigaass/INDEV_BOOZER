@@ -65,7 +65,7 @@
     /** ████████████████████████ */
 
     --marrom: #B4A09C;
-    --marrom-light: #CFC3BD;
+    --marrom-light: #e4d7ce;
     --marrom-dark: #8D7B76;
 
     /** ████████████████████████ */
@@ -204,8 +204,9 @@
     --softcolor10: #FFCCB6;
     --strongcolor10: #ff9e54;
     
-    --softcolor11: #F3B0C3;
-    --strongcolor11: #f5627c;
+    --softcolor11-light: #f8d3dd;
+    --softcolor11: #f1a7bb;
+    --strongcolor11: #e76587;
     
     --softcolor12: #FF968A;
     --strongcolor12: #ff2c0f;
@@ -228,19 +229,34 @@
     --softcolor18: #9c7b9a;
     --strongcolor18: #61164e;
 
+    --softcolor19: #bac5c5;
+    --strongcolor19: #99aaaa;
+
+    --softcolor20: #eecdaa;
+    --strongcolor20: #ef9c43;
+
+    --softcolor21: #ffe9c5;
+    --strongcolor21: #ffb133;
+
+    --softcolor21: #c6ebeb;
+    --strongcolor21: #68caca;
+
+    --softcolor22: ;
+    --strongcolor22: #1b4b4b;
+
     /** ████████████████████████ */
 
-    --card1-soft-color: #ffe3b3;
-    --card1-default-color: #ffd080;
+    --card1-soft-color: #ffe5e5;
+    --card1-default-color: #fcd591;
     --card1-dark-color: #ffd080;
-    --card1-strong-color: #ffb433;
+    --card1-strong-color: #fac871;
     
-    --card2-soft-color: #c2ffc2;
-    --card2-default-color: #99ff99;
+    --card2-soft-color: #ffe5e5;
+    --card2-default-color: #a5f3a5;
     --card2-dark-color: #99ff99;
-    --card2-strong-color: #66ff66;
+    --card2-strong-color: #70ff70;
 
-    --card3-soft-color: #ccdaff;
+    --card3-soft-color: #ffe5e5;
     --card3-default-color: #b3c7ff;
     --card3-dark-color: #668fff;
     --card3-strong-color: #3369ff;

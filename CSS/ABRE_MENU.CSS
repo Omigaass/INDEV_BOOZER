@@ -20,12 +20,12 @@
     height: calc(100% - 20vh);
     display: flex;
     flex-direction: column;
-    background-color: var(--softcolor01);
+    background-color: var(--marrom-light);
 }
 
 .body_title{
     margin: 5vh 0vh 5vh 7vh;
-    color: var(--softcolor13);
+    color: var(--azul-morno);
     font-family: 'SnigletRegular';
     cursor: default;
 }
@@ -52,8 +52,8 @@
     justify-content: center;
     align-items: center;
     color: white;
-    height: 50px;
-    width: 50px;
+    height: 30%;
+    width: 30%;
     border-radius: 15px;
 }   .navbar_card a{
     height: 25%;
@@ -74,6 +74,7 @@
     background-color: var(--card1-strong-color);
 }   #card_catalogo:hover > a{
     color: white;
+	animation: wobble-ver-left 0.8s both;
 }
 
 #card_carrinho{
@@ -85,6 +86,7 @@
     background-color: var(--card2-strong-color);
 }   #card_carrinho:hover > a{
     color: white;
+	animation: wobble-ver-left 0.8s both;
 }
 
 #card_perfil{
@@ -96,6 +98,7 @@
     background-color: var(--card3-strong-color);
 }   #card_perfil:hover > a{
     color: white;
+	animation: wobble-ver-left 0.8s both;
 }
 
 #card_usuarios{
@@ -107,6 +110,7 @@
     background-color: var(--card4-strong-color);
 }   #card_usuarios:hover > a{
     color: white;
+	animation: wobble-ver-left 0.8s both;
 }
 
 .content_body {
@@ -384,3 +388,32 @@
         transform: rotate(-3deg) scale(1.2);
     }
 }
+@keyframes wobble-ver-left {
+    0%,
+    100% {
+      transform: translateY(0) rotate(0);
+      font-size: large;
+      transform-origin: 50% 50%;
+    }
+    15% {
+      transform: translateY(-30px) rotate(-6deg);
+      font-size: larger;
+    }
+    30% {
+      transform: translateY(15px) rotate(6deg);
+      font-size: larger;
+    }
+    45% {
+      transform: translateY(-15px) rotate(-3.6deg);
+      font-size: larger;
+    }
+    60% {
+      transform: translateY(9px) rotate(2.4deg);
+      font-size: larger;
+    }
+    75% {
+      transform: translateY(-6px) rotate(-1.2deg);
+      font-size: larger;
+    }
+  }
+  

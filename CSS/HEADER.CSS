@@ -13,7 +13,7 @@
     top: 0;
     display: flex;
     justify-content: space-between;
-    background-color: var(--softcolor06);
+    background-color: var(--azul-quente);
     height: 10vh;
     box-shadow: 0px 0px 5px var(--cinza);
 }
@@ -61,14 +61,14 @@
     border: 0;
     border-radius: 12px;
     cursor: pointer;
-    background-color: var(--softcolor01);
-    color: var(--strongcolor01);
+    background-color: var(--azul-light);
+    color: var(--softcolor01);
     font-weight: 700;
     font-size: 16px;
     transition: background-color 0.4s ease, color 0.4s ease;
     box-shadow: 0px 0px 5px -2px var(--cinza);
 }   .header_btn_sec button:hover{
-        background-color: var(--strongcolor01);
+        background-color: var(--azul-morno);
         color: #fff;
         animation: jello-vertical 0.8s both;
 }
