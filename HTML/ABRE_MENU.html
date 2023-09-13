@@ -17,7 +17,7 @@
         <header class="header_sec">
             <div class="logo_body">
                 <img src="#">
-                <a href="">Boozer</a>
+                <a href="ABRE_MENU.html">Boozer</a>
             </div>
             <div class="header_btn_sec">
                 <button onclick="abre_login()">Login</button>
@@ -27,20 +27,20 @@
             <h1 class="body_title">Descubra novos mundos, uma página de cada vez.</h1>
             <div class="navbar_menu">
                 <div class="navbar_card" id="card_catalogo">
-                    <i class="fa-solid fa-bookmark"></i>
-                    <a href="#">Catalogo</a>
+                    <i class="fa-solid fa-bookmark fa-lg"></i>
+                    <a>Catalogo</a>
                 </div>
                 <div class="navbar_card" id="card_carrinho">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                    <a href="#">Carrinho</a>
+                    <i class="fa-solid fa-cart-shopping fa-lg"></i>
+                    <a>Carrinho</a>
                 </div>
                 <div class="navbar_card" id="card_perfil">
-                    <i class="fa-solid fa-user"></i>
-                    <a href="#">Meu Perfil</a>
+                    <i class="fa-solid fa-user fa-lg"></i>
+                    <a>Meu Perfil</a>
                 </div>
                 <div class="navbar_card" id="card_usuarios">
-                    <i class="fa-solid fa-users"></i>
-                    <a href="#">Usuarios</a>
+                    <i class="fa-solid fa-users fa-lg"></i>
+                    <a>Usuarios</a>
                 </div>
             </div>
             <div class="content_body">
@@ -63,5 +63,21 @@
     function abre_login() {
         window.location.href = "../index.html";
     }
+
+    const card_btns = document.querySelectorAll(".navbar_card");
+
+    card_btns.forEach(card_btn => {
+        card_btn.addEventListener("click", () => {
+            if (card_btn.id === "card_catalogo") {
+                window.location.href = "ABRE_CATALOGO.html";
+            } else if (card_btn.id === "card_carrinho") {
+                window.location.href = "ABRE_CARRINHO.html";
+            } else if (card_btn.id === "card_perfil") {
+                window.location.href = "ABRE_PERFIL.html";
+            } else if (card_btn.id === "card_usuarios") {
+                window.location.href = "ABRE_USUARIOS.html";
+            }
+        });
+});
 </script>
 </html>
