@@ -52,8 +52,6 @@
     justify-content: center;
     align-items: center;
     color: white;
-    height: 30%;
-    width: 30%;
     border-radius: 15px;
 }   .navbar_card a{
     height: 25%;
@@ -70,6 +68,7 @@
     box-shadow: 0px 10px 0px -4px var(--card1-default-color);
 }   #card_catalogo i{
     background-color: var(--card1-dark-color);
+    padding: 15% 12%;
 }   #card_catalogo:hover{
     background-color: var(--card1-strong-color);
 }   #card_catalogo:hover > a{
@@ -82,6 +81,7 @@
     box-shadow: 0px 10px 0px -4px var(--card2-default-color);
 }   #card_carrinho i{
     background-color: var(--card2-dark-color);
+    padding: 15% 10%;
 }   #card_carrinho:hover{
     background-color: var(--card2-strong-color);
 }   #card_carrinho:hover > a{
@@ -94,6 +94,7 @@
     box-shadow: 0px 10px 0px -4px var(--card3-default-color);
 }   #card_perfil i{
     background-color: var(--card3-dark-color);
+    padding: 15% 11.1%;
 }   #card_perfil:hover{
     background-color: var(--card3-strong-color);
 }   #card_perfil:hover > a{
@@ -106,6 +107,7 @@
     box-shadow: 0px 10px 0px -4px var(--card4-default-color);
 }   #card_usuarios i{
     background-color: var(--card4-dark-color);
+    padding: 15% 9%;
 }   #card_usuarios:hover{
     background-color: var(--card4-strong-color);
 }   #card_usuarios:hover > a{
@@ -194,12 +196,12 @@
         height: calc(100% - 20vh);
         display: flex;
         flex-direction: column;
-        background-color: var(--softcolor01);
+        background-color: var(--marrom-light);
     }
     
     .body_title{
         margin: 5vh 0vh 5vh 7vh;
-        color: var(--softcolor13);
+        color: var(--azul-morno);
         font-family: 'SnigletRegular';
         cursor: default;
     }
@@ -209,35 +211,8 @@
         margin-left: 0;
         display: flex;
     }
-    
     .navbar_card{
-        width: 24vh;
-        height: 26vh;
-        margin: 0 0 5vh 7vh;
-        border-radius: 12px;
-        font-family: 'SnigletRegular';
-        cursor: pointer;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        transition: background-color 0.2s ease, width 0.5s ease;
-        animation: jello-diagonal-1 0.8s both;
-    }   .navbar_card i {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: white;
-        height: 50px;
-        width: 50px;
-        border-radius: 15px;
-    }   .navbar_card a{
-        height: 25%;
-        display: flex;
-        align-items: center;
-        font-size: large;
-        text-decoration: none;
-        color: var(--preto);
-        transition: color 0.2s ease;
+        transition: height 0.5s ease;
     }
 }
 
@@ -264,6 +239,7 @@
         flex-direction: column;
         position: fixed;
         bottom: 10vh;
+        transition: transform 0.5s ease;
     }
 
     .navbar_card{
@@ -279,14 +255,13 @@
         align-items: center;
         transition: background-color 0.2s ease;
         animation: jello-diagonal-1 0.8s both;
+        transition: width 0.5s ease;
     }   .navbar_card i {
         margin: 0px 30px;
         display: flex;
         justify-content: center;
         align-items: center;
         color: white;
-        height: 50px;
-        width: 50px;
         border-radius: 15px;
     }   .navbar_card a{
         margin: 0;
@@ -297,6 +272,58 @@
         text-decoration: none;
         color: var(--preto);
         transition: color 0.2s ease;
+    }
+
+    #card_catalogo{
+        background-color: var(--card1-soft-color);
+        box-shadow: 0px 10px 0px -4px var(--card1-default-color);
+    }   #card_catalogo i{
+        background-color: var(--card1-dark-color);
+        padding: 15px 20px;
+    }   #card_catalogo:hover{
+        background-color: var(--card1-strong-color);
+    }   #card_catalogo:hover > a{
+        color: white;
+        animation: wobble-ver-left 0.8s both;
+    }
+    
+    #card_carrinho{
+        background-color: var(--card2-soft-color);
+        box-shadow: 0px 10px 0px -4px var(--card2-default-color);
+    }   #card_carrinho i{
+        background-color: var(--card2-dark-color);
+        padding: 15px 16.25px;
+    }   #card_carrinho:hover{
+        background-color: var(--card2-strong-color);
+    }   #card_carrinho:hover > a{
+        color: white;
+        animation: wobble-ver-left 0.8s both;
+    }
+    
+    #card_perfil{
+        background-color: var(--card3-soft-color);
+        box-shadow: 0px 10px 0px -4px var(--card3-default-color);
+    }   #card_perfil i{
+        background-color: var(--card3-dark-color);
+        padding: 15px 18.75px;
+    }   #card_perfil:hover{
+        background-color: var(--card3-strong-color);
+    }   #card_perfil:hover > a{
+        color: white;
+        animation: wobble-ver-left 0.8s both;
+    }
+    
+    #card_usuarios{
+        background-color: var(--card4-soft-color);
+        box-shadow: 0px 10px 0px -4px var(--card4-default-color);
+    }   #card_usuarios i{
+        background-color: var(--card4-dark-color);
+        padding: 15px 15px;
+    }   #card_usuarios:hover{
+        background-color: var(--card4-strong-color);
+    }   #card_usuarios:hover > a{
+        color: white;
+        animation: wobble-ver-left 0.8s both;
     }
 
     .content_body {
@@ -337,6 +364,15 @@
         }
 }
 
+@media (max-width: 356px) { 
+    .body_title{
+        display: none;
+    }
+
+    .navbar_menu{
+        transform: translateY(-120px);
+    }
+}
 /* 
 ? █████  ███    ██ ██ ███    ███  █████  ████████ ██  ██████  ███    ██ 
 ?██   ██ ████   ██ ██ ████  ████ ██   ██    ██    ██ ██    ██ ████   ██ 

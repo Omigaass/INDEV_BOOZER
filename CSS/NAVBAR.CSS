@@ -16,12 +16,14 @@
     display: flex;
     justify-content: flex-start;
     border-radius: 0 0 10px 10px;
+    background-color: var(--marrom-light);
+    transition: height 0.5s ease;
 }
 
 .navbar_sec{
     margin: 0;
     width: calc(100% - 10vh);
-    height: 5vh;
+    height: 100%;
     display: flex;
     justify-content: flex-start;
     background-color: var(--azul-morno);
@@ -39,11 +41,12 @@
 
 .navbar_item{
     margin: 0;
-    width: 10%;
+    width: 20vh;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    transition: all 0.2s ease-in-out;
 }   .navbar_item:hover{
     background-color: var(--marrom-light);
 }   .navbar_item:hover > i{
@@ -57,13 +60,14 @@
     font-size: 16px;
     margin: 0;
     font-family: 'SnigletRegular';
+    transition: all 0.2s ease-in-out;
 }
-
 
 .navbar_item i{
     padding-right: 10px;
     color: var(--white);
     margin: 0;
+    transition: all 0.2s ease-in-out;
 }
 
 .blue_square{
@@ -85,6 +89,17 @@
     background-color: var(--marrom-light);
     border-radius: 10px 0 0 0;
 }
+
+.navbar_active{
+    background-color: var(--marrom-light);
+    transition: all 0.3s linear;
+}   .navbar_active a , .navbar_active i{
+    color: var(--preto);
+}
+
+.navbar_button{
+    display: none;
+}
 /* 
 ?██████  ███████ ███████ ██████   ██████  ███    ██ ███████ ██ ██    ██ ██ ██████   █████  ██████  ███████ 
 ?██   ██ ██      ██      ██   ██ ██    ██ ████   ██ ██      ██ ██    ██ ██ ██   ██ ██   ██ ██   ██ ██      
@@ -93,7 +108,86 @@
 ?██   ██ ███████ ███████ ██       ██████  ██   ████ ███████ ██   ████   ██ ██████  ██   ██ ██████  ███████
 */
 
+@media (max-width: 768px) {
+    .navbar_outline{
+        height: 7vh;
+        transition: height 0.5s ease;
+    }
+    
+    .navbar_body{
+        justify-content: center;
+    }
+    
+    .navbar_item{
+        display: none;
+        margin: 0;
+        width: 20vh;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+    }   .navbar_item:hover{
+        background-color: var(--marrom-light);
+    }   .navbar_item:hover > i{
+        color: var(--preto);
+    }   .navbar_item:hover > a{
+        color: var(--preto);
+    }
+    
+    .navbar_item a{
+        color: var(--white);
+        font-size: 16px;
+        margin: 0;
+        font-family: 'SnigletRegular';
+        transition: all 0.2s ease-in-out;
+    }
+    
+    .navbar_item i{
+        padding-right: 10px;
+        color: var(--white);
+        margin: 0;
+        transition: all 0.2s ease-in-out;
+    }
+    
+    .blue_square{
+        width: 5vh;
+        height: 5vh;
+        background-color: var(--azul-morno);
+    }
+    
+    .white_square1{
+        width: 5vh;
+        height: 5vh;
+        background-color: var(--marrom-light);
+        border-radius: 0 10px 0 0;
+    }
+    
+    .white_square2{
+        width: 5vh;
+        height: 5vh;
+        background-color: var(--marrom-light);
+        border-radius: 10px 0 0 0;
+    }
+    
+    .navbar_active{
+        background-color: var(--marrom-light);
+        transition: all 0.3s linear;
+    }   .navbar_active a , .navbar_active i{
+        color: var(--preto);
+    }
 
+    .navbar_button{
+        margin: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }   .navbar_button i{
+        margin: 0;
+        color: var(--white);
+    }
+}
 
 /* 
 ? █████  ███    ██ ██ ███    ███  █████  ████████ ██  ██████  ███    ██ 
