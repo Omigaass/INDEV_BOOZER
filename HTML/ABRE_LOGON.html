@@ -19,7 +19,7 @@
             <h1>E entre em nosso site</h1>
         </div>
         <div class="right-login">
-            <div class="card-login" id="RegisterForm">
+            <form class="card-login" id="loginForm">
                 <h1>Nova conta</h1>
                 <div class="textfield">
                     <label for="username">Usuário</label>
@@ -31,12 +31,12 @@
                 </div>
                 <button class="btn-login" type="submit">Criar Conta</button>
                 <div class="login_menu"><a href="../index.html" class="register">Já tem conta?</a></div>
-            </div>
+            </form>
         </div>
     </div>
 </body>
 <script>
-    document.getElementById("RegisterForm").addEventListener("submit", function (e) {
+    document.getElementById("loginForm").addEventListener("submit", function (e) {
         e.preventDefault();
 
         var username = document.getElementById("username").value;
@@ -45,7 +45,7 @@
         if (username === username && password === password) {
             window.location.href = "ABRE_MENU.html";
         } else {
-            alert("Tente deixar os campos vazios.");
+            alert("Login Errado");
         }
     });
 </script>
