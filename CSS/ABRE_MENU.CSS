@@ -223,7 +223,6 @@
         height: calc(100% - 20vh);
         display: flex;
         flex-direction: column;
-        background-color: var(--softcolor01);
     }
 
     .body_title{
