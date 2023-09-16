@@ -165,4 +165,15 @@
     --card4-default-color: #ffcccc;
     --card4-dark-color: #ff9999;
     --card4-strong-color: #ff6666;
+
+
+
+    --box01: #ffff4d;
+    --box01-soft: #ffff99;
+
+    --box02: #4d4dff;
+    --box02-soft: #9999ff;
+
+    --box03: #ff4d4d;
+    --box03-soft: #ff9999;
 }
