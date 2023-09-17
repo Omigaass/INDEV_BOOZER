@@ -47,7 +47,7 @@
 
 .header_btn_sec button{
     margin: 0;
-    padding: 12px 32px;
+    padding: 12px 24px 12px 12px;
     border: 0;
     border-radius: 12px;
     cursor: pointer;
@@ -59,14 +59,15 @@
 }   .header_btn_sec i{
     color: var(--cinza);
     padding-right: 5px;
-    transition: background-color 0.4s ease, color 0.4s ease;
+    transition: background-color 0.4s ease, color 0.4s ease, transform 0.4s ease, opacity 0.2s ease;
 }   .header_btn_sec button:hover > i{
     color: var(--marrom);
+    transform: translateX(-25px);
+    opacity: 0;
 }
 .header_btn_sec button:hover{
         background-color: var(--white);
         color: var(--marrom);
-        animation: jello-vertical 0.8s both;
 }   
 
 /* 
@@ -101,7 +102,7 @@
 
 .leftside_first_sec{
     width: calc(50% - 200px);
-    height: 100%;
+    height: calc(100% - 50px);
     padding: 0 100px;
     display: flex;
     flex-direction: column;
@@ -109,14 +110,22 @@
     justify-content: center;
 }   
 
+.logo_marca_first_sec{
+    font-size: 110px;
+    font-family: BilboSwashCapsRegular;
+	animation: slide-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
 .title_first_sec{
     font-size: 50px;
     font-weight: 900;
+	animation: slide-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
 .subtitle_first_sec{
     font-size: 20px;
     padding-top: 12px;
+	animation: slide-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
 .rightside_first_sec{
@@ -128,8 +137,11 @@
     background-image: url(../IMG/sobre_photo01.jpg);
     background-position: center;
     background-size: 190%;
+    transition: all 0.5s ease;
 }
-
+.rightside_first_sec:hover{
+    scale: 1.02;
+}
 /* 
 *██████  ████        ███████ ███████  ██████ ████████ ██  ██████  ███    ██ 
 *     ██ █  █        ██      ██      ██         ██    ██ ██    ██ ████   ██ 
@@ -154,8 +166,10 @@
     align-items: center;
     background-color: var(--azul-escuro);
     color: var(--white);
-}   .box01_second_sec:hover > span.box_title{
-    
+    transition: all 0.3s ease-in-out;
+}   
+.box01_second_sec:hover{
+    scale: 1.02;
 }
 
 .box02_second_sec{
@@ -166,8 +180,10 @@
     justify-content: center;
     align-items: center;
     background-color: var(--azul);
-}   .box02_second_sec:hover > span.box_title{
-    
+    transition: all 0.3s ease-in-out;
+}   
+.box02_second_sec:hover{
+    scale: 1.02;
 }
 
 .box03_second_sec{
@@ -179,8 +195,10 @@
     align-items: center;
     background-color: var(--azul-quente);
     color: var(--white);
-}   .box03_second_sec:hover > span.box_title{
-    
+    transition: all 0.3s ease-in-out;
+}   
+.box03_second_sec:hover{
+    scale: 1.02;
 }
 
 .box_title{
@@ -205,13 +223,6 @@
 *███████             ███████ ███████  ██████    ██    ██  ██████  ██   ████  
 */
 
-/* 
-?██████  ███████ ███████ ██████   ██████  ███    ██ ███████ ██ ██    ██ ██ ██████   █████  ██████  ███████ 
-?██   ██ ██      ██      ██   ██ ██    ██ ████   ██ ██      ██ ██    ██ ██ ██   ██ ██   ██ ██   ██ ██      
-?██████  █████   ███████ ██████  ██    ██ ██ ██  ██ ███████ ██ ██    ██ ██ ██   ██ ███████ ██   ██ █████   
-?██   ██ ██           ██ ██      ██    ██ ██  ██ ██      ██ ██  ██  ██  ██ ██   ██ ██   ██ ██   ██ ██     
-?██   ██ ███████ ███████ ██       ██████  ██   ████ ███████ ██   ████   ██ ██████  ██   ██ ██████  ███████
-*/
 
 
 /* 
@@ -231,3 +242,36 @@
 ?██   ██ ██  ██ ██ ██ ██  ██  ██ ██   ██    ██    ██ ██    ██ ██  ██ ██ 
 ?██   ██ ██   ████ ██ ██      ██ ██   ██    ██    ██  ██████  ██   ████  
 */
+
+@keyframes slide-right {
+    0% {
+        opacity: 0;
+        transform: translateX(-200px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+@keyframes wobble-hor-bottom {
+    0%,
+    100% {
+      transform: translateX(0%);
+      transform-origin: 50% 50%;
+    }
+    15% {
+      transform: translateX(-10px) rotate(-2deg);
+    }
+    30% {
+      transform: translateX(5px) rotate(2deg);
+    }
+    45% {
+      transform: translateX(-5px) rotate(-1.2deg);
+    }
+    60% {
+      transform: translateX(3px) rotate(0.8deg);
+    }
+    75% {
+      transform: translateX(-2px) rotate(-0.4deg);
+    }
+  }
