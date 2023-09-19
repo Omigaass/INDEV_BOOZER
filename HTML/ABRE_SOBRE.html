@@ -8,13 +8,19 @@
     <link rel="stylesheet" href="../CSS/ABRE_SOBRE.CSS">
     <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/bilbo" type="text/css" />
     <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/sniglet" type="text/css"/>
+    <link rel="stylesheet" data-purpose="Layout StyleSheet" title="Web Awesome" href="/css/app-wa-02670e9412103b5852dcbe140d278c49.css?vsn=d">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/all.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-solid.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-regular.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-light.css">
+
     <title>Boozer</title>
 </head>
 <body>
     <div class="fullscreen">
         <header class="header_sec">
             <div class="header_btn_sec">
-                <button onclick="abre_login()"><i class="fa-solid fas fa-chevron-left"></i>Voltar</button>
+                <button onclick="abre_login()"><i class="fa-duotone fa-chevrons-left"></i>Voltar</button>
             </div>
         </header>
         <main class="main_sec">
@@ -149,18 +155,38 @@
                 </div>
             </section>
             <section class="seventh_sec">
-                <div class="carousel_seventh_sec">
-                    <div class="hide_left"></div>
-                    <div class="prev_second"></div>
-                    <div class="prev"></div>
-                    <div class="current"></div>
-                    <div class="next"></div>
-                    <div class="next_second"></div>
-                    <div class="hide_right"></div>
-                    <div class="carousel_btn_menu">
-                        <button id="prev">Anterior</button>
-                        <button id="next">Próximo</button>
+                <div id="carousel">
+                    <div class="hideLeft">
+                        <img src="../IMG/carousel_photo01.jpg">
                     </div>
+                
+                    <div class="prevLeftSecond">
+                        <img src="../IMG/carousel_photo02.jpg">
+                    </div>
+                
+                    <div class="prev">
+                        <img src="../IMG/carousel_photo03.jpg">
+                    </div>
+                
+                    <div class="selected">
+                        <img src="../IMG/carousel_photo04.jpg">
+                    </div>
+                
+                    <div class="next">
+                        <img src="../IMG/carousel_photo05.jpg">
+                    </div>
+                
+                    <div class="nextRightSecond">
+                        <img src="../IMG/carousel_photo06.jpg">
+                    </div>
+                
+                    <div class="hideRight">
+                        <img src="../IMG/carousel_photo07.jpg">
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button id="prev"><i class="fa-duotone fa-chevrons-left"></i>Prev</button>
+                    <button id="next">Next<i class="fa-duotone fa-chevrons-right"></i></button>
                 </div>
             </section>
         </main>
@@ -169,10 +195,62 @@
         </footer>
     </div>
 </body>
-<script src="https://kit.fontawesome.com/724309404c.js" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     function abre_login() {
         window.location.href = "ABRE_MENU.html";
     }
+</script>
+<script>
+    function moveToSelected(element) {
+    var selected, next, prev, prevSecond, nextSecond;
+
+    if (element === "next") {
+        selected = $(".selected").next();
+    } else if (element === "prev") {
+        selected = $(".selected").prev();
+    } else {
+        selected = element;
+    }
+
+    next = selected.next();
+    prev = selected.prev();
+    prevSecond = prev.prev();
+    nextSecond = next.next();
+
+    selected.removeClass().addClass("selected");
+    prev.removeClass().addClass("prev");
+    next.removeClass().addClass("next");
+    nextSecond.removeClass().addClass("nextRightSecond");
+    prevSecond.removeClass().addClass("prevLeftSecond");
+    nextSecond.nextAll().removeClass().addClass('hideRight');
+    prevSecond.prevAll().removeClass().addClass('hideLeft');
+}
+
+$(document).keydown(function(e) {
+    switch (e.which) {
+        case 37: // left
+            moveToSelected('prev');
+            break;
+        case 39: // right
+            moveToSelected('next');
+            break;
+        default:
+            return;
+    }
+    e.preventDefault();
+});
+
+$('#carousel div').click(function() {
+    moveToSelected($(this));
+});
+
+$('#prev').click(function() {
+    moveToSelected('prev');
+});
+
+$('#next').click(function() {
+    moveToSelected('next');
+});
 </script>
 </html>
