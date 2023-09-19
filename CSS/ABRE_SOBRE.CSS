@@ -346,7 +346,7 @@
 
 .fifth_sec{
     width: 100%;
-    height: 700px;
+    height: 800px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -427,7 +427,7 @@
 .sixth_sec{
     width: 100%;
     height: 600px;
-    background-color: var(--marrom-light);
+    background-color: var(--azul-morno);
     display: flex;
     z-index: 3;
 }
@@ -446,12 +446,14 @@
     font-size: 50px;
     font-weight: 900;
 	animation: slide-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    color: #fff;
 }
 
 .sixth_sec_text{
     font-size: 20px;
     padding-top: 12px;
 	animation: slide-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    color: #fff;
 }
 
 .rightside_sixth_sec{
@@ -464,6 +466,7 @@
     background-position: center;
     background-size: 190%;
     transition: all 0.5s ease;
+    z-index: -1;
 }
 .rightside_sixth_sec:hover{
     scale: 1.02;
@@ -485,6 +488,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    z-index: 4;
 }
 #carousel {
   position: relative;

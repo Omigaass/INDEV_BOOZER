@@ -11,6 +11,10 @@
     <link rel="stylesheet" href="../CSS/FOOTER.CSS">
     <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/bilbo" type="text/css" />
     <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/sniglet" type="text/css"/>
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/all.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-solid.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-regular.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-light.css">
     <!--     
     ?██████  ███████ ███████ ██████   ██████  ███    ██ ███████ ██ ██    ██ ██ ██████   █████  ██████  ███████ 
     ?██   ██ ██      ██      ██   ██ ██    ██ ████   ██ ██      ██ ██    ██ ██ ██   ██ ██   ██ ██   ██ ██      
@@ -28,6 +32,13 @@
 </head>
 <body>
     <div class="fullscreen">
+        <!-- 
+        *██   ██ ███████  █████  ██████  ███████ ██████  
+        *██   ██ ██      ██   ██ ██   ██ ██      ██   ██ 
+        *███████ █████   ███████ ██   ██ █████   ██████  
+        *██   ██ ██      ██   ██ ██   ██ ██      ██   ██ 
+        *██   ██ ███████ ██   ██ ██████  ███████ ██   ██  
+        -->
         <header class="header_sec">
             <div class="logo_body">
                 <img src="#">
@@ -70,19 +81,38 @@
             </div>
         <main class="main_sec">
             <!--             
-                 ?██████  ██████  ███    ██ ████████ ███████ ██    ██ ██████   ██████  
+                ? ██████  ██████  ███    ██ ████████ ███████ ██    ██ ██████   ██████  
                 ?██      ██    ██ ████   ██    ██    ██      ██    ██ ██   ██ ██    ██ 
                 ?██      ██    ██ ██ ██  ██    ██    █████   ██    ██ ██   ██ ██    ██ 
                 ?██      ██    ██ ██  ██ ██    ██    ██      ██    ██ ██   ██ ██    ██ 
-                 ?██████  ██████  ██   ████    ██    ███████  ██████  ██████   ██████   
+                ? ██████  ██████  ██   ████    ██    ███████  ██████  ██████   ██████   
             -->
+
+            <div class="catalogo_sec">
+                <menu class="menu_sec">
+                    <div class="visual_buttons">
+                        <button class="alternate_visual_btn"></button>
+                    </div>
+                    <div class="pagination_buttons">
+                        <button class="prev_page_btn"></button>
+                        <a class="current_page_view"></a>
+                        <button class="next_page_btn"></button>
+                    </div>
+                    <button class="filter_button">
+                        <div class="open_filter"><i class="fa-regular fa-filter fa-2x"></i></i></button>
+                    </div>
+                </menu>
+                <div class="filter_sec">
+
+                </div>
+            </div>
+
         </main>
         <footer class="footer_sec">
             <p>&copy; 2023 Boozer - Todos os direitos reservados.</p>
         </footer>
     </div>
 </body>
-<script src="https://kit.fontawesome.com/724309404c.js" crossorigin="anonymous"></script>
 <script src="../JS/CONFIG_NAV.JS"></script>
 <script>
     function abre_login() {
