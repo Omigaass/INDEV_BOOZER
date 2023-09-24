@@ -34,56 +34,86 @@
         <link rel="stylesheet" href="../CSS/MEDIA_QUERY/WIDESCREEN_DEFAUT.CSS">
         <title>Boozer</title>
     </head>
-<body>
-            <!--             
-                * ██████  ██████  ███    ██ ████████ ███████ ██    ██ ██████   ██████  
-                *██      ██    ██ ████   ██    ██    ██      ██    ██ ██   ██ ██    ██ 
-                *██      ██    ██ ██ ██  ██    ██    █████   ██    ██ ██   ██ ██    ██ 
-                *██      ██    ██ ██  ██ ██    ██    ██      ██    ██ ██   ██ ██    ██ 
-                * ██████  ██████  ██   ████    ██    ███████  ██████  ██████   ██████   
-            -->
-            <div class="fullscreen">
-                <div class="leftside_sec">
-                    <span class="leftside_title">Bem vindo ao Boozer!</span>
-                    <span class="leftside_subtitle">Faça seu login para explorar nossas coleções e encontrar seu próximo livro favorito.</span>
-                </div>
-                <div class="rightside_sec">
-                    <div class="login_form_sec">
-                        <form class="signin_body" action="" method="post">
-                            <div class="inputbox">
-                                <i class="fa-regular fa-envelope fa-xl"></i>
-                                <input id="login_email_input" type="email" required>
-                                <label>Email</label>
-                            </div>
-                            <div class="inputbox">
-                                <i class="fa-regular fa-lock fa-xl"></i>
-                                <input id="login_password_input" type="password" required>
-                                <label>Password</label>
-                            </div>
-                            <button>Sign-In</button>
-                            <span>Não tenho conta.</span>
-                        </form>
-                        <form class="signup_body" action="" method="post">
-                            <div class="inputbox">
-                                <i class="fa-regular fa-user fa-xl"></i>
-                                <input id="login_user_input" type="text" required>
-                                <label>Name</label>
-                            </div>
-                            <div class="inputbox">
-                                <i class="fa-regular fa-envelope fa-xl"></i>
-                                <input id="login_email_input" type="email" required>
-                                <label>Email</label>
-                            </div>
-                            <div class="inputbox">
-                                <i class="fa-regular fa-lock fa-xl"></i>
-                                <input id="login_password_input" type="password" required>
-                                <label>Password</label>
-                            </div>
-                            <button>Sign-Up</button>
-                            <span>Já possuo conta.</span>
-                        </form>
-                    </div>
+    <body>
+        <!--             
+            * ██████  ██████  ███    ██ ████████ ███████ ██    ██ ██████   ██████  
+            *██      ██    ██ ████   ██    ██    ██      ██    ██ ██   ██ ██    ██ 
+            *██      ██    ██ ██ ██  ██    ██    █████   ██    ██ ██   ██ ██    ██ 
+            *██      ██    ██ ██  ██ ██    ██    ██      ██    ██ ██   ██ ██    ██ 
+            * ██████  ██████  ██   ████    ██    ███████  ██████  ██████   ██████   
+        -->
+        <div class="fullscreen">
+            <div class="leftside_sec">
+                <span class="leftside_title">Bem vindo ao Boozer</span>
+                <span class="leftside_subtitle">Faça seu login para explorar nossas coleções e encontrar seu próximo livro favorito.</span>  
+                <img src="../IMG/library_background3.jpg" alt="">
+                <img src="../IMG/roda_livros_photo.jpg" alt="">
+            </div>
+            <div class="rightside_sec">
+                <div class="login_form_sec">
+                    <form class="signup_body" action="" method="post">
+                        <div class="inputbox">
+                            <i class="fa-regular fa-user fa-xl"></i>
+                            <input id="login_user_input" type="text" required>
+                            <label>Name</label>
+                        </div>
+                        <div class="inputbox">
+                            <i class="fa-regular fa-envelope fa-xl"></i>
+                            <input id="login_email_input" type="email" required>
+                            <label>Email</label>
+                        </div>
+                        <div class="inputbox">
+                            <i class="fa-regular fa-lock fa-xl"></i>
+                            <input id="login_password_input" type="password" required>
+                            <label>Password</label>
+                        </div>
+                        <button type="submit">Sign-Up</button>
+                        <span onclick="slide()">Já possuo conta.</span>
+                    </form>
+                    <form class="signin_body" action="" method="post">
+                        <div class="inputbox">
+                            <i class="fa-regular fa-envelope fa-xl"></i>
+                            <input id="login_email_input" type="email" required>
+                            <label>Email</label>
+                        </div>
+                        <div class="inputbox">
+                            <i class="fa-regular fa-lock fa-xl"></i>
+                            <input id="login_password_input" type="password" required>
+                            <label>Password</label>
+                        </div>
+                        <button type="submit">Sign-In</button>
+                        <span onclick="slide()">Não tenho conta.</span>
+                    </form>
                 </div>
             </div>
-</body>
+        </div>
+    </body>
+    <script src="../JS/INDEX_SLIDE.JS"></script>
+    <script>
+        document.querySelector("signup_body").addEventListener("submit", function (e) {
+            e.preventDefault();
+    
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+    
+            if (username === username && password === password) {
+                window.location.href = "HTML/ABRE_MENU.html";
+            } else {
+                alert("Login Errado");
+            }
+        });
+
+        document.querySelector("signup_body").addEventListener("submit", function (e) {
+            e.preventDefault();
+    
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+    
+            if (username === username && password === password) {
+                window.location.href = "HTML/ABRE_MENU.html";
+            } else {
+                alert("Login Errado");
+            }
+        });
+    </script>
 </html>

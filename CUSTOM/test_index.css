@@ -10,23 +10,50 @@
     width: 100%;
     height: 100vh;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
+    overflow: hidden;
 }
 
 .leftside_sec{
-    width: 50%;
+    position: fixed;
+    width: 100%;
     height: 100%;
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: space-between;
-    background-image: url(../IMG/library_background3.jpg);
-    background-position: center;
-    background-size: cover;
+    align-items: center;
+    transition: all 0.8s ease-in-out;
+    z-index: 1;
+}
+
+.leftside_sec img{
+    width: 50%;
+    height: 100%;
+}
+
+.leftside_title{
+    font-size: 78px;
+    font-family: BilboSwashCapsRegular;
+    color: var(--bege-light);
+    position: fixed;
+    left: 5%;
+    transition: all 0.8s ease-in-out;
+}   .leftside_title:hover{
+    animation: jello-vertical 0.9s both;
+}
+
+.leftside_subtitle{
+    font-size: 18px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: var(--softcolor09);
+    margin-top: 18vh;
+    position: fixed;
+    left: 1.5%;
+    transition: all 0.8s ease-in-out;
 }
 
 .rightside_sec{
+    margin: 0;
     width: 50%;
     height: 100%;
     display: flex;
@@ -35,8 +62,212 @@
     align-items: space-between;
     background: linear-gradient(90deg, rgba(32,83,115,1) 0%, rgba(33,70,94,1) 65%, rgba(34,52,64,1) 100%);
     box-shadow: 5px 0px 10px #000;
+    transition: all 0.8s ease-in-out;
+    z-index: 2;
 }
 
+.login_form_sec{
+    position: relative;
+    width: 60%;
+    height: 70%;
+    background: transparent;
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    overflow: hidden;
+}
+
+.signin_body{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 12.5%;
+    gap: 20px;
+    transition: all 0.8s ease-in-out;
+    animation: slide-in-left 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.signup_body{
+    display: none;
+}
+
+.inputbox{
+    position: relative;
+    margin: 0 auto;
+    width: 310px;
+    border-bottom: 2px solid #fff;
+}
+
+.inputbox label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    color: #fff;
+    font-size: 1em;
+    pointer-events: none;
+    transition: .5s;
+    font-family: SnigletRegular;
+}
+
+input:focus ~ label,
+input:valid ~ label{
+top: -5px;
+}
+
+.inputbox input {
+    width: 100%;
+    height: 50px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    padding:0 35px 0 5px;
+    color: #fff;
+    font-family: SnigletRegular;
+}
+
+.inputbox i{
+    position: absolute;
+    right: 8px;
+    color: #fff;
+    font-size: 1.2em;
+    top: 50%;
+}
+
+button{
+    width: 300px;
+    height: 40px;
+    border-radius: 40px;
+    background: #fff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+}
+
+.rightside_sec span{
+    position: fixed;
+    bottom: 10px;
+    cursor: pointer;
+    color: #fff;
+    font-family: SnigletRegular;
+    transition: font-size 0.4s;
+}   .rightside_sec span:hover{
+        font-size: 17px;
+}
+    /* 
+    *███████ ██      ██ ██████  ███████ 
+    *██      ██      ██ ██   ██ ██      
+    *███████ ██      ██ ██   ██ █████   
+    *     ██ ██      ██ ██   ██ ██      
+    *███████ ███████ ██ ██████  ███████  
+    */
+    .leftside_sec_slide {
+        position: fixed;
+        margin: 0;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.8s ease-in-out;
+        z-index: 1;
+    }    
+
+    .leftside_sec_slide img{
+        width: 50%;
+        height: 100%;
+    }
+    
+    .rightside_sec_slide{
+        margin: 0;
+        width: 50%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: space-between;
+        background: linear-gradient(90deg, rgba(32,83,115,1) 0%, rgba(33,70,94,1) 65%, rgba(34,52,64,1) 100%);
+        box-shadow: -5px 0px 10px #000;
+        transform: translateX(-100%);
+        transition: all 0.8s ease-in-out;
+        z-index: 2;
+    }
+
+    .rightside_sec_slide span{
+        position: fixed;
+        bottom: 10px;
+        cursor: pointer;
+        color: #fff;
+        font-family: SnigletRegular;
+        transition: font-size 0.4s;
+    }   .rightside_sec_slide span:hover{
+            font-size: 17px;
+    }
+
+    .login_form_sec_slide{
+        position: relative;
+        width: 60%;
+        height: 70%;
+        background: transparent;
+        border: 2px solid rgba(255,255,255,0.5);
+        border-radius: 20px;
+        backdrop-filter: blur(15px);
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        overflow: hidden;
+        transition: all 0.8s ease-in-out;
+    }
+    
+    .signin_body_slide{
+        display: none;
+    }
+    
+    .signup_body_slide{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0 12.5%;
+        gap: 30px;
+        transition: all 0.8s ease-in-out;
+        animation: slide-in-right 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    }
+    
+    .leftside_title_slide{
+        font-size: 78px;
+        font-family: BilboSwashCapsRegular;
+        color: var(--bege-light);
+        position: fixed;
+        left: 57%;
+        margin-bottom: 20vh;
+        transition: all 0.8s ease-in-out;
+    }   .leftside_title_slide:hover{
+        animation: jello-vertical 0.9s both;
+    }
+
+    .leftside_subtitle_slide{
+        font-size: 18px;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        color: var(--softcolor09);
+        margin-top: 20vh;
+        position: fixed;
+        left: 52%;
+        transition: all 0.8s ease-in-out;
+    }
 /* 
 ?██████  ███████ ███████ ██████   ██████  ███    ██ ███████ ██ ██    ██ ██ ██████   █████  ██████  ███████ 
 ?██   ██ ██      ██      ██   ██ ██    ██ ████   ██ ██      ██ ██    ██ ██ ██   ██ ██   ██ ██   ██ ██      
@@ -54,3 +285,49 @@
 ?██   ██ ██  ██ ██ ██ ██  ██  ██ ██   ██    ██    ██ ██    ██ ██  ██ ██ 
 ?██   ██ ██   ████ ██ ██      ██ ██   ██    ██    ██  ██████  ██   ████  
 */
+
+@keyframes jello-vertical {
+    0% {
+        transform: scale3d(1, 1, 1);
+    }
+    15% {
+        transform: scale3d(0.95, 1.05, 1);
+    }
+    30% {
+        transform: scale3d(1.05, 0.95, 1);
+    }
+    45% {
+        transform: scale3d(0.98, 1.02, 1);
+    }
+    60% {
+        transform: scale3d(1.02, 0.98, 1);
+    }
+    75% {
+        transform: scale3d(0.99, 1.01, 1);
+    }
+    100% {
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+@keyframes slide-in-right {
+    0% {
+        transform: translateX(1000px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slide-in-left {
+    0% {
+        transform: translateX(-1000px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}

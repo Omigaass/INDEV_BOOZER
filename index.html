@@ -1,54 +1,120 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CSS/ABRE_LOGIN.CSS">
-    <link rel="stylesheet" href="CSS/MAIN.CSS">
-    <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/bilbo" type="text/css" />
-    <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/sniglet" type="text/css"/>
-    <title>Boozer</title>
-</head>
-<body>
-    <div class="fullscreen">
-        <main class="main_sec">
-            <div class="left_sec">
-                <span class="title">Bem vindo ao Boozer!</span>
-                <span class="subtitle">Faça seu login para explorar nossas coleções e encontrar seu próximo livro favorito.</span>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="CSS/MAIN.CSS">
+        <link rel="stylesheet" href="CSS/ABRE_LOGIN.CSS">
+        <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/bilbo" type="text/css" />
+        <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/sniglet" type="text/css"/>
+        <!--
+        ?███████  ██████  ███    ██ ████████      █████  ██     ██ ███████ ███████  ██████  ███    ███ ███████ 
+        ?██      ██    ██ ████   ██    ██        ██   ██ ██     ██ ██      ██      ██    ██ ████  ████ ██      
+        ?█████   ██    ██ ██ ██  ██    ██        ███████ ██  █  ██ █████   ███████ ██    ██ ██ ████ ██ █████   
+        ?██      ██    ██ ██  ██ ██    ██        ██   ██ ██ ███ ██ ██           ██ ██    ██ ██  ██  ██ ██      
+        ?██       ██████  ██   ████    ██        ██   ██  ███ ███  ███████ ███████  ██████  ██      ██ ███████ 
+        -->
+        <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/all.css">
+        <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-solid.css">
+        <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-regular.css">
+        <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-light.css">
+        <!--     
+        ?██████  ███████ ███████ ██████   ██████  ███    ██ ███████ ██ ██    ██ ██ ██████   █████  ██████  ███████ 
+        ?██   ██ ██      ██      ██   ██ ██    ██ ████   ██ ██      ██ ██    ██ ██ ██   ██ ██   ██ ██   ██ ██      
+        ?██████  █████   ███████ ██████  ██    ██ ██ ██  ██ ███████ ██ ██    ██ ██ ██   ██ ███████ ██   ██ █████   
+        ?██   ██ ██           ██ ██      ██    ██ ██  ██ ██      ██ ██  ██  ██  ██ ██   ██ ██   ██ ██   ██ ██     
+        ?██   ██ ███████ ███████ ██       ██████  ██   ████ ███████ ██   ████   ██ ██████  ██   ██ ██████  ███████
+        -->
+        <link rel="stylesheet" href="../CSS/MEDIA_QUERY/MOBILE_DEFAUT.CSS">
+        <link rel="stylesheet" href="../CSS/MEDIA_QUERY/MOBILE_LANDSCAPE.CSS">
+        <link rel="stylesheet" href="../CSS/MEDIA_QUERY/TABLET_DEFAUT.CSS">
+        <link rel="stylesheet" href="../CSS/MEDIA_QUERY/NOTEBOOK_DEFAUT.CSS">
+        <link rel="stylesheet" href="../CSS/MEDIA_QUERY/SETUP_DEFAUT.CSS">
+        <link rel="stylesheet" href="../CSS/MEDIA_QUERY/WIDESCREEN_DEFAUT.CSS">
+        <title>Boozer</title>
+    </head>
+    <body>
+        <!--             
+            * ██████  ██████  ███    ██ ████████ ███████ ██    ██ ██████   ██████  
+            *██      ██    ██ ████   ██    ██    ██      ██    ██ ██   ██ ██    ██ 
+            *██      ██    ██ ██ ██  ██    ██    █████   ██    ██ ██   ██ ██    ██ 
+            *██      ██    ██ ██  ██ ██    ██    ██      ██    ██ ██   ██ ██    ██ 
+            * ██████  ██████  ██   ████    ██    ███████  ██████  ██████   ██████   
+        -->
+        <div class="fullscreen">
+            <div class="leftside_sec">
+                <span class="leftside_title">Bem vindo ao Boozer</span>
+                <span class="leftside_subtitle">Faça seu login para explorar nossas coleções e encontrar seu próximo livro favorito.</span>  
+                <img src="../IMG/library_background3.jpg" alt="">
+                <img src="../IMG/roda_livros_photo.jpg" alt="">
             </div>
-            <div class="right_sec">
-                <div class="login_sec">
-                    <form id="loginForm" class="login_card">
-                        <div class="textfield">
-                            <label class="label" for="username">Usuário</label>
-                            <input class="input" type="text" id="username" required>
+            <div class="rightside_sec">
+                <div class="login_form_sec">
+                    <form class="signup_body" action="" method="post">
+                        <div class="inputbox">
+                            <i class="fa-regular fa-user fa-xl"></i>
+                            <input id="login_user_input" type="text" placeholder="#" required>
+                            <label>Name</label>
                         </div>
-                        <div class="textfield">
-                            <label class="label" for="password">Senha</label>
-                            <input class="input" type="password" id="password" required>
+                        <div class="inputbox">
+                            <i class="fa-regular fa-envelope fa-xl"></i>
+                            <input id="login_email_input" type="email" placeholder="#" required>
+                            <label>Email</label>
                         </div>
-                        <div class="login_btn_sec">
-                            <button type="submit" class="btn_login">Login</button>
+                        <div class="inputbox">
+                            <i class="fa-regular fa-lock fa-xl"></i>
+                            <input id="login_password_input" type="password" placeholder="#" required>
+                            <label>Password</label>
                         </div>
-                        <div class="login_menu"><a href="HTML/ABRE_LOGON.html" class="register">Não tem conta?</a></div>
+                        <button type="submit">Sign-Up</button>
+                        <span onclick="slide()">Já possuo conta.</span>
+                    </form>
+                    <form class="signin_body" action="" method="post">
+                        <div class="inputbox">
+                            <i class="fa-regular fa-envelope fa-xl"></i>
+                            <input id="login_email_input" type="email" placeholder="#" required>
+                            <label>Email</label>
+                        </div>
+                        <div class="inputbox">
+                            <i class="fa-regular fa-lock fa-xl"></i>
+                            <input id="login_password_input" type="password" placeholder="#" required>
+                            <label>Password</label>
+                        </div>
+                        <button type="submit">Sign-In</button>
+                        <span onclick="slide()">Não tenho conta.</span>
                     </form>
                 </div>
             </div>
-        </main>
-    </div>
-</body>
-<script>
-    document.getElementById("loginForm").addEventListener("submit", function (e) {
-        e.preventDefault();
+        </div>
+    </body>
+    <script src="JS/INDEX_SLIDE.JS"></script>
+    <script>
+        document.querySelector(".signin_body").addEventListener("submit", function (e) {
+            e.preventDefault();
+    
+            var username = document.querySelector("#login_user_input").value;
+            var password = document.querySelector("#login_password_input").value;
+    
+            if (username === username && password === password) {
+                window.location.href = "HTML/ABRE_MENU.html";
+            } else {
+                alert("Login Errado");
+            }
+        });
 
-        var username = document.getElementById("username").value;
-        var password = document.getElementById("password").value;
-
-        if (username === username && password === password) {
-            window.location.href = "HTML/ABRE_MENU.html";
-        } else {
-            alert("Login Errado");
-        }
-    });
-</script>
+        document.querySelector(".signup_body").addEventListener("submit", function (e) {
+            e.preventDefault();
+    
+            var username = document.querySelector("#login_user_input").value;
+            var email = document.querySelector("#login_email_input").value;
+            var password = document.querySelector("#login_password_input").value;
+    
+            if (username === username && email === email && password === password) {
+                window.location.href = "HTML/ABRE_MENU.html";
+            } else {
+                alert("Login Errado");
+            }
+        });
+    </script>
 </html>
