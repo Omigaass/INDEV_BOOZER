@@ -82,26 +82,11 @@
         </footer>
     </div>
 </body>
-<script src="https://kit.fontawesome.com/724309404c.js" crossorigin="anonymous"></script>
+<script src="../JS/CONFIG_NAV.JS"></script>
 <script>
     function abre_login() {
         window.location.href = "../index.html";
     }
-
-    const card_btns = document.querySelectorAll(".navbar_card");
-
-    card_btns.forEach(card_btn => {
-        card_btn.addEventListener("click", () => {
-            if (card_btn.id === "card_catalogo") {
-                window.location.href = "ABRE_CATALOGO.html";
-            } else if (card_btn.id === "card_carrinho") {
-                window.location.href = "ABRE_CARRINHO.html";
-            } else if (card_btn.id === "card_perfil") {
-                window.location.href = "ABRE_PERFIL.html";
-            } else if (card_btn.id === "card_usuarios") {
-                window.location.href = "ABRE_USUARIOS.html";
-            }
-        });
-    });
+    configurarMenu(".navbar_card");
 </script>
 </html>

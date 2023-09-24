@@ -9,3 +9,15 @@ function configurarNavegacao(navbarSelector) {
         });
     });
 }
+
+function configurarMenu(menuSelector) {
+    const card_btns = document.querySelectorAll(menuSelector);
+
+    card_btns.forEach(card_btn => {
+        card_btn.addEventListener("click", () => {
+        const telaId = card_btn.id.replace("card_", "");
+
+        window.location.href = `ABRE_${telaId.toUpperCase()}.html`;
+        });
+    });
+}
