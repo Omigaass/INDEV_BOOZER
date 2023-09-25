@@ -31,12 +31,22 @@
     height: 100%;
 }
 
+.left_sec_text{
+    position: fixed;
+    height: 100%;
+    width: 50%;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: all 0.8s ease-in-out;
+}
+
 .leftside_title{
     font-size: 78px;
     font-family: BilboSwashCapsRegular;
     color: var(--bege-light);
-    position: fixed;
-    left: 5%;
     transition: all 0.8s ease-in-out;
 }   .leftside_title:hover{
     animation: jello-vertical 0.9s both;
@@ -46,9 +56,6 @@
     font-size: 18px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     color: var(--softcolor09);
-    margin-top: 18vh;
-    position: fixed;
-    left: 1.5%;
     transition: all 0.8s ease-in-out;
 }
 
@@ -100,7 +107,7 @@
 .inputbox{
     position: relative;
     margin: 0 auto;
-    width: 310px;
+    width: 90%;
     border-bottom: 2px solid #fff;
 }
 
@@ -151,7 +158,7 @@ input:not(:placeholder-shown) ~ label {
 }
 
 button{
-    width: 300px;
+    width: 80%;
     height: 40px;
     border-radius: 40px;
     background: #fff;
@@ -160,6 +167,9 @@ button{
     cursor: pointer;
     font-size: 1em;
     font-weight: 600;
+    transition: all 0.3s ease;
+} button:hover{
+    background: rgb(99, 150, 182);
 }
 
 .rightside_sec span{
@@ -181,9 +191,6 @@ button{
     */
     .leftside_sec_slide {
         position: fixed;
-        margin: 0;
-        left: 0;
-        top: 0;
         width: 100%;
         height: 100%;
         display: flex;
@@ -255,13 +262,25 @@ button{
         transition: all 0.8s ease-in-out;
         animation: slide-in-right 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
     }
+
+    .left_sec_text_slide{
+        position: fixed;
+        height: 100%;
+        width: 50%;
+        left: 0;
+        transform: translateX(100%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        transition: all 0.8s ease-in-out;
+    }
     
     .leftside_title_slide{
         font-size: 78px;
         font-family: BilboSwashCapsRegular;
         color: var(--bege-light);
         position: fixed;
-        left: 57%;
         margin-bottom: 20vh;
         transition: all 0.8s ease-in-out;
     }   .leftside_title_slide:hover{
@@ -273,8 +292,6 @@ button{
         font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
         color: var(--softcolor09);
         margin-top: 20vh;
-        position: fixed;
-        left: 52%;
         transition: all 0.8s ease-in-out;
     }
 /* 

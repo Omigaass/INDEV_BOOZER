@@ -5,6 +5,7 @@ const login = document.querySelector(".signin_body");
 const form = document.querySelector(".login_form_sec");
 const title = document.querySelector(".leftside_title");
 const subtitle = document.querySelector(".leftside_subtitle");
+const text_sec = document.querySelector(".left_sec_text");
 
 function slide() {
     const toggleClass = (element, className, slideClassName) => {
@@ -19,4 +20,5 @@ function slide() {
     toggleClass(form, "login_form_sec", "login_form_sec_slide");
     toggleClass(title, "leftside_title", "leftside_title_slide");
     toggleClass(subtitle, "leftside_subtitle", "leftside_subtitle_slide");
+    toggleClass(text_sec, "left_sec_text", "left_sec_text_slide");
 }
