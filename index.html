@@ -56,17 +56,17 @@
                     <form class="signup_body" action="" method="post">
                         <div class="inputbox">
                             <i class="fa-regular fa-user fa-xl"></i>
-                            <input id="login_user_input" type="text" placeholder="#" required>
+                            <input id="signup_user_input" type="text" placeholder="#" required>
                             <label>Name</label>
                         </div>
                         <div class="inputbox">
                             <i class="fa-regular fa-envelope fa-xl"></i>
-                            <input id="login_email_input" type="email" placeholder="#" required>
+                            <input id="signup_email_input" type="email" placeholder="#" required>
                             <label>Email</label>
                         </div>
                         <div class="inputbox">
                             <i class="fa-regular fa-lock fa-xl"></i>
-                            <input id="login_password_input" type="password" placeholder="#" required>
+                            <input id="signup_password_input" type="password" placeholder="#" required>
                             <label>Password</label>
                         </div>
                         <button type="submit">Sign-Up</button>
@@ -108,9 +108,9 @@
         document.querySelector(".signup_body").addEventListener("submit", function (e) {
             e.preventDefault();
     
-            var username = document.querySelector("#login_user_input").value;
-            var email = document.querySelector("#login_email_input").value;
-            var password = document.querySelector("#login_password_input").value;
+            var username = document.querySelector("#signup_user_input").value;
+            var email = document.querySelector("#signup_email_input").value;
+            var password = document.querySelector("#signup_password_input").value;
     
             if (username === username && email === email && password === password) {
                 window.location.href = "HTML/ABRE_MENU.html";
