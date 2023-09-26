@@ -6,16 +6,6 @@
     *██      ██    ██ ██    ██ ██ ██  ██ ██ 
     *███████  ██████   ██████  ██ ██   ████  
     */
-
-    .fullscreen{
-        width: 100%;
-        height: 100vh;
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        overflow: hidden;
-    }
-
     .leftside_sec{
         position: fixed;
         left: 0;
@@ -36,15 +26,6 @@
     .left_sec_text{
         display: none;
     }
-
-    .leftside_title{
-        display: none;
-    }
-
-    .leftside_subtitle{
-        display: none;
-    }
-
     .rightside_sec{
         margin: 0;
         width: 60%;
@@ -208,29 +189,17 @@
         }
 
         .rightside_sec_slide span{
-            position: fixed;
-            bottom: 25px;
-            cursor: pointer;
             color: #000;
-            font-family: SnigletRegular;
-            transition: font-size 0.4s;
-        }   .rightside_sec_slide span:hover{
-                font-size: 17px;
+            width: 80%;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .login_form_sec_slide{
-            position: relative;
             width: 90%;
             height: 90%;
-            background: transparent;
-            border: 2px solid rgba(255,255,255,0.5);
-            border-radius: 20px;
-            backdrop-filter: blur(15px);
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            overflow: hidden;
-            transition: all 0.8s ease-in-out;
         }
         
         .signin_body_slide{
@@ -245,9 +214,7 @@
             justify-content: flex-start;
             align-items: center;
             margin: 30px 12.5% 0 12.5%;
-            gap: 25px;
-            transition: all 0.8s ease-in-out;
-            animation: slide-in-right 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+            gap: 20px;
         }
 
         .left_sec_text_slide{

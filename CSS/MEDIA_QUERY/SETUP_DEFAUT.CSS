@@ -1,0 +1,63 @@
+@media (max-width: 1450px) {
+
+    /* 
+    *██       ██████   ██████  ██ ███    ██ 
+    *██      ██    ██ ██       ██ ████   ██ 
+    *██      ██    ██ ██   ███ ██ ██ ██  ██ 
+    *██      ██    ██ ██    ██ ██ ██  ██ ██ 
+    *███████  ██████   ██████  ██ ██   ████  
+    */
+    .leftside_sec img{
+        width: 50%;
+        height: 100%;
+    }
+
+    .left_sec_text{
+        position: fixed;
+        height: 100%;
+        width: 50%;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        transition: all 0.8s ease-in-out;
+    }
+
+    .leftside_title{
+        font-size: 75px;
+    }
+
+    .leftside_subtitle{
+        text-align: center;
+    }
+
+    .login_form_sec{
+        width: 80%;
+        height: 60%;
+    }
+    /* 
+    *███████ ██      ██ ██████  ███████ 
+    *██      ██      ██ ██   ██ ██      
+    *███████ ██      ██ ██   ██ █████   
+    *     ██ ██      ██ ██   ██ ██      
+    *███████ ███████ ██ ██████  ███████  
+    */
+    .login_form_sec_slide{
+        width: 80%;
+        height: 60%;
+    }
+
+    .leftside_title_slide{
+        font-size: 75px;
+        font-family: BilboSwashCapsRegular;
+        color: var(--bege-light);
+        margin-bottom: 10%;
+        transition: all 0.8s ease-in-out;
+        margin: 0;
+    }
+
+    .leftside_subtitle_slide{
+        text-align: center;
+    }
+}
