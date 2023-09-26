@@ -26,12 +26,12 @@
         ?██   ██ ██           ██ ██      ██    ██ ██  ██ ██      ██ ██  ██  ██  ██ ██   ██ ██   ██ ██   ██ ██     
         ?██   ██ ███████ ███████ ██       ██████  ██   ████ ███████ ██   ████   ██ ██████  ██   ██ ██████  ███████
         -->
-        <link rel="stylesheet" href="../CSS/MEDIA_QUERY/MOBILE_DEFAUT.CSS">
-        <link rel="stylesheet" href="../CSS/MEDIA_QUERY/MOBILE_LANDSCAPE.CSS">
-        <link rel="stylesheet" href="../CSS/MEDIA_QUERY/TABLET_DEFAUT.CSS">
-        <link rel="stylesheet" href="../CSS/MEDIA_QUERY/NOTEBOOK_DEFAUT.CSS">
-        <link rel="stylesheet" href="../CSS/MEDIA_QUERY/SETUP_DEFAUT.CSS">
         <link rel="stylesheet" href="../CSS/MEDIA_QUERY/WIDESCREEN_DEFAUT.CSS">
+        <link rel="stylesheet" href="../CSS/MEDIA_QUERY/SETUP_DEFAUT.CSS">
+        <link rel="stylesheet" href="../CSS/MEDIA_QUERY/NOTEBOOK_DEFAUT.CSS">
+        <link rel="stylesheet" href="../CSS/MEDIA_QUERY/TABLET_DEFAUT.CSS">
+        <link rel="stylesheet" href="../CSS/MEDIA_QUERY/MOBILE_LANDSCAPE.CSS">
+        <link rel="stylesheet" href="../CSS/MEDIA_QUERY/MOBILE_DEFAUT.CSS">
         <title>Boozer</title>
     </head>
     <body>
@@ -95,10 +95,10 @@
         document.querySelector(".signin_body").addEventListener("submit", function (e) {
             e.preventDefault();
     
-            var username = document.querySelector("#login_user_input").value;
+            var email = document.querySelector("#login_email_input").value;
             var password = document.querySelector("#login_password_input").value;
     
-            if (username === username && password === password) {
+            if (email === email && password === password) {
                 window.location.href = "HTML/ABRE_MENU.html";
             } else {
                 alert("Login Errado");

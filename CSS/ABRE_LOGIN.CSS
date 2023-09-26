@@ -17,6 +17,7 @@
 
 .leftside_sec{
     position: fixed;
+    left: 0;
     width: 100%;
     height: 100%;
     display: flex;
@@ -55,7 +56,7 @@
 .leftside_subtitle{
     font-size: 18px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    color: var(--softcolor09);
+    color: var(--softcolor02);
     transition: all 0.8s ease-in-out;
 }
 
@@ -280,8 +281,7 @@ button{
         font-size: 78px;
         font-family: BilboSwashCapsRegular;
         color: var(--bege-light);
-        position: fixed;
-        margin-bottom: 20vh;
+        margin-bottom: 10%;
         transition: all 0.8s ease-in-out;
     }   .leftside_title_slide:hover{
         animation: jello-vertical 0.9s both;
@@ -290,8 +290,8 @@ button{
     .leftside_subtitle_slide{
         font-size: 18px;
         font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-        color: var(--softcolor09);
-        margin-top: 20vh;
+        color: var(--softcolor02);
+        margin-top: 10%;
         transition: all 0.8s ease-in-out;
     }
 /* 
