@@ -77,8 +77,8 @@
 
         .login_form_sec{
             position: relative;
-            width: 70%;
-            height: 70%;
+            width: 90%;
+            height: 90%;
             background: transparent;
             border: 2px solid rgba(255,255,255,0.5);
             border-radius: 20px;
@@ -176,8 +176,7 @@
         }
 
         .rightside_sec span{
-            position: fixed;
-            bottom: 10px;
+            position: relative;
             cursor: pointer;
             color: #fff;
             font-family: SnigletRegular;
@@ -265,7 +264,6 @@
         .rightside_sec_slide span{
             width: 80%;
             height: 40px;
-            margin-top: 30px;
             display: flex;
             align-items: center;
             justify-content: center;

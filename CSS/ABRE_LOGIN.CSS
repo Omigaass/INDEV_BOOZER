@@ -174,8 +174,9 @@ button{
 }
 
 .rightside_sec span{
-    position: fixed;
-    bottom: 10px;
+    width: 80%;
+    height: 8%;
+    position: relative;
     cursor: pointer;
     color: #fff;
     font-family: SnigletRegular;
@@ -222,8 +223,9 @@ button{
     }
 
     .rightside_sec_slide span{
-        position: fixed;
-        bottom: 10px;
+        width: 80%;
+        height: 8%;
+        position: relative;
         cursor: pointer;
         color: #fff;
         font-family: SnigletRegular;
