@@ -16,7 +16,7 @@
     display: flex;
     justify-content: flex-start;
     border-radius: 0 0 10px 10px;
-    background-color: var(--marrom-light);
+    background-color: var(--claro-light);
     transition: height 0.5s ease;
     z-index: 100;
 }
@@ -49,7 +49,7 @@
     cursor: pointer;
     transition: all 0.2s ease-in-out;
 }   .navbar_item:hover{
-    background-color: var(--marrom-light);
+    background-color: var(--claro-light);
 }   .navbar_item:hover > i{
     color: var(--preto);
 }   .navbar_item:hover > a{
@@ -80,19 +80,19 @@
 .white_square1{
     width: 5vh;
     height: 5vh;
-    background-color: var(--marrom-light);
+    background-color: var(--claro-light);
     border-radius: 0 10px 0 0;
 }
 
 .white_square2{
     width: 5vh;
     height: 5vh;
-    background-color: var(--marrom-light);
+    background-color: var(--claro-light);
     border-radius: 10px 0 0 0;
 }
 
 .navbar_active{
-    background-color: var(--marrom-light);
+    background-color: var(--claro-light);
     transition: all 0.3s linear;
 }   .navbar_active a , .navbar_active i{
     color: var(--preto);
@@ -121,7 +121,7 @@
         cursor: pointer;
         transition: all 0.2s ease-in-out;
     }   .navbar_item:hover{
-        background-color: var(--marrom-light);
+        background-color: var(--claro-light);
     }   .navbar_item:hover > i{
         color: var(--preto);
     }   .navbar_item:hover > a{
@@ -152,19 +152,19 @@
     .white_square1{
         width: 5vh;
         height: 5vh;
-        background-color: var(--marrom-light);
+        background-color: var(--claro-light);
         border-radius: 0 10px 0 0;
     }
     
     .white_square2{
         width: 5vh;
         height: 5vh;
-        background-color: var(--marrom-light);
+        background-color: var(--claro-light);
         border-radius: 10px 0 0 0;
     }
     
     .navbar_active{
-        background-color: var(--marrom-light);
+        background-color: var(--claro-light);
         transition: all 0.3s linear;
     }   .navbar_active a , .navbar_active i{
         color: var(--preto);
