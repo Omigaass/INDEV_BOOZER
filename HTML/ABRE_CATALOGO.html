@@ -22,19 +22,6 @@
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-solid.css">
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-regular.css">
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-light.css">
-    <!--     
-    ?██████  ███████ ███████ ██████   ██████  ███    ██ ███████ ██ ██    ██ ██ ██████   █████  ██████  ███████ 
-    ?██   ██ ██      ██      ██   ██ ██    ██ ████   ██ ██      ██ ██    ██ ██ ██   ██ ██   ██ ██   ██ ██      
-    ?██████  █████   ███████ ██████  ██    ██ ██ ██  ██ ███████ ██ ██    ██ ██ ██   ██ ███████ ██   ██ █████   
-    ?██   ██ ██           ██ ██      ██    ██ ██  ██ ██      ██ ██  ██  ██  ██ ██   ██ ██   ██ ██   ██ ██     
-    ?██   ██ ███████ ███████ ██       ██████  ██   ████ ███████ ██   ████   ██ ██████  ██   ██ ██████  ███████
-    -->
-    <link rel="stylesheet" href="../CSS/MEDIA_QUERY/WIDESCREEN_DEFAUT.CSS">
-    <link rel="stylesheet" href="../CSS/MEDIA_QUERY/SETUP_DEFAUT.CSS">
-    <link rel="stylesheet" href="../CSS/MEDIA_QUERY/NOTEBOOK_DEFAUT.CSS">
-    <link rel="stylesheet" href="../CSS/MEDIA_QUERY/TABLET_DEFAUT.CSS">
-    <link rel="stylesheet" href="../CSS/MEDIA_QUERY/MOBILE_LANDSCAPE.CSS">
-    <link rel="stylesheet" href="../CSS/MEDIA_QUERY/MOBILE_DEFAUT.CSS">
     <title>Boozer</title>
 </head>
 <body>
@@ -86,7 +73,7 @@
                 <div class="white_square2"></div>
             </div>
             </div>
-        <main class="main_sec">
+        <main class="catalogo_sec">
             <!--             
                 * ██████  ██████  ███    ██ ████████ ███████ ██    ██ ██████   ██████  
                 *██      ██    ██ ████   ██    ██    ██      ██    ██ ██   ██ ██    ██ 
@@ -94,32 +81,43 @@
                 *██      ██    ██ ██  ██ ██    ██    ██      ██    ██ ██   ██ ██    ██ 
                 * ██████  ██████  ██   ████    ██    ███████  ██████  ██████   ██████   
             -->
-
-            <div class="catalogo_sec">
                 <menu class="menu_sec">
-                    <div class="visual_buttons">
-                        <button class="alternate_visual_btn"></button>
-                    </div>
-                    <div class="pagination_buttons">
-                        <button class="prev_page_btn"></button>
-                        <a class="current_page_view"></a>
-                        <button class="next_page_btn"></button>
-                    </div>
-                    <button class="filter_button">
-                        <div class="open_filter"><i class="fa-regular fa-filter fa-2x"></i></i></button>
+                    <i class="fa-solid fa-circle-chevron-right fa-2x" id="open_menu_btn"></i>
+                    <div class="menu_body">
+                        <div class="visual_buttons">
+                            <button class="alternate_visual_btn"></button>
+                        </div>
+                        <div class="pagination_buttons">
+                            <button class="prev_page_btn"></button>
+                            <a class="current_page_view"></a>
+                            <button class="next_page_btn"></button>
+                        </div>
+                        <button class="filter_button">
+                            <div class="open_filter"><i class="fa-regular fa-filter fa-2x"></i></i></button>
+                        </div>
                     </div>
                 </menu>
-                <div class="filter_sec">
-
-                </div>
-            </div>
-
+                <section class="product_catalog">
+                    <div class="product card">
+                        <img class="product_image" src="">
+                        <span class="product_title">Titulo</span>
+                        <span class="product_price">Preço</span>
+                        <i class="fa-sharp fa-solid fa-cart-circle-plus"><a>Adicionar ao Carrinho</a></i>
+                        <i class="fa-regular fa-star"></i>
+                    </div>
+                </section>
         </main>
         <footer class="footer_sec">
             <p>&copy; 2023 Boozer - Todos os direitos reservados.</p>
         </footer>
     </div>
+    
+    <div class="filter_modal">
+
+    </div>
+
 </body>
+<script src="../JS/CATALOG_MENU.JS"></script>
 <script src="../JS/CONFIG_NAV.JS"></script>
 <script>
     function abre_login() {

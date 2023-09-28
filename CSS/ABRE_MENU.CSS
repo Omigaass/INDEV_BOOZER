@@ -165,7 +165,7 @@
         transition: background-color 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000);
     }   .card5:hover{
         animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-        background-color: var(--azul-frio);
+        background-color: #41768b;
         opacity: 100%;
     }
     .card6{
