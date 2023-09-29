@@ -1,119 +1,58 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../CSS/MAIN.CSS">
-        <link rel="stylesheet" href="../CUSTOM/test_index.css">
-        <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/bilbo" type="text/css" />
-        <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/sniglet" type="text/css"/>
-        <!--
-        ?███████  ██████  ███    ██ ████████      █████  ██     ██ ███████ ███████  ██████  ███    ███ ███████ 
-        ?██      ██    ██ ████   ██    ██        ██   ██ ██     ██ ██      ██      ██    ██ ████  ████ ██      
-        ?█████   ██    ██ ██ ██  ██    ██        ███████ ██  █  ██ █████   ███████ ██    ██ ██ ████ ██ █████   
-        ?██      ██    ██ ██  ██ ██    ██        ██   ██ ██ ███ ██ ██           ██ ██    ██ ██  ██  ██ ██      
-        ?██       ██████  ██   ████    ██        ██   ██  ███ ███  ███████ ███████  ██████  ██      ██ ███████ 
-        -->
-        <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/all.css">
-        <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-solid.css">
-        <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-regular.css">
-        <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-light.css">
-        <!--     
-        ?██████  ███████ ███████ ██████   ██████  ███    ██ ███████ ██ ██    ██ ██ ██████   █████  ██████  ███████ 
-        ?██   ██ ██      ██      ██   ██ ██    ██ ████   ██ ██      ██ ██    ██ ██ ██   ██ ██   ██ ██   ██ ██      
-        ?██████  █████   ███████ ██████  ██    ██ ██ ██  ██ ███████ ██ ██    ██ ██ ██   ██ ███████ ██   ██ █████   
-        ?██   ██ ██           ██ ██      ██    ██ ██  ██ ██      ██ ██  ██  ██  ██ ██   ██ ██   ██ ██   ██ ██     
-        ?██   ██ ███████ ███████ ██       ██████  ██   ████ ███████ ██   ████   ██ ██████  ██   ██ ██████  ███████
-        -->
-        <link rel="stylesheet" href="../CSS/MEDIA_QUERY/MOBILE_DEFAUT.CSS">
-        <link rel="stylesheet" href="../CSS/MEDIA_QUERY/MOBILE_LANDSCAPE.CSS">
-        <link rel="stylesheet" href="../CSS/MEDIA_QUERY/TABLET_DEFAUT.CSS">
-        <link rel="stylesheet" href="../CSS/MEDIA_QUERY/NOTEBOOK_DEFAUT.CSS">
-        <link rel="stylesheet" href="../CSS/MEDIA_QUERY/SETUP_DEFAUT.CSS">
-        <link rel="stylesheet" href="../CSS/MEDIA_QUERY/WIDESCREEN_DEFAUT.CSS">
-        <title>Boozer</title>
-    </head>
-    <body>
-        <!--             
-            * ██████  ██████  ███    ██ ████████ ███████ ██    ██ ██████   ██████  
-            *██      ██    ██ ████   ██    ██    ██      ██    ██ ██   ██ ██    ██ 
-            *██      ██    ██ ██ ██  ██    ██    █████   ██    ██ ██   ██ ██    ██ 
-            *██      ██    ██ ██  ██ ██    ██    ██      ██    ██ ██   ██ ██    ██ 
-            * ██████  ██████  ██   ████    ██    ███████  ██████  ██████   ██████   
-        -->
-        <div class="fullscreen">
-            <div class="leftside_sec">
-                <span class="leftside_title">Bem vindo ao Boozer</span>
-                <span class="leftside_subtitle">Faça seu login para explorar nossas coleções e encontrar seu próximo livro favorito.</span>  
-                <img src="../IMG/library_background3.jpg" alt="">
-                <img src="../IMG/roda_livros_photo.jpg" alt="">
-            </div>
-            <div class="rightside_sec">
-                <div class="login_form_sec">
-                    <form class="signup_body" action="" method="post">
-                        <div class="inputbox">
-                            <i class="fa-regular fa-user fa-xl"></i>
-                            <input id="login_user_input" type="text" required>
-                            <label>Name</label>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/MAIN.CSS">
+    <link rel="stylesheet" href="test_index.css">
+    <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/bilbo" type="text/css" />
+    <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/sniglet" type="text/css"/>
+    <!--
+    ?███████  ██████  ███    ██ ████████      █████  ██     ██ ███████ ███████  ██████  ███    ███ ███████ 
+    ?██      ██    ██ ████   ██    ██        ██   ██ ██     ██ ██      ██      ██    ██ ████  ████ ██      
+    ?█████   ██    ██ ██ ██  ██    ██        ███████ ██  █  ██ █████   ███████ ██    ██ ██ ████ ██ █████   
+    ?██      ██    ██ ██  ██ ██    ██        ██   ██ ██ ███ ██ ██           ██ ██    ██ ██  ██  ██ ██      
+    ?██       ██████  ██   ████    ██        ██   ██  ███ ███  ███████ ███████  ██████  ██      ██ ███████ 
+    -->
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/all.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-solid.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-regular.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-light.css">
+    <title>Boozer</title>
+</head>
+<body>
+    <div class="fullscreen">
+        <main class="catalogo_sec">
+                <menu class="menu_sec">
+                    <div class="open_menu_btn"><i class="fa-solid fa-chevron-right"></i></div>
+                    <div class="menu_body">
+                        <div class="visual_buttons">
+                            <button class="alternate_visual_btn">
+                                <div class="visual_slider">
+                                    <div id="slide_i" class="slide_i1"><i></i></div>
+                                    <div id="slide_i" class="slide_i2"><i></i></div>
+                                    <div id="slide_i" class="slide_i3"><i></i></div>
+                                    <div id="slide_i" class="slide_i4"><i></i></div>
+                                </div>
+                            </button>
                         </div>
-                        <div class="inputbox">
-                            <i class="fa-regular fa-envelope fa-xl"></i>
-                            <input id="login_email_input" type="email" required>
-                            <label>Email</label>
                         </div>
-                        <div class="inputbox">
-                            <i class="fa-regular fa-lock fa-xl"></i>
-                            <input id="login_password_input" type="password" required>
-                            <label>Password</label>
-                        </div>
-                        <button type="submit">Sign-Up</button>
-                        <span onclick="slide()">Já possuo conta.</span>
-                    </form>
-                    <form class="signin_body" action="" method="post">
-                        <div class="inputbox">
-                            <i class="fa-regular fa-envelope fa-xl"></i>
-                            <input id="login_email_input" type="email" required>
-                            <label>Email</label>
-                        </div>
-                        <div class="inputbox">
-                            <i class="fa-regular fa-lock fa-xl"></i>
-                            <input id="login_password_input" type="password" required>
-                            <label>Password</label>
-                        </div>
-                        <button type="submit">Sign-In</button>
-                        <span onclick="slide()">Não tenho conta.</span>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </body>
-    <script src="../JS/INDEX_SLIDE.JS"></script>
-    <script>
-        document.querySelector("signup_body").addEventListener("submit", function (e) {
-            e.preventDefault();
-    
-            var username = document.getElementById("username").value;
-            var password = document.getElementById("password").value;
-    
-            if (username === username && password === password) {
-                window.location.href = "HTML/ABRE_MENU.html";
-            } else {
-                alert("Login Errado");
-            }
-        });
+                    </div>
+                </menu>
+        </main>
+    </div>
+</body>
+<script>
+const slider = document.querySelector(".alternate_visual_btn");
+const visual_slider = document.querySelector(".visual_slider");
+const slides = document.querySelectorAll("#slide_i");
 
-        document.querySelector("signup_body").addEventListener("submit", function (e) {
-            e.preventDefault();
-    
-            var username = document.getElementById("username").value;
-            var password = document.getElementById("password").value;
-    
-            if (username === username && password === password) {
-                window.location.href = "HTML/ABRE_MENU.html";
-            } else {
-                alert("Login Errado");
-            }
-        });
-    </script>
+slider.addEventListener("click", () => {
+    visual_slider.classList.toggle("slide");
+    slides.forEach((slide, index) => {
+        slide.classList.toggle(`slide_i${index + 1}_slide`);
+    });
+});
+</script>
 </html>

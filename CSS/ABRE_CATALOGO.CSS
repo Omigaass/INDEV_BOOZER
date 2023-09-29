@@ -21,28 +21,84 @@
         margin: 0;
         width: 10vh;
         height: 80%;
-        background-color: var(--azul-morno);
+        background-color: var(--azul-quente);
         border-radius: 0 10px 10px 0;
-        transform: translateX(-8vh);
-        transition: transform 0.3s ease;
-    }
+        /* transform: translateX(-7vh); */
+        transition: all 0.3s ease-in-out;
+        display: flex;
+        align-items: center;
+    }   
+    /* .menu_sec:hover{
+        transform: translateX(-6vh);
+    } */
 
     .menu_sec_open{
+        background-color: var(--azul-morno);
+        transform: translateX(0);
+        transition: all 0.3s ease-in-out;
+    }   .menu_sec_open:hover{
         transform: translateX(0);
     }
 
-    #open_menu_btn{
+    .open_menu_btn{
         position: fixed;
-        top: 48%;
-        left: 8.5vh;
-        background-color: #fff;
-        color: var(--azul-morno);
-        width: 20px;
-        height: 20px;
+        left: 7.12vh;
+        background-color: var(--azul-quente);
+        color: #fff;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
         cursor: pointer;
+        transition: all 0.3s;
+    }
+
+    .menu_body{
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+    }
+
+    .visual_buttons{
+        width: calc(100% - 10%);
+        height: 31%;
+        background-color: var(--azul-quente-light);
+        margin: 0;
+        border-radius: 0 5px 5px 0;
+        transition: all 0.3s ease-in-out;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .alternate_visual_btn{
+        width: 50%;
+        height: 70%;
+        border-radius: 50px;
+    }
+
+    .pagination_buttons{
+        width: calc(100% - 10%);
+        height: 31%;
+        background-color: var(--azul-quente-light);
+        margin: 10% 0;
+        border-radius: 0 5px 5px 0;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .filter_button{
+        width: calc(100% - 10%);
+        height: 31%;
+        background-color: var(--azul-quente-light);
+        margin: 0;
+        border-radius: 0 5px 5px 0;
+        transition: all 0.3s ease-in-out;
     }
 
 
