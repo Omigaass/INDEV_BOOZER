@@ -10,14 +10,41 @@ open_menu.addEventListener("click", () => {
         open_menu.style.transform = "rotateZ(0deg)";
         open_menu.style.backgroundColor = "var(--azul-quente)";
         visual_buttons.style.backgroundColor = "var(--azul-quente-light)";
+        visual_buttons.style.opacity = "0";
         pagination_buttons.style.backgroundColor = "var(--azul-quente-light)";
+        pagination_buttons.style.opacity = "0";
         filter_button.style.backgroundColor = "var(--azul-quente-light)";
+        filter_button.style.opacity = "0";
     } else {
         menu.classList.add("menu_sec_open");
         open_menu.style.transform = "rotateZ(180deg)";
         open_menu.style.backgroundColor = "var(--azul-morno)";
         visual_buttons.style.backgroundColor = "var(--azul-morno-light)";
+        visual_buttons.style.opacity = "1";
         pagination_buttons.style.backgroundColor = "var(--azul-morno-light)";
+        pagination_buttons.style.opacity = "1";
         filter_button.style.backgroundColor = "var(--azul-morno-light)";
+        filter_button.style.opacity = "1";
     }
 });
+
+
+const slider = document.querySelector(".alternate_visual_btn");
+const visualSlider = document.querySelector(".visual_slider");
+const grid = document.querySelector("#slider_grid");
+const list = document.querySelector("#slider_list");
+
+
+slider.addEventListener("click", () => {
+  visualSlider.classList.toggle("slide");
+
+  if (list.classList.contains("hidden")) {
+      grid.classList.add("hidden");
+      list.classList.remove("hidden");
+  } else {
+      list.classList.add("hidden");
+      grid.classList.remove("hidden");
+    }
+  });
+
+
