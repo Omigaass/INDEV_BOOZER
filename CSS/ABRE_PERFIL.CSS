@@ -1,15 +1,66 @@
-/* 
-?███████ ████████ ██    ██ ██      ███████ 
-?██         ██     ██  ██  ██      ██      
-?███████    ██      ████   ██      █████   
-?     ██    ██       ██    ██      ██      
-?███████    ██       ██    ███████ ███████ 
-*/
-*
-/* 
-? █████  ███    ██ ██ ███    ███  █████  ████████ ██  ██████  ███    ██ 
-?██   ██ ████   ██ ██ ████  ████ ██   ██    ██    ██ ██    ██ ████   ██ 
-?███████ ██ ██  ██ ██ ██ ████ ██ ███████    ██    ██ ██    ██ ██ ██  ██ 
-?██   ██ ██  ██ ██ ██ ██  ██  ██ ██   ██    ██    ██ ██    ██ ██  ██ ██ 
-?██   ██ ██   ████ ██ ██      ██ ██   ██    ██    ██  ██████  ██   ████  
-*/
+.main_sec{
+    position: fixed;
+    top: 15vh;
+    width: 100%;
+    height: calc(100% - 25vh);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: var(--claro-light);
+}
+
+.profile-container {
+    height: 70%;
+    margin: 0;
+    max-width: 400px;
+    background-color: rgb(119, 203, 252);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(10, 9, 87, 0.1);
+    text-align: center;
+}
+
+.profile-picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+h1 {
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+p {
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+button {
+	box-shadow:inset 0px 1px 0px 0px #97c4fe;
+	background:linear-gradient(to bottom, #3d94f6 5%, #1e62d0 100%);
+	background-color:#3d94f6;
+	border-radius:6px;
+	border:1px solid #337fed;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #1570cd;
+}
+
