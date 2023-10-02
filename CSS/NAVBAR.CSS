@@ -6,6 +6,7 @@
 ?███████    ██       ██    ███████ ███████ 
 */
 
+
 .navbar_outline{
     display: flex;
     position: fixed;
@@ -102,10 +103,150 @@
     display: none;
 }
 
-@media (max-width: 768px) {
+
+/* 
+?██████  ███████ ███████ ██████   ██████  ███    ██ ███████ ██ ██    ██ ██ ██████   █████  ██████  ███████ 
+?██   ██ ██      ██      ██   ██ ██    ██ ████   ██ ██      ██ ██    ██ ██ ██   ██ ██   ██ ██   ██ ██      
+?██████  █████   ███████ ██████  ██    ██ ██ ██  ██ ███████ ██ ██    ██ ██ ██   ██ ███████ ██   ██ █████   
+?██   ██ ██           ██ ██      ██    ██ ██  ██ ██      ██ ██  ██  ██  ██ ██   ██ ██   ██ ██   ██ ██     
+?██   ██ ███████ ███████ ██       ██████  ██   ████ ███████ ██   ████   ██ ██████  ██   ██ ██████  ███████
+*/
+
+@media (max-width: 900px) {
     .navbar_outline{
         height: 7vh;
         transition: height 0.5s ease;
+    }
+    
+    .navbar_body{
+        margin: 0 5vh;
+        width: calc(100% - 10vh);
+        position: fixed;
+        right: 0;
+        height: 7vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        transition: height 0.5s ease-in-out;
+    }
+    
+    .navbar_body.navbar_body_active{
+        margin: 0 5vh;
+        width: calc(100% - 10vh);
+        position: fixed;
+        right: 0;
+        height: 35vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+    
+    .navbar_item{
+        display: none;
+        margin: 0;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: height 0.5s ease-in-out, opacity 0.5s ease-in-out, color 0.2s ease, background-color 0.2s ease;
+        height: 0;
+        opacity: 0;
+        overflow: hidden;
+    }   .navbar_item:hover{
+        background-color: var(--claro-light);
+    }   .navbar_item:hover > i{
+        color: var(--preto);
+    }   .navbar_item:hover > a{
+        color: var(--preto);
+    }
+
+    .navbar_body.navbar_body_active .navbar_item_active{
+        display: flex;
+        margin: 0;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: height 0.5s ease-in-out, opacity 0.5s ease-in-out, color 0.2s ease, background-color 0.2s ease;
+        height: 20%;
+        opacity: 1;
+        overflow: hidden;
+    }
+
+    .navbar_button{
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }   .navbar_button i{
+        margin: 0;
+        color: var(--white);
+    }
+
+    .navbar_body.navbar_body_active .navbar_button_active{
+        margin: 0;
+        width: 100%;
+        height: 20%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+    
+    .navbar_item a{
+        color: var(--white);
+        font-size: 16px;
+        margin: 0;
+        font-family: 'SnigletRegular';
+        transition: all 0.2s ease-in-out;
+    }
+    
+    .navbar_item i{
+        padding-right: 10px;
+        color: var(--white);
+        margin: 0;
+        transition: all 0.2s ease-in-out;
+    }
+    
+    .blue_square{
+        width: 5vh;
+        height: 5vh;
+        background-color: var(--azul-morno);
+    }
+    
+    .white_square1{
+        width: 5vh;
+        height: 5vh;
+        background-color: var(--claro-light);
+        border-radius: 0 10px 0 0;
+    }
+    
+    .white_square2{
+        width: 5vh;
+        height: 5vh;
+        background-color: var(--claro-light);
+        border-radius: 10px 0 0 0;
+    }
+    
+    .navbar_active{
+        background-color: var(--claro-light);
+        transition: all 0.3s linear;
+    }   .navbar_active a , .navbar_active i{
+        color: var(--preto);
+    }
+
+}
+
+@media (max-width: 1024px) and (max-height: 420px) and (orientation: landscape) {
+    .navbar_outline{
+        height: 10%;
+        transition: height 0.5s ease;
+        top: 15%;
     }
     
     .navbar_body{
@@ -182,7 +323,6 @@
         color: var(--white);
     }
 }
-
 /* 
 ? █████  ███    ██ ██ ███    ███  █████  ████████ ██  ██████  ███    ██ 
 ?██   ██ ████   ██ ██ ████  ████ ██   ██    ██    ██ ██    ██ ████   ██ 
