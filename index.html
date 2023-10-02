@@ -1,3 +1,7 @@
+<?php
+    include 'PHP/SIGN-IN.php';
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
     <head>
@@ -19,19 +23,6 @@
         <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-solid.css">
         <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-regular.css">
         <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-light.css">
-        <!--     
-        ?██████  ███████ ███████ ██████   ██████  ███    ██ ███████ ██ ██    ██ ██ ██████   █████  ██████  ███████ 
-        ?██   ██ ██      ██      ██   ██ ██    ██ ████   ██ ██      ██ ██    ██ ██ ██   ██ ██   ██ ██   ██ ██      
-        ?██████  █████   ███████ ██████  ██    ██ ██ ██  ██ ███████ ██ ██    ██ ██ ██   ██ ███████ ██   ██ █████   
-        ?██   ██ ██           ██ ██      ██    ██ ██  ██ ██      ██ ██  ██  ██  ██ ██   ██ ██   ██ ██   ██ ██     
-        ?██   ██ ███████ ███████ ██       ██████  ██   ████ ███████ ██   ████   ██ ██████  ██   ██ ██████  ███████
-        -->
-        <link rel="stylesheet" href="CSS/MEDIA_QUERY/WIDESCREEN_DEFAUT.CSS">
-        <link rel="stylesheet" href="CSS/MEDIA_QUERY/SETUP_DEFAUT.CSS">
-        <link rel="stylesheet" href="CSS/MEDIA_QUERY/NOTEBOOK_DEFAUT.CSS">
-        <link rel="stylesheet" href="CSS/MEDIA_QUERY/TABLET_DEFAUT.CSS">
-        <link rel="stylesheet" href="CSS/MEDIA_QUERY/MOBILE_LANDSCAPE.CSS">
-        <link rel="stylesheet" href="CSS/MEDIA_QUERY/MOBILE_DEFAUT.CSS">
         <title>Boozer</title>
     </head>
     <body>
@@ -56,34 +47,34 @@
                     <form class="signup_body" action="" method="post">
                         <div class="inputbox">
                             <i class="fa-regular fa-user fa-xl"></i>
-                            <input id="signup_user_input" type="text" placeholder="#" required>
+                            <input name="signup_user_input" type="text" placeholder="#" required>
                             <label>Name</label>
                         </div>
                         <div class="inputbox">
                             <i class="fa-regular fa-envelope fa-xl"></i>
-                            <input id="signup_email_input" type="email" placeholder="#" required>
+                            <input name="signup_email_input" type="email" placeholder="#" required>
                             <label>Email</label>
                         </div>
                         <div class="inputbox">
                             <i class="fa-regular fa-lock fa-xl"></i>
-                            <input id="signup_password_input" type="password" placeholder="#" required>
+                            <input name="signup_password_input" type="password" placeholder="#" required>
                             <label>Password</label>
                         </div>
                         <button type="submit">Sign-Up</button>
                         <span onclick="slide()">Já possuo conta.</span>
                     </form>
-                    <form class="signin_body" action="" method="post">
+                    <form class="signin_body" action="../PHP/SIGN-IN.php" method="post">
                         <div class="inputbox">
                             <i class="fa-regular fa-envelope fa-xl"></i>
-                            <input id="login_email_input" type="email" placeholder="#" required>
+                            <input name="login_email_input" type="email" placeholder="#" required>
                             <label>Email</label>
                         </div>
                         <div class="inputbox">
                             <i class="fa-regular fa-lock fa-xl"></i>
-                            <input id="login_password_input" type="password" placeholder="#" required>
+                            <input name="login_password_input" type="password" placeholder="#" required>
                             <label>Password</label>
                         </div>
-                        <button type="submit">Sign-In</button>
+                        <button type="submit" value="login">Sign-In</button>
                         <span onclick="slide()">Não tenho conta.</span>
                     </form>
                 </div>
@@ -91,32 +82,4 @@
         </div>
     </body>
     <script src="JS/INDEX_SLIDE.JS"></script>
-    <script>
-        document.querySelector(".signin_body").addEventListener("submit", function (e) {
-            e.preventDefault();
-    
-            var email = document.querySelector("#login_email_input").value;
-            var password = document.querySelector("#login_password_input").value;
-    
-            if (email === email && password === password) {
-                window.location.href = "HTML/ABRE_MENU.html";
-            } else {
-                alert("Login Errado");
-            }
-        });
-
-        document.querySelector(".signup_body").addEventListener("submit", function (e) {
-            e.preventDefault();
-    
-            var username = document.querySelector("#signup_user_input").value;
-            var email = document.querySelector("#signup_email_input").value;
-            var password = document.querySelector("#signup_password_input").value;
-    
-            if (username === username && email === email && password === password) {
-                window.location.href = "HTML/ABRE_MENU.html";
-            } else {
-                alert("Login Errado");
-            }
-        });
-    </script>
 </html>
