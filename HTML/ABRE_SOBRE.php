@@ -1,4 +1,15 @@
-<!DOCTYPE html>
+<?php
+    session_start();
+
+    if (isset($_SESSION['USER_ID'])) {
+        // O cliente está logado
+        $botao = '<button href="../PHP/LOGOUT.php">Sair</button>';
+    } else {
+        // O cliente não está logado
+        $botao = '<button onclick="abre_login()">Login</button>';
+    }
+?>
+
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -26,7 +37,7 @@
     <div class="fullscreen">
         <header class="header_sec">
             <div class="header_btn_sec">
-                <button onclick="abre_login()"><i class="fa-duotone fa-chevrons-left"></i>Voltar</button>
+                <button onclick="abre_menu()"><i class="fa-duotone fa-chevrons-left"></i>Voltar</button>
             </div>
         </header>
         <main class="main_sec">
@@ -203,8 +214,8 @@
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-    function abre_login() {
-        window.location.href = "ABRE_MENU.html";
+    function abre_menu() {
+        window.location.href = "ABRE_MENU.php";
     }
 </script>
 <script>

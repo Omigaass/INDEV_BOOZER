@@ -5,7 +5,7 @@ function configurarNavegacao(navbarSelector) {
         navbar_btn.addEventListener("click", () => {
         const telaId = navbar_btn.id.replace("navbar_", "");
 
-        window.location.href = `ABRE_${telaId.toUpperCase()}.html`;
+        window.location.href = `ABRE_${telaId.toUpperCase()}.php`;
         });
     });
 }
@@ -17,7 +17,7 @@ function configurarMenu(menuSelector) {
         card_btn.addEventListener("click", () => {
         const telaId = card_btn.id.replace("card_", "");
 
-        window.location.href = `ABRE_${telaId.toUpperCase()}.html`;
+        window.location.href = `ABRE_${telaId.toUpperCase()}.php`;
         });
     });
 }

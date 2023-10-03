@@ -1,76 +1,53 @@
 <?php
+    
+session_start();
 
-$hostname = "localhost"; // Endereço do servidor MySQL
-$username = "root"; // Nome de usuário do MySQL
-$password = ""; // Senha do MySQL
-$database = "boozer_db"; // Nome do banco de dados
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $user_email = $_POST['login_email_input'];
+    $user_pw = $_POST['login_password_input'];
 
-// Conexão com o banco de dados
-$mysqli = new mysqli($hostname, $username, $password, $database);
+    // Conexão com o banco de dados usando MySQLi
+    $mysqli = new mysqli('localhost', 'root', '', 'boozer_db');
 
-// Verificar a conexão
-if ($mysqli->connect_error) {
-    die("Erro na conexão: " . $mysqli->connect_error);
-}
+    // Verificar a conexão
+    if ($mysqli->connect_error) {
+        die("Erro na conexão: " . $mysqli->connect_error);
+    }
+    // Consulta SQL para obter o usuário com base no email
+    $query_select = "SELECT USER_NAME, USER_PASSWORD FROM bz_user WHERE USER_EMAIL = ?";
+    $session_id_select = "SELECT USER_ID FROM bz_user WHERE USER_EMAIL = ?";
+    $stmt = $mysqli->prepare($query_select);
+    $stmt->bind_param("s", $user_email);
 
-/* Use cookies for session */
-ini_set('session.use_cookies', 'true');
-/* Change this to true if using phpMyAdmin over https */
-$secure_cookie = false;
-/* Need to have cookie visible from parent directory */
-session_set_cookie_params(0, '/', '', $secure_cookie, true);
-/* Create signon session */
-$session_name = 'SignonSession';
-session_name($session_name);
-// Uncomment and change the following line to match your $cfg['SessionSavePath']
-//session_save_path('/foobar');
-@session_start();
+    // Executar a consulta
+    $stmt->execute();
 
-/* Was data posted? */
-if (isset($_POST['bz_user'])) {
-    /* Store there credentials */
-    $_SESSION['USER_EMAIL'] = $_POST['login_email_input'];
-    $_SESSION['USER_PASSWORD'] = $_POST['login_password_input'];
-    $_SESSION['BZ_SESSION_HOST'] = $_POST['host'];
-    $_SESSION['BZ_SESSION_PORT'] = $_POST['port'];
-    /* Update another field of server configuration */
-    $_SESSION['BZ_SESSION_cfgupdate'] = ['verbose' => 'Signon test'];
-    $_SESSION['BZ_SESSION_HMAC_secret'] = hash('sha1', uniqid(strval(random_int(0, mt_getrandmax())), true));
-    $id = session_id();
-    /* Close that session */
-    @session_write_close();
-    /* Redirect to phpMyAdmin (should use absolute URL here!) */
-    header('Location: ../HTML/ABRE_HOME.html');
-} else {
-    /* Show simple form */
-    header('Content-Type: text/html; charset=utf-8');
+    // Obter o resultado da consulta
+    $result = $stmt->get_result();
 
-    echo '<?xml version="1.0" encoding="utf-8"?>' . "\n";
-    echo '<!DOCTYPE HTML>
-<html lang="en" dir="ltr">
-<head>
-<link rel="icon" href="../favicon.ico" type="image/x-icon">
-<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
-<meta charset="utf-8">
-<title>phpMyAdmin single signon example</title>
-</head>
-<body>';
+    // Verificar se o usuário existe
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $hashed_password = $row['USER_PASSWORD'];
 
-    if (isset($_SESSION['PMA_single_signon_error_message'])) {
-        echo '<p class="error">';
-        echo $_SESSION['PMA_single_signon_error_message'];
-        echo '</p>';
+        // Verificar a senha
+        if (password_verify($user_pw, $hashed_password)) {
+            // Senha correta, redirecionar para a página de sucesso
+            $_SESSION['USER_ID'] = $session_id_select;
+            header('Location: ../HTML/ABRE_MENU.php');
+        } else {
+            // Senha incorreta
+            echo "<script language='javascript' type='text/javascript'>
+            alert('Senha incorreta');window.location.href='../index.php';</script>";
+        }
+    } else {
+        // Usuário não encontrado
+        echo "<script language='javascript' type='text/javascript'>
+        alert('Usuário não encontrado');window.location.href='../index.php';</script>";
     }
 
-    echo '<form action="signon.php" method="post">
-Username: <input type="text" name="user" autocomplete="username" spellcheck="false"><br>
-Password: <input type="password" name="password" autocomplete="current-password" spellcheck="false"><br>
-Host: (will use the one from config.inc.php by default)
-<input type="text" name="host"><br>
-Port: (will use the one from config.inc.php by default)
-<input type="text" name="port"><br>
-<input type="submit">
-</form>
-</body>
-</html>';
+    // Fechar a conexão
+    $stmt->close();
+    $mysqli->close();
 }
+?>

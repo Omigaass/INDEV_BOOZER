@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+<?php
+    session_start();
+    require_once('../PHP/SESSION_VERIFY');
+?>
+
 <html lang="pt-br">
     <head>
         <meta charset="UTF-8">
@@ -29,7 +33,7 @@
         <header class="header_sec">
             <div class="logo_body">
                 <img src="#">
-                <a href="ABRE_MENU.html">Boozer</a>
+                <a href="ABRE_MENU.php">Boozer</a>
             </div>
             <div class="header_btn_sec">
                 <button onclick="abre_login()">Login</button>
@@ -85,7 +89,7 @@
 <script src="../JS/ABRE_NAV_RESPONSIVE.js"></script>
 <script>
     function abre_login() {
-        window.location.href = "../index.html";
+        window.location.href = "../index.php";
     }
     configurarNavegacao(".navbar_item");
     const telaId = "carrinho"

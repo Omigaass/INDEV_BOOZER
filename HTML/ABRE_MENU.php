@@ -1,3 +1,15 @@
+<?php
+    session_start();
+
+    // Verificar se o usuário está logado
+    if (!isset($_SESSION['USER_ID'])) {
+        header('Location: ../index.php');
+        exit();
+    } else {
+        $login_btn = "<button><a href=../PHP/LOGOUT.php>Sair</a></button>";
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -28,10 +40,12 @@
         <header class="header_sec">
             <div class="logo_body">
                 <img src="#">
-                <a href="ABRE_MENU.html">Boozer</a>
+                <a href="ABRE_MENU.php">Boozer</a>
             </div>
             <div class="header_btn_sec">
-                <button onclick="abre_login()">Login</button>
+                <?php 
+                    echo $login_btn;
+                ?>
             </div>
         </header>
         <main class="main_sec">
@@ -59,7 +73,7 @@
                 <a class="card2"></a>
                 <a class="card3"></a>
                 <a class="card4"></a>
-                <a class="card5" href="ABRE_SOBRE.html">Sobre Nós</a>
+                <a class="card5" href="ABRE_SOBRE.php">Sobre Nós</a>
                 <a class="card6"></a>
                 <a class="card7"></a>
             </div>
@@ -72,7 +86,7 @@
 <script src="../JS/CONFIG_NAV.js"></script>
 <script>
     function abre_login() {
-        window.location.href = "../index.html";
+        window.location.href = "../index.php";
     }
     configurarMenu(".navbar_card");
 </script>

@@ -1,5 +1,6 @@
 <?php
     include 'PHP/SIGN-IN.php';
+    include 'PHP/SIGN-UP.php';  
 ?>
 
 <!DOCTYPE html>
@@ -44,11 +45,11 @@
             </div>
             <div class="rightside_sec">
                 <div class="login_form_sec">
-                    <form class="signup_body" action="" method="post">
+                    <form class="signup_body" action="../PHP/SIGN-UP.php" method="post">
                         <div class="inputbox">
                             <i class="fa-regular fa-user fa-xl"></i>
                             <input name="signup_user_input" type="text" placeholder="#" required>
-                            <label>Name</label>
+                            <label>Usuário</label>
                         </div>
                         <div class="inputbox">
                             <i class="fa-regular fa-envelope fa-xl"></i>
@@ -58,7 +59,7 @@
                         <div class="inputbox">
                             <i class="fa-regular fa-lock fa-xl"></i>
                             <input name="signup_password_input" type="password" placeholder="#" required>
-                            <label>Password</label>
+                            <label>Senha</label>
                         </div>
                         <button type="submit">Sign-Up</button>
                         <span onclick="slide()">Já possuo conta.</span>
@@ -72,7 +73,7 @@
                         <div class="inputbox">
                             <i class="fa-regular fa-lock fa-xl"></i>
                             <input name="login_password_input" type="password" placeholder="#" required>
-                            <label>Password</label>
+                            <label>Senha</label>
                         </div>
                         <button type="submit" value="login">Sign-In</button>
                         <span onclick="slide()">Não tenho conta.</span>

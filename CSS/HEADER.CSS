@@ -51,8 +51,8 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    padding-right: 5vh;
 	animation: wobble-hor-bottom 0.8s both;
+    padding-right: 5vh;
 }
 
 .header_btn_sec button{
@@ -62,15 +62,18 @@
     border-radius: 12px;
     cursor: pointer;
     background-color: var(--azul);
-    color: var(--softcolor01);
     font-weight: 700;
-    font-size: 16px;
     transition: background-color 0.4s ease, color 0.4s ease;
     box-shadow: 0px 0px 5px -2px var(--cinza);
 }   .header_btn_sec button:hover{
         background-color: var(--azul-light);
         color: var(--azul-quente);
         animation: jello-vertical 0.8s both;
+}
+
+.header_btn a{
+    text-decoration: none;
+    color: var(--softcolor01);
 }
 
 /* 

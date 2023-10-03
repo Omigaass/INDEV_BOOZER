@@ -1,11 +1,15 @@
-<!DOCTYPE html>
+<?php
+    session_start();
+    require_once('../PHP/SESSION_VERIFY');
+?>
+
 <html lang="pt-br">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../CSS/MAIN.CSS">
-        <link rel="stylesheet" href="../CSS/ABRE_PERFIL.CSS">
+        <link rel="stylesheet" href="../CSS/ABRE_USUARIOS.CSS">
         <link rel="stylesheet" href="../CSS/HEADER.CSS">
         <link rel="stylesheet" href="../CSS/NAVBAR.CSS">
         <link rel="stylesheet" href="../CSS/FOOTER.CSS">
@@ -28,7 +32,7 @@
     <div class="fullscreen">
         <header class="header_sec">
             <div class="logo_body">
-                <a href="ABRE_MENU.html">Boozer</a>
+                <a href="ABRE_MENU.php">Boozer</a>
             </div>
             <div class="header_btn_sec">
                 <button onclick="abre_login()">Login</button>
@@ -73,17 +77,6 @@
                 ?██      ██    ██ ██  ██ ██    ██    ██      ██    ██ ██   ██ ██    ██ 
                  ?██████  ██████  ██   ████    ██    ███████  ██████  ██████   ██████   
             -->
-
-            <div class="profile-container">
-                <img class="profile-picture" src="perfil.jpg" alt="Imagem de Perfil">
-                <h1>Nome do Usuário</h1>
-                <p>Desenvolvedor Web</p>
-                <p>Descrição pessoal ou profissional vai aqui. Pode incluir algumas informações sobre interesses, habilidades, etc.</p>
-                <p>Email: exemplo@email.com</p>
-                <p>Telefone: (123) 456-7890</p>
-                <p>Website: <a> href="https://www.exemplo.com" target="_blank">www.exemplo.com</a></p>
-                <button>editar<i class="fa-solid fa-pen"></i><class:butao></class:butao></button>
-            </div>
         </main>
         <footer class="footer_sec">
             <p>&copy; 2023 Boozer - Todos os direitos reservados.</p>
@@ -95,10 +88,10 @@
 <script src="../JS/ABRE_NAV_RESPONSIVE.js"></script>
 <script>
     function abre_login() {
-        window.location.href = "../index.html";
+        window.location.href = "../index.php";
     }
     configurarNavegacao(".navbar_item");
-    const telaId = "perfil"
+    const telaId = "usuarios"
     const navbar_btn = document.getElementById(`navbar_${telaId}`);
     navbar_btn.classList.add("navbar_active");
 </script>
