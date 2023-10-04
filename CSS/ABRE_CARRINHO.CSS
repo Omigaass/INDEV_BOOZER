@@ -6,6 +6,8 @@
     width: 100%;
     position: fixed;
     top: 15vh;
+    overflow-y: scroll;
+    background-color: var(--claro-light);
 }
 
 .main_sec .content {
@@ -17,14 +19,14 @@
 .main_sec .content section {
     margin: 5vh 5vh 0vh 5vh;
     width: 75%;
-    overflow-y: scroll;
-    -webkit-box-flex: 1;
-    -ms-flex: 1;
-    flex: 1;
 }
 
 .main_sec .content aside {
     margin: 5vh 5vh 0vh 0vh;
+    position: fixed;
+    height: 100%;
+    width: 20%;
+    right: 0;
   min-width: 250px;
 }
 
@@ -82,6 +84,7 @@ table tbody tr td {
 .product .info .name {
   font-size: 20px;
   margin-bottom: 10px;
+  font-family: SnigletRegular;
 }
 
 .product .info .category {
