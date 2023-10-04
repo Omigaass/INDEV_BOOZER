@@ -44,8 +44,8 @@
             <section class="first_sec">
                 <div class="leftside_first_sec">
                     <span class="logo_marca_first_sec">Boozer</span>
-                    <span class="title_first_sec">Sed voluptates dolorum rem sint impedit est nihil quos.</span>
-                    <span class="subtitle_first_sec">Lorem ipsum dolor sit amet. Et esse optio aut deserunt enim et debitis voluptatem id accusamus odit. Est eligendi minus non ipsa necessitatibus est error explicabo aut minus iusto et maxime voluptas qui sunt tenetur.</span>
+                    <span class="title_first_sec"></span>
+                    <span class="subtitle_first_sec">O Boozer é uma instituição que tem como objetivo principal promover o acesso à educação, cultura e informação de forma gratuita ou a preços acessíveis, muitas vezes direcionando seus serviços para comunidades carentes ou desfavorecidas.</span>
                 </div>
                 <div class="rightside_first_sec"></div>
             </section>
@@ -106,46 +106,46 @@
                     <div class="grid_box" id="grid_box01">
                         <i class="fa-solid fa-star fa-2x"></i>
                         <span class="grid_title">
-                            Est autem tempora a distinctio.
+                            Acessibilidade Universal:
                         </span>
                         <span class="grid_text">
-                            Ut fuga omnis ut quaerat omnis id soluta architecto vel nobis esse ut ipsa quidem eum voluptas
+                            Uma biblioteca online poder ser acessada em qualquer lugar a qualquer hora.
                         </span>
                     </div>
                     <div class="grid_box" id="grid_box02">
                         <i class="fa-solid fa-star fa-2x"></i>
                         <span class="grid_title">
-                            Est autem tempora a distinctio.
+                            Flexibilidade de horários:
                         </span>
                         <span class="grid_text">
-                            Ut fuga omnis ut quaerat omnis id soluta architecto vel nobis esse ut ipsa quidem eum voluptas
+                            Estaremos disponível para vocês 24 horas por dia, 7 dias por semana ou qualquer horário que precisarem de nós!
                         </span>
                     </div>
                     <div class="grid_box" id="grid_box03">
                         <i class="fa-solid fa-star fa-2x"></i>
                         <span class="grid_title">
-                            Est autem tempora a distinctio.
+                            Alcance Ampliado:
                         </span>
                         <span class="grid_text">
-                            Ut fuga omnis ut quaerat omnis id soluta architecto vel nobis esse ut ipsa quidem eum voluptas
+                            Uma biblioteca online pode atingir públicos de vários lugares ao mesmo tempo, com acesso fácil e rápido.
                         </span>
                     </div>
                     <div class="grid_box" id="grid_box04">
                         <i class="fa-solid fa-star fa-2x"></i>
                         <span class="grid_title">
-                            Est autem tempora a distinctio.
+                            Variedade dos nossos recursos digitais:
                         </span>
                         <span class="grid_text">
-                            Ut fuga omnis ut quaerat omnis id soluta architecto vel nobis esse ut ipsa quidem eum voluptas
+                            Os nossos materiais digitais podem ser oferecer ampla gama de recursos, garantindo que a biblioteca sempre ofereça informações relevantes e atualizadas á vocês.
                         </span>
                     </div>
                     <div class="grid_box" id="grid_box05">
                         <i class="fa-solid fa-star fa-2x"></i>
                         <span class="grid_title">
-                            Est autem tempora a distinctio.
+                            Facilita a inclusão digital: 
                         </span>
                         <span class="grid_text">
-                            Ut fuga omnis ut quaerat omnis id soluta architecto vel nobis esse ut ipsa quidem eum voluptas
+                            Ajuda a promover a alfabetização digital e a capacidade das pessoas de utilizarem a tecnologia de forma eficaz.
                         </span>
                     </div>
                     <div class="grid_box" id="grid_box06">
@@ -154,7 +154,7 @@
                             Est autem tempora a distinctio.
                         </span>
                         <span class="grid_text">
-                            Ut fuga omnis ut quaerat omnis id soluta architecto vel nobis esse ut ipsa quidem eum voluptas
+                            Todos os nossos recursos  serão investidos cada vez mais na melhora do site, e na ajuda a pessoas que não conseguem ter acesso tão fácil a leitura.
                         </span>
                     </div>
                 </div>

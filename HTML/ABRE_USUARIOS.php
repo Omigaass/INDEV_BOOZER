@@ -1,6 +1,12 @@
 <?php
     session_start();
-    require_once('../PHP/SESSION_VERIFY');
+
+    // Verificar se o usuário está logado
+    if (!isset($_SESSION['USER_ID'])) {
+        $login_btn = "<button><a href=../index.html>Login</a></button>";
+    } else {
+        $login_btn = "<button class='header_btn'><a href=../PHP/LOGOUT.php>Sair</a></button>";
+    }
 ?>
 
 <html lang="pt-br">
@@ -35,7 +41,9 @@
                 <a href="ABRE_MENU.php">Boozer</a>
             </div>
             <div class="header_btn_sec">
-                <button onclick="abre_login()">Login</button>
+                <?php 
+                    echo $login_btn;
+                ?>
             </div>
         </header>
         <div class="navbar_outline">
