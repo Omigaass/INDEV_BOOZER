@@ -88,7 +88,7 @@
 <script src="../JS/ABRE_NAV_RESPONSIVE.js"></script>
 <script>
     function abre_login() {
-        window.location.href = "../index.php";
+        window.location.href = "../index.html";
     }
     configurarNavegacao(".navbar_item");
     const telaId = "usuarios"

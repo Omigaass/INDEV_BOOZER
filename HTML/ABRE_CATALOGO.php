@@ -3,7 +3,7 @@
 
     // Verificar se o usuário está logado
     if (!isset($_SESSION['USER_ID'])) {
-        $login_btn = "<button><a href=../index.php>Login</a></button>";
+        $login_btn = "<button><a href=../index.html>Login</a></button>";
     } else {
         $login_btn = "<button class='header_btn'><a href=../PHP/LOGOUT.php>Sair</a></button>";
     }
@@ -109,7 +109,7 @@
 <script src="../JS/ABRE_NAV_RESPONSIVE.js"></script>
 <script>
     function abre_login() {
-        window.location.href = "../index.php";
+        window.location.href = "../index.html";
     }
     configurarNavegacao(".navbar_item");
     const telaId = "catalogo"

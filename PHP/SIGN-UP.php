@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($result->num_rows > 0) {
         // Usuário já existe
         echo "<script language='javascript' type='text/javascript'>
-        alert('Esse login já existe');window.location.href='../index.php';</script>";
+        alert('Esse login já existe');window.location.href='../index.html';</script>";
         die();
     } else {
         // Usuário não existe, vamos inseri-lo no banco de dados
@@ -52,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             // Erro na inserção
             echo "<script language='javascript' type='text/javascript'>
-            alert('Não foi possível cadastrar esse usuário');window.location.href='../index.php';</script>";
+            alert('Não foi possível cadastrar esse usuário');window.location.href='../index.html';</script>";
         }
     }
 

@@ -38,12 +38,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             // Senha incorreta
             echo "<script language='javascript' type='text/javascript'>
-            alert('Senha incorreta');window.location.href='../index.php';</script>";
+            alert('Senha incorreta');window.location.href='../index.html';</script>";
         }
     } else {
         // Usuário não encontrado
         echo "<script language='javascript' type='text/javascript'>
-        alert('Usuário não encontrado');window.location.href='../index.php';</script>";
+        alert('Usuário não encontrado');window.location.href='../index.html';</script>";
     }
 
     // Fechar a conexão
