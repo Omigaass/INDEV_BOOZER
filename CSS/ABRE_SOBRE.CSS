@@ -38,6 +38,7 @@
         height: 10vh;
         box-shadow: 0px -2px 5px var(--preto);
         z-index: 100;
+        box-shadow: 0 -5px 10px #000;
     }
 
     .header_btn_sec{

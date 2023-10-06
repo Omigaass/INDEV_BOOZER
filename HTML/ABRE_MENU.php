@@ -6,8 +6,33 @@
         header('Location: ../index.html');
         exit();
     } else {
-        $login_btn = "<button><a href=../PHP/LOGOUT.php>Sair</a></button>";
+        $login_btn = "<button class=header_btn><a href=../PHP/LOGOUT.php>Sair</a></button>";
     }
+
+    try {
+        $pdo = new PDO('mysql:host=localhost;dbname=boozer_db', 'root', '');
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        $query = "SELECT USER_TYPE FROM bz_user WHERE USER_ID = :session_id_select";
+        $stmt = $pdo->prepare($query);
+
+        $stmt->bindParam(':session_id_select', $id, PDO::PARAM_INT);
+        $id = 0;
+
+        $stmt->execute();
+
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($result !== false) {
+            $userType = $result['USER_TYPE'];
+            $login_btn = "<button class=header_btn><a href=../PHP/LOGOUT.php>Foi</a></button>";
+        } else {
+            $login_btn = "<button class=header_btn><a href=../PHP/LOGOUT.php>Não foi</a></button>";
+        }
+    } catch (PDOException $e) {
+        $login_btn = "<button class=header_btn><a href=../PHP/LOGOUT.php>Foi2</a></button>";
+    }
+
 ?>
 
 <!DOCTYPE html>
