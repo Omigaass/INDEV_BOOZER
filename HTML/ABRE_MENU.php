@@ -1,38 +1,15 @@
 <?php
     session_start();
 
+    require '../PHP/USER_VALIDATION.php';
+
     // Verificar se o usuário está logado
     if (!isset($_SESSION['USER_ID'])) {
         header('Location: ../index.html');
         exit();
     } else {
-        $login_btn = "<button class=header_btn><a href=../PHP/LOGOUT.php>Sair</a></button>";
+        $login_btn = "<a href=../PHP/LOGOUT.php class=header_btn><button>Sair</button></a>";
     }
-
-    try {
-        $pdo = new PDO('mysql:host=localhost;dbname=boozer_db', 'root', '');
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-        $query = "SELECT USER_TYPE FROM bz_user WHERE USER_ID = :session_id_select";
-        $stmt = $pdo->prepare($query);
-
-        $stmt->bindParam(':session_id_select', $id, PDO::PARAM_INT);
-        $id = 0;
-
-        $stmt->execute();
-
-        $result = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        if ($result !== false) {
-            $userType = $result['USER_TYPE'];
-            $login_btn = "<button class=header_btn><a href=../PHP/LOGOUT.php>Foi</a></button>";
-        } else {
-            $login_btn = "<button class=header_btn><a href=../PHP/LOGOUT.php>Não foi</a></button>";
-        }
-    } catch (PDOException $e) {
-        $login_btn = "<button class=header_btn><a href=../PHP/LOGOUT.php>Foi2</a></button>";
-    }
-
 ?>
 
 <!DOCTYPE html>
@@ -88,10 +65,7 @@
                     <i class="fa-solid fa-user fa-lg"></i>
                     <a>Meu Perfil</a>
                 </div>
-                <div class="navbar_card" id="card_usuarios">
-                    <i class="fa-solid fa-users fa-lg"></i>
-                    <a>Usuarios</a>
-                </div>
+                <?php echo $DefaultConfigMenu; ?>
             </div>
             <div class="content_body">
                 <a class="card1"></a>

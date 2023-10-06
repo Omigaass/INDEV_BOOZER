@@ -1,5 +1,4 @@
 <?php
-    
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -13,9 +12,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($mysqli->connect_error) {
         die("Erro na conexão: " . $mysqli->connect_error);
     }
+
     // Consulta SQL para obter o usuário com base no email
-    $query_select = "SELECT USER_NAME, USER_PASSWORD FROM bz_user WHERE USER_EMAIL = ?";
-    $session_id_select = "SELECT USER_ID FROM bz_user WHERE USER_EMAIL = ?";
+    $query_select = "SELECT USER_ID, USER_NAME, USER_PASSWORD FROM bz_user WHERE USER_EMAIL = ?";
     $stmt = $mysqli->prepare($query_select);
     $stmt->bind_param("s", $user_email);
 
@@ -28,12 +27,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Verificar se o usuário existe
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
+        $user_id = $row['USER_ID'];
         $hashed_password = $row['USER_PASSWORD'];
 
         // Verificar a senha
         if (password_verify($user_pw, $hashed_password)) {
-            // Senha correta, redirecionar para a página de sucesso
-            $_SESSION['USER_ID'] = $session_id_select;
+            // Senha correta, armazenar USER_ID na sessão e redirecionar
+            $_SESSION['USER_ID'] = $user_id;
             header('Location: ../HTML/ABRE_MENU.php');
         } else {
             // Senha incorreta

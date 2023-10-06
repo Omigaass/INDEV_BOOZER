@@ -57,6 +57,21 @@
 
 .header_btn{
     margin: 0;
+    border: 0;
+    border-radius: 12px;
+    cursor: pointer;
+    background-color: var(--azul);
+    transition: background-color 0.4s ease, color 0.4s ease;
+}   .header_btn:hover{
+        background-color: var(--azul-light);
+        animation: jello-vertical 0.8s both;
+}
+
+.header_btn button{
+    text-decoration: none;
+    color: var(--softcolor01);
+    transition: color 0.4s ease, color 0.4s ease;
+    margin: 0;
     padding: 12px 32px;
     border: 0;
     border-radius: 12px;
@@ -65,16 +80,8 @@
     font-weight: 700;
     transition: background-color 0.4s ease, color 0.4s ease;
     box-shadow: 0px 0px 5px -2px var(--cinza);
-}   .header_btn:hover{
-        background-color: var(--azul-light);
-        animation: jello-vertical 0.8s both;
-}
-
-.header_btn a{
-    text-decoration: none;
-    color: var(--softcolor01);
-    transition: color 0.4s ease, color 0.4s ease;
-} .header_btn:hover > a{
+} .header_btn:hover > button{
+    background-color: var(--azul-light);
     color: var(--azul-quente);
 }
 

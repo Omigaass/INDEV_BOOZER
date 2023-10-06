@@ -1,11 +1,13 @@
 <?php
     session_start();
 
+    require '../PHP/USER_VALIDATION.php';
+
     // Verificar se o usuário está logado
     if (!isset($_SESSION['USER_ID'])) {
-        $login_btn = "<button><a href=../index.html>Login</a></button>";
+        $login_btn = "<button class='header_btn'><a href=../index.html>Login</a></button>";
     } else {
-        $login_btn = "<button class='header_btn'><a href=../PHP/LOGOUT.php>Sair</a></button>";
+        $login_btn = "<a href=../PHP/LOGOUT.php class=header_btn><button>Sair</button></a>";
     }
 ?>
 
@@ -76,10 +78,7 @@
                         <i class="fa-solid fa-user"></i>
                         <a>Meu Perfil</a>
                     </div>
-                    <div class="navbar_item" id="navbar_usuarios">
-                        <i class="fa-solid fa-users"></i>
-                        <a>Usuarios</a>
-                    </div>
+                    <?php echo $DefaultConfigNav ?>
                 </div>
             </nav>
             <div class="blue_square">
