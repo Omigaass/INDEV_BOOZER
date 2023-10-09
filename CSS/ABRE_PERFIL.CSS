@@ -92,15 +92,15 @@ a:hover {
     transition: color 0.2s ease;
 }
 
-#botao_tedte{
+#botao_teste{
     background-color: var(--card1-soft-color);
     box-shadow: 0px 10px 0px -4px var(--card1-default-color);
-}   #card_catalogo i{
+}   #botao_teste i{
     background-color: var(--card1-dark-color);
     padding: 15% 12%;
-}   #card_catalogo:hover{
+}   #botao_teste:hover{
     background-color: var(--card1-strong-color);
-}   #card_catalogo:hover > a{
+}   #botao_teste:hover > a{
     color: white;
 	animation: wobble-ver-left 0.8s both;
 }
