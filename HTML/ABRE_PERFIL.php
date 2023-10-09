@@ -102,7 +102,11 @@
         <footer class="footer_sec">
             <p>&copy; 2023 Boozer - Todos os direitos reservados.</p>
         </footer>
-    </div>
+    </div> 
+                <div class="navbar_card" id="card_carrinho"> 
+                     <i class="fa-solid fa-cart-shopping fa-lg"></i> 
+                     <a>Carrinho</a> 
+                 </div>
 </body>
 <script src="https://kit.fontawesome.com/724309404c.js" crossorigin="anonymous"></script>
 <script src="../JS/CONFIG_NAV.JS"></script>
