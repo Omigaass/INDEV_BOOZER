@@ -165,7 +165,7 @@
         text-decoration: none;
         transition: background-color 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000);
     }   .card5:hover{
-        animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+        animation: jello-horizontal 0.9s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
         background-color: #41768b;
         opacity: 100%;
     }
@@ -483,3 +483,28 @@
       opacity: 1;
     }
   }
+
+  @keyframes jello-horizontal {
+    0% {
+              transform: scale3d(1, 1, 1);
+    }
+    30% {
+              transform: scale3d(1.15, 0.85, 1);
+    }
+    40% {
+              transform: scale3d(0.85, 1.15, 1);
+    }
+    50% {
+              transform: scale3d(1.05, 0.95, 1);
+    }
+    65% {
+              transform: scale3d(0.95, 1.05, 1);
+    }
+    75% {
+              transform: scale3d(1.05, 0.95, 1);
+    }
+    100% {
+              transform: scale3d(1, 1, 1);
+    }
+  }
+  
