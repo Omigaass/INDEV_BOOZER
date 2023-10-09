@@ -64,3 +64,43 @@ a:hover {
 	text-shadow:0px 1px 0px #1570cd;
 }
 
+.navbar_card{
+    width: 24vh;
+    height: 26vh;
+    margin: 0 0 5vh 7vh;
+    border-radius: 12px;
+    font-family: 'SnigletRegular';
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    transition: background-color 0.2s ease;
+	animation: jello-diagonal-1 0.8s both;
+}   .navbar_card i {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border-radius: 15px;
+}   .navbar_card a{
+    height: 25%;
+    display: flex;
+    align-items: center;
+    font-size: large;
+    text-decoration: none;
+    color: var(--preto);
+    transition: color 0.2s ease;
+}
+
+#card_catalogo{
+    background-color: var(--card1-soft-color);
+    box-shadow: 0px 10px 0px -4px var(--card1-default-color);
+}   #card_catalogo i{
+    background-color: var(--card1-dark-color);
+    padding: 15% 12%;
+}   #card_catalogo:hover{
+    background-color: var(--card1-strong-color);
+}   #card_catalogo:hover > a{
+    color: white;
+	animation: wobble-ver-left 0.8s both;
+}
