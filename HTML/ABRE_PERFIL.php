@@ -103,7 +103,7 @@
             <p>&copy; 2023 Boozer - Todos os direitos reservados.</p>
         </footer>
     </div> 
-                <div class="navbar_card" id="card_carrinho"> 
+                <div class="navbar_card" id="botao_teste"> 
                      <i class="fa-solid fa-cart-shopping fa-lg"></i> 
                      <a>Carrinho</a> 
                  </div>
