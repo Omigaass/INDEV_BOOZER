@@ -92,7 +92,7 @@ a:hover {
     transition: color 0.2s ease;
 }
 
-#card_catalogo{
+#botao_tedte{
     background-color: var(--card1-soft-color);
     box-shadow: 0px 10px 0px -4px var(--card1-default-color);
 }   #card_catalogo i{
