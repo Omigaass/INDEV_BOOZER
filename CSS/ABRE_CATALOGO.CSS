@@ -6,6 +6,157 @@
 ?███████    ██       ██    ███████ ███████ 
 */
 
+.catalogo_sec {
+    display: flex;
+    height: calc(100% - 25vh);
+    width: 100%;
+    position: fixed;
+    top: 15vh;
+    background-color: var(--claro-light);
+}
+
+.menu_sec{
+    width: calc(100% - 10vh);
+    height: max-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu_title{
+    width: 50%;
+    text-align: center;
+    font-size: 80px;
+    font-family: BilboSwashCapsRegular;
+    color: var(--azul-quente);
+}
+
+.menu_body{
+    width: 50%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.visual_menu{
+    display: flex;
+}
+
+.visual_grid_btn{
+    background-color: var(--azul);
+	border-radius:50px 0 0 50px;
+	cursor: pointer;
+	padding: 12px 16px 12px 24px;
+	text-decoration:none;
+    border: 0;
+    transition: all 0.2s ease;
+}
+.visual_grid_btn i{
+    color: #fff;
+    transition: all 0.2s ease;
+}
+.visual_grid_btn:hover {
+    background-color: var(--azul-light);
+}
+
+.visual_grid_btn:hover >i{
+    color: var(--azul-escuro);
+}
+
+.visual_list_btn{
+    margin-left: 5px;
+    background-color: var(--azul);
+	border-radius: 0 50px 50px 0;
+	cursor: pointer;
+	padding: 12px 24px 12px 16px;
+	text-decoration:none;
+    border: 0;
+    transition: all 0.2s ease;
+}
+.visual_list_btn i{
+    color: #fff;
+    transition: all 0.2s ease;
+}
+.visual_list_btn:hover {
+    background-color: var(--azul-light);
+}
+
+.visual_list_btn:hover >i{
+    color: var(--azul-escuro);
+}
+
+.prev_page_btn{
+    background-color: var(--azul);
+    color: #fff;
+    font-size: 16px;
+    font-family: SnigletRegular;
+	border-radius:50px 0 0 50px;
+	cursor: pointer;
+	padding: 12px 16px 12px 24px;
+	text-decoration:none;
+    border: 0;
+    transition: all 0.2s ease;
+}
+.prev_page_btn:hover {
+    background-color: var(--azul-light);
+    color: var(--azul-escuro);
+}
+
+.current_page{
+    background-color: var(--azul);
+    color: #fff;
+    font-size: 16px;
+    font-family: SnigletRegular;
+	border-radius: 15px;
+	cursor: pointer;
+	padding: 12px 24px 12px 24px;
+	text-decoration:none;
+    border: 0;
+    transition: all 0.2s ease;
+}
+.current_page:hover {
+    background-color: var(--azul-light);
+    color: var(--azul-escuro);
+}
+
+.next_page_btn{
+    margin-left: 5px;
+    background-color: var(--azul);
+    color: #fff;
+    font-size: 16px;
+    font-family: SnigletRegular;
+	border-radius: 0 50px 50px 0;
+	cursor: pointer;
+	padding: 12px 24px 12px 16px;
+	text-decoration:none;
+    border: 0;
+    transition: all 0.2s ease;
+}
+.next_page_btn:hover {
+    background-color: var(--azul-light);
+    color: var(--azul-escuro);
+}
+
+.filter_menu_btn{
+    background-color: var(--azul);
+	border-radius: 15px;
+	cursor: pointer;
+	padding: 14px 24px 14px 24px;
+	text-decoration:none;
+    border: 0;
+    transition: all 0.2s ease;
+}
+.filter_menu_btn i{
+    color: #fff;
+    transition: all 0.2s ease;
+}
+.filter_menu_btn:hover {
+    background-color: var(--azul-light);
+}
+
+.filter_menu_btn:hover >i{
+    color: var(--azul-escuro);
+}
+
 /* 
 ?██████  ███████ ███████ ██████   ██████  ███    ██ ███████ ██ ██    ██ ██ ██████   █████  ██████  ███████ 
 ?██   ██ ██      ██      ██   ██ ██    ██ ████   ██ ██      ██ ██    ██ ██ ██   ██ ██   ██ ██   ██ ██      

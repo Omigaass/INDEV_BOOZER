@@ -218,24 +218,24 @@
                 </table>
                 </section>
                 <aside>
-                <div class="box">
-                    <header>Resumo da compra</header>
-                    <div class="info">
-                    <div><span>Sub-total</span><span>R$ 418</span></div>
-                    <div><span>Frete</span><span>Gratuito</span></div>
-                    <div>
-                        <button>
-                        Adicionar cupom de desconto
-                        <i class="bx bx-right-arrow-alt"></i>
-                        </button>
+                    <div class="box">
+                        <header>Resumo da compra</header>
+                        <div class="info">
+                        <div><span>Sub-total</span><span>R$ 418</span></div>
+                        <div><span>Frete</span><span>Gratuito</span></div>
+                        <div>
+                            <button>
+                            Adicionar cupom de desconto
+                            <i class="bx bx-right-arrow-alt"></i>
+                            </button>
+                        </div>
+                        </div>
+                        <footer>
+                        <span>Total</span>
+                        <span>R$ 418</span>
+                        </footer>
                     </div>
-                    </div>
-                    <footer>
-                    <span>Total</span>
-                    <span>R$ 418</span>
-                    </footer>
-                </div>
-                <button>Finalizar Compra</button>
+                    <button>Finalizar Compra</button>
                 </aside>
             </div>
         </main>
