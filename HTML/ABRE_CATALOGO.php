@@ -96,22 +96,34 @@
             <span class="menu_title">Catalogo Boozer</span>
             <div class="menu_body">
                 <div class="visual_menu">
-                    <button class="menu_btn visual_grid_btn"><i class="fa-solid fa-grid-2 fa-lg"></i></button>
-                    <button class="visual_list_btn"><i class="fa-solid fa-list-ul fa-lg"></i></button>
+                    <button class="menu_btn menu_grid"><i class="fa-solid fa-grid-2 fa-lg"></i></button>
+                    <button class="menu_btn menu_list"><i class="fa-solid fa-list-ul fa-lg"></i></button>
                 </div>
                 <div class="pagination_menu">
-                    <button class="prev_page_btn">Anterior</button>
+                    <button class="menu_btn prev_page_btn">Anterior</button>
                     <span class="current_page"></span>
-                    <button class="next_page_btn">Próximo</button>
+                    <button class="menu_btn next_page_btn">Próximo</button>
                 </div>
                 <div class="filter_menu">
-                    <button class="filter_menu_btn"><i class="fa-solid fa-filter fa-lg"></i></button>
+                    <button class="menu_btn filter_btn"><i class="fa-solid fa-filter fa-lg"></i></button>
                 </div>
-                <div class="filter_modal">
+                <div class="back_screen hidden"></div>
+                <div class="filter_modal hidden">
+                    <div class="modal_body">
+                        <header class="modal_header">
+                            <div class="modal_title">Filtro de Livros</div>
+                            <i class="fa-solid fa-x fa-lg" id="modal_filter_btn"></i>
+                        </header>
+                        <section class="modal_filter_sec">
 
+                        </section>
+                    </div>
                 </div>
             </div>
         </menu>
+        <div class="catalog_body">
+            
+        </div>
     </main>
     <footer class="footer_sec">
         <p>&copy; 2023 Boozer - Todos os direitos reservados.</p>
@@ -119,6 +131,7 @@
 </body>
 <script src="../JS/CONFIG_NAV.js"></script>
 <script src="../JS/ABRE_NAV_RESPONSIVE.js"></script>
+<script src="../JS/CATALOG_MENU.js"></script>
 <script>
     function abre_login() {
         window.location.href = "../index.html";
