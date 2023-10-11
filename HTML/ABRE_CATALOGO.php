@@ -23,7 +23,8 @@
     <link rel="stylesheet" href="../CSS/NAVBAR.CSS">
     <link rel="stylesheet" href="../CSS/FOOTER.CSS">
     <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/bilbo" type="text/css" />
-    <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/sniglet" type="text/css"/>
+    <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/sniglet" type="text/css"/>    
+
     <!--
     ?███████  ██████  ███    ██ ████████      █████  ██     ██ ███████ ███████  ██████  ███    ███ ███████ 
     ?██      ██    ██ ████   ██    ██        ██   ██ ██     ██ ██      ██      ██    ██ ████  ████ ██      
@@ -115,14 +116,102 @@
                             <i class="fa-solid fa-x fa-lg" id="modal_filter_btn"></i>
                         </header>
                         <section class="modal_filter_sec">
-
+                            <form action="resultado.php" method="post">
+                                <fieldset class="filter_fieldset" style="justify-content: center;">
+                                    <legend>Autor</legend>
+                                    <label class="label_textbox">Nome do Autor<input class="textbox" type="text" name="autor"></label>
+                                </fieldset>
+                                <hr/>
+                                <fieldset class="filter_fieldset" style="justify-content: center;">
+                                    <legend>Ano de Publicação</legend>
+                                    <label for="ano_publicacao_ini" class="box_middle">Ano Inicial<input class="textbox" type="text" name="ano_publicacao_ini"></label>
+                                    <label for="ano_publicacao_fin" class="box_middle">Ano Final<input class="textbox" type="text" name="ano_publicacao_fin"></label>
+                                </fieldset>
+                                <hr/>
+                                <fieldset class="filter_fieldset" style="justify-content: center;">
+                                    <legend>Preço</legend>
+                                    <label class="box_middle">Valor Minimo<input type="number" name="preco_min"></label>
+                                    <label class="box_middle">Valor Máximo<input type="number" name="preco_max"></label>
+                                </fieldset>
+                                <hr/>
+                                <fieldset class="filter_fieldset" style="justify-content: center;">
+                                    <legend>Editora</legend>
+                                    <label for="editora" class="box_big">Nome da Editora<input type="text" name="editora"></label>
+                                </fieldset>
+                                <hr/>
+                                <fieldset class="filter_fieldset">
+                                    <legend>Gênero</legend>
+                                    <label><input type="checkbox" name="genero[]" value="Ficção"> Ficção</label>
+                                    <label><input type="checkbox" name="genero[]" value="Não Ficção"> Não Ficção</label>
+                                    <label><input type="checkbox" name="genero[]" value="Romance"> Romance</label>
+                                    <label><input type="checkbox" name="genero[]" value="Mistério / Suspense"> Mistério / Suspense</label>
+                                    <label><input type="checkbox" name="genero[]" value="Fantasia"> Fantasia</label>
+                                    <label><input type="checkbox" name="genero[]" value="Ficção Científica"> Ficção Científica</label>
+                                    <label><input type="checkbox" name="genero[]" value="História"> História</label>
+                                    <label><input type="checkbox" name="genero[]" value="Biografia"> Biografia</label>
+                                    <label><input type="checkbox" name="genero[]" value="Autoajuda"> Autoajuda</label>
+                                </fieldset>
+                                <hr/>
+                                <fieldset class="filter_fieldset">
+                                    <legend>Classificação</legend>
+                                    <label><input type="checkbox" name="classificacao[]" value="uma-estrela"> 1 Estrela</label>
+                                    <label><input type="checkbox" name="classificacao[]" value="duas-estrela"> 2 Estrelas</label>
+                                    <label><input type="checkbox" name="classificacao[]" value="tres-estrela"> 3 Estrelas</label>
+                                    <label><input type="checkbox" name="classificacao[]" value="quatro-estrela"> 4 Estrelas</label>
+                                    <label><input type="checkbox" name="classificacao[]" value="cinco-estrela"> 5 Estrelas</label>
+                                </fieldset>
+                                <hr/>
+                                <fieldset class="filter_fieldset">
+                                    <legend>Idioma</legend>
+                                    <label><input type="checkbox" name="idioma[]" value="Inglês"> Inglês</label>
+                                    <label><input type="checkbox" name="idioma[]" value="Espanhol"> Espanhol</label>
+                                    <label><input type="checkbox" name="idioma[]" value="Português"> Português</label>
+                                </fieldset>
+                                <hr/>
+                                <fieldset class="filter_fieldset">
+                                    <legend>Formato</legend>
+                                    <label><input type="checkbox" name="formato[]" value="Capa Dura"> Capa Dura</label>
+                                    <label><input type="checkbox" name="formato[]" value="Capa Flexível"> Capa Flexível</label>
+                                    <label><input type="checkbox" name="formato[]" value="E-book"> E-book</label>
+                                    <label><input type="checkbox" name="formato[]" value="Áudio-livro"> Áudio-livro</label>
+                                </fieldset>
+                                <hr/>
+                                <fieldset class="filter_fieldset"> 
+                                    <legend>Tema</legend>
+                                    <label><input type="checkbox" name="tema[]" value="Amizade"> Amizade</label>
+                                    <label><input type="checkbox" name="tema[]" value="Amor"> Amor</label>
+                                    <label><input type="checkbox" name="tema[]" value="Aventura"> Aventura</label>
+                                    <label><input type="checkbox" name="tema[]" value="Mistério"> Mistério</label>
+                                    <label><input type="checkbox" name="tema[]" value="Crescimento Pessoal"> Crescimento Pessoal</label>
+                                    <label><input type="checkbox" name="tema[]" value="Política"> Política</label>
+                                    <label><input type="checkbox" name="tema[]" value="Religião"> Religião</label>
+                                </fieldset class="filter_fieldset">
+                                <hr/>
+                                <fieldset class="filter_fieldset">
+                                    <legend>Disponibilidade</legend>
+                                    <label><input type="checkbox" name="disponibilidade[]" value="Em Estoque"> Em Estoque</label>
+                                    <label><input type="checkbox" name="disponibilidade[]" value="Pré-venda"> Pré-venda</label>
+                                </fieldset>
+                                <hr/>
+                                <fieldset class="filter_fieldset">
+                                    <legend>Público-Alvo</legend>
+                                    <label><input type="checkbox" name="publico_alvo[]" value="Crianças"> Crianças</label>
+                                    <label><input type="checkbox" name="publico_alvo[]" value="Adolescentes"> Adolescentes</label>
+                                    <label><input type="checkbox" name="publico_alvo[]" value="Adultos"> Adultos</label>
+                                </fieldset>
+                                <input type="submit" value="Filtrar">
+                            </form>
                         </section>
                     </div>
                 </div>
             </div>
         </menu>
         <div class="catalog_body">
-            
+            <div class="catalog_object">
+                <div class="object">
+
+                </div>
+            </div>
         </div>
     </main>
     <footer class="footer_sec">

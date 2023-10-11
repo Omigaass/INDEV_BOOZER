@@ -22,7 +22,6 @@
 
 .menu_sec{
     width: calc(100% - 10vh);
-    height: 30%;
     height: max-content;
     display: flex;
     align-items: center;
@@ -157,7 +156,7 @@
 
 .modal_title{
     width: 90%;
-    font-size: large;
+    font-size: 25px;
     font-weight: 700;
     font-family: snigletRegular;
     color: var(--azul);
@@ -171,6 +170,7 @@
     width: 100%;
     box-shadow: -5px 0 10px rgba(211, 211, 211, 1) inset;
     overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .back_screen{
@@ -192,6 +192,109 @@
     height: 85%;
     overflow-y: scroll;
 }
+
+.filter_fieldset {
+    --active: #5a9ac2;
+    width: calc(100% - 3rem);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 1rem;
+    border-radius: 12px;
+    border: 0;
+    text-align: left;
+}
+
+.filter_fieldset legend{
+    font-size: 20px;
+    font-weight: 600;
+    font-family: snigletRegular;
+    color: var(--azul);
+}
+
+.filter_fieldset label{
+    margin: 1rem;
+    padding-left: 1rem;
+    width: 200px;
+    height: 50px;
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 1px;
+    font-family: snigletRegular;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: var(--label-hover, #afd3e9);
+    border-radius: 8px;
+    gap: 8px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    color: var(--label-hover-color, #2d739f);
+}
+
+.filter_fieldset input {
+    display: flex;
+    outline: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 36%/36%;
+    background: var(--background, #fff);
+    transition: background 0.2s linear;
+}
+
+.label_textbox{
+    width: 50% !important;
+}
+
+.label_textbox .textbox{
+    margin: auto;
+    border-radius: 5px;
+    width: calc(80% - 4rem);
+    height: 60%;
+}
+
+.box_middle{
+    width: 30% !important;
+}
+
+.box_middle input, .box_big input{
+    margin: auto;
+    border-radius: 5px;
+    width: calc(80% - 4rem);
+    height: 60%;
+}
+
+.box_big{
+    width: 65% !important;
+}
+
+.filter_fieldset label:hover{
+    --label-hover: #2d739f;
+--label-hover-color: #fff
+}
+.filter_fieldset input:checked{
+    --background: var(--active);    
+}
+
+hr {
+    display: block;
+    position: relative;
+    width: 100vw;
+    height: 2px;
+    margin: 1rem 0 1rem 0;
+    border: none;
+    border-bottom: 2px dashed rgba(124, 70, 87, 0.25);
+    float: left;
+  }
+  hr ~ * {
+    clear: both;
+  }
 
 /* 
 ?██████  ███████ ███████ ██████   ██████  ███    ██ ███████ ██ ██    ██ ██ ██████   █████  ██████  ███████ 
@@ -237,4 +340,3 @@
       opacity: 1;
     }
   }
-  
