@@ -13,6 +13,10 @@
     --default-text-size: 24px;
     --small-text-size: 16px;
     --discount-text-size: 16px;
+    
+    --list-default-text-size: 30px;
+    --list-small-text-size: 22px;
+    --list-discount-text-size: 22px;
 
     --default-font: snigletRegular;
     --default-boozer-font: BilboSwashCapsRegular;
@@ -199,6 +203,37 @@
     display: none !important;
 }
 
+.filter_fieldset_submit{
+    --active: #5a9ac2;
+    width: calc(100% - 3rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem;
+    border-radius: 12px;
+    border: 0;
+    text-align: center;
+}
+
+.filter_submit_btn{
+    text-decoration: none;
+    color: var(--softcolor01);
+    transition: color 0.4s ease, color 0.4s ease;
+    margin: 1rem 0;
+    padding: 18px 48px;
+    border: 0;
+    border-radius: 12px;
+    cursor: pointer;
+    background-color: var(--azul);
+    font-size: large;
+    font-weight: 700;
+    transition: background-color 0.4s ease, color 0.4s ease;
+    box-shadow: 0px 0px 5px -2px var(--cinza);
+} .filter_submit_btn:hover{
+    background-color: var(--azul-light);
+    color: var(--azul-quente);
+}
+
 .catalog_body{
     width: calc(100% - 10vh);
     height: 85%;
@@ -313,32 +348,39 @@ hr {
     height: calc(100% - 2rem);
     display: flex;
     flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
     margin: 1rem;
 }
 
 .object_shield{
     width: 16%;
     height: 350px;
+    margin: 2%;
     display: flex;
     align-items: center;
     justify-content: flex-start;
     flex-direction: column;
+    transition: all 0.8s ease;
 }
 
 .object_image_shield{
     width: 100%;
     height: 70%;
+    transition: all 0.8s ease;
 }
 
 .object_image{
     width: 100%;
     height: 100%;
     object-fit: contain;
+    transition: all 0.8s ease;
 }
 
 .object_info{
     width: 100%;
     height: 30%;
+    transition: all 0.8s ease;
 }
 
 .object_price{
@@ -378,6 +420,70 @@ hr {
     width: 100%;
     height: calc(50% - 20px);
     padding: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+}
+
+.object_shield.list_view {
+    width: calc(100% - 4%) ;
+    height: 200px ;
+    margin: 2% ;
+    display: flex ;
+    align-items: flex-start ;
+    justify-content: flex-start ;
+    flex-direction: row ;
+}
+
+.object_image_shield.list_view{
+    margin: 0 ;
+    width: 15% ;
+    height: 100% ;
+}
+
+.object_info.list_view{
+    width: 70%;
+    height: 100%;
+    margin: 0;
+}
+
+.object_price.list_view{
+    width: 100%;
+    height: calc(50% - 10px);
+    padding: 5px;
+}
+
+.object_price_symbol.list_vie{
+    color: var(--secundary-color);
+    font-size: var(--list-small-text-size);
+}
+
+.object_price_whole.list_view{
+    color: var(--primary-color);
+    font-size: var(--list-default-text-size);
+}
+
+.object_price_discount > .object_price_whole.list_view{
+    color: var(--secundary-color);
+    font-size: var(--list-discount-default-text-size);
+}
+
+.object_price_fraction.list_view{
+    color: var(--secundary-color);
+    font-size: var(--list-small-text-size);
+}
+
+.object_description.list_view{
+    font-family: var(--default-font);
+    width: 100%;
+    height: calc(50% - 10px);
+    padding: 5px;
+    font-size: 22px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
 }
 
 /* 

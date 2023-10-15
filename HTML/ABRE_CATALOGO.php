@@ -190,7 +190,7 @@
                                     <label><input type="checkbox" name="tema[]" value="Crescimento Pessoal"> Crescimento Pessoal</label>
                                     <label><input type="checkbox" name="tema[]" value="Política"> Política</label>
                                     <label><input type="checkbox" name="tema[]" value="Religião"> Religião</label>
-                                </fieldset class="filter_fieldset">
+                                </fieldset>
                                 <hr/>
                                 <fieldset class="filter_fieldset">
                                     <legend>Disponibilidade</legend>
@@ -204,7 +204,10 @@
                                     <label><input type="checkbox" name="publico_alvo[]" value="Adolescentes"> Adolescentes</label>
                                     <label><input type="checkbox" name="publico_alvo[]" value="Adultos"> Adultos</label>
                                 </fieldset>
-                                <input type="submit" value="Filtrar">
+                                <hr/>
+                                <fieldset class="filter_fieldset_submit">
+                                    <input class="filter_submit_btn" type="submit" value="Filtrar">
+                                </fieldset>
                             </form>
                         </section>
                     </div>
@@ -213,7 +216,7 @@
         </menu>
         <div class="catalog_body">
             <div class="catalog_products">
-            <div class="object_shield">
+                <div class="object_shield">
                     <div class="object_image_shield">
                         <img src="../IMG/livro_capa.jpg" alt="" class="object_image">
                     </div>
@@ -229,10 +232,11 @@
                             </div>
                         </div>
                         <div class="object_description">
-                            <span class="object_title">O segredo nas sombras</span>
+                            <span class="object_title">O segredo nas sombras aaaaaaaaaaaaaaaaaaaaaaa</span>
                         </div>
                     </div>
-                </div><div class="object_shield">
+                </div>
+                <div class="object_shield">
                     <div class="object_image_shield">
                         <img src="../IMG/livro_capa.jpg" alt="" class="object_image">
                     </div>
@@ -248,10 +252,11 @@
                             </div>
                         </div>
                         <div class="object_description">
-                            <span class="object_title">O segredo nas sombras</span>
+                            <span class="object_title">O segredo nas sombras aaaaaaaaaaaaaaaaaaaaaaa</span>
                         </div>
                     </div>
-                </div><div class="object_shield">
+                </div>
+                <div class="object_shield">
                     <div class="object_image_shield">
                         <img src="../IMG/livro_capa.jpg" alt="" class="object_image">
                     </div>
@@ -267,10 +272,11 @@
                             </div>
                         </div>
                         <div class="object_description">
-                            <span class="object_title">O segredo nas sombras</span>
+                            <span class="object_title">O segredo nas sombras aaaaaaaaaaaaaaaaaaaaaaa</span>
                         </div>
                     </div>
-                </div><div class="object_shield">
+                </div>
+                <div class="object_shield">
                     <div class="object_image_shield">
                         <img src="../IMG/livro_capa.jpg" alt="" class="object_image">
                     </div>
@@ -286,10 +292,11 @@
                             </div>
                         </div>
                         <div class="object_description">
-                            <span class="object_title">O segredo nas sombras</span>
+                            <span class="object_title">O segredo nas sombras aaaaaaaaaaaaaaaaaaaaaaa</span>
                         </div>
                     </div>
-                </div><div class="object_shield">
+                </div>
+                <div class="object_shield">
                     <div class="object_image_shield">
                         <img src="../IMG/livro_capa.jpg" alt="" class="object_image">
                     </div>
@@ -305,7 +312,127 @@
                             </div>
                         </div>
                         <div class="object_description">
-                            <span class="object_title">O segredo nas sombras</span>
+                            <span class="object_title">O segredo nas sombras aaaaaaaaaaaaaaaaaaaaaaa</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="object_shield">
+                    <div class="object_image_shield">
+                        <img src="../IMG/livro_capa.jpg" alt="" class="object_image">
+                    </div>
+                    <div class="object_info">
+                        <div class="object_price">
+                            <div class="object_price_current">
+                                <span class="object_ms_text object_price_symbol">R$</span>
+                                <span class="object_price_whole">140</span>
+                                <span class="object_ms_text object_price_fraction">99</span>
+                            </div>
+                            <div class="object_price_discount">
+                                <span class="object_price_whole">R$ 150,99</span>
+                            </div>
+                        </div>
+                        <div class="object_description">
+                            <span class="object_title">O segredo nas sombras aaaaaaaaaaaaaaaaaaaaaaa</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="object_shield">
+                    <div class="object_image_shield">
+                        <img src="../IMG/livro_capa.jpg" alt="" class="object_image">
+                    </div>
+                    <div class="object_info">
+                        <div class="object_price">
+                            <div class="object_price_current">
+                                <span class="object_ms_text object_price_symbol">R$</span>
+                                <span class="object_price_whole">140</span>
+                                <span class="object_ms_text object_price_fraction">99</span>
+                            </div>
+                            <div class="object_price_discount">
+                                <span class="object_price_whole">R$ 150,99</span>
+                            </div>
+                        </div>
+                        <div class="object_description">
+                            <span class="object_title">O segredo nas sombras aaaaaaaaaaaaaaaaaaaaaaa</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="object_shield">
+                    <div class="object_image_shield">
+                        <img src="../IMG/livro_capa.jpg" alt="" class="object_image">
+                    </div>
+                    <div class="object_info">
+                        <div class="object_price">
+                            <div class="object_price_current">
+                                <span class="object_ms_text object_price_symbol">R$</span>
+                                <span class="object_price_whole">140</span>
+                                <span class="object_ms_text object_price_fraction">99</span>
+                            </div>
+                            <div class="object_price_discount">
+                                <span class="object_price_whole">R$ 150,99</span>
+                            </div>
+                        </div>
+                        <div class="object_description">
+                            <span class="object_title">O segredo nas sombras aaaaaaaaaaaaaaaaaaaaaaa</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="object_shield">
+                    <div class="object_image_shield">
+                        <img src="../IMG/livro_capa.jpg" alt="" class="object_image">
+                    </div>
+                    <div class="object_info">
+                        <div class="object_price">
+                            <div class="object_price_current">
+                                <span class="object_ms_text object_price_symbol">R$</span>
+                                <span class="object_price_whole">140</span>
+                                <span class="object_ms_text object_price_fraction">99</span>
+                            </div>
+                            <div class="object_price_discount">
+                                <span class="object_price_whole">R$ 150,99</span>
+                            </div>
+                        </div>
+                        <div class="object_description">
+                            <span class="object_title">O segredo nas sombras aaaaaaaaaaaaaaaaaaaaaaa</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="object_shield">
+                    <div class="object_image_shield">
+                        <img src="../IMG/livro_capa.jpg" alt="" class="object_image">
+                    </div>
+                    <div class="object_info">
+                        <div class="object_price">
+                            <div class="object_price_current">
+                                <span class="object_ms_text object_price_symbol">R$</span>
+                                <span class="object_price_whole">140</span>
+                                <span class="object_ms_text object_price_fraction">99</span>
+                            </div>
+                            <div class="object_price_discount">
+                                <span class="object_price_whole">R$ 150,99</span>
+                            </div>
+                        </div>
+                        <div class="object_description">
+                            <span class="object_title">O segredo nas sombras aaaaaaaaaaaaaaaaaaaaaaa</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="object_shield">
+                    <div class="object_image_shield">
+                        <img src="../IMG/livro_capa.jpg" alt="" class="object_image">
+                    </div>
+                    <div class="object_info">
+                        <div class="object_price">
+                            <div class="object_price_current">
+                                <span class="object_ms_text object_price_symbol">R$</span>
+                                <span class="object_price_whole">140</span>
+                                <span class="object_ms_text object_price_fraction">99</span>
+                            </div>
+                            <div class="object_price_discount">
+                                <span class="object_price_whole">R$ 150,99</span>
+                            </div>
+                        </div>
+                        <div class="object_description">
+                            <span class="object_title">O segredo nas sombras aaaaaaaaaaaaaaaaaaaaaaa</span>
                         </div>
                     </div>
                 </div>
@@ -319,6 +446,7 @@
 <script src="../JS/CONFIG_NAV.js"></script>
 <script src="../JS/ABRE_NAV_RESPONSIVE.js"></script>
 <script src="../JS/CATALOG_MENU.js"></script>
+<script src="../JS/CATALOGO_VIEW.js"></script>
 <script>
     function abre_login() {
         window.location.href = "../index.html";

@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", () => {
     const navBtn = document.querySelector('.navbar_button');
     const navBody = document.querySelector('.navbar_body');
