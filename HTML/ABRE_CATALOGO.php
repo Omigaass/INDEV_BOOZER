@@ -116,7 +116,12 @@
                             <i class="fa-solid fa-x fa-lg" id="modal_filter_btn"></i>
                         </header>
                         <section class="modal_filter_sec">
-                            <form action="resultado.php" method="post">
+                            <form action="../PHP/PRODUCT_SELECT.php" method="post">
+                                <fieldset class="filter_fieldset" style="justify-content: center;">
+                                    <legend>Livro</legend>
+                                    <label class="label_textbox">Título do Livro<input class="textbox" type="text" name="autor"></label>
+                                </fieldset> 
+                                <hr />
                                 <fieldset class="filter_fieldset" style="justify-content: center;">
                                     <legend>Autor</legend>
                                     <label class="label_textbox">Nome do Autor<input class="textbox" type="text" name="autor"></label>
@@ -207,9 +212,102 @@
             </div>
         </menu>
         <div class="catalog_body">
-            <div class="catalog_object">
-                <div class="object">
-
+            <div class="catalog_products">
+            <div class="object_shield">
+                    <div class="object_image_shield">
+                        <img src="../IMG/livro_capa.jpg" alt="" class="object_image">
+                    </div>
+                    <div class="object_info">
+                        <div class="object_price">
+                            <div class="object_price_current">
+                                <span class="object_ms_text object_price_symbol">R$</span>
+                                <span class="object_price_whole">140</span>
+                                <span class="object_ms_text object_price_fraction">99</span>
+                            </div>
+                            <div class="object_price_discount">
+                                <span class="object_price_whole">R$ 150,99</span>
+                            </div>
+                        </div>
+                        <div class="object_description">
+                            <span class="object_title">O segredo nas sombras</span>
+                        </div>
+                    </div>
+                </div><div class="object_shield">
+                    <div class="object_image_shield">
+                        <img src="../IMG/livro_capa.jpg" alt="" class="object_image">
+                    </div>
+                    <div class="object_info">
+                        <div class="object_price">
+                            <div class="object_price_current">
+                                <span class="object_ms_text object_price_symbol">R$</span>
+                                <span class="object_price_whole">140</span>
+                                <span class="object_ms_text object_price_fraction">99</span>
+                            </div>
+                            <div class="object_price_discount">
+                                <span class="object_price_whole">R$ 150,99</span>
+                            </div>
+                        </div>
+                        <div class="object_description">
+                            <span class="object_title">O segredo nas sombras</span>
+                        </div>
+                    </div>
+                </div><div class="object_shield">
+                    <div class="object_image_shield">
+                        <img src="../IMG/livro_capa.jpg" alt="" class="object_image">
+                    </div>
+                    <div class="object_info">
+                        <div class="object_price">
+                            <div class="object_price_current">
+                                <span class="object_ms_text object_price_symbol">R$</span>
+                                <span class="object_price_whole">140</span>
+                                <span class="object_ms_text object_price_fraction">99</span>
+                            </div>
+                            <div class="object_price_discount">
+                                <span class="object_price_whole">R$ 150,99</span>
+                            </div>
+                        </div>
+                        <div class="object_description">
+                            <span class="object_title">O segredo nas sombras</span>
+                        </div>
+                    </div>
+                </div><div class="object_shield">
+                    <div class="object_image_shield">
+                        <img src="../IMG/livro_capa.jpg" alt="" class="object_image">
+                    </div>
+                    <div class="object_info">
+                        <div class="object_price">
+                            <div class="object_price_current">
+                                <span class="object_ms_text object_price_symbol">R$</span>
+                                <span class="object_price_whole">140</span>
+                                <span class="object_ms_text object_price_fraction">99</span>
+                            </div>
+                            <div class="object_price_discount">
+                                <span class="object_price_whole">R$ 150,99</span>
+                            </div>
+                        </div>
+                        <div class="object_description">
+                            <span class="object_title">O segredo nas sombras</span>
+                        </div>
+                    </div>
+                </div><div class="object_shield">
+                    <div class="object_image_shield">
+                        <img src="../IMG/livro_capa.jpg" alt="" class="object_image">
+                    </div>
+                    <div class="object_info">
+                        <div class="object_price">
+                            <div class="object_price_current">
+                                <span class="object_ms_text object_price_symbol">R$</span>
+                                <span class="object_price_whole">140</span>
+                                <span class="object_ms_text object_price_fraction">99</span>
+                            </div>
+                            <div class="object_price_discount">
+                                <span class="object_price_whole">R$ 150,99</span>
+                            </div>
+                        </div>
+                        <div class="object_description">
+                            <span class="object_title">O segredo nas sombras</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
