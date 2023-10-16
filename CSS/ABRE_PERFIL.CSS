@@ -155,4 +155,68 @@ a:hover {
       transform: translateY(-2px) rotate(-0.4deg);
       font-size: larger;
     }
-  }
+  
+#botao_teste2{ 
+     background-color: var(--card1-soft-color); 
+     box-shadow: 0px 10px 0px -4px var(--card1-default-color); 
+ }   #botao_teste i{ 
+     background-color: var(--card1-dark-color); 
+     padding: 15% 12%; 
+ }   #botao_teste:hover{ 
+     background-color: var(--card1-strong-color); 
+ }   #botao_teste:hover > a{ 
+     color: white; 
+         animation: wobble-ver-left 0.8s both; 
+ } 
+  
+ @keyframes jello-diagonal-1 { 
+     0% { 
+         transform: skew(0deg 0deg); 
+     } 
+     30% { 
+         transform: skew(20deg 20deg); 
+     } 
+     40% { 
+         transform: skew(-5deg, -5deg); 
+     } 
+     50% { 
+         transform: skew(5deg, 5deg); 
+     } 
+     65% { 
+         transform: skew(-2deg, -2deg); 
+     } 
+     75% { 
+         transform: skew(2deg, 2deg); 
+     } 
+     100% { 
+         transform: skew(0deg 0deg); 
+     } 
+ } 
+ @keyframes wobble-ver-left { 
+     0%, 
+     100% { 
+       transform: translateY(0) rotate(0); 
+       font-size: large; 
+       transform-origin: 50% 50%; 
+     } 
+     15% { 
+       transform: translateY(-10px) rotate(-2deg); 
+       font-size: larger; 
+     } 
+     30% { 
+       transform: translateY(5px) rotate(2deg); 
+       font-size: larger; 
+     } 
+     45% { 
+       transform: translateY(-5px) rotate(-1.2deg); 
+       font-size: larger; 
+     } 
+     60% { 
+       transform: translateY(3px) rotate(0.8deg); 
+       font-size: larger; 
+     } 
+     75% { 
+       transform: translateY(-2px) rotate(-0.4deg); 
+       font-size: larger; 
+     } 
+   }
