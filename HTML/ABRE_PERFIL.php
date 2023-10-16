@@ -103,6 +103,11 @@
                 <i class="fa-solid fa-cart-shopping fa-lg"></i> 
                 <a>Carrinho</a> 
             </div>
+
+            <div class="navbar_card" id="botao_teste">  
+                 <i class="fa-solid fa-cart-shopping fa-lg"></i>  
+                 <a>Carrinho</a>  
+             </div>
         </main>
         <footer class="footer_sec">
             <p>&copy; 2023 Boozer - Todos os direitos reservados.</p>
