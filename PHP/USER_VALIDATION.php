@@ -48,8 +48,12 @@ if (isset($isNotDefault) && $isNotDefault) {
     <i class="fa-solid fa-users"></i>
     <a>Usuarios</a>
     </div>';
+    $DefaultConfigBookBtn = '<div class="menu_btn book_menu">
+    <i class="fa-solid fa-layer-plus fa-lg"></i>
+    </div>';
 } else {
     $DefaultConfigMenu = '';
     $DefaultConfigNav = '';
+    $DefaultConfigBookBtn = '';
 }
 ?>
