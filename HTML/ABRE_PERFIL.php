@@ -104,7 +104,7 @@
                 <a>Carrinho</a> 
             </div>
 
-            <div class="navbar_card" id="botao_teste">  
+            <div class="navbar_card" id="botao_teste2">  
                  <i class="fa-solid fa-cart-shopping fa-lg"></i>  
                  <a>Carrinho</a>  
              </div>
