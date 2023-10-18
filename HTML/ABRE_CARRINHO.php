@@ -112,9 +112,9 @@
                         <td>R$ 120</td>
                         <td>
                         <div class="qty">
-                            <button><i class="bx bx-minus"></i></button>
+                            <button><i class="bx bx-minus"><i class="fa-solid fa-minus fa-sm"></i></i></button>
                             <span>2</span>
-                            <button><i class="bx bx-plus"></i></button>
+                            <button><i class="bx bx-plus"><i class="fa-solid fa-plus fa-sm"></i></i></button>
                         </div>
                         </td>
                         <td>R$ 240</td>
@@ -135,9 +135,9 @@
                         <td>R$ 120</td>
                         <td>
                         <div class="qty">
-                            <button><i class="bx bx-minus"></i></button>
+                            <button><i class="bx bx-minus"><i class="fa-solid fa-minus fa-sm"></i></i></button>
                             <span>2</span>
-                            <button><i class="bx bx-plus"></i></button>
+                            <button><i class="bx bx-plus"><i class="fa-solid fa-plus fa-sm"></i></i></button>
                         </div>
                         </td>
                         <td>R$ 240</td>
@@ -158,9 +158,9 @@
                         <td>R$ 120</td>
                         <td>
                         <div class="qty">
-                            <button><i class="bx bx-minus"></i></button>
+                            <button><i class="bx bx-minus"><i class="fa-solid fa-minus fa-sm"></i></i></button>
                             <span>2</span>
-                            <button><i class="bx bx-plus"></i></button>
+                            <button><i class="bx bx-plus"><i class="fa-solid fa-plus fa-sm"></i></i></button>
                         </div>
                         </td>
                         <td>R$ 240</td>
@@ -181,9 +181,9 @@
                         <td>R$ 120</td>
                         <td>
                         <div class="qty">
-                            <button><i class="bx bx-minus"></i></button>
+                            <button><i class="bx bx-minus"><i class="fa-solid fa-minus fa-sm"></i></i></button>
                             <span>2</span>
-                            <button><i class="bx bx-plus"></i></button>
+                            <button><i class="bx bx-plus"><i class="fa-solid fa-plus fa-sm"></i></i></button>
                         </div>
                         </td>
                         <td>R$ 240</td>
@@ -204,9 +204,9 @@
                         <td>R$ 120</td>
                         <td>
                         <div class="qty">
-                            <button><i class="bx bx-minus"></i></button>
+                            <button><i class="bx bx-minus"><i class="fa-solid fa-minus fa-sm"></i></i></button>
                             <span>2</span>
-                            <button><i class="bx bx-plus"></i></button>
+                            <button><i class="bx bx-plus"><i class="fa-solid fa-plus fa-sm"></i></i></button>
                         </div>
                         </td>
                         <td>R$ 240</td>

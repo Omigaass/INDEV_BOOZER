@@ -40,17 +40,22 @@ if (isset($_SESSION['USER_ID'])) {
 }
 
 if (isset($isNotDefault) && $isNotDefault) {
-    $DefaultConfigMenu = '<div class="navbar_card" id="card_usuarios">
-    <i class="fa-solid fa-users fa-lg"></i>
-    <a>Usuarios</a>
-    </div>';
-    $DefaultConfigNav = '<div class="navbar_item" id="navbar_usuarios">
-    <i class="fa-solid fa-users"></i>
-    <a>Usuarios</a>
-    </div>';
-    $DefaultConfigBookBtn = '<div class="menu_btn book_menu">
-    <i class="fa-solid fa-layer-plus fa-lg"></i>
-    </div>';
+    $DefaultConfigMenu = 
+        '<div class="navbar_card" id="card_usuarios">
+            <i class="fa-solid fa-users fa-lg"></i>
+            <a>Usuarios</a>
+        </div>';
+    $DefaultConfigNav = 
+        '<div class="navbar_item" id="navbar_usuarios">
+            <i class="fa-solid fa-users"></i>
+            <a>Usuarios</a>
+        </div>';
+    $DefaultConfigBookBtn =
+        '<div class="menu_div" style="width: 20%;">
+            <button class="menu_btn book_menu_btn">
+                <i class="fa-solid fa-file-plus fa-xl"></i>
+            </button>
+        </div>';
 } else {
     $DefaultConfigMenu = '';
     $DefaultConfigNav = '';

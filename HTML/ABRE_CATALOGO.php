@@ -104,7 +104,7 @@ if (!isset($_SESSION['USER_ID'])) {
             </section>
             <section class="menu_action">
                 <div class="menu_div" style="width: 30%;">
-                    <button class="menu_btn left-radius grid_view"><i class="fa-solid fa-grid-round-2 fa-xl"></i></button>
+                    <button class="menu_btn left-radius grid_view m_active"><i class="fa-solid fa-grid-round-2 fa-xl"></i></button>
                     <button class="menu_btn right-radius list_view"><i class="fa-solid fa-list-radio fa-xl"></i></button>
                 </div>
                 <div class="menu_div" style="width: 30%;">
@@ -115,9 +115,8 @@ if (!isset($_SESSION['USER_ID'])) {
                 <div class="menu_div" style="width: 20%;">
                     <button class="menu_btn filter_menu_btn"><i class="fa-solid fa-filter-list fa-xl"></i></button>
                 </div>
-                <div class="menu_div" style="width: 20%;">
-                    <button class="menu_btn book_menu_btn"><i class="fa-solid fa-file-plus fa-xl"></i></button>
-                </div>
+
+                <?php echo $DefaultConfigBookBtn; ?>
             </section>
         </menu>
         <!-- #endregion -->

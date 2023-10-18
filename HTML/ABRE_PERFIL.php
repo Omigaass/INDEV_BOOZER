@@ -87,7 +87,7 @@
                 ?██      ██    ██ ██  ██ ██    ██    ██      ██    ██ ██   ██ ██    ██ 
                  ?██████  ██████  ██   ████    ██    ███████  ██████  ██████   ██████   
             -->
-
+<!-- 
             <div class="profile-container">
                 <img class="profile-picture" src="perfil.jpg" alt="Imagem de Perfil">
                 <h1>Nome do Usuário</h1>
@@ -107,7 +107,7 @@
             <div class="navbar_card" id="botao_teste2">  
                  <i class="fa-solid fa-cart-shopping fa-lg"></i>  
                  <a>Carrinho</a>  
-             </div>
+             </div> -->
         </main>
         <footer class="footer_sec">
             <p>&copy; 2023 Boozer - Todos os direitos reservados.</p>

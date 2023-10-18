@@ -42,11 +42,15 @@ document.addEventListener("DOMContentLoaded", () => {
         objects.forEach((item) => {
             item.classList.add("list_view");
         });
+        grid_view.classList.remove("m_active");
+        list_view.classList.add("m_active");
     }
     function toggleGridView() {
         objects.forEach((item) => {
             item.classList.remove("list_view");
         });
+        grid_view.classList.add("m_active");
+        list_view.classList.remove("m_active");
     }
 
     grid_view.addEventListener("click", toggleGridView);
