@@ -264,153 +264,162 @@ if (!isset($_SESSION['USER_ID'])) {
     </footer>
 
     <!-- #region -->
-    <div class=" back_screen hidden"></div>
-    <modal class="filter_modal m_start hidden">
+    <div class=" back_screen "></div>
+    <modal class="filter_modal m_start">
         <div class="m_wrap">
             <section class="m_head">
                 <span class="m_title"><span>Adicionar Filtro</span></span>
                 <i class="m_close m_filter_close fa-regular fa-circle-xmark fa-xl"></i>
             </section>
             <section class="m_body">
-                <form action="" method="post">
-                    <label class="f_label" for="BOOK_TITULO">Título</label>
-                    <input class="f_input" type="text" name="BOOK_TITULO" id="BOOK_TITULO">
-
-                    <label class="f_label" for="BOOK_AUTOR">Autor</label>
-                    <input class="f_input" type="text" name="BOOK_AUTOR" id="BOOK_AUTOR">
-
-                    <label class="f_label" for="BOOK_EDITORA">Editora</label>
-                    <input class="f_input" type="text" name="BOOK_EDITORA" id="BOOK_EDITORA">
-
-                    <fieldset class="f_fieldset">
-                        <legend class="f_legend">Ano de Publicação</legend>
-                        <label class="f_label" for="BOOK_ANO_PUBLICACAO_INI">Ano Inicial</label>
-                        <input class="f_input" type="date" name="BOOK_ANO_PUBLICACAO_INI" id="BOOK_ANO_PUBLICACAO_INI">
-                        <label class="f_label" for="BOOK_ANO_PUBLICACAO_FIM">Ano Final</label>
-                        <input class="f_input" type="date" name="BOOK_ANO_PUBLICACAO_FIM" id="BOOK_ANO_PUBLICACAO_FIM">
-                    </fieldset>
-
-                    <fieldset class="f_fieldset">
-                        <legend class="f_legend">Valores</legend>
-                        <label class="f_label" for="BOOK_PRECO_MIN">Preço Mínimo</label>
-                        <input class="f_input" type="number" name="BOOK_PRECO_MIN" id="BOOK_PRECO_MIN" placeholder="R$ 000.00" step="0.01" pattern="\d{3}\.\d{2}">
-                        <label class="f_label" for="BOOK_PRECO_MAX">Preço Máximo</label>
-                        <input class="f_input" type="number" name="BOOK_PRECO_MAX" id="BOOK_PRECO_MAX" placeholder="R$ 000.00" step="0.01" pattern="\d{3}\.\d{2}">
-                    </fieldset>
+                <form class="f_body" action="" method="post">
+                    
+                <div class="form_group">
+                    <input class="form_field" type="text" name="BOOK_TITULO" id="BOOK_TITULO" placeholder="Título" required>
+                    <label class="form_label" for="BOOK_TITULO">Título</label>
+                </div>
+                <div class="form_group">
+                    <input class="form_field" type="text" name="BOOK_AUTOR" id="BOOK_AUTOR" placeholder="Autor" required>
+                    <label class="form_label" for="BOOK_AUTOR">Autor</label>
+                </div>
+                <div class="form_group">
+                    <input class="form_field" type="text" name="BOOK_EDITORA" id="BOOK_EDITORA" placeholder="Editora" required>
+                    <label class="form_label" for="BOOK_EDITORA">Editora</label>
+                </div>
+                <div class="form_group_b">
+                    <div class="form_group">
+                        <input class="form_field" type="text" name="BOOK_ANO_PUBLICACAO_INI" id="BOOK_ANO_PUBLICACAO_INI" placeholder="MM/AAAA" required onfocus="(this.type='month')">
+                        <label class="form_label" for="BOOK_ANO_PUBLICACAO_INI">Ano Inicial</label>
+                    </div>
+                    <div class="form_group">
+                        <input class="form_field" type="text" name="BOOK_ANO_PUBLICACAO_FIM" id="BOOK_ANO_PUBLICACAO_FIM" placeholder="MM/AAAA" required onfocus="(this.type='month')">
+                        <label class="form_label" for="BOOK_ANO_PUBLICACAO_FIM">Ano Final</label>
+                    </div>
+                </div>
+                <div class="form_group_b">
+                    <div class="form_group ">
+                        <input class="form_field " type="number" name="BOOK_PRECO_MIN" id="BOOK_PRECO_MIN" placeholder="R$ 000.00" step="0.01" pattern="\d{3}\.\d{2}">
+                        <label class="form_label " for="BOOK_PRECO_MIN">Preço Mínimo</label>
+                    </div>
+                    <div class="form_group ">
+                        <input class="form_field " type="number" name="BOOK_PRECO_MAX" id="BOOK_PRECO_MAX" placeholder="R$ 000.00" step="0.01" pattern="\d{3}\.\d{2}">
+                        <label class="form_label " for="BOOK_PRECO_MAX">Preço Máximo</label>
+                    </div>
+                </div>
 
                     <fieldset class="f_fieldset">
                         <legend class="f_legend">Gênero</legend>
-                        <label class="f_label_c" for="ficcao">
+                        <label class="form_label_c" for="ficcao">
                             Ficção <input class="f_checkbox" type="checkbox" name="ficcao" id="ficcao">
                         </label>
-                        <label class="f_label_c" for="romance">
+                        <label class="form_label_c" for="romance">
                             Romance <input class="f_checkbox" type="checkbox" name="romance" id="romance">
                         </label>
-                        <label class="f_label_c" for="misterio-suspense">
+                        <label class="form_label_c" for="misterio-suspense">
                             Mistério / Suspense <input class="f_checkbox" type="checkbox" name="misterio-suspense" id="misterio-suspense">
                         </label>
-                        <label class="f_label_c" for="fantasia">
+                        <label class="form_label_c" for="fantasia">
                             Fantasia <input class="f_checkbox" type="checkbox" name="fantasia" id="fantasia">
                         </label>
-                        <label class="f_label_c" for="aventura">
+                        <label class="form_label_c" for="aventura">
                             Aventura <input class="f_checkbox" type="checkbox" name="aventura" id="aventura">
                         </label>
-                        <label class="f_label_c" for="ficcao-cientifica">
+                        <label class="form_label_c" for="ficcao-cientifica">
                             Ficção Científica <input class="f_checkbox" type="checkbox" name="ficcao-cientifica" id="ficcao-cientifica">
                         </label>
-                        <label class="f_label_c" for="amizade">
+                        <label class="form_label_c" for="amizade">
                             Amizade <input class="f_checkbox" type="checkbox" name="amizade" id="amizade">
                         </label>
-                        <label class="f_label_c" for="amor">
+                        <label class="form_label_c" for="amor">
                             Amor <input class="f_checkbox" type="checkbox" name="amor" id="amor">
                         </label>
-                        <label class="f_label_c" for="historia">
+                        <label class="form_label_c" for="historia">
                             História <input class="f_checkbox" type="checkbox" name="historia" id="historia">
                         </label>
-                        <label class="f_label_c" for="biografia">
+                        <label class="form_label_c" for="biografia">
                             Biografia <input class="f_checkbox" type="checkbox" name="biografia" id="biografia">
                         </label>
-                        <label class="f_label_c" for="autoajuda">
+                        <label class="form_label_c" for="autoajuda">
                             Autoajuda <input class="f_checkbox" type="checkbox" name="autoajuda" id="autoajuda">
                         </label>
-                        <label class="f_label_c" for="crescimento-pessoal">
+                        <label class="form_label_c" for="crescimento-pessoal">
                             Crescimento Pessoal <input class="f_checkbox" type="checkbox" name="crescimento-pessoal" id="crescimento-pessoal">
                         </label>
-                        <label class="f_label_c" for="religiao">
+                        <label class="form_label_c" for="religiao">
                             Religião <input class="f_checkbox" type="checkbox" name="religiao" id="religiao">
                         </label>
-                        <label class="f_label_c" for="politica">
+                        <label class="form_label_c" for="politica">
                             Política <input class="f_checkbox" type="checkbox" name="politica" id="politica">
                         </label>
                     </fieldset>
 
                     <fieldset class="f_fieldset">
                         <legend class="f_legend">Classificação</legend>
-                        <label class="f_label_c" for="uma-estrela">
+                        <label class="form_label_c" for="uma-estrela">
                             1 Estrela <input class="f_checkbox" type="checkbox" name="uma-estrela" id="uma-estrela">
                         </label>
-                        <label class="f_label_c" for="duas-estrelas">
+                        <label class="form_label_c" for="duas-estrelas">
                             2 Estrelas <input class="f_checkbox" type="checkbox" name="duas-estrelas" id="duas-estrelas">
                         </label>
-                        <label class="f_label_c" for="tres-estrelas">
+                        <label class="form_label_c" for="tres-estrelas">
                             3 Estrelas <input class="f_checkbox" type="checkbox" name="tres-estrelas" id="tres-estrelas">
                         </label>
-                        <label class="f_label_c" for="quatro-estrelas">
+                        <label class="form_label_c" for="quatro-estrelas">
                             4 Estrelas <input class="f_checkbox" type="checkbox" name="quatro-estrelas" id="quatro-estrelas">
                         </label>
-                        <label class="f_label_c" for="cinco-estrelas">
+                        <label class="form_label_c" for="cinco-estrelas">
                             5 Estrelas <input class="f_checkbox" type="checkbox" name="cinco-estrelas" id="cinco-estrelas">
                         </label>
                     </fieldset>
 
                     <fieldset class="f_fieldset">
                         <legend class="f_legend">Idioma</legend>
-                        <label class="f_label_c" for="portugues">
+                        <label class="form_label_c" for="portugues">
                             Português <input class="f_checkbox" type="checkbox" name="portugues" id="portugues">
                         </label>
-                        <label class="f_label_c" for="ingles">
+                        <label class="form_label_c" for="ingles">
                             Inglês <input class="f_checkbox" type="checkbox" name="ingles" id="ingles">
                         </label>
-                        <label class="f_label_c" for="espanhol">
+                        <label class="form_label_c" for="espanhol">
                             Espanhol <input class="f_checkbox" type="checkbox" name="espanhol" id="espanhol">
                         </label>
                     </fieldset>
 
                     <fieldset class="f_fieldset">
                         <legend class="f_legend">Formato</legend>
-                        <label class="f_label_c" for="capa-dura">
+                        <label class="form_label_c" for="capa-dura">
                             Capa Dura <input class="f_checkbox" type="checkbox" name="capa-dura" id="capa-dura">
                         </label>
-                        <label class="f_label_c" for="capa-flexivel">
+                        <label class="form_label_c" for="capa-flexivel">
                             Capa Flexível <input class="f_checkbox" type="checkbox" name="capa-flexivel" id="capa-flexivel">
                         </label>
-                        <label class="f_label_c" for="e-book">
+                        <label class="form_label_c" for="e-book">
                             E-book <input class="f_checkbox" type="checkbox" name="e-book" id="e-book">
                         </label>
-                        <label class="f_label_c" for="audio-book">
+                        <label class="form_label_c" for="audio-book">
                             Áudio-Book <input class="f_checkbox" type="checkbox" name="audio-book" id="audio-book">
                         </label>
                     </fieldset>
 
                     <fieldset class="f_fieldset">
                         <legend class="f_legend">Disponibilidade</legend>
-                        <label class="f_label_c" for="estoque">
+                        <label class="form_label_c" for="estoque">
                             Em Estoque <input class="f_checkbox" type="checkbox" name="estoque" id="estoque">
                         </label>
-                        <label class="f_label_c" for="pre-venda">
+                        <label class="form_label_c" for="pre-venda">
                             Pré-Venda <input class="f_checkbox" type="checkbox" name="pre-venda" id="pre-venda">
                         </label>
                     </fieldset>
 
                     <fieldset class="f_fieldset">
                         <legend class="f_legend">Público-Alvo</legend>
-                        <label class="f_label_c" for="criancas">
+                        <label class="form_label_c" for="criancas">
                             Crianças <input class="f_checkbox" type="checkbox" name="criancas" id="criancas">
                         </label>
-                        <label class="f_label_c" for="adolecentes">
+                        <label class="form_label_c" for="adolecentes">
                             Adolecentes <input class="f_checkbox" type="checkbox" name="adolecentes" id="adolecentes">
                         </label>
-                        <label class="f_label_c" for="adultos">
+                        <label class="form_label_c" for="adultos">
                             Adultos <input class="f_checkbox" type="checkbox" name="adultos" id="adultos">
                         </label>
                     </fieldset>
@@ -426,93 +435,104 @@ if (!isset($_SESSION['USER_ID'])) {
     <modal class="book_add_modal m_start hidden">
         <div class="m_wrap">
             <section class="m_head">
-                <span class="m_title"><span>Adicionar Novo Livro</span></span>
+                <span class="m_title"><span><i class="fa-solid fa-book"></i>Adicionar Novo Livro</span></span>
                 <i class="m_close m_book_add_close fa-regular fa-circle-xmark fa-xl"></i>
             </section>
             <section class="m_body">
-                <form action="" method="post">
-                    <label class="f_label" for="BOOK_TITULO">Título</label>
-                    <input class="f_input" type="text" name="BOOK_TITULO" id="BOOK_TITULO">
-
-                    <label class="f_label" for="BOOK_AUTOR">Autor</label>
-                    <input class="f_input" type="text" name="BOOK_AUTOR" id="BOOK_AUTOR">
-
-                    <label class="f_label" for="BOOK_EDITORA">Editora</label>
-                    <input class="f_input" type="text" name="BOOK_EDITORA" id="BOOK_EDITORA">
-
-                    <label class="f_label" for="BOOK_ANO_PUBLICACAO">Ano de Publicação</label>
-                    <input class="f_input" type="date" name="BOOK_ANO_PUBLICACAO" id="BOOK_ANO_PUBLICACAO">
-
-                    <fieldset class="f_fieldset">
-                        <legend class="f_legend">Valores</legend>
-                        <label class="f_label" for="BOOK_PRECO">Preço</label>
-                        <input class="f_input" type="number" name="BOOK_PRECO" id="BOOK_PRECO" placeholder="R$ 000.00" step="0.01" pattern="\d{3}\.\d{2}">
-                        <label class="f_label" for="BOOK_PRECO_DESC">Preço do Desconto</label>
-                        <input class="f_input" type="number" name="BOOK_PRECO_DESC" id="BOOK_PRECO_DESC" placeholder="R$ 000.00" step="0.01" pattern="\d{3}\.\d{2}">
-                    </fieldset>
-
-                    <label class="f_label" for="selectbox1">Gênero</label>
-                    <select class="f_select" name="selectbox1" id="selectbox1">
-                        <option value="">Selecione uma Opção&hellip;</option>
-                        <option value="ficcao">Ficção</option>
-                        <option value="romance">Romance</option>
-                        <option value="misterio-suspense">Mistério / Suspense</option>
-                        <option value="fantasia">Fantasia</option>
-                        <option value="aventura">Aventura</option>
-                        <option value="ficcao-cientifica">Ficção Científica</option>
-                        <option value="amizade">Amizade</option>
-                        <option value="amor">Amor</option>
-                        <option value="historia">História</option>
-                        <option value="biografia">Biografia</option>
-                        <option value="autoajuda">Autoajuda</option>
-                        <option value="crescimento-pessoal">Crescimento Pessoal</option>
-                        <option value="religiao">Religião</option>
-                        <option value="politica">Política</option>
-                    </select>
-
-                    <label class="f_label" for="selectbox2">Classificação</label>
-                    <select class="f_select" name="selectbox2" id="selectbox2">
-                        <option value="">Selecione uma Opção&hellip;</option>
-                        <option value="uma-estrela">1 Estrela</option>
-                        <option value="duas-estrelas">2 Estrela</option>
-                        <option value="tres-estrelas">3 Estrela</option>
-                        <option value="quatro-estrelas">4 Estrela</option>
-                        <option value="cinco-estrelas">5 Estrela</option>
-                    </select>
-
-                    <label class="f_label" for="selectbox3">Idioma</label>
-                    <select class="f_select" name="selectbox3" id="selectbox3">
-                        <option value="">Selecione uma Opção&hellip;</option>
-                        <option value="portugues">Português</option>
-                        <option value="ingles">Inglês</option>
-                        <option value="espanhol">Espanhol</option>
-                    </select>
-
-                    <label class="f_label" for="selectbox4">Formato</label>
-                    <select class="f_select" name="selectbox4" id="selectbox4">
-                        <option value="">Selecione uma Opção&hellip;</option>
-                        <option value="capa-dura">Capa Dura</option>
-                        <option value="capa-flexivel">Capa Flexível</option>
-                        <option value="e-book">E-book</option>
-                        <option value="audio-book">Áudio-Book</option>
-                    </select>
-
-                    <label class="f_label" for="selectbox5">Disponibilidade</label>
-                    <select class="f_select" name="selectbox5" id="selectbox5">
-                        <option value="">Selecione uma Opção&hellip;</option>
-                        <option value="estoque">Em Estoque</option>
-                        <option value="pre-venda">Pré-Venda</option>
-                    </select>
-
-                    <label class="f_label" for="selectbox6">Público-Alvo</label>
-                    <select class="f_select" name="selectbox6" id="selectbox6">
-                        <option value="">Selecione uma Opção&hellip;</option>
-                        <option value="criancas">Crianças</option>
-                        <option value="adolecentes">Adolecentes</option>
-                        <option value="adultos">Adultos</option>
-                    </select>
+                <form class="f_body" action="" method="post">
+                    <div class="form_group">
+                        <input class="form_field" type="text" name="BOOK_TITULO" id="BOOK_TITULO" placeholder="Título" required>
+                        <label class="form_label" for="BOOK_TITULO">Título</label>
+                    </div>
+                    <div class="form_group">
+                        <input class="form_field" type="text" name="BOOK_AUTOR" id="BOOK_AUTOR" placeholder="Autor" required>
+                        <label class="form_label" for="BOOK_AUTOR">Autor</label>
+                    </div>
+                    <div class="form_group">
+                        <input class="form_field" type="text" name="BOOK_EDITORA" id="BOOK_EDITORA" placeholder="Editora" required>
+                        <label class="form_label" for="BOOK_EDITORA">Editora</label>
+                    </div>
+                    <div class="form_group">
+                        <input class="form_field" type="text" name="BOOK_ANO_PUBLICACAO" id="BOOK_ANO_PUBLICACAO" placeholder="MM/AAAA" required onfocus="(this.type='month')">
+                        <label class="form_label" for="BOOK_ANO_PUBLICACAO">Ano de Publicação</label>
+                    </div>
+                    <div class="form_group">
+                        <input class="form_field" type="number" name="BOOK_PRECO" id="BOOK_PRECO" placeholder="R$ 000.00" step="0.01" pattern="\d{3}\.\d{2}">
+                        <label class="form_label" for="BOOK_PRECO">Preço</label>
+                    </div>
+                    <div class="form_group">
+                        <input class="form_field" type="number" name="BOOK_PRECO_DESC" id="BOOK_PRECO_DESC" placeholder="R$ 000.00" step="0.01" pattern="\d{3}\.\d{2}">
+                        <label class="form_label" for="BOOK_PRECO_DESC">Preço do Desconto</label>
+                    </div>
+                    <div class="form_group form_group_select">
+                        <label class="form_label_s" for="selectbox1">Gênero</label>
+                        <select class="f_select" name="selectbox1" id="selectbox1">
+                            <option value="">Selecione uma Opção&hellip;</option>
+                            <option value="ficcao">Ficção</option>
+                            <option value="romance">Romance</option>
+                            <option value="misterio-suspense">Mistério / Suspense</option>
+                            <option value="fantasia">Fantasia</option>
+                            <option value="aventura">Aventura</option>
+                            <option value="ficcao-cientifica">Ficção Científica</option>
+                            <option value="amizade">Amizade</option>
+                            <option value="amor">Amor</option>
+                            <option value="historia">História</option>
+                            <option value="biografia">Biografia</option>
+                            <option value="autoajuda">Autoajuda</option>
+                            <option value="crescimento-pessoal">Crescimento Pessoal</option>
+                            <option value="religiao">Religião</option>
+                            <option value="politica">Política</option>
+                        </select>
+                    </div>
+                    <div class="form_group form_group_select">
+                        <label class="form_label_s" for="selectbox2">Classificação</label>
+                        <select class="f_select" name="selectbox2" id="selectbox2">
+                            <option value="">Selecione uma Opção&hellip;</option>
+                            <option value="uma-estrela">1 Estrela</option>
+                            <option value="duas-estrelas">2 Estrela</option>
+                            <option value="tres-estrelas">3 Estrela</option>
+                            <option value="quatro-estrelas">4 Estrela</option>
+                            <option value="cinco-estrelas">5 Estrela</option>
+                        </select>
+                    </div>
+                    <div class="form_group form_group_select">
+                        <label class="form_label_s" for="selectbox3">Idioma</label>
+                        <select class="f_select" name="selectbox3" id="selectbox3">
+                            <option value="">Selecione uma Opção&hellip;</option>
+                            <option value="portugues">Português</option>
+                            <option value="ingles">Inglês</option>
+                            <option value="espanhol">Espanhol</option>
+                        </select>
+                    </div>
+                    <div class="form_group form_group_select">
+                        <label class="form_label_s" for="selectbox4">Formato</label>
+                        <select class="f_select" name="selectbox4" id="selectbox4">
+                            <option value="">Selecione uma Opção&hellip;</option>
+                            <option value="capa-dura">Capa Dura</option>
+                            <option value="capa-flexivel">Capa Flexível</option>
+                            <option value="e-book">E-book</option>
+                            <option value="audio-book">Áudio-Book</option>
+                        </select>
+                    </div>
+                    <div class="form_group form_group_select">
+                        <label class="form_label_s" for="selectbox5">Disponibilidade</label>
+                        <select class="f_select" name="selectbox5" id="selectbox5">
+                            <option value="">Selecione uma Opção&hellip;</option>
+                            <option value="estoque">Em Estoque</option>
+                            <option value="pre-venda">Pré-Venda</option>
+                        </select>
+                    </div>
+                    <div class="form_group form_group_select">
+                        <label class="form_label_s" for="selectbox6">Público-Alvo</label>
+                        <select class="f_select" name="selectbox6" id="selectbox6">
+                            <option value="">Selecione uma Opção&hellip;</option>
+                            <option value="criancas">Crianças</option>
+                            <option value="adolecentes">Adolecentes</option>
+                            <option value="adultos">Adultos</option>
+                        </select>
+                    </div>
                     <div class="f_btn_div">
-                        <button class="f_btn_s" type="submit">Adicionar</button>
+                        <button class="menu_btn f_btn_s" type="submit">Adicionar</button>
                     </div>
                 </form>
             </section>

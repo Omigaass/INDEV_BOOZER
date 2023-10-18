@@ -359,6 +359,8 @@
         color: var(--azul-morno);
     }   .m_title span{
         margin-left: 5%;
+    }   .m_title i{
+        margin-right: 0.5rem;
     }
 
     .m_close{
@@ -388,6 +390,187 @@
     color: var(--azul-morno) !important;
     background-color: var(--azul-light) !important;
 }
+
+/* #region */
+.f_body{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.form_group {
+    font-family: var(--Default-font);
+    position: relative;
+    padding: 15px 0 0;
+    margin-top: 10px;
+    width: 30%;
+}
+
+.form_field {
+    font-family: var(--Default-font);
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid var(--azul-morno-dark);
+    outline: 0;
+    font-size: 1.2rem;
+    color: var(--black);
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+}
+    .form_field::placeholder {
+    color: transparent;
+}
+    .form_field:placeholder-shown ~ .form_label {
+    font-size: 1.3rem;
+    cursor: text;
+    top: 20px;
+}
+
+    .form_label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: #0c0c0c75;
+}
+
+.form_field:focus {
+    border-image: linear-gradient(to right, var(--azul-morno), var(--azul-morno-light));
+    border-image-slice: 1;
+}
+    .form_field:focus ~ .form_label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: var(--azul-morno);
+    font-weight: 700;
+}
+
+    /* reset input */
+.form_field:required, .form_field:invalid {
+    box-shadow: none;
+}
+
+.form_label_s{
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--azul-morno);
+    width: 40%;
+}
+
+.select {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    font-size: 16px;
+    color: #fff;
+    width: 60%;
+    height: 40px;
+  }
+  
+.form_group_select{
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin-top: -2rem;
+}
+
+.form_group_b{
+    font-family: var(--Default-font);
+    position: relative;
+    padding: 0;
+    margin-top: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+  .select-styled {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: var(--azul-morno-light);
+    padding: 8px 15px;
+    -moz-transition: all 0.2s ease-in;
+    -o-transition: all 0.2s ease-in;
+    -webkit-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+  }
+  .select-styled:after {
+    content: "";
+    width: 0;
+    height: 0;
+    border: 7px solid transparent;
+    border-color: #fff transparent transparent transparent;
+    position: absolute;
+    top: 16px;
+    right: 10px;
+  }
+  .select-styled:hover {
+    background-color: var(--azul-morno);
+  }
+  .select-styled:active, .select-styled.active {
+    background-color: var(--azul-morno);
+  }
+  .select-styled:active:after, .select-styled.active:after {
+    top: 9px;
+    border-color: transparent transparent #fff transparent;
+  }
+  
+  .select-options {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    z-index: 999;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background-color: var(--azul-morno-light);
+  }
+  .select-options li {
+    margin: 0;
+    padding: 0;
+    text-indent: 10%;
+    -moz-transition: all 0.15s ease-in;
+    -o-transition: all 0.15s ease-in;
+    -webkit-transition: all 0.15s ease-in;
+    transition: all 0.15s ease-in;
+  }
+  .select-options li:hover, .select-options li.is-selected {
+    color: var(--azul-escuro);
+    background: var(--azul-light);
+  }
+  .select-options li[rel="hide"] {
+    display: none;
+  }
+
+  .f_btn_div{
+    position: relative;
+    padding: 15px 0 ;
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .f_btn_s{
+    height: 40%;
+    width: 15% !important;
+    font-size: var(--default-font-size);
+    font-family: var(--Default-font);
+  }
+/* #endregion */
 
 
 /* 
