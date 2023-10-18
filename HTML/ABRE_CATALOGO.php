@@ -1,20 +1,21 @@
 <?php
-    session_start();
+session_start();
 
-    require '../PHP/USER_VALIDATION.php';
-    require '../PHP/PRODUCT_SELECT.php';
-    require '../PHP/PRODUCT_insert.php';
+require '../PHP/USER_VALIDATION.php';
+require '../PHP/PRODUCT_SELECT.php';
+require '../PHP/PRODUCT_insert.php';
 
-    // Verificar se o usuário está logado
-    if (!isset($_SESSION['USER_ID'])) {
-        $login_btn = "<button class='header_btn'><a href=../index.html>Login</a></button>";
-    } else {
-        $login_btn = "<a href=../PHP/LOGOUT.php class=header_btn><button>Sair</button></a>";
-    }
+// Verificar se o usuário está logado
+if (!isset($_SESSION['USER_ID'])) {
+    $login_btn = "<button class='header_btn'><a href=../index.html>Login</a></button>";
+} else {
+    $login_btn = "<a href=../PHP/LOGOUT.php class=header_btn><button>Sair</button></a>";
+}
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,7 +26,7 @@
     <link rel="stylesheet" href="../CSS/NAVBAR.CSS">
     <link rel="stylesheet" href="../CSS/FOOTER.CSS">
     <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/bilbo" type="text/css" />
-    <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/sniglet" type="text/css"/>    
+    <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/sniglet" type="text/css" />
 
     <!--
     ?███████  ██████  ███    ██ ████████      █████  ██     ██ ███████ ███████  ██████  ███    ███ ███████ 
@@ -40,6 +41,7 @@
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-light.css">
     <title>Boozer</title>
 </head>
+
 <body>
     <!-- 
     *██   ██ ███████  █████  ██████  ███████ ██████  
@@ -54,8 +56,8 @@
             <a href="ABRE_MENU.php">Boozer</a>
         </div>
         <div class="header_btn_sec">
-            <?php 
-                echo $login_btn;
+            <?php
+            echo $login_btn;
             ?>
         </div>
     </header>
@@ -86,7 +88,7 @@
         <div class="blue_square">
             <div class="white_square2"></div>
         </div>
-        </div>
+    </div>
     <main class="catalogo_sec">
         <!--             
             * ██████  ██████  ███    ██ ████████ ███████ ██    ██ ██████   ██████  
@@ -95,325 +97,448 @@
             *██      ██    ██ ██  ██ ██    ██    ██      ██    ██ ██   ██ ██    ██ 
             * ██████  ██████  ██   ████    ██    ███████  ██████  ██████   ██████   
         -->
+        <!-- #region -->
         <menu class="menu_sec">
-            <span class="menu_title">Catalogo Boozer</span>
-            <div class="menu_body">
-                <div class="visual_menu">
-                    <button class="menu_btn menu_grid"><i class="fa-solid fa-grid-2 fa-lg"></i></button>
-                    <button class="menu_btn menu_list"><i class="fa-solid fa-list-ul fa-lg"></i></button>
+            <section class="menu_title">
+                <span class="menu_title-s">Catalogo Boozer</span>
+            </section>
+            <section class="menu_action">
+                <div class="menu_div" style="width: 30%;">
+                    <button class="menu_btn left-radius grid_view"><i class="fa-solid fa-grid-round-2 fa-xl"></i></button>
+                    <button class="menu_btn right-radius list_view"><i class="fa-solid fa-list-radio fa-xl"></i></button>
                 </div>
-                <div class="pagination_menu">
-                    <button class="menu_btn prev_page_btn">Anterior</button>
-                    <span class="current_page"></span>
-                    <button class="menu_btn next_page_btn">Próximo</button>
+                <div class="menu_div" style="width: 30%;">
+                    <button class="menu_btn left-radius prev_page"><i class="fa-solid fa-backward fa-xl"></i></button>
+                    <span class="current_page">1</span>
+                    <button class="menu_btn right-radius next_page"><i class="fa-solid fa-forward fa-xl"></i></button>
                 </div>
-                <div class="filter_menu">
-                    <button class="menu_btn filter_btn"><i class="fa-solid fa-filter fa-lg"></i></button>
+                <div class="menu_div" style="width: 20%;">
+                    <button class="menu_btn filter_menu_btn"><i class="fa-solid fa-filter-list fa-xl"></i></button>
                 </div>
-                <?php 
-                    echo $DefaultConfigBookBtn;
-                ?>
-                <div class="back_screen hidden"></div>
-                <div class="default_modal book_modal hidden">
-                    <div class="modal_body">
-                        <header class="modal_header">
-                            <div class="modal_title">Adicionar novo Livro</div>
-                            <i class="fa-solid fa-x fa-lg" id="modal_book_btn"></i>
-                        </header>
-                        <section class="modal_book_sec">
-                        <form action="../PHP/PRODUCT_INSERT.php" method="post">
-                            <legend>Dados do Livro</legend>
-                            <div class="book_row">
-                                <div class="book_col">
-                                    <label class="book_label">Título do Livro</label>
-                                    <input class="book_input" type="text" name="BOOK_TITULO">
-                                </div>
-                                <div class="book_col">
-                                    <label class="book_label">Nome do Autor</label>
-                                    <input class="book_input" type="text" name="BOOK_AUTOR">
-                                </div>
-                                <div class="book_row">
-                                    <div class="book_col">
-                                    <label class="book_label">Editora</label>
-                                    <input class="book_input" type="text" name="BOOK_EDITORA">
-                                </div>
-                            </div>
-                            <div class="book_row">
-                                <div class="book_col">
-                                    <label class="book_label">Publicação</label>
-                                    <input class="book_input" type="date" name="BOOK_ANO_PUBLICACAO">
-                                </div>
-                                <div class="book_col">
-                                    <label class="book_label">Valor</label>
-                                    <input class="book_input" type="number" step="0.01" name="BOOK_PRECO" placeholder="R$ 00.00">
-                                </div>
-                                <div class="book_col">
-                                    <label class="book_label">Valor do Desconto</label>
-                                    <input class="book_input" type="number" step="0.01" name="BOOK_PRECO_DESC" placeholder="R$ 00.00">
-                                </div>
-                            </div>
-                            <div class="book_row">
-                                <div class="book_col">
-                                    <label class="book_label">Gênero</label>
-                                    <select id="selectbox1" name="BOOK_GENERO">
-                                        <option value="">Select an option&hellip;</option>
-                                        <option value="ficcao">Ficção</option>
-                                        <option value="romance">Romance</option>
-                                        <option value="misterio-suspense">Mistério / Suspense</option>
-                                        <option value="fantasia">Fantasia</option>
-                                        <option value="aventura">Aventura</option>
-                                        <option value="ficcao-cientifica">Ficção Científica</option>
-                                        <option value="amizade">Amizade</option>
-                                        <option value="amor">Amor</option>
-                                        <option value="hostoria">História</option>
-                                        <option value="biografia">Biografia</option>
-                                        <option value="autoajuda">Autoajuda</option>
-                                        <option value="crescimento-pessoal">Crescimento Pessoal</option>
-                                        <option value="religiao">Religião</option>
-                                        <option value="politica">Política</option>
-                                    </select>
-                                </div>
-                                <div class="book_col">
-                                    <label class="book_label">Classificação</label>
-                                    <select id="selectbox2" name="BOOK_CLASSIFICACAO">
-                                        <option value="">Select an option&hellip;</option>
-                                        <option value="uma-estrela">1 Estrela</option>
-                                        <option value="duas-estrela">2 Estrelas</option>
-                                        <option value="tres-estrela">3 Estrelas</option>
-                                        <option value="quatro-estrela">4 Estrelas</option>
-                                        <option value="cinco-estrela">5 Estrelas</option>
-                                    </select>
-                                </div>
-                                <div class="book_col">
-                                    <label class="book_label">Idioma</label>
-                                    <select id="selectbox3" name="BOOK_IDIOMA">
-                                        <option value="">Select an option&hellip;</option>
-                                        <option value="Inglês">Inglês</option>
-                                        <option value="Espanhol">Espanhol</option>
-                                        <option value="Português">Português</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="book_row">
-                                <div class="book_col">
-                                    <label class="book_label">Formato</label>
-                                    <select id="selectbox4" name="BOOK_FORMATO" >
-                                        <option value="">Select an option&hellip;</option>
-                                        <option value="Capa Dura">Capa Dura</option>
-                                        <option value="Capa Flexível">Capa Flexível</option>
-                                        <option value="E-book">E-book</option>
-                                        <option value="Áudio-livro">Áudio-livro</option>
-                                    </select>
-                                </div>
-                                <div class="book_col">
-                                    <label class="book_label">Disponibilidade</label>
-                                    <select id="selectbox5" name="BOOK_DISPONIBILIDADE" >
-                                        <option value="">Select an option&hellip;</option>
-                                        <option value="Em Estoque">Em Estoque</option>
-                                        <option value="Pré-venda">Pré-venda</option>
-                                    </select>
-                                </div>
-                                <div class="book_col">
-                                    <label class="book_label">Público-Alvo</label>
-                                    <select id="selectbox6" name="BOOK_PUBLICO_ALVO" >
-                                        <option value="">Select an option&hellip;</option>
-                                        <option value="Crianças">Crianças</option>
-                                        <option value="Adolescentes">Adolescentes</option>
-                                        <option value="Adultos">Adultos</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="book_row">
-                                <div class="book_col">
-                                    <label class="book_label">Imagem da Capa</label>
-                                    <input type="file" name="BOOK_IMAGE" id="BOOK_IMAGE">
-                                </div>
-                            </div>
-                            <input class="book_insert_btn" type="submit" value="Adicionar Livro">
-                        </form>
-                        </section>
-                    </div>
+                <div class="menu_div" style="width: 20%;">
+                    <button class="menu_btn book_menu_btn"><i class="fa-solid fa-file-plus fa-xl"></i></button>
                 </div>
-                <div class="default_modal filter_modal hidden">
-                    <div class="modal_body">
-                        <header class="modal_header">
-                            <div class="modal_title">Filtro de Livros</div>
-                            <i class="fa-solid fa-x fa-lg" id="modal_filter_btn"></i>
-                        </header>
-                        <section class="modal_filter_sec">
-                            <form action="../PHP/PRODUCT_SELECT.php" method="post">
-                                <fieldset class="filter_fieldset" style="justify-content: center;">
-                                    <legend>Livro</legend>
-                                    <label class="label_textbox">Título do Livro<input class="textbox" type="text" name="BOOK_TITULO"></label>
-                                </fieldset> 
-                                <hr />
-                                <fieldset class="filter_fieldset" style="justify-content: center;">
-                                    <legend>Autor</legend>
-                                    <label class="label_textbox">Nome do Autor<input class="textbox" type="text" name="BOOK_AUTOR"></label>
-                                </fieldset>
-                                <hr/>
-                                <fieldset class="filter_fieldset" style="justify-content: center;">
-                                    <legend>Editora</legend>
-                                    <label for="editora" class="box_big">Nome da Editora<input type="text" name="BOOK_EDITORA"></label>
-                                </fieldset>
-                                <hr/>
-                                <fieldset class="filter_fieldset" style="justify-content: center;">
-                                    <legend>Ano de Publicação</legend>
-                                    <label for="ano_publicacao_ini" class="box_middle">Ano Inicial<input class="textbox" type="text" name="BOOK_ANO_PUBLICACAO_INI"></label>
-                                    <label for="ano_publicacao_fin" class="box_middle">Ano Final<input class="textbox" type="text" name="BOOK_ANO_PUBLICACAO_FIN"></label>
-                                </fieldset>
-                                <hr/>
-                                <fieldset class="filter_fieldset" style="justify-content: center;">
-                                    <legend>Preço</legend>
-                                    <label class="box_middle">Valor Minimo<input type="number" name="BOOK_PRECO_MIN"></label>
-                                    <label class="box_middle">Valor Máximo<input type="number" name="BOOK_PRECO_MAX"></label>
-                                </fieldset>
-                                <hr/>
-                                <fieldset class="filter_fieldset">
-                                    <legend>Gênero</legend>
-                                    <label><input type="checkbox" name="BOOK_GENERO[]" value="Ficção"> Ficção</label>
-                                    <label><input type="checkbox" name="BOOK_GENERO[]" value="Não Ficção"> Não Ficção</label>
-                                    <label><input type="checkbox" name="BOOK_GENERO[]" value="Romance"> Romance</label>
-                                    <label><input type="checkbox" name="BOOK_GENERO[]" value="Mistério / Suspense"> Mistério / Suspense</label>
-                                    <label><input type="checkbox" name="BOOK_GENERO[]" value="Fantasia"> Fantasia</label>
-                                    <label><input type="checkbox" name="BOOK_GENERO[]" value="Aventura"> Aventura</label>
-                                    <label><input type="checkbox" name="BOOK_GENERO[]" value="Ficção Científica"> Ficção Científica</label>
-                                    <label><input type="checkbox" name="BOOK_GENERO[]" value="Amizade"> Amizade</label>
-                                    <label><input type="checkbox" name="BOOK_GENERO[]" value="Amor"> Amor</label>
-                                    <label><input type="checkbox" name="BOOK_GENERO[]" value="História"> História</label>
-                                    <label><input type="checkbox" name="BOOK_GENERO[]" value="Biografia"> Biografia</label>
-                                    <label><input type="checkbox" name="BOOK_GENERO[]" value="Autoajuda"> Autoajuda</label>
-                                    <label><input type="checkbox" name="BOOK_GENERO[]" value="Crescimento Pessoal"> Crescimento Pessoal</label>
-                                    <label><input type="checkbox" name="BOOK_GENERO[]" value="Religião"> Religião</label>
-                                    <label><input type="checkbox" name="BOOK_GENERO[]" value="Política"> Política</label>
-                                </fieldset>
-                                <hr/>
-                                <fieldset class="filter_fieldset">
-                                    <legend>Classificação</legend>
-                                    <label><input type="checkbox" name="BOOK_CLASSIFICACAO[]" value="uma-estrela"> 1 Estrela</label>
-                                    <label><input type="checkbox" name="BOOK_CLASSIFICACAO[]" value="duas-estrela"> 2 Estrelas</label>
-                                    <label><input type="checkbox" name="BOOK_CLASSIFICACAO[]" value="tres-estrela"> 3 Estrelas</label>
-                                    <label><input type="checkbox" name="BOOK_CLASSIFICACAO[]" value="quatro-estrela"> 4 Estrelas</label>
-                                    <label><input type="checkbox" name="BOOK_CLASSIFICACAO[]" value="cinco-estrela"> 5 Estrelas</label>
-                                </fieldset>
-                                <hr/>
-                                <fieldset class="filter_fieldset">
-                                    <legend>Idioma</legend>
-                                    <label><input type="checkbox" name="BOOK_IDIOMA[]" value="Inglês"> Inglês</label>
-                                    <label><input type="checkbox" name="BOOK_IDIOMA[]" value="Espanhol"> Espanhol</label>
-                                    <label><input type="checkbox" name="BOOK_IDIOMA[]" value="Português"> Português</label>
-                                </fieldset>
-                                <hr/>
-                                <fieldset class="filter_fieldset">
-                                    <legend>Formato</legend>
-                                    <label><input type="checkbox" name="BOOK_FORMATO[]" value="Capa Dura"> Capa Dura</label>
-                                    <label><input type="checkbox" name="BOOK_FORMATO[]" value="Capa Flexível"> Capa Flexível</label>
-                                    <label><input type="checkbox" name="BOOK_FORMATO[]" value="E-book"> E-book</label>
-                                    <label><input type="checkbox" name="BOOK_FORMATO[]" value="Áudio-livro"> Áudio-livro</label>
-                                </fieldset>
-                                <hr/>
-                                <fieldset class="filter_fieldset">
-                                    <legend>Disponibilidade</legend>
-                                    <label><input type="checkbox" name="BOOK_DISPONIBILIDADE[]" value="Em Estoque"> Em Estoque</label>
-                                    <label><input type="checkbox" name="BOOK_DISPONIBILIDADE[]" value="Pré-venda"> Pré-venda</label>
-                                </fieldset>
-                                <hr/>
-                                <fieldset class="filter_fieldset">
-                                    <legend>Público-Alvo</legend>
-                                    <label><input type="checkbox" name="BOOK_PUBLICO_ALVO[]" value="Crianças"> Crianças</label>
-                                    <label><input type="checkbox" name="BOOK_PUBLICO_ALVO[]" value="Adolescentes"> Adolescentes</label>
-                                    <label><input type="checkbox" name="BOOK_PUBLICO_ALVO[]" value="Adultos"> Adultos</label>
-                                </fieldset>
-                                <hr/>
-                                <fieldset class="filter_fieldset_submit">
-                                    <input class="filter_submit_btn" type="submit" value="Filtrar">
-                                </fieldset>
-                            </form>
-                        </section>
-                    </div>
-                </div>
-            </div>
+            </section>
         </menu>
-        <div class="catalog_body">
-            <div class="catalog_products">
-                <?php echo $product_select; ?>                
+        <!-- #endregion -->
+
+        <!-- #region -->
+        <section class="catalogo_body">
+            <div class="catalogo_table">
+                <div class="catalogo_shield">
+
+                    <div class="p_start">
+                        <div class="p_img_div">
+                            <img src="../IMG/livro_capa.jpg" class="p_img">
+                        </div>
+                        <div class="p_info_div">
+                            <div class="p_info_price">
+                                <span class="p_symble">R$</span>
+                                <span class="p_price">70.50</span>
+                                <div class="p_info_price_discount">
+                                    <span class="p_symble">R$</span>
+                                    <span class="p_price">90.50</span>
+                                </div>
+                            </div>
+                            <div class="p_info_text">
+                                <span class="p_title">Livro Boozer</span>
+                                <span class="p_autor">Autor Boozer</span>
+                                <span class="p_date">09/90</span>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="p_line"/>
+                    <div class="p_start">
+                        <div class="p_img_div">
+                            <img src="../IMG/livro_capa.jpg" class="p_img">
+                        </div>
+                        <div class="p_info_div">
+                            <div class="p_info_price">
+                                <span class="p_symble">R$</span>
+                                <span class="p_price">70.50</span>
+                                <div class="p_info_price_discount">
+                                    <span class="p_symble">R$</span>
+                                    <span class="p_price">90.50</span>
+                                </div>
+                            </div>
+                            <div class="p_info_text">
+                                <span class="p_title">Livro Boozer</span>
+                                <span class="p_autor">Autor Boozer</span>
+                                <span class="p_date">09/90</span>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="p_line"/>
+                    <div class="p_start">
+                        <div class="p_img_div">
+                            <img src="../IMG/livro_capa.jpg" class="p_img">
+                        </div>
+                        <div class="p_info_div">
+                            <div class="p_info_price">
+                                <span class="p_symble">R$</span>
+                                <span class="p_price">70.50</span>
+                                <div class="p_info_price_discount">
+                                    <span class="p_symble">R$</span>
+                                    <span class="p_price">90.50</span>
+                                </div>
+                            </div>
+                            <div class="p_info_text">
+                                <span class="p_title">Livro Boozer</span>
+                                <span class="p_autor">Autor Boozer</span>
+                                <span class="p_date">09/90</span>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="p_line"/>
+                    <div class="p_start">
+                        <div class="p_img_div">
+                            <img src="../IMG/livro_capa.jpg" class="p_img">
+                        </div>
+                        <div class="p_info_div">
+                            <div class="p_info_price">
+                                <span class="p_symble">R$</span>
+                                <span class="p_price">70.50</span>
+                                <div class="p_info_price_discount">
+                                    <span class="p_symble">R$</span>
+                                    <span class="p_price">90.50</span>
+                                </div>
+                            </div>
+                            <div class="p_info_text">
+                                <span class="p_title">Livro Boozer</span>
+                                <span class="p_autor">Autor Boozer</span>
+                                <span class="p_date">09/90</span>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="p_line"/>
+                    <div class="p_start">
+                        <div class="p_img_div">
+                            <img src="../IMG/livro_capa.jpg" class="p_img">
+                        </div>
+                        <div class="p_info_div">
+                            <div class="p_info_price">
+                                <span class="p_symble">R$</span>
+                                <span class="p_price">70.50</span>
+                                <div class="p_info_price_discount">
+                                    <span class="p_symble">R$</span>
+                                    <span class="p_price">90.50</span>
+                                </div>
+                            </div>
+                            <div class="p_info_text">
+                                <span class="p_title">Livro Boozer</span>
+                                <span class="p_autor">Autor Boozer</span>
+                                <span class="p_date">09/90</span>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="p_line"/>
+                    <div class="p_start">
+                        <div class="p_img_div">
+                            <img src="../IMG/livro_capa.jpg" class="p_img">
+                        </div>
+                        <div class="p_info_div">
+                            <div class="p_info_price">
+                                <span class="p_symble">R$</span>
+                                <span class="p_price">70.50</span>
+                                <div class="p_info_price_discount">
+                                    <span class="p_symble">R$</span>
+                                    <span class="p_price">90.50</span>
+                                </div>
+                            </div>
+                            <div class="p_info_text">
+                                <span class="p_title">Livro Boozer</span>
+                                <span class="p_autor">Autor Boozer</span>
+                                <span class="p_date">09/90</span>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="p_line"/>
+
+                </div>
             </div>
-        </div>
+        </section>
+        <!-- #endregion -->
+
     </main>
     <footer class="footer_sec">
         <p>&copy; 2023 Boozer - Todos os direitos reservados.</p>
     </footer>
+
+    <!-- #region -->
+    <div class=" back_screen hidden"></div>
+    <modal class="filter_modal m_start hidden">
+        <div class="m_wrap">
+            <section class="m_head">
+                <span class="m_title"><span>Adicionar Filtro</span></span>
+                <i class="m_close m_filter_close fa-regular fa-circle-xmark fa-xl"></i>
+            </section>
+            <section class="m_body">
+                <form action="" method="post">
+                    <label class="f_label" for="BOOK_TITULO">Título</label>
+                    <input class="f_input" type="text" name="BOOK_TITULO" id="BOOK_TITULO">
+
+                    <label class="f_label" for="BOOK_AUTOR">Autor</label>
+                    <input class="f_input" type="text" name="BOOK_AUTOR" id="BOOK_AUTOR">
+
+                    <label class="f_label" for="BOOK_EDITORA">Editora</label>
+                    <input class="f_input" type="text" name="BOOK_EDITORA" id="BOOK_EDITORA">
+
+                    <fieldset class="f_fieldset">
+                        <legend class="f_legend">Ano de Publicação</legend>
+                        <label class="f_label" for="BOOK_ANO_PUBLICACAO_INI">Ano Inicial</label>
+                        <input class="f_input" type="date" name="BOOK_ANO_PUBLICACAO_INI" id="BOOK_ANO_PUBLICACAO_INI">
+                        <label class="f_label" for="BOOK_ANO_PUBLICACAO_FIM">Ano Final</label>
+                        <input class="f_input" type="date" name="BOOK_ANO_PUBLICACAO_FIM" id="BOOK_ANO_PUBLICACAO_FIM">
+                    </fieldset>
+
+                    <fieldset class="f_fieldset">
+                        <legend class="f_legend">Valores</legend>
+                        <label class="f_label" for="BOOK_PRECO_MIN">Preço Mínimo</label>
+                        <input class="f_input" type="number" name="BOOK_PRECO_MIN" id="BOOK_PRECO_MIN" placeholder="R$ 000.00" step="0.01" pattern="\d{3}\.\d{2}">
+                        <label class="f_label" for="BOOK_PRECO_MAX">Preço Máximo</label>
+                        <input class="f_input" type="number" name="BOOK_PRECO_MAX" id="BOOK_PRECO_MAX" placeholder="R$ 000.00" step="0.01" pattern="\d{3}\.\d{2}">
+                    </fieldset>
+
+                    <fieldset class="f_fieldset">
+                        <legend class="f_legend">Gênero</legend>
+                        <label class="f_label_c" for="ficcao">
+                            Ficção <input class="f_checkbox" type="checkbox" name="ficcao" id="ficcao">
+                        </label>
+                        <label class="f_label_c" for="romance">
+                            Romance <input class="f_checkbox" type="checkbox" name="romance" id="romance">
+                        </label>
+                        <label class="f_label_c" for="misterio-suspense">
+                            Mistério / Suspense <input class="f_checkbox" type="checkbox" name="misterio-suspense" id="misterio-suspense">
+                        </label>
+                        <label class="f_label_c" for="fantasia">
+                            Fantasia <input class="f_checkbox" type="checkbox" name="fantasia" id="fantasia">
+                        </label>
+                        <label class="f_label_c" for="aventura">
+                            Aventura <input class="f_checkbox" type="checkbox" name="aventura" id="aventura">
+                        </label>
+                        <label class="f_label_c" for="ficcao-cientifica">
+                            Ficção Científica <input class="f_checkbox" type="checkbox" name="ficcao-cientifica" id="ficcao-cientifica">
+                        </label>
+                        <label class="f_label_c" for="amizade">
+                            Amizade <input class="f_checkbox" type="checkbox" name="amizade" id="amizade">
+                        </label>
+                        <label class="f_label_c" for="amor">
+                            Amor <input class="f_checkbox" type="checkbox" name="amor" id="amor">
+                        </label>
+                        <label class="f_label_c" for="historia">
+                            História <input class="f_checkbox" type="checkbox" name="historia" id="historia">
+                        </label>
+                        <label class="f_label_c" for="biografia">
+                            Biografia <input class="f_checkbox" type="checkbox" name="biografia" id="biografia">
+                        </label>
+                        <label class="f_label_c" for="autoajuda">
+                            Autoajuda <input class="f_checkbox" type="checkbox" name="autoajuda" id="autoajuda">
+                        </label>
+                        <label class="f_label_c" for="crescimento-pessoal">
+                            Crescimento Pessoal <input class="f_checkbox" type="checkbox" name="crescimento-pessoal" id="crescimento-pessoal">
+                        </label>
+                        <label class="f_label_c" for="religiao">
+                            Religião <input class="f_checkbox" type="checkbox" name="religiao" id="religiao">
+                        </label>
+                        <label class="f_label_c" for="politica">
+                            Política <input class="f_checkbox" type="checkbox" name="politica" id="politica">
+                        </label>
+                    </fieldset>
+
+                    <fieldset class="f_fieldset">
+                        <legend class="f_legend">Classificação</legend>
+                        <label class="f_label_c" for="uma-estrela">
+                            1 Estrela <input class="f_checkbox" type="checkbox" name="uma-estrela" id="uma-estrela">
+                        </label>
+                        <label class="f_label_c" for="duas-estrelas">
+                            2 Estrelas <input class="f_checkbox" type="checkbox" name="duas-estrelas" id="duas-estrelas">
+                        </label>
+                        <label class="f_label_c" for="tres-estrelas">
+                            3 Estrelas <input class="f_checkbox" type="checkbox" name="tres-estrelas" id="tres-estrelas">
+                        </label>
+                        <label class="f_label_c" for="quatro-estrelas">
+                            4 Estrelas <input class="f_checkbox" type="checkbox" name="quatro-estrelas" id="quatro-estrelas">
+                        </label>
+                        <label class="f_label_c" for="cinco-estrelas">
+                            5 Estrelas <input class="f_checkbox" type="checkbox" name="cinco-estrelas" id="cinco-estrelas">
+                        </label>
+                    </fieldset>
+
+                    <fieldset class="f_fieldset">
+                        <legend class="f_legend">Idioma</legend>
+                        <label class="f_label_c" for="portugues">
+                            Português <input class="f_checkbox" type="checkbox" name="portugues" id="portugues">
+                        </label>
+                        <label class="f_label_c" for="ingles">
+                            Inglês <input class="f_checkbox" type="checkbox" name="ingles" id="ingles">
+                        </label>
+                        <label class="f_label_c" for="espanhol">
+                            Espanhol <input class="f_checkbox" type="checkbox" name="espanhol" id="espanhol">
+                        </label>
+                    </fieldset>
+
+                    <fieldset class="f_fieldset">
+                        <legend class="f_legend">Formato</legend>
+                        <label class="f_label_c" for="capa-dura">
+                            Capa Dura <input class="f_checkbox" type="checkbox" name="capa-dura" id="capa-dura">
+                        </label>
+                        <label class="f_label_c" for="capa-flexivel">
+                            Capa Flexível <input class="f_checkbox" type="checkbox" name="capa-flexivel" id="capa-flexivel">
+                        </label>
+                        <label class="f_label_c" for="e-book">
+                            E-book <input class="f_checkbox" type="checkbox" name="e-book" id="e-book">
+                        </label>
+                        <label class="f_label_c" for="audio-book">
+                            Áudio-Book <input class="f_checkbox" type="checkbox" name="audio-book" id="audio-book">
+                        </label>
+                    </fieldset>
+
+                    <fieldset class="f_fieldset">
+                        <legend class="f_legend">Disponibilidade</legend>
+                        <label class="f_label_c" for="estoque">
+                            Em Estoque <input class="f_checkbox" type="checkbox" name="estoque" id="estoque">
+                        </label>
+                        <label class="f_label_c" for="pre-venda">
+                            Pré-Venda <input class="f_checkbox" type="checkbox" name="pre-venda" id="pre-venda">
+                        </label>
+                    </fieldset>
+
+                    <fieldset class="f_fieldset">
+                        <legend class="f_legend">Público-Alvo</legend>
+                        <label class="f_label_c" for="criancas">
+                            Crianças <input class="f_checkbox" type="checkbox" name="criancas" id="criancas">
+                        </label>
+                        <label class="f_label_c" for="adolecentes">
+                            Adolecentes <input class="f_checkbox" type="checkbox" name="adolecentes" id="adolecentes">
+                        </label>
+                        <label class="f_label_c" for="adultos">
+                            Adultos <input class="f_checkbox" type="checkbox" name="adultos" id="adultos">
+                        </label>
+                    </fieldset>
+                    <div class="f_btn_div">
+                        <button class="f_btn_s" type="submit">Filtrar</button>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </modal>
+
+    <div class=" back_screen hidden"></div>
+    <modal class="book_add_modal m_start hidden">
+        <div class="m_wrap">
+            <section class="m_head">
+                <span class="m_title"><span>Adicionar Novo Livro</span></span>
+                <i class="m_close m_book_add_close fa-regular fa-circle-xmark fa-xl"></i>
+            </section>
+            <section class="m_body">
+                <form action="" method="post">
+                    <label class="f_label" for="BOOK_TITULO">Título</label>
+                    <input class="f_input" type="text" name="BOOK_TITULO" id="BOOK_TITULO">
+
+                    <label class="f_label" for="BOOK_AUTOR">Autor</label>
+                    <input class="f_input" type="text" name="BOOK_AUTOR" id="BOOK_AUTOR">
+
+                    <label class="f_label" for="BOOK_EDITORA">Editora</label>
+                    <input class="f_input" type="text" name="BOOK_EDITORA" id="BOOK_EDITORA">
+
+                    <label class="f_label" for="BOOK_ANO_PUBLICACAO">Ano de Publicação</label>
+                    <input class="f_input" type="date" name="BOOK_ANO_PUBLICACAO" id="BOOK_ANO_PUBLICACAO">
+
+                    <fieldset class="f_fieldset">
+                        <legend class="f_legend">Valores</legend>
+                        <label class="f_label" for="BOOK_PRECO">Preço</label>
+                        <input class="f_input" type="number" name="BOOK_PRECO" id="BOOK_PRECO" placeholder="R$ 000.00" step="0.01" pattern="\d{3}\.\d{2}">
+                        <label class="f_label" for="BOOK_PRECO_DESC">Preço do Desconto</label>
+                        <input class="f_input" type="number" name="BOOK_PRECO_DESC" id="BOOK_PRECO_DESC" placeholder="R$ 000.00" step="0.01" pattern="\d{3}\.\d{2}">
+                    </fieldset>
+
+                    <label class="f_label" for="selectbox1">Gênero</label>
+                    <select class="f_select" name="selectbox1" id="selectbox1">
+                        <option value="">Selecione uma Opção&hellip;</option>
+                        <option value="ficcao">Ficção</option>
+                        <option value="romance">Romance</option>
+                        <option value="misterio-suspense">Mistério / Suspense</option>
+                        <option value="fantasia">Fantasia</option>
+                        <option value="aventura">Aventura</option>
+                        <option value="ficcao-cientifica">Ficção Científica</option>
+                        <option value="amizade">Amizade</option>
+                        <option value="amor">Amor</option>
+                        <option value="historia">História</option>
+                        <option value="biografia">Biografia</option>
+                        <option value="autoajuda">Autoajuda</option>
+                        <option value="crescimento-pessoal">Crescimento Pessoal</option>
+                        <option value="religiao">Religião</option>
+                        <option value="politica">Política</option>
+                    </select>
+
+                    <label class="f_label" for="selectbox2">Classificação</label>
+                    <select class="f_select" name="selectbox2" id="selectbox2">
+                        <option value="">Selecione uma Opção&hellip;</option>
+                        <option value="uma-estrela">1 Estrela</option>
+                        <option value="duas-estrelas">2 Estrela</option>
+                        <option value="tres-estrelas">3 Estrela</option>
+                        <option value="quatro-estrelas">4 Estrela</option>
+                        <option value="cinco-estrelas">5 Estrela</option>
+                    </select>
+
+                    <label class="f_label" for="selectbox3">Idioma</label>
+                    <select class="f_select" name="selectbox3" id="selectbox3">
+                        <option value="">Selecione uma Opção&hellip;</option>
+                        <option value="portugues">Português</option>
+                        <option value="ingles">Inglês</option>
+                        <option value="espanhol">Espanhol</option>
+                    </select>
+
+                    <label class="f_label" for="selectbox4">Formato</label>
+                    <select class="f_select" name="selectbox4" id="selectbox4">
+                        <option value="">Selecione uma Opção&hellip;</option>
+                        <option value="capa-dura">Capa Dura</option>
+                        <option value="capa-flexivel">Capa Flexível</option>
+                        <option value="e-book">E-book</option>
+                        <option value="audio-book">Áudio-Book</option>
+                    </select>
+
+                    <label class="f_label" for="selectbox5">Disponibilidade</label>
+                    <select class="f_select" name="selectbox5" id="selectbox5">
+                        <option value="">Selecione uma Opção&hellip;</option>
+                        <option value="estoque">Em Estoque</option>
+                        <option value="pre-venda">Pré-Venda</option>
+                    </select>
+
+                    <label class="f_label" for="selectbox6">Público-Alvo</label>
+                    <select class="f_select" name="selectbox6" id="selectbox6">
+                        <option value="">Selecione uma Opção&hellip;</option>
+                        <option value="criancas">Crianças</option>
+                        <option value="adolecentes">Adolecentes</option>
+                        <option value="adultos">Adultos</option>
+                    </select>
+                    <div class="f_btn_div">
+                        <button class="f_btn_s" type="submit">Adicionar</button>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </modal>
+
+    <div class=" back_screen hidden"></div>
+    <modal class="book_edit_modal m_start hidden">
+        <div class="m_wrap">
+            <section class="m_head">
+                <span class="m_title"><span>Editar Livro</span></span>
+                <i class="m_close m_book_edit_close fa-regular fa-circle-xmark fa-xl"></i>
+            </section>
+            <section class="m_body">
+                
+            </section>
+        </div>
+    </modal>
+    <!-- #endregion -->
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="../JS/SELECT_CONFIG.js"></script>
 <script src="../JS/CONFIG_NAV.js"></script>
 <script src="../JS/ABRE_NAV_RESPONSIVE.js"></script>
 <script src="../JS/CATALOG_MENU.js"></script>
-<script>
-// Iterate over each select element
-$('select').each(function () {
-
-// Cache the number of options
-var $this = $(this),
-    numberOfOptions = $(this).children('option').length;
-
-// Hides the select element
-$this.addClass('s-hidden');
-
-// Wrap the select element in a div
-$this.wrap('<div class="select"></div>');
-
-// Insert a styled div to sit over the top of the hidden select element
-$this.after('<div class="styledSelect"></div>');
-
-// Cache the styled div
-var $styledSelect = $this.next('div.styledSelect');
-
-// Show the first select option in the styled div
-$styledSelect.text($this.children('option').eq(0).text());
-
-// Insert an unordered list after the styled div and also cache the list
-var $list = $('<ul />', {
-    'class': 'options'
-}).insertAfter($styledSelect);
-
-// Insert a list item into the unordered list for each select option
-for (var i = 0; i < numberOfOptions; i++) {
-    $('<li />', {
-        text: $this.children('option').eq(i).text(),
-        rel: $this.children('option').eq(i).val()
-    }).appendTo($list);
-}
-
-// Cache the list items
-var $listItems = $list.children('li');
-
-// Show the unordered list when the styled div is clicked (also hides it if the div is clicked again)
-$styledSelect.click(function (e) {
-    e.stopPropagation();
-    $('div.styledSelect.active').each(function () {
-        $(this).removeClass('active').next('ul.options').hide();
-    });
-    $(this).toggleClass('active').next('ul.options').toggle();
-});
-
-// Hides the unordered list when a list item is clicked and updates the styled div to show the selected list item
-// Updates the select element to have the value of the equivalent option
-$listItems.click(function (e) {
-    e.stopPropagation();
-    $styledSelect.text($(this).text()).removeClass('active');
-    $this.val($(this).attr('rel'));
-    $list.hide();
-    /* alert($this.val()); Uncomment this for demonstration! */
-});
-
-// Hides the unordered list when clicking outside of it
-$(document).click(function () {
-    $styledSelect.removeClass('active');
-    $list.hide();
-});
-
-});
-</script>
 <script>
     function abre_login() {
         window.location.href = "../index.html";

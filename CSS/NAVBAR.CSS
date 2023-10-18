@@ -51,9 +51,9 @@
 }   .navbar_item:hover{
     background-color: var(--claro-light);
 }   .navbar_item:hover > i{
-    color: var(--preto);
+    color: var(--azul-escuro);
 }   .navbar_item:hover > a{
-    color: var(--preto);
+    color: var(--azul-escuro);
 }
 
 .navbar_item a{
@@ -95,7 +95,7 @@
     background-color: var(--claro-light);
     transition: all 0.3s linear;
 }   .navbar_active a , .navbar_active i{
-    color: var(--preto);
+    color: var(--azul-escuro);
 }
 
 .navbar_button{
