@@ -1,16 +1,17 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $user_name = $_POST['signup_user_input'];
-    $user_pw = $_POST['signup_password_input'];
-    $user_email = $_POST['signup_email_input'];
 
     // Conexão com o banco de dados usando MySQLi
-    $mysqli = new mysqli('localhost', 'root', '', 'boozer_db');
+    $mysqli = new mysqli('127.0.0.1', 'root', '', 'boozer_db');
 
     // Verificar a conexão
     if ($mysqli->connect_error) {
         die("Erro na conexão: " . $mysqli->connect_error);
     }
+
+    $user_name = $_POST['signup_user_input'];
+    $user_pw = $_POST['signup_password_input'];
+    $user_email = $_POST['signup_email_input'];
 
     // Consulta SQL com prepared statement para evitar SQL injection
     $query_select = "SELECT USER_NAME FROM bz_user WHERE USER_NAME = ?";

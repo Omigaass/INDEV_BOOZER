@@ -6,7 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user_pw = $_POST['login_password_input'];
 
     // Conexão com o banco de dados usando MySQLi
-    $mysqli = new mysqli('localhost', 'root', '', 'boozer_db');
+    $mysqli = new mysqli('127.0.0.1', 'root', '', 'boozer_db');
 
     // Verificar a conexão
     if ($mysqli->connect_error) {

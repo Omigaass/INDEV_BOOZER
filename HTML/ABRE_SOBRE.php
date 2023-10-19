@@ -1,5 +1,7 @@
 <?php
     session_start();
+    
+    require '../PHP/ALERT.php';
 
     if (isset($_SESSION['USER_ID'])) {
         // O cliente está logado
@@ -211,6 +213,12 @@
             <p>&copy; 2023 Boozer - Todos os direitos reservados.</p>
         </footer>
     </div>
+    <!-- #region -->
+    <div class="a_modal">
+        <span class="a_span"><?php echo $Alert_Msg; ?></span>
+        <span class="m_close a_btn"><i class="fa-regular fa-circle-xmark"></i></span>
+    </div>
+    <!-- #endregion -->
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>

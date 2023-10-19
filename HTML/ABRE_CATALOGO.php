@@ -1,16 +1,17 @@
 <?php
-session_start();
+    session_start();
 
-require '../PHP/USER_VALIDATION.php';
-require '../PHP/PRODUCT_SELECT.php';
-require '../PHP/PRODUCT_insert.php';
+    require '../PHP/USER_VALIDATION.php';
+    require '../PHP/PRODUCT_SELECT.php';
+    require '../PHP/PRODUCT_insert.php';
+    require '../PHP/ALERT.php';
 
-// Verificar se o usuário está logado
-if (!isset($_SESSION['USER_ID'])) {
-    $login_btn = "<button class='header_btn'><a href=../index.html>Login</a></button>";
-} else {
-    $login_btn = "<a href=../PHP/LOGOUT.php class=header_btn><button>Sair</button></a>";
-}
+    // Verificar se o usuário está logado
+    if (!isset($_SESSION['USER_ID'])) {
+        $login_btn = "<a href=../index.html class=header_btn><button>Login</button></a>";
+    } else {
+        $login_btn = "<a href=../PHP/LOGOUT.php class=header_btn><button>Sair</button></a>";
+    }
 ?>
 
 <!DOCTYPE html>
@@ -264,8 +265,8 @@ if (!isset($_SESSION['USER_ID'])) {
     </footer>
 
     <!-- #region -->
-    <div class=" back_screen "></div>
-    <modal class="filter_modal m_start">
+    <div class=" back_screen hidden"></div>
+    <modal class="filter_modal m_start hidden">
         <div class="m_wrap">
             <section class="m_head">
                 <span class="m_title"><span>Adicionar Filtro</span></span>
@@ -552,20 +553,18 @@ if (!isset($_SESSION['USER_ID'])) {
         </div>
     </modal>
     <!-- #endregion -->
+    <!-- #region -->
+    <div class="a_modal a_active">
+        <span class="a_span"><?php echo $Alert_Msg; ?></span>
+        <span class="m_close a_btn"><i class="fa-sharp fa-solid fa-xmark fa-xl"></i></span>
+    </div>
+    <!-- #endregion -->
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="../JS/SELECT_CONFIG.js"></script>
 <script src="../JS/CONFIG_NAV.js"></script>
 <script src="../JS/ABRE_NAV_RESPONSIVE.js"></script>
 <script src="../JS/CATALOG_MENU.js"></script>
-<script>
-    function changeInputType(inputId, newType) {
-        var inputElement = document.getElementById(inputId);
-        if (inputElement) {
-            inputElement.type = newType;
-        }
-    }
-</script>
 <script>
     function abre_login() {
         window.location.href = "../index.html";
@@ -574,5 +573,22 @@ if (!isset($_SESSION['USER_ID'])) {
     const telaId = "catalogo"
     const navbar_btn = document.getElementById(`navbar_${telaId}`);
     navbar_btn.classList.add("navbar_active");
+
+    <?php echo $DefaultConfigBookScript; ?>
+
+    var l1 = document.querySelector(".prev_page");
+    var l2 = document.querySelector(".current_page");
+    var al = l1.clientHeight;
+    l2.style.height = al + "px";
+
+    function changeInputType(inputId, newType) {
+        var inputElement = document.getElementById(inputId);
+        if (inputElement) {
+            inputElement.type = newType;
+        }
+    }
+</script>
+
+<script>
 </script>
 </html>

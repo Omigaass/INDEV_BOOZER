@@ -2,10 +2,11 @@
     session_start();
     
     require '../PHP/USER_VALIDATION.php';
+    require '../PHP/ALERT.php';
 
     // Verificar se o usuário está logado
     if (!isset($_SESSION['USER_ID'])) {
-        $login_btn = "<button class='header_btn'><a href=../index.html>Login</a></button>";
+        $login_btn = "<a href=../index.html class=header_btn><button>Login</button></a>";
     } else {
         $login_btn = "<a href=../PHP/LOGOUT.php class=header_btn><button>Sair</button></a>";
     }
@@ -243,6 +244,12 @@
             <p>&copy; 2023 Boozer - Todos os direitos reservados.</p>
         </footer>
     </div>
+    <!-- #region -->
+    <div class="a_modal">
+        <span class="a_span"><?php echo $Alert_Msg; ?></span>
+        <span class="m_close a_btn"><i class="fa-regular fa-circle-xmark"></i></span>
+    </div>
+    <!-- #endregion -->
 </body>
 <script src="https://kit.fontawesome.com/724309404c.js" crossorigin="anonymous"></script>
 <script src="../JS/CONFIG_NAV.JS"></script>

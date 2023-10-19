@@ -1,64 +1,77 @@
 <?php
-if (isset($_SESSION['USER_ID'])) {
-    // Replace with your database connection details.
-    $mysqli = new mysqli('localhost', 'root', '', 'boozer_db');
+    if (isset($_SESSION['USER_ID'])) {
+        // Replace with your database connection details.
+        $mysqli = new mysqli('127.0.0.1', 'root', '', 'boozer_db');
 
-    // Check the connection.
-    if ($mysqli->connect_error) {
-        die("Connection failed: " . $mysqli->connect_error);
-    }
-
-    // Retrieve USER_ID from the session.
-    $user_id = $_SESSION['USER_ID'];
-
-    // Prepare a SQL query to retrieve USER_TYPE.
-    $sql = "SELECT USER_TYPE FROM bz_user WHERE USER_ID = $user_id";
-
-    // Execute the query.
-    $result = $mysqli->query($sql);
-
-    // Check if the query was successful.
-    if ($result) {
-        // Fetch the row.
-        $row = $result->fetch_assoc();
-
-        // Check if USER_TYPE is 1.
-        if ($row['USER_TYPE'] == 1) {
-            $isNotDefault = true;
-        } else {
-            $isNotDefault = false;
+        // Check the connection.
+        if ($mysqli->connect_error) {
+            die("Connection failed: " . $mysqli->connect_error);
         }
 
-        // Close the database connection.
-        $mysqli->close();
-    } else {
-        echo "Error: " . $sql . "<br>" . $mysqli->error;
-    }
-} else {
-    echo "<script language='javascript' type='text/javascript'>
-    console.log('Usuário sem conta');</script>";
-}
+        // Retrieve USER_ID from the session.
+        $user_id = $_SESSION['USER_ID'];
 
-if (isset($isNotDefault) && $isNotDefault) {
-    $DefaultConfigMenu = 
-        '<div class="navbar_card" id="card_usuarios">
-            <i class="fa-solid fa-users fa-lg"></i>
-            <a>Usuarios</a>
-        </div>';
-    $DefaultConfigNav = 
-        '<div class="navbar_item" id="navbar_usuarios">
-            <i class="fa-solid fa-users"></i>
-            <a>Usuarios</a>
-        </div>';
-    $DefaultConfigBookBtn =
-        '<div class="menu_div" style="width: 20%;">
-            <button class="menu_btn book_menu_btn">
-                <i class="fa-solid fa-file-plus fa-xl"></i>
-            </button>
-        </div>';
-} else {
-    $DefaultConfigMenu = '';
-    $DefaultConfigNav = '';
-    $DefaultConfigBookBtn = '';
-}
+        // Prepare a SQL query to retrieve USER_TYPE.
+        $sql = "SELECT USER_TYPE FROM bz_user WHERE USER_ID = $user_id";
+
+        // Execute the query.
+        $result = $mysqli->query($sql);
+
+        // Check if the query was successful.
+        if ($result) {
+            // Fetch the row.
+            $row = $result->fetch_assoc();
+
+            // Check if USER_TYPE is 1.
+            if ($row['USER_TYPE'] == 1) {
+                $isNotDefault = true;
+            } else {
+                $isNotDefault = false;
+            }
+
+            // Close the database connection.
+            $mysqli->close();
+        } else {
+            echo "Error: " . $sql . "<br>" . $mysqli->error;
+        }
+    } else {
+        echo "<script language='javascript' type='text/javascript'>
+        console.log('Usuário sem conta');</script>";
+    }
+
+    if (isset($isNotDefault) && $isNotDefault) {
+        $DefaultConfigMenu = 
+            '<div class="navbar_card" id="card_usuarios">
+                <i class="fa-solid fa-users fa-lg"></i>
+                <a>Usuarios</a>
+            </div>';
+        $DefaultConfigNav = 
+            '<div class="navbar_item" id="navbar_usuarios">
+                <i class="fa-solid fa-users"></i>
+                <a>Usuarios</a>
+            </div>';
+        $DefaultConfigBookBtn =
+            '<div class="menu_div" style="width: 20%;">
+                <button class="menu_btn book_menu_btn">
+                    <i class="fa-solid fa-file-plus fa-xl"></i>
+                </button>
+            </div>';
+        $DefaultConfigBookScript = 
+            'const book_menu_btn = document.querySelector(".book_menu_btn");
+            const book_add_modal = document.querySelector(".book_add_modal");
+            const book_add_close = document.querySelector(".m_book_add_close");
+            book_menu_btn.addEventListener("click", () => {
+                book_add_modal.classList.toggle("hidden");
+                back_screen.classList.toggle("hidden");
+            });
+            book_add_close.addEventListener("click", () => {
+                book_add_modal.classList.toggle("hidden");
+                back_screen.classList.toggle("hidden");
+            });';
+    } else {
+        $DefaultConfigMenu = '';
+        $DefaultConfigNav = '';
+        $DefaultConfigBookBtn = '';
+        $DefaultConfigBookScript = '';
+    }
 ?>
