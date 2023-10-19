@@ -288,11 +288,11 @@ if (!isset($_SESSION['USER_ID'])) {
                 </div>
                 <div class="form_group_b">
                     <div class="form_group">
-                        <input class="form_field" type="text" name="BOOK_ANO_PUBLICACAO_INI" id="BOOK_ANO_PUBLICACAO_INI" placeholder="MM/AAAA" required onfocus="(this.type='month')">
+                        <input class="form_field" type="text" name="BOOK_ANO_PUBLICACAO_INI" id="BOOK_ANO_PUBLICACAO_INI" placeholder="MM/AAAA" required onfocus="changeInputType('BOOK_ANO_PUBLICACAO_INI', 'month')" onblur="changeInputType('BOOK_ANO_PUBLICACAO_INI', 'text')">
                         <label class="form_label" for="BOOK_ANO_PUBLICACAO_INI">Ano Inicial</label>
                     </div>
                     <div class="form_group">
-                        <input class="form_field" type="text" name="BOOK_ANO_PUBLICACAO_FIM" id="BOOK_ANO_PUBLICACAO_FIM" placeholder="MM/AAAA" required onfocus="(this.type='month')">
+                        <input class="form_field" type="text" name="BOOK_ANO_PUBLICACAO_FIM" id="BOOK_ANO_PUBLICACAO_FIM" placeholder="MM/AAAA" required onfocus="changeInputType('BOOK_ANO_PUBLICACAO_FIM', 'month')" onblur="changeInputType('BOOK_ANO_PUBLICACAO_FIM', 'text')">
                         <label class="form_label" for="BOOK_ANO_PUBLICACAO_FIM">Ano Final</label>
                     </div>
                 </div>
@@ -424,7 +424,7 @@ if (!isset($_SESSION['USER_ID'])) {
                         </label>
                     </fieldset>
                     <div class="f_btn_div">
-                        <button class="f_btn_s" type="submit">Filtrar</button>
+                        <button class="menu_btn f_btn_s" type="submit">Filtrar</button>
                     </div>
                 </form>
             </section>
@@ -453,7 +453,7 @@ if (!isset($_SESSION['USER_ID'])) {
                         <label class="form_label" for="BOOK_EDITORA">Editora</label>
                     </div>
                     <div class="form_group">
-                        <input class="form_field" type="text" name="BOOK_ANO_PUBLICACAO" id="BOOK_ANO_PUBLICACAO" placeholder="MM/AAAA" required onfocus="(this.type='month')">
+                        <input class="form_field" type="text" name="BOOK_ANO_PUBLICACAO" id="BOOK_ANO_PUBLICACAO" placeholder="MM/AAAA" required onfocus="changeInputType('BOOK_ANO_PUBLICACAO', 'month')" onblur="changeInputType('BOOK_ANO_PUBLICACAO', 'text')">
                         <label class="form_label" for="BOOK_ANO_PUBLICACAO">Ano de Publicação</label>
                     </div>
                     <div class="form_group">
@@ -558,6 +558,14 @@ if (!isset($_SESSION['USER_ID'])) {
 <script src="../JS/CONFIG_NAV.js"></script>
 <script src="../JS/ABRE_NAV_RESPONSIVE.js"></script>
 <script src="../JS/CATALOG_MENU.js"></script>
+<script>
+    function changeInputType(inputId, newType) {
+        var inputElement = document.getElementById(inputId);
+        if (inputElement) {
+            inputElement.type = newType;
+        }
+    }
+</script>
 <script>
     function abre_login() {
         window.location.href = "../index.html";

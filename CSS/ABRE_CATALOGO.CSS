@@ -397,6 +397,7 @@
     height: 100%;
     display: flex;
     flex-flow: row wrap;
+    overflow-y: scroll !important;
 }
 
 .form_group {

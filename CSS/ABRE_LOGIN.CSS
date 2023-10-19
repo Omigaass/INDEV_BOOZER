@@ -539,10 +539,6 @@
             animation: jello-vertical 0.9s both;
         }
 
-        .leftside_subtitle{
-            display: none;
-        }
-
         .rightside_sec{
             margin: 0;
             width: 50%;
@@ -717,10 +713,6 @@
             margin: 0;
         }   .leftside_title_slide:hover{
             animation: jello-vertical 0.9s both;
-        }
-
-        .leftside_subtitle_slide{
-            display: none;
         }
     }
 
