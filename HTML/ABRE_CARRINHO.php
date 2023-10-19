@@ -119,7 +119,7 @@
                         </td>
                         <td>R$ 240</td>
                         <td>
-                        <button class="remove"><i class="bx bx-x"></i></button>
+                        <button class="remove"><i class="bx bx-x"><i class="fa-solid fa-delete-left"></i></i></button>
                         </td>
                     </tr>
                     <tr class="tr">
@@ -142,7 +142,7 @@
                         </td>
                         <td>R$ 240</td>
                         <td>
-                        <button class="remove"><i class="bx bx-x"></i></button>
+                        <button class="remove"><i class="bx bx-x"><i class="fa-solid fa-delete-left"></i></i></button>
                         </td>
                     </tr>
                     <tr class="tr">
@@ -165,7 +165,7 @@
                         </td>
                         <td>R$ 240</td>
                         <td>
-                        <button class="remove"><i class="bx bx-x"></i></button>
+                        <button class="remove"><i class="bx bx-x"><i class="fa-solid fa-delete-left"></i></i></button>
                         </td>
                     </tr>
                     <tr class="tr">
@@ -188,7 +188,7 @@
                         </td>
                         <td>R$ 240</td>
                         <td>
-                        <button class="remove"><i class="bx bx-x"></i></button>
+                        <button class="remove"><i class="bx bx-x"><i class="fa-solid fa-delete-left"></i></i></button>
                         </td>
                     </tr>
                     <tr class="tr">
@@ -211,7 +211,7 @@
                         </td>
                         <td>R$ 240</td>
                         <td>
-                        <button class="remove"><i class="bx bx-x"></i></button>
+                        <button class="remove"><i class="bx bx-x"><i class="fa-solid fa-delete-left"></i></i></button>
                         </td>
                     </tr>
                     </tbody>
