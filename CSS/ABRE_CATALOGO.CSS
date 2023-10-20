@@ -145,7 +145,7 @@
     overflow-y: auto;
     display: flex;
     flex-wrap: wrap;
-    flex-flow: wrap;
+    align-items: flex-start;
     gap: 4%;
 }
 
@@ -328,6 +328,12 @@
     margin: 0;
 }
 
+.p_start.DefaultConfig.list_view{
+    height: calc(40% - 20px);
+    display: flex;
+    flex-direction: row;
+}
+
 .p_img_div.list_view{
     width: 10%;
     height: 100%;
@@ -405,6 +411,17 @@
     width: 100%;
 	border-top: 1px dashed #8c8b8b;
 }
+
+.p_menu.list_view{
+    width: calc(20% - 16px);
+    height: 100%;
+    padding: 0 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
 
 /* #endregion */
 

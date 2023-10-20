@@ -1,3 +1,7 @@
+:root{
+    --Default-font: snigletRegular;
+}
+
 .main_sec{
     position: fixed;
     top: 15vh;
@@ -11,19 +15,22 @@
 
 .profile-container {
     height: 70%;
+    width: 270px;
     margin: 0;
     max-width: 400px;
     background-color: rgb(119, 203, 252);
+    color: #fff;
     padding: 40px;
     border-radius: 10px;
     box-shadow: 0px 0px 10px 0px rgba(10, 9, 87, 0.1);
     text-align: center;
+    font-family: var(--Default-font);
 }
 
 .profile-picture {
     width: 150px;
     height: 150px;
-    border-radius: 50%;
+    border-radius: 100px;
     object-fit: cover;
     margin-bottom: 20px;
 }
@@ -49,19 +56,16 @@ a:hover {
 
 .profile-container button {
 	box-shadow:inset 0px 1px 0px 0px #97c4fe;
-	background:linear-gradient(to bottom, #3d94f6 5%, #1e62d0 100%);
 	background-color:#3d94f6;
 	border-radius:6px;
 	border:1px solid #337fed;
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
-	font-family:Arial;
+	font-family: var(--Default-font);
 	font-size:15px;
 	font-weight:bold;
 	padding:6px 24px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #1570cd;
 }
 
 .navbar_card{
@@ -104,6 +108,19 @@ a:hover {
     color: white;
 	animation: wobble-ver-left 0.8s both;
 }
+
+#botao_teste2{ 
+    background-color: var(--card1-soft-color); 
+    box-shadow: 0px 10px 0px -4px var(--card1-default-color); 
+}   #botao_teste i{ 
+    background-color: var(--card1-dark-color); 
+    padding: 15% 12%; 
+}   #botao_teste:hover{ 
+    background-color: var(--card1-strong-color); 
+}   #botao_teste:hover > a{ 
+    color: white; 
+        animation: wobble-ver-left 0.8s both; 
+} 
 
 @keyframes jello-diagonal-1 {
     0% {
@@ -155,19 +172,7 @@ a:hover {
       transform: translateY(-2px) rotate(-0.4deg);
       font-size: larger;
     }
-  
-#botao_teste2{ 
-     background-color: var(--card1-soft-color); 
-     box-shadow: 0px 10px 0px -4px var(--card1-default-color); 
- }   #botao_teste i{ 
-     background-color: var(--card1-dark-color); 
-     padding: 15% 12%; 
- }   #botao_teste:hover{ 
-     background-color: var(--card1-strong-color); 
- }   #botao_teste:hover > a{ 
-     color: white; 
-         animation: wobble-ver-left 0.8s both; 
- } 
+}
   
  @keyframes jello-diagonal-1 { 
      0% { 

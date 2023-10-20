@@ -86,15 +86,11 @@
                 ?██      ██    ██ ██  ██ ██    ██    ██      ██    ██ ██   ██ ██    ██ 
                  ?██████  ██████  ██   ████    ██    ███████  ██████  ██████   ██████   
             -->
-<!-- 
             <div class="profile-container">
-                <img class="profile-picture" src="perfil.jpg" alt="Imagem de Perfil">
+                <img class="profile-picture" src="https://www.promoview.com.br/uploads/2017/04/b72a1cfe.png" alt="Imagem de Perfil">
                 <h1>Nome do Usuário</h1>
                 <p>Desenvolvedor Web</p>
-                <p>Descrição pessoal ou profissional vai aqui. Pode incluir algumas informações sobre interesses, habilidades, etc.</p>
                 <p>Email: exemplo@email.com</p>
-                <p>Telefone: (123) 456-7890</p>
-                <p>Website: <a> href="https://www.exemplo.com" target="_blank">www.exemplo.com</a></p>
                 <button>editar<i class="fa-solid fa-pen"></i><class:butao></class:butao></button>
             </div>
             
@@ -106,7 +102,7 @@
             <div class="navbar_card" id="botao_teste2">  
                  <i class="fa-solid fa-cart-shopping fa-lg"></i>  
                  <a>Carrinho</a>  
-             </div> -->
+             </div>
         </main>
         <footer class="footer_sec">
             <p>&copy; 2023 Boozer - Todos os direitos reservados.</p>
