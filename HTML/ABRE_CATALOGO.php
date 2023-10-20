@@ -127,8 +127,8 @@
             <div class="catalogo_table">
                 <div class="catalogo_shield">
 
-                    <div class="p_start">
-                        <div class="p_img_div">
+                    <div class="p_start <?php echo $DefaultConfigBookMenuStyle ?>">
+                        <div class="p_img_div <?php echo $DefaultConfigBookMenuStyle ?>">
                             <img src="../IMG/livro_capa.jpg" class="p_img">
                         </div>
                         <div class="p_info_div">
@@ -146,111 +146,7 @@
                                 <span class="p_date">09/90</span>
                             </div>
                         </div>
-                    </div>
-                    <hr class="p_line"/>
-                    <div class="p_start">
-                        <div class="p_img_div">
-                            <img src="../IMG/livro_capa.jpg" class="p_img">
-                        </div>
-                        <div class="p_info_div">
-                            <div class="p_info_price">
-                                <span class="p_symble">R$</span>
-                                <span class="p_price">70.50</span>
-                                <div class="p_info_price_discount">
-                                    <span class="p_symble">R$</span>
-                                    <span class="p_price">90.50</span>
-                                </div>
-                            </div>
-                            <div class="p_info_text">
-                                <span class="p_title">Livro Boozer</span>
-                                <span class="p_autor">Autor Boozer</span>
-                                <span class="p_date">09/90</span>
-                            </div>
-                        </div>
-                    </div>
-                    <hr class="p_line"/>
-                    <div class="p_start">
-                        <div class="p_img_div">
-                            <img src="../IMG/livro_capa.jpg" class="p_img">
-                        </div>
-                        <div class="p_info_div">
-                            <div class="p_info_price">
-                                <span class="p_symble">R$</span>
-                                <span class="p_price">70.50</span>
-                                <div class="p_info_price_discount">
-                                    <span class="p_symble">R$</span>
-                                    <span class="p_price">90.50</span>
-                                </div>
-                            </div>
-                            <div class="p_info_text">
-                                <span class="p_title">Livro Boozer</span>
-                                <span class="p_autor">Autor Boozer</span>
-                                <span class="p_date">09/90</span>
-                            </div>
-                        </div>
-                    </div>
-                    <hr class="p_line"/>
-                    <div class="p_start">
-                        <div class="p_img_div">
-                            <img src="../IMG/livro_capa.jpg" class="p_img">
-                        </div>
-                        <div class="p_info_div">
-                            <div class="p_info_price">
-                                <span class="p_symble">R$</span>
-                                <span class="p_price">70.50</span>
-                                <div class="p_info_price_discount">
-                                    <span class="p_symble">R$</span>
-                                    <span class="p_price">90.50</span>
-                                </div>
-                            </div>
-                            <div class="p_info_text">
-                                <span class="p_title">Livro Boozer</span>
-                                <span class="p_autor">Autor Boozer</span>
-                                <span class="p_date">09/90</span>
-                            </div>
-                        </div>
-                    </div>
-                    <hr class="p_line"/>
-                    <div class="p_start">
-                        <div class="p_img_div">
-                            <img src="../IMG/livro_capa.jpg" class="p_img">
-                        </div>
-                        <div class="p_info_div">
-                            <div class="p_info_price">
-                                <span class="p_symble">R$</span>
-                                <span class="p_price">70.50</span>
-                                <div class="p_info_price_discount">
-                                    <span class="p_symble">R$</span>
-                                    <span class="p_price">90.50</span>
-                                </div>
-                            </div>
-                            <div class="p_info_text">
-                                <span class="p_title">Livro Boozer</span>
-                                <span class="p_autor">Autor Boozer</span>
-                                <span class="p_date">09/90</span>
-                            </div>
-                        </div>
-                    </div>
-                    <hr class="p_line"/>
-                    <div class="p_start">
-                        <div class="p_img_div">
-                            <img src="../IMG/livro_capa.jpg" class="p_img">
-                        </div>
-                        <div class="p_info_div">
-                            <div class="p_info_price">
-                                <span class="p_symble">R$</span>
-                                <span class="p_price">70.50</span>
-                                <div class="p_info_price_discount">
-                                    <span class="p_symble">R$</span>
-                                    <span class="p_price">90.50</span>
-                                </div>
-                            </div>
-                            <div class="p_info_text">
-                                <span class="p_title">Livro Boozer</span>
-                                <span class="p_autor">Autor Boozer</span>
-                                <span class="p_date">09/90</span>
-                            </div>
-                        </div>
+                        <?php echo $DefaultConfigBookMenu ?>
                     </div>
                     <hr class="p_line"/>
 
@@ -554,7 +450,7 @@
     </modal>
     <!-- #endregion -->
     <!-- #region -->
-    <div class="a_modal a_active">
+    <div class="a_modal">
         <span class="a_span"><?php echo $Alert_Msg; ?></span>
         <span class="m_close a_btn"><i class="fa-sharp fa-solid fa-xmark fa-xl"></i></span>
     </div>
@@ -587,8 +483,19 @@
             inputElement.type = newType;
         }
     }
-</script>
 
-<script>
+    const a_btn = document.querySelector(".a_btn")
+    const a_modal = document.querySelector(".a_modal");
+    
+    a_btn.addEventListener("click", () =>{
+        AlertClose();
+    });
+
+    function AlertClose() {
+        a_modal.classList.remove("a_active");
+    }
+    function AlertOpen() {
+        a_modal.classList.add("a_active");
+    }
 </script>
 </html>

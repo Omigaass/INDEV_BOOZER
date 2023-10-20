@@ -157,9 +157,19 @@
     transition: all 0.5s ease-in-out;
 }
 
+.p_start.DefaultConfig{
+    height: calc(105% - 20px);
+    display: flex;
+    flex-direction: column;
+}
+
 .p_img_div{
     width: 100%;
     height: 72%;
+}
+
+.p_img_div.DefaultConfig{
+    height: 62%;
 }
 
 .p_img{
@@ -170,7 +180,7 @@
 
 .p_info_div{
     width: 100%;
-    height: calc(28% - 8px);
+    height: calc(24% - 8px);
     padding: 8px 0 0 8px;
 }
 
@@ -219,6 +229,94 @@
 .p_line{
     display: none;
 }
+
+.p_menu{
+    width: calc(100% - 16px);
+    height: calc(15% - 8px);
+    padding: 0 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.p_btn{
+    margin: 0;
+    width: 2.4rem;
+    height: 2.4rem;
+    border: 0;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: var(--claro-dark);
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.p_btn_cap {
+    display: none;
+    background-color: #cececeaf;
+    border-radius: 4px;
+    color: var(--azul-escuro);
+    font-weight: 700;
+    font-size: 12px;
+    padding: 5px;
+    position: absolute;
+    top: -20px;
+    left: 1.5rem;
+    width: 50px;
+    text-align: center;
+    transition: all 0.3s ease;
+    z-index: 100;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.p_BookEdit{
+    color: rgb(14, 208, 14);
+}
+
+.p_BookEdit:hover {
+    background-color: var(--azul-light);
+    color: var(--azul-escuro);
+}
+
+.p_BookEdit:hover > .p_btn_cap {
+    display: flex;
+    opacity: 1;
+    transition: opacity 1s ease;
+}
+
+
+.p_BookRemove{
+    color: rgb(202, 15, 15);
+}
+
+.p_BookRemove:hover {
+    background-color: var(--azul-light);
+    color: var(--azul-escuro);
+}
+
+.p_BookRemove:hover > .p_btn_cap {
+    display: flex;
+    opacity: 1;
+    transition: opacity 1s ease;
+}
+
+.p_BookHidden{
+    color: rgb(130, 130, 130);
+}
+
+.p_BookHidden:hover {
+    background-color: var(--azul-light);
+    color: var(--azul-escuro);
+}
+
+.p_BookHidden:hover > .p_btn_cap {
+    display: flex;
+    opacity: 1;
+    transition: opacity 1s ease;
+}
+
 
 /* #region */
 .p_start.list_view{

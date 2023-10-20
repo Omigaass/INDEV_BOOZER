@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
         back_screen.classList.toggle("hidden");
     });
 
-    const objects = document.querySelectorAll(".p_start, .p_img_div, .p_info_div, .p_info_price, .p_info_price_discount, .p_symble, .p_price, .p_info_text, .p_title, .p_autor, .p_date, .p_line");
+    const objects = document.querySelectorAll(".p_start, .p_img_div, .p_info_div, .p_info_price, .p_info_price_discount, .p_symble, .p_price, .p_info_text, .p_title, .p_autor, .p_date, .p_line, .p_menu, .p_btn");
 
     function toggleListView() {
         objects.forEach((item) => {

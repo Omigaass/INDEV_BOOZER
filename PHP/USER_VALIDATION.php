@@ -68,10 +68,19 @@
                 book_add_modal.classList.toggle("hidden");
                 back_screen.classList.toggle("hidden");
             });';
+        $DefaultConfigBookMenu = 
+            '<div class="p_menu">
+                <button class="p_btn p_BookEdit"><i class="fa-solid fa-pen-to-square fa-lg"></i><span class="p_btn_cap">Editar</span></button>
+                <button class="p_btn p_BookRemove"><i class="fa-solid fa-file-xmark fa-lg"></i><span class="p_btn_cap">Remover</span></button>
+                <button class="p_btn p_BookHidden"><i class="fa-solid fa-eye-slash fa-lg"></i><span class="p_btn_cap">Ocultar</span></button>
+            </div>';
+        $DefaultConfigBookMenuStyle = 'DefaultConfig';
     } else {
         $DefaultConfigMenu = '';
         $DefaultConfigNav = '';
         $DefaultConfigBookBtn = '';
         $DefaultConfigBookScript = '';
+        $DefaultConfigBookMenu = '';
+        $DefaultConfigBookMenuStyle = '';
     }
 ?>
