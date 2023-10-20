@@ -155,12 +155,12 @@
     height: calc(100% - 20px);
     padding: 10px;
     transition: all 0.5s ease-in-out;
+    display: flex;
+    flex-direction: column;
 }
 
 .p_start.DefaultConfig{
     height: calc(105% - 20px);
-    display: flex;
-    flex-direction: column;
 }
 
 .p_img_div{
@@ -324,6 +324,7 @@
     width: calc(100% - 20px);
     height: calc(40% - 20px);
     display: flex;
+    flex-direction: row;
     padding: 10px;
     margin: 0;
 }
@@ -492,6 +493,63 @@
         height: 88%;
         margin: 0 2rem;
         box-shadow: inset 0 0 10px #a6a6a665;
+    }
+
+    .f_fieldset{
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        flex: content;
+        gap: 1rem;
+        border: 0;
+        position: relative;
+        padding: 1rem 1rem 0 1rem;
+        margin: 2rem 1rem 0 1rem;
+    }
+
+    .f_legend{
+        font-size: 24px;
+        font-family: var(--Default-font);
+        color: var(--azul-morno);
+        position: absolute;
+        top: -1rem;
+    }
+
+    .f_checkbox {
+        font-family: var(--Default-font);
+        position: relative;
+        padding: 0;
+        margin-top: 0;
+        display: flex;
+        align-items: center;
+        margin: 0;
+    }
+    .f_box {
+        width:50px;
+        height:50px;
+        position:absolute;
+        opacity:0;
+        display: flex;
+        align-items: center;
+    }
+    .f_label{
+        display:flex;
+        align-items: center;
+        font-size: var(--default-font-size);
+    }
+    .path1{
+        stroke-dasharray:400;
+        stroke-dashoffset:400;
+        transition:.5s all;
+    }
+    .path2{
+        stroke-dasharray:1800;
+        stroke-dashoffset:1800;
+        transition:.5s all;
+    }
+    .f_box:checked + label svg g path {
+        stroke-dashoffset:0;
     }
 /* #endregion */
 

@@ -8,10 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const filter_modal = document.querySelector(".filter_modal");
     const modal_filter_btn = document.querySelector(".m_filter_close");
 
-    const prev_page = document.querySelector(".prev_page_btn");
-    const current_page = document.querySelector(".current_page");
-    const next_page = document.querySelector(".next_page_btn");
-
     filter_menu_btn.addEventListener("click", () => {
         filter_modal.classList.toggle("hidden");
         back_screen.classList.toggle("hidden");
@@ -41,4 +37,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
     grid_view.addEventListener("click", toggleGridView);
     list_view.addEventListener("click", toggleListView);
+
 });

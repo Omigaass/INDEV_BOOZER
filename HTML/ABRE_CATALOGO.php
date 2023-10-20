@@ -149,6 +149,116 @@
                         <?php echo $DefaultConfigBookMenu ?>
                     </div>
                     <hr class="p_line"/>
+                    <div class="p_start <?php echo $DefaultConfigBookMenuStyle ?>">
+                        <div class="p_img_div <?php echo $DefaultConfigBookMenuStyle ?>">
+                            <img src="../IMG/livro_capa.jpg" class="p_img">
+                        </div>
+                        <div class="p_info_div">
+                            <div class="p_info_price">
+                                <span class="p_symble">R$</span>
+                                <span class="p_price">70.50</span>
+                                <div class="p_info_price_discount">
+                                    <span class="p_symble">R$</span>
+                                    <span class="p_price">90.50</span>
+                                </div>
+                            </div>
+                            <div class="p_info_text">
+                                <span class="p_title">Livro Boozer</span>
+                                <span class="p_autor">Autor Boozer</span>
+                                <span class="p_date">09/90</span>
+                            </div>
+                        </div>
+                        <?php echo $DefaultConfigBookMenu ?>
+                    </div>
+                    <hr class="p_line"/>
+                    <div class="p_start <?php echo $DefaultConfigBookMenuStyle ?>">
+                        <div class="p_img_div <?php echo $DefaultConfigBookMenuStyle ?>">
+                            <img src="../IMG/livro_capa.jpg" class="p_img">
+                        </div>
+                        <div class="p_info_div">
+                            <div class="p_info_price">
+                                <span class="p_symble">R$</span>
+                                <span class="p_price">70.50</span>
+                                <div class="p_info_price_discount">
+                                    <span class="p_symble">R$</span>
+                                    <span class="p_price">90.50</span>
+                                </div>
+                            </div>
+                            <div class="p_info_text">
+                                <span class="p_title">Livro Boozer</span>
+                                <span class="p_autor">Autor Boozer</span>
+                                <span class="p_date">09/90</span>
+                            </div>
+                        </div>
+                        <?php echo $DefaultConfigBookMenu ?>
+                    </div>
+                    <hr class="p_line"/>
+                    <div class="p_start <?php echo $DefaultConfigBookMenuStyle ?>">
+                        <div class="p_img_div <?php echo $DefaultConfigBookMenuStyle ?>">
+                            <img src="../IMG/livro_capa.jpg" class="p_img">
+                        </div>
+                        <div class="p_info_div">
+                            <div class="p_info_price">
+                                <span class="p_symble">R$</span>
+                                <span class="p_price">70.50</span>
+                                <div class="p_info_price_discount">
+                                    <span class="p_symble">R$</span>
+                                    <span class="p_price">90.50</span>
+                                </div>
+                            </div>
+                            <div class="p_info_text">
+                                <span class="p_title">Livro Boozer</span>
+                                <span class="p_autor">Autor Boozer</span>
+                                <span class="p_date">09/90</span>
+                            </div>
+                        </div>
+                        <?php echo $DefaultConfigBookMenu ?>
+                    </div>
+                    <hr class="p_line"/>
+                    <div class="p_start <?php echo $DefaultConfigBookMenuStyle ?>">
+                        <div class="p_img_div <?php echo $DefaultConfigBookMenuStyle ?>">
+                            <img src="../IMG/livro_capa.jpg" class="p_img">
+                        </div>
+                        <div class="p_info_div">
+                            <div class="p_info_price">
+                                <span class="p_symble">R$</span>
+                                <span class="p_price">70.50</span>
+                                <div class="p_info_price_discount">
+                                    <span class="p_symble">R$</span>
+                                    <span class="p_price">90.50</span>
+                                </div>
+                            </div>
+                            <div class="p_info_text">
+                                <span class="p_title">Livro Boozer</span>
+                                <span class="p_autor">Autor Boozer</span>
+                                <span class="p_date">09/90</span>
+                            </div>
+                        </div>
+                        <?php echo $DefaultConfigBookMenu ?>
+                    </div>
+                    <hr class="p_line"/>
+                    <div class="p_start <?php echo $DefaultConfigBookMenuStyle ?>">
+                        <div class="p_img_div <?php echo $DefaultConfigBookMenuStyle ?>">
+                            <img src="../IMG/livro_capa.jpg" class="p_img">
+                        </div>
+                        <div class="p_info_div">
+                            <div class="p_info_price">
+                                <span class="p_symble">R$</span>
+                                <span class="p_price">70.50</span>
+                                <div class="p_info_price_discount">
+                                    <span class="p_symble">R$</span>
+                                    <span class="p_price">90.50</span>
+                                </div>
+                            </div>
+                            <div class="p_info_text">
+                                <span class="p_title">Livro Boozer</span>
+                                <span class="p_autor">Autor Boozer</span>
+                                <span class="p_date">09/90</span>
+                            </div>
+                        </div>
+                        <?php echo $DefaultConfigBookMenu ?>
+                    </div>
+                    <hr class="p_line"/>
 
                 </div>
             </div>
@@ -206,119 +316,430 @@
 
                     <fieldset class="f_fieldset">
                         <legend class="f_legend">Gênero</legend>
-                        <label class="form_label_c" for="ficcao">
-                            Ficção <input class="f_checkbox" type="checkbox" name="ficcao" id="ficcao">
-                        </label>
-                        <label class="form_label_c" for="romance">
-                            Romance <input class="f_checkbox" type="checkbox" name="romance" id="romance">
-                        </label>
-                        <label class="form_label_c" for="misterio-suspense">
-                            Mistério / Suspense <input class="f_checkbox" type="checkbox" name="misterio-suspense" id="misterio-suspense">
-                        </label>
-                        <label class="form_label_c" for="fantasia">
-                            Fantasia <input class="f_checkbox" type="checkbox" name="fantasia" id="fantasia">
-                        </label>
-                        <label class="form_label_c" for="aventura">
-                            Aventura <input class="f_checkbox" type="checkbox" name="aventura" id="aventura">
-                        </label>
-                        <label class="form_label_c" for="ficcao-cientifica">
-                            Ficção Científica <input class="f_checkbox" type="checkbox" name="ficcao-cientifica" id="ficcao-cientifica">
-                        </label>
-                        <label class="form_label_c" for="amizade">
-                            Amizade <input class="f_checkbox" type="checkbox" name="amizade" id="amizade">
-                        </label>
-                        <label class="form_label_c" for="amor">
-                            Amor <input class="f_checkbox" type="checkbox" name="amor" id="amor">
-                        </label>
-                        <label class="form_label_c" for="historia">
-                            História <input class="f_checkbox" type="checkbox" name="historia" id="historia">
-                        </label>
-                        <label class="form_label_c" for="biografia">
-                            Biografia <input class="f_checkbox" type="checkbox" name="biografia" id="biografia">
-                        </label>
-                        <label class="form_label_c" for="autoajuda">
-                            Autoajuda <input class="f_checkbox" type="checkbox" name="autoajuda" id="autoajuda">
-                        </label>
-                        <label class="form_label_c" for="crescimento-pessoal">
-                            Crescimento Pessoal <input class="f_checkbox" type="checkbox" name="crescimento-pessoal" id="crescimento-pessoal">
-                        </label>
-                        <label class="form_label_c" for="religiao">
-                            Religião <input class="f_checkbox" type="checkbox" name="religiao" id="religiao">
-                        </label>
-                        <label class="form_label_c" for="politica">
-                            Política <input class="f_checkbox" type="checkbox" name="politica" id="politica">
-                        </label>
+
+                        <div class="f_checkbox">
+                            <input class="f_box" type="checkbox" name="ficcao" id="ficcao">
+                            <label for="ficcao" class="f_label">
+                                <svg width="45" height="45" viewbox="0 0 100 100">
+                                <rect x="30" y="20" width="45" height="45" stroke="black" fill="none" rx="10" ry="10" />
+                                    <g transform="translate(0,-952.36222)">
+                                        <path d="m 56,963 c -102,122 6,9 7,9 17,-5 -66,69 -38,52 122,-77 -7,14 18,4 29,-11 45,-43 23,-4 "
+                                        stroke="black" stroke-width="3" fill="none" class="path1" />
+                                    </g>
+                                </svg>
+                                <span>Ficção</span>
+                            </label>
+                        </div>
+                        <div class="f_checkbox">
+                            <input class="f_box" type="checkbox" name="romance" id="romance">
+                            <label for="romance" class="f_label">
+                                <svg width="45" height="45" viewbox="0 0 100 100">
+                                <rect x="30" y="20" width="45" height="45" stroke="black" fill="none" rx="10" ry="10" />
+                                    <g transform="translate(0,-952.36222)">
+                                        <path d="m 56,963 c -102,122 6,9 7,9 17,-5 -66,69 -38,52 122,-77 -7,14 18,4 29,-11 45,-43 23,-4 "
+                                        stroke="black" stroke-width="3" fill="none" class="path1" />
+                                    </g>
+                                </svg>
+                                <span>Romance</span>
+                            </label>
+                        </div>
+                        <div class="f_checkbox">
+                            <input class="f_box" type="checkbox" name="misterio-suspense" id="misterio-suspense">
+                            <label for="misterio-suspense" class="f_label">
+                                <svg width="45" height="45" viewbox="0 0 100 100">
+                                <rect x="30" y="20" width="45" height="45" stroke="black" fill="none" rx="10" ry="10" />
+                                    <g transform="translate(0,-952.36222)">
+                                        <path d="m 56,963 c -102,122 6,9 7,9 17,-5 -66,69 -38,52 122,-77 -7,14 18,4 29,-11 45,-43 23,-4 "
+                                        stroke="black" stroke-width="3" fill="none" class="path1" />
+                                    </g>
+                                </svg>
+                                <span>Mistério / Suspense</span>
+                            </label>
+                        </div>
+                        <div class="f_checkbox">
+                            <input class="f_box" type="checkbox" name="fantasia" id="fantasia">
+                            <label for="fantasia" class="f_label">
+                                <svg width="45" height="45" viewbox="0 0 100 100">
+                                <rect x="30" y="20" width="45" height="45" stroke="black" fill="none" rx="10" ry="10" />
+                                    <g transform="translate(0,-952.36222)">
+                                        <path d="m 56,963 c -102,122 6,9 7,9 17,-5 -66,69 -38,52 122,-77 -7,14 18,4 29,-11 45,-43 23,-4 "
+                                        stroke="black" stroke-width="3" fill="none" class="path1" />
+                                    </g>
+                                </svg>
+                                <span>Fantasia</span>
+                            </label>
+                        </div>
+                        <div class="f_checkbox">
+                            <input class="f_box" type="checkbox" name="aventura" id="aventura">
+                            <label for="aventura" class="f_label">
+                                <svg width="45" height="45" viewbox="0 0 100 100">
+                                <rect x="30" y="20" width="45" height="45" stroke="black" fill="none" rx="10" ry="10" />
+                                    <g transform="translate(0,-952.36222)">
+                                        <path d="m 56,963 c -102,122 6,9 7,9 17,-5 -66,69 -38,52 122,-77 -7,14 18,4 29,-11 45,-43 23,-4 "
+                                        stroke="black" stroke-width="3" fill="none" class="path1" />
+                                    </g>
+                                </svg>
+                                <span>Aventura</span>
+                            </label>
+                        </div>
+                        <div class="f_checkbox">
+                            <input class="f_box" type="checkbox" name="ficcao-cientifica" id="ficcao-cientifica">
+                            <label for="ficcao-cientifica" class="f_label">
+                                <svg width="45" height="45" viewbox="0 0 100 100">
+                                <rect x="30" y="20" width="45" height="45" stroke="black" fill="none" rx="10" ry="10" />
+                                    <g transform="translate(0,-952.36222)">
+                                        <path d="m 56,963 c -102,122 6,9 7,9 17,-5 -66,69 -38,52 122,-77 -7,14 18,4 29,-11 45,-43 23,-4 "
+                                        stroke="black" stroke-width="3" fill="none" class="path1" />
+                                    </g>
+                                </svg>
+                                <span>Ficção Científica</span>
+                            </label>
+                        </div>
+                        <div class="f_checkbox">
+                            <input class="f_box" type="checkbox" name="amizade" id="amizade">
+                            <label for="amizade" class="f_label">
+                                <svg width="45" height="45" viewbox="0 0 100 100">
+                                <rect x="30" y="20" width="45" height="45" stroke="black" fill="none" rx="10" ry="10" />
+                                    <g transform="translate(0,-952.36222)">
+                                        <path d="m 56,963 c -102,122 6,9 7,9 17,-5 -66,69 -38,52 122,-77 -7,14 18,4 29,-11 45,-43 23,-4 "
+                                        stroke="black" stroke-width="3" fill="none" class="path1" />
+                                    </g>
+                                </svg>
+                                <span>Amizade</span>
+                            </label>
+                        </div>
+                        <div class="f_checkbox">
+                            <input class="f_box" type="checkbox" name="amor" id="amor">
+                            <label for="amor" class="f_label">
+                                <svg width="45" height="45" viewbox="0 0 100 100">
+                                <rect x="30" y="20" width="45" height="45" stroke="black" fill="none" rx="10" ry="10" />
+                                    <g transform="translate(0,-952.36222)">
+                                        <path d="m 56,963 c -102,122 6,9 7,9 17,-5 -66,69 -38,52 122,-77 -7,14 18,4 29,-11 45,-43 23,-4 "
+                                        stroke="black" stroke-width="3" fill="none" class="path1" />
+                                    </g>
+                                </svg>
+                                <span>Amor</span>
+                            </label>
+                        </div>
+                        <div class="f_checkbox">
+                            <input class="f_box" type="checkbox" name="historia" id="historia">
+                            <label for="historia" class="f_label">
+                                <svg width="45" height="45" viewbox="0 0 100 100">
+                                <rect x="30" y="20" width="45" height="45" stroke="black" fill="none" rx="10" ry="10" />
+                                    <g transform="translate(0,-952.36222)">
+                                        <path d="m 56,963 c -102,122 6,9 7,9 17,-5 -66,69 -38,52 122,-77 -7,14 18,4 29,-11 45,-43 23,-4 "
+                                        stroke="black" stroke-width="3" fill="none" class="path1" />
+                                    </g>
+                                </svg>
+                                <span>História</span>
+                            </label>
+                        </div>
+                        <div class="f_checkbox">
+                            <input class="f_box" type="checkbox" name="biografia" id="biografia">
+                            <label for="biografia" class="f_label">
+                                <svg width="45" height="45" viewbox="0 0 100 100">
+                                <rect x="30" y="20" width="45" height="45" stroke="black" fill="none" rx="10" ry="10" />
+                                    <g transform="translate(0,-952.36222)">
+                                        <path d="m 56,963 c -102,122 6,9 7,9 17,-5 -66,69 -38,52 122,-77 -7,14 18,4 29,-11 45,-43 23,-4 "
+                                        stroke="black" stroke-width="3" fill="none" class="path1" />
+                                    </g>
+                                </svg>
+                                <span>Biografia</span>
+                            </label>
+                        </div>
+                        <div class="f_checkbox">
+                            <input class="f_box" type="checkbox" name="autoajuda" id="autoajuda">
+                            <label for="autoajuda" class="f_label">
+                                <svg width="45" height="45" viewbox="0 0 100 100">
+                                <rect x="30" y="20" width="45" height="45" stroke="black" fill="none" rx="10" ry="10" />
+                                    <g transform="translate(0,-952.36222)">
+                                        <path d="m 56,963 c -102,122 6,9 7,9 17,-5 -66,69 -38,52 122,-77 -7,14 18,4 29,-11 45,-43 23,-4 "
+                                        stroke="black" stroke-width="3" fill="none" class="path1" />
+                                    </g>
+                                </svg>
+                                <span>Autoajuda</span>
+                            </label>
+                        </div>
+                        <div class="f_checkbox">
+                            <input class="f_box" type="checkbox" name="crescimento-pessoal" id="crescimento-pessoal">
+                            <label for="crescimento-pessoal" class="f_label">
+                                <svg width="45" height="45" viewbox="0 0 100 100">
+                                <rect x="30" y="20" width="45" height="45" stroke="black" fill="none" rx="10" ry="10" />
+                                    <g transform="translate(0,-952.36222)">
+                                        <path d="m 56,963 c -102,122 6,9 7,9 17,-5 -66,69 -38,52 122,-77 -7,14 18,4 29,-11 45,-43 23,-4 "
+                                        stroke="black" stroke-width="3" fill="none" class="path1" />
+                                    </g>
+                                </svg>
+                                <span>Crescimento Pessoal</span>
+                            </label>
+                        </div>
+                        <div class="f_checkbox">
+                            <input class="f_box" type="checkbox" name="religiao" id="religiao">
+                            <label for="religiao" class="f_label">
+                                <svg width="45" height="45" viewbox="0 0 100 100">
+                                <rect x="30" y="20" width="45" height="45" stroke="black" fill="none" rx="10" ry="10" />
+                                    <g transform="translate(0,-952.36222)">
+                                        <path d="m 56,963 c -102,122 6,9 7,9 17,-5 -66,69 -38,52 122,-77 -7,14 18,4 29,-11 45,-43 23,-4 "
+                                        stroke="black" stroke-width="3" fill="none" class="path1" />
+                                    </g>
+                                </svg>
+                                <span>Religião</span>
+                            </label>
+                        </div>
+                        <div class="f_checkbox">
+                            <input class="f_box" type="checkbox" name="politica" id="politica">
+                            <label for="politica" class="f_label">
+                                <svg width="45" height="45" viewbox="0 0 100 100">
+                                <rect x="30" y="20" width="45" height="45" stroke="black" fill="none" rx="10" ry="10" />
+                                    <g transform="translate(0,-952.36222)">
+                                        <path d="m 56,963 c -102,122 6,9 7,9 17,-5 -66,69 -38,52 122,-77 -7,14 18,4 29,-11 45,-43 23,-4 "
+                                        stroke="black" stroke-width="3" fill="none" class="path1" />
+                                    </g>
+                                </svg>
+                                <span>Política</span>
+                            </label>
+                        </div>
                     </fieldset>
 
                     <fieldset class="f_fieldset">
                         <legend class="f_legend">Classificação</legend>
-                        <label class="form_label_c" for="uma-estrela">
-                            1 Estrela <input class="f_checkbox" type="checkbox" name="uma-estrela" id="uma-estrela">
-                        </label>
-                        <label class="form_label_c" for="duas-estrelas">
-                            2 Estrelas <input class="f_checkbox" type="checkbox" name="duas-estrelas" id="duas-estrelas">
-                        </label>
-                        <label class="form_label_c" for="tres-estrelas">
-                            3 Estrelas <input class="f_checkbox" type="checkbox" name="tres-estrelas" id="tres-estrelas">
-                        </label>
-                        <label class="form_label_c" for="quatro-estrelas">
-                            4 Estrelas <input class="f_checkbox" type="checkbox" name="quatro-estrelas" id="quatro-estrelas">
-                        </label>
-                        <label class="form_label_c" for="cinco-estrelas">
-                            5 Estrelas <input class="f_checkbox" type="checkbox" name="cinco-estrelas" id="cinco-estrelas">
-                        </label>
+                        <div class="f_checkbox">
+                            <input class="f_box" type="checkbox" name="uma-estrela" id="uma-estrela">
+                            <label for="uma-estrela" class="f_label">
+                                <svg width="45" height="45" viewbox="0 0 100 100">
+                                <rect x="30" y="20" width="45" height="45" stroke="black" fill="none" rx="10" ry="10" />
+                                    <g transform="translate(0,-952.36222)">
+                                        <path d="m 56,963 c -102,122 6,9 7,9 17,-5 -66,69 -38,52 122,-77 -7,14 18,4 29,-11 45,-43 23,-4 "
+                                        stroke="black" stroke-width="3" fill="none" class="path1" />
+                                    </g>
+                                </svg>
+                                <span>1 Estrela</span>
+                            </label>
+                        </div>
+                        <div class="f_checkbox">
+                            <input class="f_box" type="checkbox" name="duas-estrelas" id="duas-estrelas">
+                            <label for="duas-estrelas" class="f_label">
+                                <svg width="45" height="45" viewbox="0 0 100 100">
+                                <rect x="30" y="20" width="45" height="45" stroke="black" fill="none" rx="10" ry="10" />
+                                    <g transform="translate(0,-952.36222)">
+                                        <path d="m 56,963 c -102,122 6,9 7,9 17,-5 -66,69 -38,52 122,-77 -7,14 18,4 29,-11 45,-43 23,-4 "
+                                        stroke="black" stroke-width="3" fill="none" class="path1" />
+                                    </g>
+                                </svg>
+                                <span>2 Estrela</span>
+                            </label>
+                        </div>
+                        <div class="f_checkbox">
+                            <input class="f_box" type="checkbox" name="tres-estrelas" id="tres-estrelas">
+                            <label for="tres-estrelas" class="f_label">
+                                <svg width="45" height="45" viewbox="0 0 100 100">
+                                <rect x="30" y="20" width="45" height="45" stroke="black" fill="none" rx="10" ry="10" />
+                                    <g transform="translate(0,-952.36222)">
+                                        <path d="m 56,963 c -102,122 6,9 7,9 17,-5 -66,69 -38,52 122,-77 -7,14 18,4 29,-11 45,-43 23,-4 "
+                                        stroke="black" stroke-width="3" fill="none" class="path1" />
+                                    </g>
+                                </svg>
+                                <span>3 Estrela</span>
+                            </label>
+                        </div>
+                        <div class="f_checkbox">
+                            <input class="f_box" type="checkbox" name="quatro-estrelas" id="quatro-estrelas">
+                            <label for="quatro-estrelas" class="f_label">
+                                <svg width="45" height="45" viewbox="0 0 100 100">
+                                <rect x="30" y="20" width="45" height="45" stroke="black" fill="none" rx="10" ry="10" />
+                                    <g transform="translate(0,-952.36222)">
+                                        <path d="m 56,963 c -102,122 6,9 7,9 17,-5 -66,69 -38,52 122,-77 -7,14 18,4 29,-11 45,-43 23,-4 "
+                                        stroke="black" stroke-width="3" fill="none" class="path1" />
+                                    </g>
+                                </svg>
+                                <span>4 Estrela</span>
+                            </label>
+                        </div>
+                        <div class="f_checkbox">
+                            <input class="f_box" type="checkbox" name="cinco-estrelas" id="cinco-estrelas">
+                            <label for="cinco-estrelas" class="f_label">
+                                <svg width="45" height="45" viewbox="0 0 100 100">
+                                <rect x="30" y="20" width="45" height="45" stroke="black" fill="none" rx="10" ry="10" />
+                                    <g transform="translate(0,-952.36222)">
+                                        <path d="m 56,963 c -102,122 6,9 7,9 17,-5 -66,69 -38,52 122,-77 -7,14 18,4 29,-11 45,-43 23,-4 "
+                                        stroke="black" stroke-width="3" fill="none" class="path1" />
+                                    </g>
+                                </svg>
+                                <span>5 Estrela</span>
+                            </label>
+                        </div>
                     </fieldset>
 
                     <fieldset class="f_fieldset">
                         <legend class="f_legend">Idioma</legend>
-                        <label class="form_label_c" for="portugues">
-                            Português <input class="f_checkbox" type="checkbox" name="portugues" id="portugues">
-                        </label>
-                        <label class="form_label_c" for="ingles">
-                            Inglês <input class="f_checkbox" type="checkbox" name="ingles" id="ingles">
-                        </label>
-                        <label class="form_label_c" for="espanhol">
-                            Espanhol <input class="f_checkbox" type="checkbox" name="espanhol" id="espanhol">
-                        </label>
+                        <div class="f_checkbox">
+                            <input class="f_box" type="checkbox" name="portugues" id="portugues">
+                            <label for="portugues" class="f_label">
+                                <svg width="45" height="45" viewbox="0 0 100 100">
+                                <rect x="30" y="20" width="45" height="45" stroke="black" fill="none" rx="10" ry="10" />
+                                    <g transform="translate(0,-952.36222)">
+                                        <path d="m 56,963 c -102,122 6,9 7,9 17,-5 -66,69 -38,52 122,-77 -7,14 18,4 29,-11 45,-43 23,-4 "
+                                        stroke="black" stroke-width="3" fill="none" class="path1" />
+                                    </g>
+                                </svg>
+                                <span>Português</span>
+                            </label>
+                        </div>
+                        <div class="f_checkbox">
+                            <input class="f_box" type="checkbox" name="ingles" id="ingles">
+                            <label for="ingles" class="f_label">
+                                <svg width="45" height="45" viewbox="0 0 100 100">
+                                <rect x="30" y="20" width="45" height="45" stroke="black" fill="none" rx="10" ry="10" />
+                                    <g transform="translate(0,-952.36222)">
+                                        <path d="m 56,963 c -102,122 6,9 7,9 17,-5 -66,69 -38,52 122,-77 -7,14 18,4 29,-11 45,-43 23,-4 "
+                                        stroke="black" stroke-width="3" fill="none" class="path1" />
+                                    </g>
+                                </svg>
+                                <span>Inglês</span>
+                            </label>
+                        </div>
+                        <div class="f_checkbox">
+                            <input class="f_box" type="checkbox" name="espanhol" id="espanhol">
+                            <label for="espanhol" class="f_label">
+                                <svg width="45" height="45" viewbox="0 0 100 100">
+                                <rect x="30" y="20" width="45" height="45" stroke="black" fill="none" rx="10" ry="10" />
+                                    <g transform="translate(0,-952.36222)">
+                                        <path d="m 56,963 c -102,122 6,9 7,9 17,-5 -66,69 -38,52 122,-77 -7,14 18,4 29,-11 45,-43 23,-4 "
+                                        stroke="black" stroke-width="3" fill="none" class="path1" />
+                                    </g>
+                                </svg>
+                                <span>Espanhol</span>
+                            </label>
+                        </div>
                     </fieldset>
 
                     <fieldset class="f_fieldset">
                         <legend class="f_legend">Formato</legend>
-                        <label class="form_label_c" for="capa-dura">
-                            Capa Dura <input class="f_checkbox" type="checkbox" name="capa-dura" id="capa-dura">
-                        </label>
-                        <label class="form_label_c" for="capa-flexivel">
-                            Capa Flexível <input class="f_checkbox" type="checkbox" name="capa-flexivel" id="capa-flexivel">
-                        </label>
-                        <label class="form_label_c" for="e-book">
-                            E-book <input class="f_checkbox" type="checkbox" name="e-book" id="e-book">
-                        </label>
-                        <label class="form_label_c" for="audio-book">
-                            Áudio-Book <input class="f_checkbox" type="checkbox" name="audio-book" id="audio-book">
-                        </label>
+                        <div class="f_checkbox">
+                            <input class="f_box" type="checkbox" name="capa-dura" id="capa-dura">
+                            <label for="espanhol" class="f_label">
+                                <svg width="45" height="45" viewbox="0 0 100 100">
+                                <rect x="30" y="20" width="45" height="45" stroke="black" fill="none" rx="10" ry="10" />
+                                    <g transform="translate(0,-952.36222)">
+                                        <path d="m 56,963 c -102,122 6,9 7,9 17,-5 -66,69 -38,52 122,-77 -7,14 18,4 29,-11 45,-43 23,-4 "
+                                        stroke="black" stroke-width="3" fill="none" class="path1" />
+                                    </g>
+                                </svg>
+                                <span>Capa Dura</span>
+                            </label>
+                        </div>
+                        <div class="f_checkbox">
+                            <input class="f_box" type="checkbox" name="capa-flexivel" id="capa-flexivel">
+                            <label for="capa-flexivel" class="f_label">
+                                <svg width="45" height="45" viewbox="0 0 100 100">
+                                <rect x="30" y="20" width="45" height="45" stroke="black" fill="none" rx="10" ry="10" />
+                                    <g transform="translate(0,-952.36222)">
+                                        <path d="m 56,963 c -102,122 6,9 7,9 17,-5 -66,69 -38,52 122,-77 -7,14 18,4 29,-11 45,-43 23,-4 "
+                                        stroke="black" stroke-width="3" fill="none" class="path1" />
+                                    </g>
+                                </svg>
+                                <span>Capa Flexível</span>
+                            </label>
+                        </div>
+                        <div class="f_checkbox">
+                            <input class="f_box" type="checkbox" name="e-book" id="e-book">
+                            <label for="e-book" class="f_label">
+                                <svg width="45" height="45" viewbox="0 0 100 100">
+                                <rect x="30" y="20" width="45" height="45" stroke="black" fill="none" rx="10" ry="10" />
+                                    <g transform="translate(0,-952.36222)">
+                                        <path d="m 56,963 c -102,122 6,9 7,9 17,-5 -66,69 -38,52 122,-77 -7,14 18,4 29,-11 45,-43 23,-4 "
+                                        stroke="black" stroke-width="3" fill="none" class="path1" />
+                                    </g>
+                                </svg>
+                                <span>E-book</span>
+                            </label>
+                        </div>
+                        <div class="f_checkbox">
+                            <input class="f_box" type="checkbox" name="audio-book" id="audio-book">
+                            <label for="audio-book" class="f_label">
+                                <svg width="45" height="45" viewbox="0 0 100 100">
+                                <rect x="30" y="20" width="45" height="45" stroke="black" fill="none" rx="10" ry="10" />
+                                    <g transform="translate(0,-952.36222)">
+                                        <path d="m 56,963 c -102,122 6,9 7,9 17,-5 -66,69 -38,52 122,-77 -7,14 18,4 29,-11 45,-43 23,-4 "
+                                        stroke="black" stroke-width="3" fill="none" class="path1" />
+                                    </g>
+                                </svg>
+                                <span>Áudio-Book</span>
+                            </label>
+                        </div>
                     </fieldset>
 
                     <fieldset class="f_fieldset">
                         <legend class="f_legend">Disponibilidade</legend>
-                        <label class="form_label_c" for="estoque">
-                            Em Estoque <input class="f_checkbox" type="checkbox" name="estoque" id="estoque">
-                        </label>
-                        <label class="form_label_c" for="pre-venda">
-                            Pré-Venda <input class="f_checkbox" type="checkbox" name="pre-venda" id="pre-venda">
-                        </label>
+                        <div class="f_checkbox">
+                            <input class="f_box" type="checkbox" name="estoque" id="estoque">
+                            <label for="estoque" class="f_label">
+                                <svg width="45" height="45" viewbox="0 0 100 100">
+                                <rect x="30" y="20" width="45" height="45" stroke="black" fill="none" rx="10" ry="10" />
+                                    <g transform="translate(0,-952.36222)">
+                                        <path d="m 56,963 c -102,122 6,9 7,9 17,-5 -66,69 -38,52 122,-77 -7,14 18,4 29,-11 45,-43 23,-4 "
+                                        stroke="black" stroke-width="3" fill="none" class="path1" />
+                                    </g>
+                                </svg>
+                                <span>Em Estoque</span>
+                            </label>
+                        </div>
+                        <div class="f_checkbox">
+                            <input class="f_box" type="checkbox" name="pre-venda" id="pre-venda">
+                            <label for="pre-venda" class="f_label">
+                                <svg width="45" height="45" viewbox="0 0 100 100">
+                                <rect x="30" y="20" width="45" height="45" stroke="black" fill="none" rx="10" ry="10" />
+                                    <g transform="translate(0,-952.36222)">
+                                        <path d="m 56,963 c -102,122 6,9 7,9 17,-5 -66,69 -38,52 122,-77 -7,14 18,4 29,-11 45,-43 23,-4 "
+                                        stroke="black" stroke-width="3" fill="none" class="path1" />
+                                    </g>
+                                </svg>
+                                <span>Pré-Venda</span>
+                            </label>
+                        </div>
                     </fieldset>
 
                     <fieldset class="f_fieldset">
                         <legend class="f_legend">Público-Alvo</legend>
-                        <label class="form_label_c" for="criancas">
-                            Crianças <input class="f_checkbox" type="checkbox" name="criancas" id="criancas">
-                        </label>
-                        <label class="form_label_c" for="adolecentes">
-                            Adolecentes <input class="f_checkbox" type="checkbox" name="adolecentes" id="adolecentes">
-                        </label>
-                        <label class="form_label_c" for="adultos">
-                            Adultos <input class="f_checkbox" type="checkbox" name="adultos" id="adultos">
-                        </label>
+                        <div class="f_checkbox">
+                            <input class="f_box" type="checkbox" name="criancas" id="criancas">
+                            <label for="criancas" class="f_label">
+                                <svg width="45" height="45" viewbox="0 0 100 100">
+                                <rect x="30" y="20" width="45" height="45" stroke="black" fill="none" rx="10" ry="10" />
+                                    <g transform="translate(0,-952.36222)">
+                                        <path d="m 56,963 c -102,122 6,9 7,9 17,-5 -66,69 -38,52 122,-77 -7,14 18,4 29,-11 45,-43 23,-4 "
+                                        stroke="black" stroke-width="3" fill="none" class="path1" />
+                                    </g>
+                                </svg>
+                                <span>Crianças</span>
+                            </label>
+                        </div>
+                        <div class="f_checkbox">
+                            <input class="f_box" type="checkbox" name="adolecentes" id="adolecentes">
+                            <label for="adolecentes" class="f_label">
+                                <svg width="45" height="45" viewbox="0 0 100 100">
+                                <rect x="30" y="20" width="45" height="45" stroke="black" fill="none" rx="10" ry="10" />
+                                    <g transform="translate(0,-952.36222)">
+                                        <path d="m 56,963 c -102,122 6,9 7,9 17,-5 -66,69 -38,52 122,-77 -7,14 18,4 29,-11 45,-43 23,-4 "
+                                        stroke="black" stroke-width="3" fill="none" class="path1" />
+                                    </g>
+                                </svg>
+                                <span>Adolecentes</span>
+                            </label>
+                        </div>
+                        <div class="f_checkbox">
+                            <input class="f_box" type="checkbox" name="adultos" id="adultos">
+                            <label for="adultos" class="f_label">
+                                <svg width="45" height="45" viewbox="0 0 100 100">
+                                <rect x="30" y="20" width="45" height="45" stroke="black" fill="none" rx="10" ry="10" />
+                                    <g transform="translate(0,-952.36222)">
+                                        <path d="m 56,963 c -102,122 6,9 7,9 17,-5 -66,69 -38,52 122,-77 -7,14 18,4 29,-11 45,-43 23,-4 "
+                                        stroke="black" stroke-width="3" fill="none" class="path1" />
+                                    </g>
+                                </svg>
+                                <span>Adultos</span>
+                            </label>
+                        </div>
                     </fieldset>
                     <div class="f_btn_div">
                         <button class="menu_btn f_btn_s" type="submit">Filtrar</button>
@@ -461,6 +882,7 @@
 <script src="../JS/CONFIG_NAV.js"></script>
 <script src="../JS/ABRE_NAV_RESPONSIVE.js"></script>
 <script src="../JS/CATALOG_MENU.js"></script>
+<script src="../JS/CATALOG_PAG.js"></script>
 <script>
     function abre_login() {
         window.location.href = "../index.html";
