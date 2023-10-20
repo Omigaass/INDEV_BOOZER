@@ -60,6 +60,7 @@
             'const book_menu_btn = document.querySelector(".book_menu_btn");
             const book_add_modal = document.querySelector(".book_add_modal");
             const book_add_close = document.querySelector(".m_book_add_close");
+            const back_screen = document.querySelector(".back_screen");
             book_menu_btn.addEventListener("click", () => {
                 book_add_modal.classList.toggle("hidden");
                 back_screen.classList.toggle("hidden");
