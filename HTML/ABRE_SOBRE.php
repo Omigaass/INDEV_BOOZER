@@ -1,17 +1,3 @@
-<?php
-    session_start();
-    
-    require '../PHP/ALERT.php';
-
-    if (isset($_SESSION['USER_ID'])) {
-        // O cliente está logado
-        $botao = '<button href="../PHP/LOGOUT.php">Sair</button>';
-    } else {
-        // O cliente não está logado
-        $botao = '<button onclick="abre_login()">Login</button>';
-    }
-?>
-
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">

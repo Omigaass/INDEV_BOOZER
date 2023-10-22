@@ -581,6 +581,21 @@
     width: 30%;
 }
 
+.form_group_select{
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin-top: 1.5rem;
+}
+
+.form_group_img {
+    font-family: var(--Default-font);
+    position: relative;
+    padding: 15px 0 0;
+    width: 40%;
+    margin-top: 1.5rem;
+}
+
 .form_field {
     font-family: var(--Default-font);
     width: 100%;
@@ -645,14 +660,8 @@
     color: #fff;
     width: 60%;
     height: 40px;
-  }
-  
-.form_group_select{
-    display: flex;
-    align-items: center;
-    padding: 0;
-    margin-top: -2rem;
 }
+
 
 .form_group_b{
     font-family: var(--Default-font);
@@ -713,7 +722,7 @@
   }
   .select-options li {
     margin: 0;
-    padding: 0;
+    padding: 5px;
     text-indent: 10%;
     -moz-transition: all 0.15s ease-in;
     -o-transition: all 0.15s ease-in;
@@ -730,17 +739,19 @@
 
   .f_btn_div{
     position: relative;
-    padding: 15px 0 ;
-    margin-top: 10px;
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    align-self: flex-end;
+    height: 8%;
+    margin-bottom: 1rem;
   }
   
   .f_btn_s{
-    height: 40%;
+    height: 100%;
+    padding: 0;
     width: 15% !important;
     font-size: var(--default-font-size);
     font-family: var(--Default-font);

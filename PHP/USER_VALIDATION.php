@@ -35,8 +35,7 @@
             echo "Error: " . $sql . "<br>" . $mysqli->error;
         }
     } else {
-        echo "<script language='javascript' type='text/javascript'>
-        console.log('Usuário sem conta');</script>";
+        OpenAlert("Usuário não encontrado.");
     }
 
     if (isset($isNotDefault) && $isNotDefault) {

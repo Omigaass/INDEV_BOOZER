@@ -2,15 +2,23 @@
     session_start();
 
     require '../PHP/USER_VALIDATION.php';
-    require '../PHP/PRODUCT_SELECT.php';
-    require '../PHP/PRODUCT_insert.php';
-    require '../PHP/ALERT.php';
 
     // Verificar se o usuário está logado
     if (!isset($_SESSION['USER_ID'])) {
         $login_btn = "<a href=../index.html class=header_btn><button>Login</button></a>";
     } else {
         $login_btn = "<a href=../PHP/LOGOUT.php class=header_btn><button>Sair</button></a>";
+    }
+    
+    global $Alert_Msg;
+    global $OpenAlert;
+
+    function OpenAlert($message) {
+        global $Alert_Msg;
+        global $OpenAlert;
+        
+        $Alert_Msg = $message;
+        $OpenAlert = 'a_modal.classList.add("a_active");';
     }
 ?>
 
@@ -757,7 +765,7 @@
                 <i class="m_close m_book_add_close fa-regular fa-circle-xmark fa-xl"></i>
             </section>
             <section class="m_body">
-                <form class="f_body" action="" method="post">
+                <form class="f_body" action="../PHP/PRODUCT_INSERT.php" method="post">
                     <div class="form_group">
                         <input class="form_field" type="text" name="BOOK_TITULO" id="BOOK_TITULO" placeholder="Título" required>
                         <label class="form_label" for="BOOK_TITULO">Título</label>
@@ -783,8 +791,8 @@
                         <label class="form_label" for="BOOK_PRECO_DESC">Preço do Desconto</label>
                     </div>
                     <div class="form_group form_group_select">
-                        <label class="form_label_s" for="selectbox1">Gênero</label>
-                        <select class="f_select" name="selectbox1" id="selectbox1">
+                        <label class="form_label_s" for="BOOK_GENERO">Gênero</label>
+                        <select class="f_select" name="BOOK_GENERO" id="selectbox1">
                             <option value="">Selecione uma Opção&hellip;</option>
                             <option value="ficcao">Ficção</option>
                             <option value="romance">Romance</option>
@@ -803,8 +811,8 @@
                         </select>
                     </div>
                     <div class="form_group form_group_select">
-                        <label class="form_label_s" for="selectbox2">Classificação</label>
-                        <select class="f_select" name="selectbox2" id="selectbox2">
+                        <label class="form_label_s" for="BOOK_CLASSIFICACAO">Classificação</label>
+                        <select class="f_select" name="BOOK_CLASSIFICACAO" id="selectbox2">
                             <option value="">Selecione uma Opção&hellip;</option>
                             <option value="uma-estrela">1 Estrela</option>
                             <option value="duas-estrelas">2 Estrela</option>
@@ -814,8 +822,8 @@
                         </select>
                     </div>
                     <div class="form_group form_group_select">
-                        <label class="form_label_s" for="selectbox3">Idioma</label>
-                        <select class="f_select" name="selectbox3" id="selectbox3">
+                        <label class="form_label_s" for="BOOK_IDIOMA">Idioma</label>
+                        <select class="f_select" name="BOOK_IDIOMA" id="selectbox3">
                             <option value="">Selecione uma Opção&hellip;</option>
                             <option value="portugues">Português</option>
                             <option value="ingles">Inglês</option>
@@ -823,8 +831,8 @@
                         </select>
                     </div>
                     <div class="form_group form_group_select">
-                        <label class="form_label_s" for="selectbox4">Formato</label>
-                        <select class="f_select" name="selectbox4" id="selectbox4">
+                        <label class="form_label_s" for="BOOK_FORMATO">Formato</label>
+                        <select class="f_select" name="BOOK_FORMATO" id="selectbox4">
                             <option value="">Selecione uma Opção&hellip;</option>
                             <option value="capa-dura">Capa Dura</option>
                             <option value="capa-flexivel">Capa Flexível</option>
@@ -833,21 +841,25 @@
                         </select>
                     </div>
                     <div class="form_group form_group_select">
-                        <label class="form_label_s" for="selectbox5">Disponibilidade</label>
-                        <select class="f_select" name="selectbox5" id="selectbox5">
+                        <label class="form_label_s" for="BOOK_DISPONIBILIDADE">Disponibilidade</label>
+                        <select class="f_select" name="BOOK_DISPONIBILIDADE" id="selectbox5">
                             <option value="">Selecione uma Opção&hellip;</option>
                             <option value="estoque">Em Estoque</option>
                             <option value="pre-venda">Pré-Venda</option>
                         </select>
                     </div>
                     <div class="form_group form_group_select">
-                        <label class="form_label_s" for="selectbox6">Público-Alvo</label>
-                        <select class="f_select" name="selectbox6" id="selectbox6">
+                        <label class="form_label_s" for="BOOK_PUBLICO_ALVO">Público-Alvo</label>
+                        <select class="f_select" name="BOOK_PUBLICO_ALVO" id="selectbox6">
                             <option value="">Selecione uma Opção&hellip;</option>
                             <option value="criancas">Crianças</option>
                             <option value="adolecentes">Adolecentes</option>
                             <option value="adultos">Adultos</option>
                         </select>
+                    </div>
+                    <div class="form_group form_group_img">
+                        <input class="form_field form_field_img" type="file" name="BOOK_IMAGE" id="BOOK_IMAGE">
+                        <label class="form_label" for="BOOK_IMAGE">Selecione uma Imagem</label>
                     </div>
                     <div class="f_btn_div">
                         <button class="menu_btn f_btn_s" type="submit">Adicionar</button>
@@ -909,15 +921,14 @@
     const a_btn = document.querySelector(".a_btn")
     const a_modal = document.querySelector(".a_modal");
     
+    <?php echo $OpenAlert ?>
+    
     a_btn.addEventListener("click", () =>{
         AlertClose();
     });
 
     function AlertClose() {
         a_modal.classList.remove("a_active");
-    }
-    function AlertOpen() {
-        a_modal.classList.add("a_active");
     }
 </script>
 </html>
