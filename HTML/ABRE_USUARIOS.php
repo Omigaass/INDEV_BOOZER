@@ -31,6 +31,7 @@
         <link rel="stylesheet" href="../CSS/FOOTER.CSS">
         <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/bilbo" type="text/css" />
         <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/sniglet" type="text/css"/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <!--
         ?███████  ██████  ███    ██ ████████      █████  ██     ██ ███████ ███████  ██████  ███    ███ ███████ 
         ?██      ██    ██ ████   ██    ██        ██   ██ ██     ██ ██      ██      ██    ██ ████  ████ ██      
@@ -92,10 +93,83 @@
                 ?██      ██    ██ ██  ██ ██    ██    ██      ██    ██ ██   ██ ██    ██ 
                  ?██████  ██████  ██   ████    ██    ███████  ██████  ██████   ██████   
             -->
+            <section class="u_filter">
+                <header class="u_head">
+                    <h2><i class="fa-solid fa-users-gear"></i> Usuários </h2>
+                    <hr />
+                </header>
+                <form>
+                    <div class="u_row form-row">
+                        <div class="u_col form-group col-md-2">
+                            <label for="USER_STATUS">Status</label>
+                            <select class="form-control" name="USER_STATUS" id="selectbox1">
+                                <option value="">Selecione uma Opção&hellip;</option>
+                                <option value="ativo">Ativo</option>
+                                <option value="inativo">Inativo</option>
+                                <option value="suspenso">Suspenso</option>
+                            </select>
+                        </div>
+                        <div class="u_col form-group col-md-2">
+                            <label for="USER_TYPE">Tipo</label>
+                            <select class="form-control" name="USER_TYPE" id="selectbox1">
+                                <option value="">Selecione uma Opção&hellip;</option>
+                                <option value="user">Cliente</option>
+                                <option value="adm">Administrador</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="u_row form-row">
+                    <div class="u_col form-group col-md-2">
+                            <label for="SEARCH_TYPE">Pesquisa</label>
+                            <select class="form-control" name="SEARCH_TYPE" id="selectbox1">
+                                <option value="">Selecione uma Opção&hellip;</option>
+                                <option value="nome">Nome</option>
+                                <option value="tipo">Tipo</option>
+                                <option value="cpf">CPF</option>
+                            </select>
+                        </div>
+                        <div class="u_col form-group col-md-5">
+                            <label for="inlineFormInputGroupUsername2">Text</label>
+                            <div class="input-group mb-2 mr-sm-2">
+                                <div class="input-group-prepend">
+                                <div class="user_search_bar input-group-text"><button type="submit" class="user_search btn btn-primary"><i class="fa-solid fa-magnifying-glass"></i></button></div>
+                                </div>
+                                <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Username">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </section>
+            <section class="u_table table-responsive-md">
+                <table class="table table-hover ">
+                    <thead class="thead-light">
+                        <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Tipo</th>
+                        <th scope="col">CPF</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>User</td>
+                            <td>241.059.358-52</td>
+                            <td>Miguel Antonio Pereira Ribeiro</td>
+                            <td>
+                                <button type="submit" class="user_view btn btn-sm btn-outline-primary"><i class="fa-solid fa-user-magnifying-glass"></i></button>
+                                <button type="submit" class="user_buy btn btn-sm btn-outline-success"><i class="fa-solid fa-basket-shopping"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
         </main>
         <footer class="footer_sec">
             <p>&copy; 2023 Boozer - Todos os direitos reservados.</p>
         </footer>
+        
     </div>
     <!-- #region -->
     <div class="a_modal">
@@ -103,8 +177,21 @@
         <span class="m_close a_btn"><i class="fa-regular fa-circle-xmark"></i></span>
     </div>
     <!-- #endregion -->
+    <!-- #region -->
+        <div class=" back_screen hidden"></div>
+        <modal class="book_add_modal m_start hidden">
+            <div class="m_wrap">
+                <section class="m_head">
+                    <span class="m_title"><span><i class="fa-solid fa-book"></i>Adicionar Novo Livro</span></span>
+                    <i class="m_close m_book_add_close fa-regular fa-circle-xmark fa-xl"></i>
+                </section>
+                <section class="m_body">
+                    
+                </section>
+            </div>
+        </modal>
+    <!-- #endregion -->
 </body>
-<script src="https://kit.fontawesome.com/724309404c.js" crossorigin="anonymous"></script>
 <script src="../JS/CONFIG_NAV.JS"></script>
 <script src="../JS/ABRE_NAV_RESPONSIVE.js"></script>
 <script>

@@ -53,11 +53,11 @@
 }   .navbar_item:hover > i{
     color: var(--azul-escuro);
 }   .navbar_item:hover > a{
-    color: var(--azul-escuro);
+    color: var(--azul-escuro) !important;
 }
 
 .navbar_item a{
-    color: var(--white);
+    color: #fff !important;
     font-size: 16px;
     margin: 0;
     font-family: 'SnigletRegular';
@@ -66,7 +66,7 @@
 
 .navbar_item i{
     padding-right: 10px;
-    color: var(--white);
+    color: #fff;
     margin: 0;
     transition: all 0.2s ease-in-out;
 }
@@ -95,7 +95,7 @@
     background-color: var(--claro-light);
     transition: all 0.3s linear;
 }   .navbar_active a , .navbar_active i{
-    color: var(--azul-escuro);
+    color: var(--azul-escuro) !important;
 }
 
 .navbar_button{
