@@ -104,7 +104,7 @@
                         <th>Preço</th>
                         <th>Quantidade</th>
                         <th>Total</th>
-                        <th>-</th>
+                        <th></th>
                     </tr>
                     </thead>
                     <tbody class="tbody">
@@ -115,6 +115,7 @@
                             <div class="info">
                             <div class="name">Nome do produto</div>
                             <div class="category">Categoria</div>
+                            <div class="author">Autor</div>
                             </div>
                         </div>
                         </td>
@@ -128,99 +129,7 @@
                         </td>
                         <td>R$ 240</td>
                         <td>
-                        <button class="remove"><i class="bx bx-x"><i class="fa-solid fa-delete-left"></i></i></button>
-                        </td>
-                    </tr>
-                    <tr class="tr">
-                        <td>
-                        <div class="product">
-                            <img src="https://picsum.photos/100/120" alt="" />
-                            <div class="info">
-                            <div class="name">Nome do produto</div>
-                            <div class="category">Categoria</div>
-                            </div>
-                        </div>
-                        </td>
-                        <td>R$ 120</td>
-                        <td>
-                        <div class="qty">
-                            <button><i class="bx bx-minus"><i class="fa-solid fa-minus fa-sm"></i></i></button>
-                            <span>2</span>
-                            <button><i class="bx bx-plus"><i class="fa-solid fa-plus fa-sm"></i></i></button>
-                        </div>
-                        </td>
-                        <td>R$ 240</td>
-                        <td>
-                        <button class="remove"><i class="bx bx-x"><i class="fa-solid fa-delete-left"></i></i></button>
-                        </td>
-                    </tr>
-                    <tr class="tr">
-                        <td>
-                        <div class="product">
-                            <img src="https://picsum.photos/100/120" alt="" />
-                            <div class="info">
-                            <div class="name">Nome do produto</div>
-                            <div class="category">Categoria</div>
-                            </div>
-                        </div>
-                        </td>
-                        <td>R$ 120</td>
-                        <td>
-                        <div class="qty">
-                            <button><i class="bx bx-minus"><i class="fa-solid fa-minus fa-sm"></i></i></button>
-                            <span>2</span>
-                            <button><i class="bx bx-plus"><i class="fa-solid fa-plus fa-sm"></i></i></button>
-                        </div>
-                        </td>
-                        <td>R$ 240</td>
-                        <td>
-                        <button class="remove"><i class="bx bx-x"><i class="fa-solid fa-delete-left"></i></i></button>
-                        </td>
-                    </tr>
-                    <tr class="tr">
-                        <td>
-                        <div class="product">
-                            <img src="https://picsum.photos/100/120" alt="" />
-                            <div class="info">
-                            <div class="name">Nome do produto</div>
-                            <div class="category">Categoria</div>
-                            </div>
-                        </div>
-                        </td>
-                        <td>R$ 120</td>
-                        <td>
-                        <div class="qty">
-                            <button><i class="bx bx-minus"><i class="fa-solid fa-minus fa-sm"></i></i></button>
-                            <span>2</span>
-                            <button><i class="bx bx-plus"><i class="fa-solid fa-plus fa-sm"></i></i></button>
-                        </div>
-                        </td>
-                        <td>R$ 240</td>
-                        <td>
-                        <button class="remove"><i class="bx bx-x"><i class="fa-solid fa-delete-left"></i></i></button>
-                        </td>
-                    </tr>
-                    <tr class="tr">
-                        <td>
-                        <div class="product">
-                            <img src="https://picsum.photos/100/120" alt="" />
-                            <div class="info">
-                            <div class="name">Nome do produto</div>
-                            <div class="category">Categoria</div>
-                            </div>
-                        </div>
-                        </td>
-                        <td>R$ 120</td>
-                        <td>
-                        <div class="qty">
-                            <button><i class="bx bx-minus"><i class="fa-solid fa-minus fa-sm"></i></i></button>
-                            <span>2</span>
-                            <button><i class="bx bx-plus"><i class="fa-solid fa-plus fa-sm"></i></i></button>
-                        </div>
-                        </td>
-                        <td>R$ 240</td>
-                        <td>
-                        <button class="remove"><i class="bx bx-x"><i class="fa-solid fa-delete-left"></i></i></button>
+                        <button class="remove"><i class="fa-solid fa-trash-xmark"></i></button>
                         </td>
                     </tr>
                     </tbody>
@@ -231,11 +140,10 @@
                         <header>Resumo da compra</header>
                         <div class="info">
                         <div><span>Sub-total</span><span>R$ 418</span></div>
-                        <div><span>Frete</span><span>Gratuito</span></div>
                         <div>
                             <button>
-                            Adicionar cupom de desconto
-                            <i class="bx bx-right-arrow-alt"></i>
+                                Adicionar cupom de desconto
+                                <i class="fa-solid fa-down-to-line"></i>
                             </button>
                         </div>
                         </div>
@@ -259,7 +167,6 @@
     </div>
     <!-- #endregion -->
 </body>
-<script src="https://kit.fontawesome.com/724309404c.js" crossorigin="anonymous"></script>
 <script src="../JS/CONFIG_NAV.JS"></script>
 <script src="../JS/ABRE_NAV_RESPONSIVE.js"></script>
 <script>

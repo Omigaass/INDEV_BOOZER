@@ -91,6 +91,10 @@ table tbody tr td {
   color: #666;
 }
 
+.product .info .author {
+  color: #666;
+}
+
 .qty {
   background: #eee;
   display: -webkit-inline-box;
@@ -145,8 +149,8 @@ table tbody tr td {
 .remove {
   background: #eee;
   border: 0;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   border-radius: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
