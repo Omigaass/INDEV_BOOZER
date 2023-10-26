@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Consulta SQL com prepared statement para evitar SQL injection
     $query_select = "SELECT USER_NAME FROM bz_user WHERE USER_NAME = ?";
     $session_id_select = "SELECT USER_ID FROM bz_user WHERE USER_EMAIL = ?";
-    $stmt = $mysqli->prepare($query_select);
+    $stmt = $conn->prepare($query_select);
     $stmt->bind_param("s", $user_name);
 
     // Executar a consulta
@@ -53,5 +53,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Fechar a conexão
     $stmt->close();
     $stmt_insert->close();
-    $mysqli->close();
+    $conn->close();
 }

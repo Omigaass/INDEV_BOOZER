@@ -15,7 +15,7 @@
             $USER_SELECT_VAR .= "<td>" . $row['USER_STATUS'] . "</td>";
             $USER_SELECT_VAR .= "<td>" . $row['USER_CPFCNPJ'] . "</td>";
             $USER_SELECT_VAR .= "<td>" . $row['USER_NAME'] . "</td>";
-            $USER_SELECT_VAR .= "<td>";
+            $USER_SELECT_VAR .= "<td id='" . $row['USER_ID']. "'>";
             $USER_SELECT_VAR .= "<button type='submit' class='user_view btn btn-sm btn-outline-primary'><i class='fa-solid fa-user-magnifying-glass'></i></button>";
             $USER_SELECT_VAR .= "<button type='submit' class='user_buy btn btn-sm btn-outline-success'><i class='fa-solid fa-basket-shopping'></i></button>";
             $USER_SELECT_VAR .= "</td>";

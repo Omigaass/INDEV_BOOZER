@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Consulta SQL para obter o usuário com base no email
     $query_select = "SELECT USER_ID, USER_NAME, USER_PASSWORD FROM bz_user WHERE USER_EMAIL = ?";
-    $stmt = $mysqli->prepare($query_select);
+    $stmt = $conn->prepare($query_select);
     $stmt->bind_param("s", $user_email);
 
     // Executar a consulta
@@ -44,6 +44,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Fechar a conexão
     $stmt->close();
-    $mysqli->close();
+    $conn->close();
 }
 ?>

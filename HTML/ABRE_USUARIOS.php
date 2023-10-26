@@ -173,12 +173,38 @@
     </div>
     <!-- #endregion -->
     <!-- #region -->
-        <div class=" back_screen hidden"></div>
-        <modal class="book_add_modal m_start hidden">
+        <div class="back_screen hidden"></div>
+        <modal class="userInsert_modal m_start hidden">
             <div class="m_wrap">
                 <section class="m_head">
-                    <span class="m_title"><span><i class="fa-solid fa-book"></i>Adicionar Novo Livro</span></span>
-                    <i class="m_close m_book_add_close fa-regular fa-circle-xmark fa-xl"></i>
+                    <span class="m_title"><span><i class="fa-solid fa-book"></i>Criar novo Usuário</span></span>
+                    <i class="m_close m_userInsert_close fa-regular fa-circle-xmark fa-xl"></i>
+                </section>
+                <section class="m_body">
+                    
+                </section>
+            </div>
+        </modal>
+    <!-- #endregion -->
+    <!-- #region -->
+        <modal class="userView_modal m_start hidden">
+            <div class="m_wrap">
+                <section class="m_head">
+                    <span class="m_title"><span><i class="fa-solid fa-book"></i>Dados do Usuário</span></span>
+                    <i class="m_close m_userView_close fa-regular fa-circle-xmark fa-xl"></i>
+                </section>
+                <section class="m_body">
+                    
+                </section>
+            </div>
+        </modal>
+    <!-- #endregion -->
+    <!-- #region -->
+        <modal class="userBuy_modal m_start hidden">
+            <div class="m_wrap">
+                <section class="m_head">
+                    <span class="m_title"><span><i class="fa-solid fa-book"></i>Dados de Vendas</span></span>
+                    <i class="m_close m_userBuy_close fa-regular fa-circle-xmark fa-xl"></i>
                 </section>
                 <section class="m_body">
                     
@@ -189,6 +215,7 @@
 </body>
 <script src="../JS/CONFIG_NAV.JS"></script>
 <script src="../JS/ABRE_NAV_RESPONSIVE.js"></script>
+<script src="../JS/USER_MODAL.js"></script>
 <script>
     function abre_login() {
         window.location.href = "../index.html";
