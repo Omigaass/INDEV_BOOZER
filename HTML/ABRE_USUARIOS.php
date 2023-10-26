@@ -2,6 +2,7 @@
     session_start();
 
     require '../PHP/USER_VALIDATION.php';
+    include '../PHP/USER_SELECT.php';
 
     // Verificar se o usuário está logado
     if (!isset($_SESSION['USER_ID'])) {
@@ -95,10 +96,10 @@
             -->
             <section class="u_filter">
                 <header class="u_head">
-                    <h2><i class="fa-solid fa-users-gear"></i> Usuários </h2>
+                    <div class=""><h2><i class="fa-solid fa-users-gear"></i> Usuários </h2> <button class="btn btn-primary user_create"><i class="fa-solid fa-user-plus"></i></button></div>
                     <hr />
                 </header>
-                <form>
+                <form action="../PHP/USER_SELECT.php" method="post">
                     <div class="u_row form-row">
                         <div class="u_col form-group col-md-2">
                             <label for="USER_STATUS">Status</label>
@@ -119,7 +120,7 @@
                         </div>
                     </div>
                     <div class="u_row form-row">
-                    <div class="u_col form-group col-md-2">
+                        <div class="u_col form-group col-md-2">
                             <label for="SEARCH_TYPE">Pesquisa</label>
                             <select class="form-control" name="SEARCH_TYPE" id="selectbox1">
                                 <option value="">Selecione uma Opção&hellip;</option>
@@ -146,22 +147,16 @@
                         <tr>
                         <th scope="col">ID</th>
                         <th scope="col">Tipo</th>
+                        <th scope="col">Status</th>
                         <th scope="col">CPF</th>
                         <th scope="col">Nome</th>
                         <th scope="col">Ações</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>User</td>
-                            <td>241.059.358-52</td>
-                            <td>Miguel Antonio Pereira Ribeiro</td>
-                            <td>
-                                <button type="submit" class="user_view btn btn-sm btn-outline-primary"><i class="fa-solid fa-user-magnifying-glass"></i></button>
-                                <button type="submit" class="user_buy btn btn-sm btn-outline-success"><i class="fa-solid fa-basket-shopping"></i></button>
-                            </td>
-                        </tr>
+                        <?php
+                            echo $USER_SELECT_VAR;
+                        ?>
                     </tbody>
                 </table>
             </section>

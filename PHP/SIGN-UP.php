@@ -2,12 +2,8 @@
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Conexão com o banco de dados usando MySQLi
-    $mysqli = new mysqli('127.0.0.1', 'root', '', 'boozer_db');
-
-    // Verificar a conexão
-    if ($mysqli->connect_error) {
-        die("Erro na conexão: " . $mysqli->connect_error);
-    }
+    
+    include 'CONFIG.php';
 
     $user_name = $_POST['signup_user_input'];
     $user_pw = $_POST['signup_password_input'];

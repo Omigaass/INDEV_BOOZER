@@ -5,7 +5,7 @@
     width: 100%;
     position: fixed;
     top: 15vh;
-    overflow-y: scroll;
+    overflow-y: auto;
     background-color: var(--claro-light);
 }
 
@@ -23,13 +23,26 @@
     gap: 5vh;
 }
 
+.u_head div{
+    margin: 0;
+    display: flex;
+    width: 100%;
+    gap: 1rem;
+}
+
 .u_head h2{
     margin: 0;
+    width: fit-content;
 }
 
 .u_head hr{
     margin: 0;
     width: 100%;
+}
+
+.u_head button{
+    padding: 8px 16px;
+    border-radius: 50px;
 }
 
 .u_col{
@@ -57,4 +70,12 @@
 
 .u_table{
     width: calc(100% - 10vh);
+}
+
+.footer_sec p{
+    margin: 0;
+}
+
+.logo_body a:hover{
+    text-decoration: none;
 }

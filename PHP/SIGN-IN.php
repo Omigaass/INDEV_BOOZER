@@ -6,12 +6,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user_pw = $_POST['login_password_input'];
 
     // Conexão com o banco de dados usando MySQLi
-    $mysqli = new mysqli('127.0.0.1', 'root', '', 'boozer_db');
-
-    // Verificar a conexão
-    if ($mysqli->connect_error) {
-        die("Erro na conexão: " . $mysqli->connect_error);
-    }
+    
+    include 'CONFIG.php';
 
     // Consulta SQL para obter o usuário com base no email
     $query_select = "SELECT USER_ID, USER_NAME, USER_PASSWORD FROM bz_user WHERE USER_EMAIL = ?";

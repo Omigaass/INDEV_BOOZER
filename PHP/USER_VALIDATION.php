@@ -1,12 +1,8 @@
 <?php
     if (isset($_SESSION['USER_ID'])) {
         // Replace with your database connection details.
-        $mysqli = new mysqli('127.0.0.1', 'root', '', 'boozer_db');
-
-        // Check the connection.
-        if ($mysqli->connect_error) {
-            die("Connection failed: " . $mysqli->connect_error);
-        }
+        
+        include 'CONFIG.php';
 
         // Retrieve USER_ID from the session.
         $user_id = $_SESSION['USER_ID'];
@@ -15,7 +11,7 @@
         $sql = "SELECT USER_TYPE FROM bz_user WHERE USER_ID = $user_id";
 
         // Execute the query.
-        $result = $mysqli->query($sql);
+        $result = $conn->query($sql);
 
         // Check if the query was successful.
         if ($result) {
@@ -30,9 +26,9 @@
             }
 
             // Close the database connection.
-            $mysqli->close();
+            $conn->close();
         } else {
-            echo "Error: " . $sql . "<br>" . $mysqli->error;
+            echo "Error: " . $sql . "<br>" . $conn->error;
         }
     } else {
         OpenAlert("Usuário não encontrado.");
