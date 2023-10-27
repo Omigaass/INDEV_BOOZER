@@ -32,6 +32,8 @@
         <link rel="stylesheet" href="../CSS/FOOTER.CSS">
         <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/bilbo" type="text/css" />
         <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/sniglet" type="text/css"/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        
         <!--
         ?███████  ██████  ███    ██ ████████      █████  ██     ██ ███████ ███████  ██████  ███    ███ ███████ 
         ?██      ██    ██ ████   ██    ██        ██   ██ ██     ██ ██      ██      ██    ██ ████  ████ ██      
@@ -94,19 +96,26 @@
                  ?██████  ██████  ██   ████    ██    ███████  ██████  ██████   ██████   
             -->
             <div class="profile-container">
-                <img class="profile-picture" src="https://www.promoview.com.br/uploads/2017/04/b72a1cfe.png" alt="Imagem de Perfil">
-                <h1>Nome do Usuário</h1>
-                <p>Desenvolvedor Web</p>
-                <p>Email: exemplo@email.com</p>
-                <button>editar<i class="fa-solid fa-pen"></i><class:butao></class:butao></button>
+                <div class="profile-container-img">
+                    <img class="profile-picture" src="https://www.promoview.com.br/uploads/2017/04/b72a1cfe.png" alt="Imagem de Perfil">
+                </div>
+                <div class="profile-container-info">
+                    <h1>Nome do Usuário</h1>
+                    <p>Desenvolvedor Web</p>
+                    <p>Email: exemplo@email.com</p>
+                    <div class="userUpdate_btn">
+                        <button class="userUpdate" id="button"><i class="fa-solid fa-pen" style="color: #4465ca;"></i></button>
+                    </div>
+                </div>
             </div>
+
             
             <div class="navbar_card" id="botao_teste"> 
                 <i class="fa-solid fa-cart-shopping fa-lg"></i> 
                 <a>Carrinho</a> 
             </div>
 
-            <div class="navbar_card" id="botao_teste2">  
+            <div class="navbar_card" id="botao_teste">  
                  <i class="fa-solid fa-cart-shopping fa-lg"></i>  
                  <a>Carrinho</a>  
              </div>
@@ -121,10 +130,44 @@
         <span class="m_close a_btn"><i class="fa-regular fa-circle-xmark"></i></span>
     </div>
     <!-- #endregion -->
+    <div class="back_screen hidden"></div>
+        <modal class="userUpdate_modal m_start hidden">
+            <div class="m_wrap">
+                <section class="m_head">
+                    <span class="m_title"><span><i class="fa-solid fa-user-plus"></i>Criar novo Usuário</span></span>
+                    <i class="m_close m_userUpdate_close fa-regular fa-circle-xmark fa-xl"></i>
+                </section>
+                <section class="m_body">
+                <header class="u_head mu_head">
+                    <h5><i class="fa-solid fa-users-gear"></i> Dados do novo usuário </h5>
+                    <hr />
+                </header>
+                
+                </section>
+            </div>
+        </modal>
 </body>
-<script src="https://kit.fontawesome.com/724309404c.js" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="../JS/CONFIG_NAV.JS"></script>
 <script src="../JS/ABRE_NAV_RESPONSIVE.js"></script>
+<script src="../JS/perfil.js"></script>
+<script>
+    
+const userUpdate = document.querySelector(".userUpdate");
+const userUpdate_modal = document.querySelector(".userUpdate_modal");
+const userUpdate_close = document.querySelector(".m_userUpdate_close");
+const back_screen = document.querySelector(".back_screen");
+
+    userUpdate.addEventListener("click", () => {
+        userUpdate_modal.classList.toggle("hidden");
+        back_screen.classList.toggle("hidden");
+    });
+
+    userUpdate_close.addEventListener("click", () => {
+        userUpdate_modal.classList.toggle("hidden");
+        back_screen.classList.toggle("hidden");
+    });
+</script>
 <script>
     function abre_login() {
         window.location.href = "../index.html";

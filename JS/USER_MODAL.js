@@ -11,7 +11,6 @@ const userView_close = document.querySelector(".m_userView_close");
 const userBuy = document.querySelectorAll(".user_buy");
 const userBuy_modal = document.querySelector(".userBuy_modal");
 const userBuy_close = document.querySelector(".m_userBuy_close");
-
 userView.forEach(button => {
     button.addEventListener("click", function() {
         const parentElementID = this.parentElement.id;
