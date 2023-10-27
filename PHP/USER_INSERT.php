@@ -1,68 +1,75 @@
+
 <?php
-// Inclua o arquivo de configuração do banco de dados
-include 'CONFIG.php';
+    include_once "../PHP/CONFIG.php";
 
-$OpenAlert = '';
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-// Recupere os valores do formulário HTML
-$type = $_POST['USER_TYPE'];
-$cpfcnpj = $_POST['USER_CPFCNPJ'];
-$name = $_POST['USER_NAME'];
-$email = $_POST['USER_EMAIL'];
-$pw = $_POST['USER_PASSWORD'];
-
-// Consulta SQL com prepared statement para evitar SQL injection
-$query_select = "SELECT USER_NAME FROM bz_user WHERE USER_NAME = ?";
-$session_id_select = "SELECT USER_ID FROM bz_user WHERE USER_EMAIL = ?";
-$stmt = $conn->prepare($query_select);
-$stmt->bind_param("s", $name); 
-
-// Executar a consulta
-$stmt->execute();
-
-// Obter o resultado da consulta
-$result = $stmt->get_result();
-
-// Verificar se o usuário já existe
-if ($result->num_rows > 0) {
-    // Usuário já existe
-        echo "<script language='javascript' type='text/javascript'>
-        mostrarModal(); AlertMsg = 'Usuário já existe';</script>";
-    die();
-} else {
-    // Usuário não existe, vamos inseri-lo no banco de dados
-
-    // Consulta SQL para inserir usuário
-    $query_insert = "INSERT INTO bz_user (USER_TYPE, USER_CPFCNPJ, USER_NAME, USER_PASSWORD, USER_EMAIL) VALUES (?, ?, ?, ?, ?)";
-    $stmt_insert = $conn->prepare($query_insert);
-
-    // Hash da senha
-    $hashed_password = password_hash($pw, PASSWORD_DEFAULT);
-
-    // Bind dos parâmetros
-    $stmt_insert->bind_param("sssss", $type, $cpfcnpj, $name, $hashed_password, $email);
-
-    // Executar a inserção
-    if ($stmt_insert->execute()) {
-        // Sucesso no cadastro
-        $_SESSION['USER_ID'] = $session_id_select;
-        echo "<script language='javascript' type='text/javascript'>
-        mostrarModal(); 
-        window.location.href='../HTML/ABRE_USUARIOS.php';
-        AlertMsg = 'Usuário Cadastrado';</script>";
-    } else {
-        // Erro na inserção
-        echo "<script language='javascript' type='text/javascript'>
-        mostrarModal();
-        AlertMsg = 'Erro ao inserir';</script>";
+    function VerificarUsuarioExistente($conn, $email) {
+        $sql = "SELECT * FROM bz_user WHERE USER_EMAIL = ?";
+        $stmt = mysqli_stmt_init($conn);
+        
+        if (!mysqli_stmt_prepare($stmt, $sql)) {
+            return "Erro";
+        } else {
+            mysqli_stmt_bind_param($stmt, "s", $email);
+            mysqli_stmt_execute($stmt);
+            
+            $result = mysqli_stmt_get_result($stmt);
+            $user = mysqli_fetch_assoc($result);
+            
+            if ($user) {
+                return "Existente";
+            } else {
+                return "Não Existente";
+            }
+        }
+        
+        mysqli_stmt_close($stmt);
     }
-}
+    
+    $USER_NAME = mysqli_real_escape_string($conn, $_POST['USER_NAME']);
+    $USER_PASSWORD = mysqli_real_escape_string($conn, $_POST['USER_PASSWORD']);
+    $USER_EMAIL = mysqli_real_escape_string($conn, $_POST['USER_EMAIL']);
+    $USER_CPFCNPJ = mysqli_real_escape_string($conn, $_POST['USER_CPFCNPJ']);
+    $USER_TYPE = mysqli_real_escape_string($conn, $_POST['USER_TYPE']);
+    
+    // HASH a senha para proteger
+    $hashed_password = password_hash($USER_PASSWORD, PASSWORD_DEFAULT);
 
-}
+    $result = VerificarUsuarioExistente($conn, $USER_EMAIL);
 
-// Fechar a conexão
-$stmt->close();
-$stmt_insert->close();
-$conn->close();
+    if ($result == "Existente") {
+        OpenAlert("Usuário com este e-mail já existe");
+    } else if ($result == "Não Existente") { 
+        $sql = "INSERT INTO bz_user (USER_NAME, USER_PASSWORD, USER_EMAIL, USER_CPFCNPJ, USER_TYPE) VALUES (?, ?, ?, ?, ?)";
+        $stmt = mysqli_stmt_init($conn);
+        
+        if (!mysqli_stmt_prepare($stmt, $sql)) {
+            OpenAlert("Erro ao inserir");
+            echo '<script language="javascript" type="text/javascript">window.location.href="../HTML/ABRE_USUARIOS.php";</script>';
+        } else {
+            mysqli_stmt_bind_param($stmt, "sssss", $USER_NAME, $hashed_password, $USER_EMAIL, $USER_CPFCNPJ, $USER_TYPE);
+            mysqli_stmt_execute($stmt);
+        
+            $affected_rows = mysqli_stmt_affected_rows($stmt);
+        
+            if ($affected_rows == 1) {
+                OpenAlert("Usuário Cadastrado");
+                echo '<script language="javascript" type="text/javascript">window.location.href="../HTML/ABRE_USUARIOS.php";</script>';
+            } else if ($affected_rows == 0) {
+                OpenAlert("Usuário já existe");
+                echo '<script language="javascript" type="text/javascript">window.location.href="../HTML/ABRE_USUARIOS.php";</script>';
+            }
+        }
+
+        
+        mysqli_stmt_close($stmt);
+        mysqli_close($conn);
+    } else {
+        OpenAlert("Erro ao verificar o usuário");
+        echo '<script language="javascript" type="text/javascript">window.location.href="../HTML/ABRE_USUARIOS.php";</script>';
+    }
+
+    
+    function OpenAlert($message) {
+        echo "<script>alert('$message');</script>";
+    }
 ?>

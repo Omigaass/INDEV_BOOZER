@@ -13,7 +13,7 @@
             $USER_SELECT_VAR .= "<th scope='row'>" . $row['USER_ID'] . "</th>";
             $USER_SELECT_VAR .= "<td>" . $row['USER_TYPE'] . "</td>";
             $USER_SELECT_VAR .= "<td>" . $row['USER_STATUS'] . "</td>";
-            $USER_SELECT_VAR .= "<td>" . $row['USER_CPFCNPJ'] . "</td>";
+            $USER_SELECT_VAR .= "<td class='user_identify'>" . $row['USER_CPFCNPJ'] . "</td>";
             $USER_SELECT_VAR .= "<td>" . $row['USER_NAME'] . "</td>";
             $USER_SELECT_VAR .= "<td id='" . $row['USER_ID']. "'>";
             $USER_SELECT_VAR .= "<button type='submit' class='user_view btn btn-sm btn-outline-primary'><i class='fa-solid fa-user-magnifying-glass'></i></button>";

@@ -159,29 +159,6 @@
         
     </div>
     <!-- #region -->
-    <div class="a_modal">
-        <span class="a_span"></span>
-        <span class="a_close m_close a_btn"><i class="fa-regular fa-circle-xmark"></i></span>
-        <script>
-            var aModal = document.querySelector(".a_modal");
-            var modalText = document.querySelector(".a_span");
-            var modalBtn = document.querySelector(".a_close");
-            var AlertMsg;
-
-            function mostrarModal() {
-                // Defina o texto com base na variável AlertMsg
-                modalText.textContent = AlertMsg;
-                // Mostre o elemento a_modal
-                aModal.classList.add = "a_active";
-            }
-
-            modalBtn.addEventListener("click", () =>{
-                aModal.classList.remove = "a_active";
-            });
-        </script>
-    </div>
-    <!-- #endregion -->
-    <!-- #region -->
         <div class="back_screen hidden"></div>
         <modal class="userInsert_modal m_start hidden">
             <div class="m_wrap">
@@ -194,19 +171,19 @@
                     <h5><i class="fa-solid fa-users-gear"></i> Dados do novo usuário </h5>
                     <hr />
                 </header>
-                <form class="" action="" method="post">
+                <form action="../PHP/USER_INSERT.php" method="post">
                     <div class="u_row form-row">
                         <div class="u_col form-group col-md-3">
                             <label for="USER_TYPE">Tipo</label>
                             <select class="form-control" name="USER_TYPE" id="selectbox4">
                                 <option value="">Selecione uma Opção&hellip;</option>
-                                <option value="user">Cliente</option>
-                                <option value="adm">Administrador</option>
+                                <option value="0">Cliente</option>
+                                <option value="1">Administrador</option>
                             </select>
                         </div>
                         <div class="u_col form-group col-md-3">
                             <label for="USER_CPFCNPJ" class="form-label">CPF / CNPJ</label>
-                            <input type="text" class="form-control" name="USER_CPFCNPJ" placeholder="000.000.000-00">
+                            <input type="text" class="form-control" name="USER_CPFCNPJ" maxlength="14" placeholder="000.000.000-00" oninput="formatarCPF(this)">
                         </div>
                         <div class="u_col form-group col-md-4">
                             <label for="USER_NAME" class="form-label">Nome</label>
@@ -270,6 +247,35 @@
 <script src="../JS/ABRE_NAV_RESPONSIVE.js"></script>
 <script src="../JS/USER_MODAL.js"></script>
 <script>
+    function formatarCPF(campo) {
+        // Remove todos os caracteres não numéricos
+        const valor = campo.value.replace(/\D/g, '');
+
+        // Adiciona a máscara de CPF
+        if (valor.length <= 11) {
+            campo.value = valor.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+        } else {
+            // Se o valor for maior que 11 dígitos, limite o campo a 14 caracteres
+            campo.value = valor.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5');
+        }
+    }
+
+    const elements = document.querySelectorAll('.user_identify');
+
+    elements.forEach(element => {
+        const text = element.textContent;
+        const formattedText = userIdentify(text); // Chame a função de formatação
+        element.textContent = formattedText; // Atualize o conteúdo formatado
+    });
+
+    function userIdentify(text) {
+        if (text.length <= 11) {
+            return text.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+        } else {
+            return text.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5');
+        }
+    }
+
     function abre_login() {
         window.location.href = "../index.html";
     }
