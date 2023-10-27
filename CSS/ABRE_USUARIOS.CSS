@@ -23,6 +23,11 @@
     gap: 5vh;
 }
 
+.mu_head{
+    height: 5rem;
+    gap: 4vh;
+}
+
 .u_head div{
     margin: 0;
     display: flex;
@@ -31,6 +36,11 @@
 }
 
 .u_head h2{
+    margin: 0;
+    width: fit-content;
+}
+
+.mu_head h5{
     margin: 0;
     width: fit-content;
 }

@@ -10,14 +10,6 @@
     } else {
         $login_btn = "<a href=../PHP/LOGOUT.php class=header_btn><button>Sair</button></a>";
     }
-    
-    function OpenAlert($message) {
-        global $Alert_Msg;
-        global $OpenAlert;
-        
-        $Alert_Msg = $message;
-        $OpenAlert = 'a_modal.classList.add("a_active");';
-    }
 ?>
 
 <html lang="pt-br">
@@ -112,7 +104,7 @@
                         </div>
                         <div class="u_col form-group col-md-2">
                             <label for="USER_TYPE">Tipo</label>
-                            <select class="form-control" name="USER_TYPE" id="selectbox1">
+                            <select class="form-control" name="USER_TYPE" id="selectbox2">
                                 <option value="">Selecione uma Opção&hellip;</option>
                                 <option value="user">Cliente</option>
                                 <option value="adm">Administrador</option>
@@ -122,7 +114,7 @@
                     <div class="u_row form-row">
                         <div class="u_col form-group col-md-2">
                             <label for="SEARCH_TYPE">Pesquisa</label>
-                            <select class="form-control" name="SEARCH_TYPE" id="selectbox1">
+                            <select class="form-control" name="SEARCH_TYPE" id="selectbox3">
                                 <option value="">Selecione uma Opção&hellip;</option>
                                 <option value="nome">Nome</option>
                                 <option value="tipo">Tipo</option>
@@ -168,8 +160,25 @@
     </div>
     <!-- #region -->
     <div class="a_modal">
-        <span class="a_span"><?php echo $Alert_Msg; ?></span>
-        <span class="m_close a_btn"><i class="fa-regular fa-circle-xmark"></i></span>
+        <span class="a_span"></span>
+        <span class="a_close m_close a_btn"><i class="fa-regular fa-circle-xmark"></i></span>
+        <script>
+            var aModal = document.querySelector(".a_modal");
+            var modalText = document.querySelector(".a_span");
+            var modalBtn = document.querySelector(".a_close");
+            var AlertMsg;
+
+            function mostrarModal() {
+                // Defina o texto com base na variável AlertMsg
+                modalText.textContent = AlertMsg;
+                // Mostre o elemento a_modal
+                aModal.classList.add = "a_active";
+            }
+
+            modalBtn.addEventListener("click", () =>{
+                aModal.classList.remove = "a_active";
+            });
+        </script>
     </div>
     <!-- #endregion -->
     <!-- #region -->
@@ -177,11 +186,55 @@
         <modal class="userInsert_modal m_start hidden">
             <div class="m_wrap">
                 <section class="m_head">
-                    <span class="m_title"><span><i class="fa-solid fa-book"></i>Criar novo Usuário</span></span>
+                    <span class="m_title"><span><i class="fa-solid fa-user-plus"></i>Criar novo Usuário</span></span>
                     <i class="m_close m_userInsert_close fa-regular fa-circle-xmark fa-xl"></i>
                 </section>
                 <section class="m_body">
-                    
+                <header class="u_head mu_head">
+                    <h5><i class="fa-solid fa-users-gear"></i> Dados do novo usuário </h5>
+                    <hr />
+                </header>
+                <form class="" action="" method="post">
+                    <div class="u_row form-row">
+                        <div class="u_col form-group col-md-3">
+                            <label for="USER_TYPE">Tipo</label>
+                            <select class="form-control" name="USER_TYPE" id="selectbox4">
+                                <option value="">Selecione uma Opção&hellip;</option>
+                                <option value="user">Cliente</option>
+                                <option value="adm">Administrador</option>
+                            </select>
+                        </div>
+                        <div class="u_col form-group col-md-3">
+                            <label for="USER_CPFCNPJ" class="form-label">CPF / CNPJ</label>
+                            <input type="text" class="form-control" name="USER_CPFCNPJ" placeholder="000.000.000-00">
+                        </div>
+                        <div class="u_col form-group col-md-4">
+                            <label for="USER_NAME" class="form-label">Nome</label>
+                            <input type="text" class="form-control" name="USER_NAME">
+                        </div>
+                    </div>
+                    <div class="u_row form-row">
+                        <div class="u_col form-group col-md-3">
+                            <label for="USER_EMAIL" class="form-label">Email</label>
+                            <div class="input-group">
+                                <div class="input-group-text"><i class="fa-solid fa-envelope"></i></div>
+                                <input type="email" class="form-control" name="USER_EMAIL" placeholder="exemplo@gmail.com">
+                            </div>
+                        </div>
+                        <div class="u_col form-group col-md-3">
+                            <label for="USER_PASSWORD" class="form-label">Password</label>
+                            <div class="input-group">
+                                <div class="input-group-text"><i class="fa-solid fa-key"></i></div>
+                                <input type="password" class="form-control" name="USER_PASSWORD" placeholder="**********">
+                            </div>
+                        </div>
+                        <div class="u_col form-group col-md-3" style="display: flex; align-items: flex-end;">
+                            <div class="input-group">
+                                <button type="submit" class="btn btn-primary" style="width: 50%;">Criar</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
                 </section>
             </div>
         </modal>
