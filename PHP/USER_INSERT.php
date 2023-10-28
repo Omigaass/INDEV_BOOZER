@@ -28,7 +28,7 @@
     $USER_NAME = mysqli_real_escape_string($conn, $_POST['USER_NAME']);
     $USER_PASSWORD = mysqli_real_escape_string($conn, $_POST['USER_PASSWORD']);
     $USER_EMAIL = mysqli_real_escape_string($conn, $_POST['USER_EMAIL']);
-    $USER_CPFCNPJ = mysqli_real_escape_string($conn, $_POST['USER_CPFCNPJ']);
+    $USER_CPFCNPJ = preg_replace('/\D/', '', $_POST['USER_CPFCNPJ']);    
     $USER_TYPE = mysqli_real_escape_string($conn, $_POST['USER_TYPE']);
     
     // HASH a senha para proteger
