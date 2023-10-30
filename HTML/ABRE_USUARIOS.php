@@ -2,7 +2,6 @@
     session_start();
 
     require '../PHP/USER_VALIDATION.php';
-    include '../PHP/USER_SELECT.php';
 
     // Verificar se o usuário está logado
     if (!isset($_SESSION['USER_ID'])) {
@@ -10,278 +9,410 @@
     } else {
         $login_btn = "<a href=../PHP/LOGOUT.php class=header_btn><button>Sair</button></a>";
     }
+    
+    include '../PHP/CONFIG.php';
+
+    $USER_SELECT_VAR = "";
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['userListBtn'])) {
+
+        $sql = "SELECT * FROM bz_user WHERE 1 = 1";
+
+        $conditions = array();
+        $params = array();
+
+        if (!empty($_POST['USER_STATUS'])) {
+            $USER_STATUS = $_POST['USER_STATUS'];
+            $conditions[] = "USER_STATUS = ?";
+            $params[] = $USER_STATUS;
+        }
+
+        if (!empty($_POST['USER_TYPE'])) {
+            $USER_TYPE = $_POST['USER_TYPE'];
+            $conditions[] = "USER_TYPE = ?";
+            $params[] = $USER_TYPE;
+        }
+
+        if (!empty($_POST['SEARCH_TYPE']) && !empty($_POST['input_text_type'])) {
+            $SEARCH_TYPE = $_POST['SEARCH_TYPE'];
+            $SEARCH_TEXT = $conn->real_escape_string($_POST['input_text_type']);
+            $conditions[] = "USER_" . strtoupper($SEARCH_TYPE) . " LIKE ?";
+            $params[] = '%' . $SEARCH_TEXT . '%';
+        }
+
+        if (!empty($conditions)) {
+            $sql .= " AND " . implode(" AND ", $conditions);
+        }
+
+        $stmt = $conn->prepare($sql);
+        if ($stmt) {
+            if (count($params) > 0) {
+                $types = str_repeat('s', count($params)); 
+                $stmt->bind_param($types, ...$params);
+            }
+            $stmt->execute();
+            $result = $stmt->get_result();
+        }
+
+        if (isset($result) && $result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $USER_SELECT_VAR .= "<tr>";
+                $USER_SELECT_VAR .= "<th scope='row'>" . $row['USER_ID'] . "</th>";
+                $USER_SELECT_VAR .= "<td>" . $row['USER_TYPE'] . "</td>";
+                $USER_SELECT_VAR .= "<td>" . $row['USER_STATUS'] . "</td>";
+                $USER_SELECT_VAR .= "<td class='user_identify'>" . $row['USER_CPFCNPJ'] . "</td>";
+                $USER_SELECT_VAR .= "<td>" . $row['USER_NAME'] . "</td>";
+                $USER_SELECT_VAR .= "<td id='" . $row['USER_ID']. "'>";
+                $USER_SELECT_VAR .= "<button type='submit' class='user_view btn btn-sm btn-outline-primary'><i class='fa-solid fa-user-magnifying-glass'></i></button>";
+                $USER_SELECT_VAR .= "<button type='submit' class='user_buy btn btn-sm btn-outline-success'><i class='fa-solid fa-basket-shopping'></i></button>";
+                $USER_SELECT_VAR .= "</td>";
+                $USER_SELECT_VAR .= "</tr>";
+            }
+        } else {
+            $USER_SELECT_VAR .= "<tr><td colspan='5'>Nenhum usuário encontrado.</td></tr>";
+        }
+
+        // Close the database connection
+        $conn->close();
+
+    }
 ?>
 
-<html lang="pt-br">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../CSS/MAIN.CSS">
-        <link rel="stylesheet" href="../CSS/ABRE_USUARIOS.CSS">
-        <link rel="stylesheet" href="../CSS/HEADER.CSS">
-        <link rel="stylesheet" href="../CSS/NAVBAR.CSS">
-        <link rel="stylesheet" href="../CSS/FOOTER.CSS">
-        <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/bilbo" type="text/css" />
-        <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/sniglet" type="text/css"/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <!--
-        ?███████  ██████  ███    ██ ████████      █████  ██     ██ ███████ ███████  ██████  ███    ███ ███████ 
-        ?██      ██    ██ ████   ██    ██        ██   ██ ██     ██ ██      ██      ██    ██ ████  ████ ██      
-        ?█████   ██    ██ ██ ██  ██    ██        ███████ ██  █  ██ █████   ███████ ██    ██ ██ ████ ██ █████   
-        ?██      ██    ██ ██  ██ ██    ██        ██   ██ ██ ███ ██ ██           ██ ██    ██ ██  ██  ██ ██      
-        ?██       ██████  ██   ████    ██        ██   ██  ███ ███  ███████ ███████  ██████  ██      ██ ███████ 
-        -->
-        <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/all.css">
-        <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-solid.css">
-        <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-regular.css">
-        <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-light.css">
-        <title>Boozer</title>
-    </head>
-<body>
-    <div class="fullscreen">
-        <header class="header_sec">
-            <div class="logo_body">
-                <a href="ABRE_MENU.php">Boozer</a>
-            </div>
-            <div class="header_btn_sec">
-                <?php 
-                    echo $login_btn;
-                ?>
-            </div>
-        </header>
-        <div class="navbar_outline">
-        <div class="blue_square">
-            <div class="white_square1"></div>
-        </div>
-        <nav class="navbar_sec">
-            <div class="navbar_body">
-                <div class="navbar_button" id="navbar_button">
-                    <i class="fa-solid fa-bars fa-lg"></i>
-                </div>
-                <div class="navbar_item" id="navbar_catalogo">
-                    <i class="fa-solid fa-bookmark"></i>
-                    <a>Catalogo</a>
-                </div>
-                <div class="navbar_item" id="navbar_carrinho">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                    <a>Carrinho</a>
-                </div>
-                <div class="navbar_item" id="navbar_perfil">
-                    <i class="fa-solid fa-user"></i>
-                    <a>Meu Perfil</a>
-                </div>
-                    <?php echo $DefaultConfigNav ?>
-            </div>
-        </nav>
-        <div class="blue_square">
-            <div class="white_square2"></div>
-        </div>
-        </div>
-        <main class="main_sec">
-            <!--             
-                 ?██████  ██████  ███    ██ ████████ ███████ ██    ██ ██████   ██████  
-                ?██      ██    ██ ████   ██    ██    ██      ██    ██ ██   ██ ██    ██ 
-                ?██      ██    ██ ██ ██  ██    ██    █████   ██    ██ ██   ██ ██    ██ 
-                ?██      ██    ██ ██  ██ ██    ██    ██      ██    ██ ██   ██ ██    ██ 
-                 ?██████  ██████  ██   ████    ██    ███████  ██████  ██████   ██████   
+    <html lang="pt-br">
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" href="../CSS/MAIN.CSS">
+            <link rel="stylesheet" href="../CSS/ABRE_USUARIOS.CSS">
+            <link rel="stylesheet" href="../CSS/HEADER.CSS">
+            <link rel="stylesheet" href="../CSS/NAVBAR.CSS">
+            <link rel="stylesheet" href="../CSS/FOOTER.CSS">
+            <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/bilbo" type="text/css" />
+            <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/sniglet" type="text/css"/>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+            <!--
+            ?███████  ██████  ███    ██ ████████      █████  ██     ██ ███████ ███████  ██████  ███    ███ ███████ 
+            ?██      ██    ██ ████   ██    ██        ██   ██ ██     ██ ██      ██      ██    ██ ████  ████ ██      
+            ?█████   ██    ██ ██ ██  ██    ██        ███████ ██  █  ██ █████   ███████ ██    ██ ██ ████ ██ █████   
+            ?██      ██    ██ ██  ██ ██    ██        ██   ██ ██ ███ ██ ██           ██ ██    ██ ██  ██  ██ ██      
+            ?██       ██████  ██   ████    ██        ██   ██  ███ ███  ███████ ███████  ██████  ██      ██ ███████ 
             -->
-            <section class="u_filter">
-                <header class="u_head">
-                    <div class=""><h2><i class="fa-solid fa-users-gear"></i> Usuários </h2> <button class="btn btn-primary user_create"><i class="fa-solid fa-user-plus"></i></button></div>
-                    <hr />
-                </header>
-                <form action="../PHP/USER_SELECT.php" method="post">
-                    <div class="u_row form-row">
-                        <div class="u_col form-group col-md-2">
-                            <label for="USER_STATUS">Status</label>
-                            <select class="form-control" name="USER_STATUS" id="selectbox1">
-                                <option value="">Selecione uma Opção&hellip;</option>
-                                <option value="ativo">Ativo</option>
-                                <option value="inativo">Inativo</option>
-                                <option value="suspenso">Suspenso</option>
-                            </select>
-                        </div>
-                        <div class="u_col form-group col-md-2">
-                            <label for="USER_TYPE">Tipo</label>
-                            <select class="form-control" name="USER_TYPE" id="selectbox2">
-                                <option value="">Selecione uma Opção&hellip;</option>
-                                <option value="user">Cliente</option>
-                                <option value="adm">Administrador</option>
-                            </select>
-                        </div>
+            <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/all.css">
+            <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-solid.css">
+            <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-regular.css">
+            <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-light.css">
+            <title>Boozer</title>
+            <script>
+               // Store search values for different inputs in separate variables
+var inputTextValue = "";
+var selectbox1Value = "";
+var selectbox2Value = "";
+var selectbox3Value = "";
+
+// Store search values in their respective variables
+function storeInputTextValue() {
+    var searchInput = document.getElementById("input_text_type");
+    inputTextValue = searchInput.value;
+}
+
+function storeSelectbox1Value() {
+    var searchInput = document.getElementById("selectbox1");
+    selectbox1Value = searchInput.value;
+}
+
+function storeSelectbox2Value() {
+    var searchInput = document.getElementById("selectbox2");
+    selectbox2Value = searchInput.value;
+}
+
+function storeSelectbox3Value() {
+    var searchInput = document.getElementById("selectbox3");
+    selectbox3Value = searchInput.value;
+}
+
+// Restore search values from their respective variables
+function restoreInputTextValue() {
+    var searchInput = document.getElementById("input_text_type");
+    searchInput.value = inputTextValue;
+}
+
+function restoreSelectbox1Value() {
+    var searchInput = document.getElementById("selectbox1");
+    searchInput.value = selectbox1Value;
+}
+
+function restoreSelectbox2Value() {
+    var searchInput = document.getElementById("selectbox2");
+    searchInput.value = selectbox2Value;
+}
+
+function restoreSelectbox3Value() {
+    var searchInput = document.getElementById("selectbox3");
+    searchInput.value = selectbox3Value;
+}
+
+// Attach event handlers to store and restore search values
+window.onbeforeunload = function () {
+    storeInputTextValue();
+    storeSelectbox1Value();
+    storeSelectbox2Value();
+    storeSelectbox3Value();
+};
+
+window.onload = function () {
+    restoreInputTextValue();
+    restoreSelectbox1Value();
+    restoreSelectbox2Value();
+    restoreSelectbox3Value();
+};
+
+            </script>
+        </head>
+    <body>
+        <div class="fullscreen">
+            <header class="header_sec">
+                <div class="logo_body">
+                    <a href="ABRE_MENU.php">Boozer</a>
+                </div>
+                <div class="header_btn_sec">
+                    <?php 
+                        echo $login_btn;
+                    ?>
+                </div>
+            </header>
+            <div class="navbar_outline">
+            <div class="blue_square">
+                <div class="white_square1"></div>
+            </div>
+            <nav class="navbar_sec">
+                <div class="navbar_body">
+                    <div class="navbar_button" id="navbar_button">
+                        <i class="fa-solid fa-bars fa-lg"></i>
                     </div>
-                    <div class="u_row form-row">
-                        <div class="u_col form-group col-md-2">
-                            <label for="SEARCH_TYPE">Pesquisa</label>
-                            <select class="form-control" name="SEARCH_TYPE" id="selectbox3">
-                                <option value="">Selecione uma Opção&hellip;</option>
-                                <option value="nome">Nome</option>
-                                <option value="tipo">Tipo</option>
-                                <option value="cpf">CPF</option>
-                            </select>
+                    <div class="navbar_item" id="navbar_catalogo">
+                        <i class="fa-solid fa-bookmark"></i>
+                        <a>Catalogo</a>
+                    </div>
+                    <div class="navbar_item" id="navbar_carrinho">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <a>Carrinho</a>
+                    </div>
+                    <div class="navbar_item" id="navbar_perfil">
+                        <i class="fa-solid fa-user"></i>
+                        <a>Meu Perfil</a>
+                    </div>
+                        <?php echo $DefaultConfigNav ?>
+                </div>
+            </nav>
+            <div class="blue_square">
+                <div class="white_square2"></div>
+            </div>
+            </div>
+            <main class="main_sec">
+                <!--             
+                    ?██████  ██████  ███    ██ ████████ ███████ ██    ██ ██████   ██████  
+                    ?██      ██    ██ ████   ██    ██    ██      ██    ██ ██   ██ ██    ██ 
+                    ?██      ██    ██ ██ ██  ██    ██    █████   ██    ██ ██   ██ ██    ██ 
+                    ?██      ██    ██ ██  ██ ██    ██    ██      ██    ██ ██   ██ ██    ██ 
+                    ?██████  ██████  ██   ████    ██    ███████  ██████  ██████   ██████   
+                -->
+                <section class="u_filter">
+                    <header class="u_head">
+                        <div class=""><h2><i class="fa-solid fa-users-gear"></i> Usuários </h2> <button class="btn btn-primary user_create"><i class="fa-solid fa-user-plus"></i></button></div>
+                        <hr />
+                    </header>
+                    <form action="" method="post">
+                        <div class="u_row form-row">
+                            <div class="u_col form-group col-md-2">
+                                <label for="USER_STATUS">Status</label>
+                                <select class="form-control" name="USER_STATUS" id="selectbox1">
+                                    <option value="">Selecione uma Opção&hellip;</option>
+                                    <option value="1">Ativo</option>
+                                    <option value="2">Inativo</option>
+                                    <option value="3">Suspenso</option>
+                                </select>
+                            </div>
+                            <div class="u_col form-group col-md-2">
+                                <label for="USER_TYPE">Tipo</label>
+                                <select class="form-control" name="USER_TYPE" id="selectbox2">
+                                    <option value="">Selecione uma Opção&hellip;</option>
+                                    <option value="false">Cliente</option>
+                                    <option value="1">Administrador</option>
+                                </select>
+                            </div>
                         </div>
-                        <div class="u_col form-group col-md-5">
-                            <label for="inlineFormInputGroupUsername2">Text</label>
-                            <div class="input-group mb-2 mr-sm-2">
-                                <div class="input-group-prepend">
-                                <div class="user_search_bar input-group-text"><button type="submit" class="user_search btn btn-primary"><i class="fa-solid fa-magnifying-glass"></i></button></div>
+                        <div class="u_row form-row">
+                            <div class="u_col form-group col-md-2">
+                                <label for="SEARCH_TYPE">Pesquisa</label>
+                                <select class="form-control" name="SEARCH_TYPE" id="selectbox3">
+                                    <option value="">Selecione uma Opção&hellip;</option>
+                                    <option value="name">Nome</option>
+                                    <option value="email">Email</option>  
+                                    <option value="cpfcnpj">CPF</option>
+                                </select>
+                            </div>
+                            <div class="u_col form-group col-md-5">
+                                <label for="input_text_type">Text</label>
+                                <div class="input-group mb-2 mr-sm-2">
+                                    <div class="input-group-prepend">
+                                    <div class="user_search_bar input-group-text"><button type="submit" name="userListBtn" class="user_search btn btn-primary"><i class="fa-solid fa-magnifying-glass"></i></button></div>
+                                    </div>
+                                    <input type="text" class="form-control" name="input_text_type" id="input_text_type" placeholder="Username" autocomplete="off">
                                 </div>
-                                <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Username">
                             </div>
                         </div>
-                    </div>
-                </form>
-            </section>
-            <section class="u_table table-responsive-md">
-                <table class="table table-hover ">
-                    <thead class="thead-light">
-                        <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Tipo</th>
-                        <th scope="col">Status</th>
-                        <th scope="col">CPF</th>
-                        <th scope="col">Nome</th>
-                        <th scope="col">Ações</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                            echo $USER_SELECT_VAR;
-                        ?>
-                    </tbody>
-                </table>
-            </section>
-        </main>
-        <footer class="footer_sec">
-            <p>&copy; 2023 Boozer - Todos os direitos reservados.</p>
-        </footer>
-        
-    </div>
-    <!-- #region -->
-        <div class="back_screen hidden"></div>
-        <modal class="userInsert_modal m_start hidden">
-            <div class="m_wrap">
-                <section class="m_head">
-                    <span class="m_title"><span><i class="fa-solid fa-user-plus"></i>Criar novo Usuário</span></span>
-                    <i class="m_close m_userInsert_close fa-regular fa-circle-xmark fa-xl"></i>
+                    </form>
                 </section>
-                <section class="m_body">
-                <header class="u_head mu_head">
-                    <h5><i class="fa-solid fa-users-gear"></i> Dados do novo usuário </h5>
-                    <hr />
-                </header>
-                <form action="../PHP/USER_INSERT.php" method="post">
-                    <div class="u_row form-row">
-                        <div class="u_col form-group col-md-3">
-                            <label for="USER_TYPE">Tipo</label>
-                            <select class="form-control" name="USER_TYPE" id="selectbox4">
-                                <option value="">Selecione uma Opção&hellip;</option>
-                                <option value="0">Cliente</option>
-                                <option value="1">Administrador</option>
-                            </select>
-                        </div>
-                        <div class="u_col form-group col-md-3">
-                            <label for="USER_CPFCNPJ" class="form-label">CPF / CNPJ</label>
-                            <input type="text" class="form-control" name="USER_CPFCNPJ" maxlength="14" placeholder="000.000.000-00" oninput="formatarCPF(this)">
-                        </div>
-                        <div class="u_col form-group col-md-4">
-                            <label for="USER_NAME" class="form-label">Nome</label>
-                            <input type="text" class="form-control" name="USER_NAME">
-                        </div>
-                    </div>
-                    <div class="u_row form-row">
-                        <div class="u_col form-group col-md-3">
-                            <label for="USER_EMAIL" class="form-label">Email</label>
-                            <div class="input-group">
-                                <div class="input-group-text"><i class="fa-solid fa-envelope"></i></div>
-                                <input type="email" class="form-control" name="USER_EMAIL" placeholder="exemplo@gmail.com">
+                <section class="u_table table-responsive-md">
+                    <table class="table table-hover ">
+                        <thead class="thead-light">
+                            <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Tipo</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">CPF</th>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                                echo $USER_SELECT_VAR;
+                            ?>
+                        </tbody>
+                    </table>
+                </section>
+            </main>
+            <footer class="footer_sec">
+                <p>&copy; 2023 Boozer - Todos os direitos reservados.</p>
+            </footer>
+            
+        </div>
+        <!-- #region -->
+            <div class="back_screen hidden"></div>
+            <modal class="userInsert_modal m_start hidden">
+                <div class="m_wrap">
+                    <section class="m_head">
+                        <span class="m_title"><span><i class="fa-solid fa-user-plus"></i>Criar novo Usuário</span></span>
+                        <i class="m_close m_userInsert_close fa-regular fa-circle-xmark fa-xl"></i>
+                    </section>
+                    <section class="m_body">
+                    <header class="u_head mu_head">
+                        <h5><i class="fa-solid fa-users-gear"></i> Dados do novo usuário </h5>
+                        <hr />
+                    </header>
+                    <form action="../PHP/USER_INSERT.php" method="post">
+                        <div class="u_row form-row">
+                            <div class="u_col form-group col-md-3">
+                                <label for="USER_TYPE">Tipo</label>
+                                <select class="form-control" name="USER_TYPE" id="selectbox4">
+                                    <option value="">Selecione uma Opção&hellip;</option>
+                                    <option value="0">Cliente</option>
+                                    <option value="1">Administrador</option>
+                                </select>
+                            </div>
+                            <div class="u_col form-group col-md-3">
+                                <label for="USER_CPFCNPJ" class="form-label">CPF / CNPJ</label>
+                                <input type="text" class="form-control" name="USER_CPFCNPJ" maxlength="18" placeholder="000.000.000-00 ou 00.000.000/0000-00" oninput="formatarCPF(this)">
+                            </div>
+                            <div class="u_col form-group col-md-4">
+                                <label for="USER_NAME" class="form-label">Nome</label>
+                                <input type="text" class="form-control" name="USER_NAME">
                             </div>
                         </div>
-                        <div class="u_col form-group col-md-3">
-                            <label for="USER_PASSWORD" class="form-label">Password</label>
-                            <div class="input-group">
-                                <div class="input-group-text"><i class="fa-solid fa-key"></i></div>
-                                <input type="password" class="form-control" name="USER_PASSWORD" placeholder="**********">
+                        <div class="u_row form-row">
+                            <div class="u_col form-group col-md-3">
+                                <label for="USER_EMAIL" class="form-label">Email</label>
+                                <div class="input-group">
+                                    <div class="input-group-text"><i class="fa-solid fa-envelope"></i></div>
+                                    <input type="email" class="form-control" name="USER_EMAIL" placeholder="exemplo@gmail.com">
+                                </div>
+                            </div>
+                            <div class="u_col form-group col-md-3">
+                                <label for="USER_PASSWORD" class="form-label">Password</label>
+                                <div class="input-group">
+                                    <div class="input-group-text"><i class="fa-solid fa-key"></i></div>
+                                    <input type="password" class="form-control" name="USER_PASSWORD" placeholder="**********">
+                                </div>
+                            </div>
+                            <div class="u_col form-group col-md-3" style="display: flex; align-items: flex-end;">
+                                <div class="input-group">
+                                    <button type="submit" class="btn btn-primary" style="width: 50%;">Criar</button>
+                                </div>
                             </div>
                         </div>
-                        <div class="u_col form-group col-md-3" style="display: flex; align-items: flex-end;">
-                            <div class="input-group">
-                                <button type="submit" class="btn btn-primary" style="width: 50%;">Criar</button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-                </section>
-            </div>
-        </modal>
-    <!-- #endregion -->
-    <!-- #region -->
-        <modal class="userView_modal m_start hidden">
-            <div class="m_wrap">
-                <section class="m_head">
-                    <span class="m_title"><span><i class="fa-solid fa-book"></i>Dados do Usuário</span></span>
-                    <i class="m_close m_userView_close fa-regular fa-circle-xmark fa-xl"></i>
-                </section>
-                <section class="m_body">
-                    
-                </section>
-            </div>
-        </modal>
-    <!-- #endregion -->
-    <!-- #region -->
-        <modal class="userBuy_modal m_start hidden">
-            <div class="m_wrap">
-                <section class="m_head">
-                    <span class="m_title"><span><i class="fa-solid fa-book"></i>Dados de Vendas</span></span>
-                    <i class="m_close m_userBuy_close fa-regular fa-circle-xmark fa-xl"></i>
-                </section>
-                <section class="m_body">
-                    
-                </section>
-            </div>
-        </modal>
-    <!-- #endregion -->
-</body>
-<script src="../JS/CONFIG_NAV.JS"></script>
-<script src="../JS/ABRE_NAV_RESPONSIVE.js"></script>
-<script src="../JS/USER_MODAL.js"></script>
-<script>
-    function formatarCPF(campo) {
-        // Remove todos os caracteres não numéricos
-        const valor = campo.value.replace(/\D/g, '');
+                    </form>
+                    </section>
+                </div>
+            </modal>
+        <!-- #endregion -->
+        <!-- #region -->
+            <modal class="userView_modal m_start hidden">
+                <div class="m_wrap">
+                    <section class="m_head">
+                        <span class="m_title"><span><i class="fa-solid fa-book"></i>Dados do Usuário</span></span>
+                        <i class="m_close m_userView_close fa-regular fa-circle-xmark fa-xl"></i>
+                    </section>
+                    <section class="m_body">
+                        
+                    </section>
+                </div>
+            </modal>
+        <!-- #endregion -->
+        <!-- #region -->
+            <modal class="userBuy_modal m_start hidden">
+                <div class="m_wrap">
+                    <section class="m_head">
+                        <span class="m_title"><span><i class="fa-solid fa-book"></i>Dados de Vendas</span></span>
+                        <i class="m_close m_userBuy_close fa-regular fa-circle-xmark fa-xl"></i>
+                    </section>
+                    <section class="m_body">
+                        
+                    </section>
+                </div>
+            </modal>
+        <!-- #endregion -->
+    </body>
+    <script src="../JS/CONFIG_NAV.JS"></script>
+    <script src="../JS/ABRE_NAV_RESPONSIVE.js"></script>
+    <script src="../JS/USER_MODAL.js"></script>
+    <script>
+        function formatarCPF(campo) {
+            // Remove todos os caracteres não numéricos
+            const valor = campo.value.replace(/\D/g, '');
 
-        // Adiciona a máscara de CPF
-        if (valor.length <= 11) {
-            campo.value = valor.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
-        } else {
-            // Se o valor for maior que 11 dígitos, limite o campo a 14 caracteres
-            campo.value = valor.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5');
+            // Adiciona a máscara de CPF
+            if (valor.length <= 11) {
+                campo.value = valor.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+            } else {
+                // Se o valor for maior que 11 dígitos, limite o campo a 14 caracteres
+                campo.value = valor.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5');
+            }
         }
-    }
 
-    const elements = document.querySelectorAll('.user_identify');
+        const elements = document.querySelectorAll('.user_identify');
 
-    elements.forEach(element => {
-        const text = element.textContent;
-        const formattedText = userIdentify(text); // Chame a função de formatação
-        element.textContent = formattedText; // Atualize o conteúdo formatado
-    });
+        elements.forEach(element => {
+            const text = element.textContent;
+            const formattedText = userIdentify(text); // Chame a função de formatação
+            element.textContent = formattedText; // Atualize o conteúdo formatado
+        });
 
-    function userIdentify(text) {
-        if (text.length <= 11) {
-            return text.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
-        } else {
-            return text.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5');
+        function userIdentify(text) {
+            if (text.length <= 11) {
+                return text.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+            } else {
+                return text.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5');
+            }
         }
-    }
 
-    function abre_login() {
-        window.location.href = "../index.html";
-    }
-    configurarNavegacao(".navbar_item");
-    const telaId = "usuarios"
-    const navbar_btn = document.getElementById(`navbar_${telaId}`);
-    navbar_btn.classList.add("navbar_active");
-</script>
-</html>
+        function abre_login() {
+            window.location.href = "../index.html";
+        }
+        configurarNavegacao(".navbar_item");
+        const telaId = "usuarios"
+        const navbar_btn = document.getElementById(`navbar_${telaId}`);
+        navbar_btn.classList.add("navbar_active");
+    </script>
+    </html>
