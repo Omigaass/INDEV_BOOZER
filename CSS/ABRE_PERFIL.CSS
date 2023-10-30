@@ -1,8 +1,8 @@
-:root{
+:root {
     --Default-font: snigletRegular;
 }
 
-.main_sec{
+.main_sec {
     position: fixed;
     top: 15vh;
     width: 100%;
@@ -26,7 +26,7 @@
     font-family: var(--Default-font);
 }
 
-.profile-container-img{
+.profile-container-img {
     width: 100%;
     height: 40%;
     display: flex;
@@ -41,7 +41,7 @@
     object-fit: cover;
 }
 
-.profile-container-info{
+.profile-container-info {
     width: 100%;
     height: 40%;
     display: flex;
@@ -70,41 +70,44 @@ a:hover {
 }
 
 .userUpdate_btn {
-  width: 100%;
-  height: 40px;
-  text-align: center;
+    width: 100%;
+    height: 40px;
+    text-align: center;
 }
 
 .userUpdate {
-  outline: none;
-  height: 40px;
-  text-align: center;
-  width: 130px;
-  border-radius: 40px;
-  background: #fff;
-  border: 2px solid #4483ca;
-  color: #4483ca;
-  letter-spacing: 1px;
-  text-shadow: 0;
-  font-size: 12px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.25s ease;
+    outline: none;
+    height: 40px;
+    text-align: center;
+    width: 130px;
+    border-radius: 40px;
+    background: #fff;
+    border: 2px solid #4483ca;
+    color: #4483ca;
+    letter-spacing: 1px;
+    text-shadow: 0;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.25s ease;
 }
+
 .userUpdate:hover {
-  color: white;
-  background: rgb(68, 131, 202);
+    color: white;
+    background: rgb(68, 131, 202);
 }
+
 .userUpdate:active {
-  letter-spacing: 2px;
+    letter-spacing: 2px;
 }
+
 .userUpdate:after {
-  content: "EDITAR";
+    content: "EDITAR";
 }
 
 
 
-.navbar_card{
+.navbar_card {
     width: 24vh;
     height: 26vh;
     margin: 0 0 5vh 7vh;
@@ -115,14 +118,18 @@ a:hover {
     flex-direction: column;
     justify-content: space-evenly;
     transition: background-color 0.2s ease;
-	animation: jello-diagonal-1 0.8s both;
-}   .navbar_card i {
+    animation: jello-diagonal-1 0.8s both;
+}
+
+.navbar_card i {
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
     border-radius: 15px;
-}   .navbar_card a{
+}
+
+.navbar_card a {
     height: 25%;
     display: flex;
     align-items: center;
@@ -132,34 +139,46 @@ a:hover {
     transition: color 0.2s ease;
 }
 
-#botao_teste{
+#botao_teste {
     background-color: var(--card1-soft-color);
     box-shadow: 0px 10px 0px -4px var(--card1-default-color);
-}   #botao_teste i{
-    background-color: var(--card1-dark-color);
-    padding: 15% 12%;
-}   #botao_teste:hover{
-    background-color: var(--card1-strong-color);
-}   #botao_teste:hover > a{
-    color: white;
-	animation: wobble-ver-left 0.8s both;
 }
 
-#botao_teste2{ 
-    background-color: #97c4fe; 
-    box-shadow: 0px 10px 0px -4px var(--card1-default-color); 
-}   #botao_teste i{ 
-    background-color: var(--card1-dark-color); 
-    padding: 15% 12%; 
-}   #botao_teste:hover{ 
-    background-color: var(--card1-strong-color); 
-}   #botao_teste:hover > a{ 
-    color: white; 
-        animation: wobble-ver-left 0.8s both; 
-} 
+#botao_teste i {
+    background-color: var(--card1-dark-color);
+    padding: 15% 12%;
+}
+
+#botao_teste:hover {
+    background-color: var(--card1-strong-color);
+}
+
+#botao_teste:hover>a {
+    color: white;
+    animation: wobble-ver-left 0.8s both;
+}
+
+#botao_teste2 {
+    background-color: #97c4fe;
+    box-shadow: 0px 10px 0px -4px var(--card1-default-color);
+}
+
+#botao_teste i {
+    background-color: var(--card1-dark-color);
+    padding: 15% 12%;
+}
+
+#botao_teste:hover {
+    background-color: var(--card1-strong-color);
+}
+
+#botao_teste:hover>a {
+    color: white;
+    animation: wobble-ver-left 0.8s both;
+}
 
 
-.back_screen{
+.back_screen {
     position: fixed;
     width: 100%;
     height: 100vh;
@@ -168,16 +187,16 @@ a:hover {
     background-color: #0c0c0c7c;
 }
 
-.m_start{
+.m_start {
     position: fixed;
     width: 100%;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-}    
+}
 
-.m_wrap{
+.m_wrap {
     width: calc(100% - 10vh);
     height: calc(100% - 10vh);
     margin: 5vh;
@@ -186,7 +205,7 @@ a:hover {
     animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }
 
-.m_head{
+.m_head {
     width: 100%;
     height: 12%;
     border-radius: 16px 16px 0 0;
@@ -195,7 +214,7 @@ a:hover {
     justify-content: center;
 }
 
-.m_title{
+.m_title {
     width: 90%;
     height: 100%;
     display: flex;
@@ -204,29 +223,36 @@ a:hover {
     font-family: var(--Default-font);
     font-size: var(--default-font-size);
     color: var(--azul-morno);
-}   .m_title span{
+}
+
+.m_title span {
     margin-left: 5%;
-}   .m_title i{
+}
+
+.m_title i {
     margin-right: 0.5rem;
 }
 
-.m_close{
+.m_close {
     color: var(--azul-morno-light);
     transition: color 0.3s ease;
     cursor: pointer;
 }
-.m_close:hover{
+
+.m_close:hover {
     color: var(--azul-morno-dark);
 }
 
-.m_body{
+.m_body {
     width: calc(100% - 4rem);
     height: 88%;
     margin: 0 2rem;
-    box-shadow: inset 0 0 10px #a6a6a665;
+    box-shadow: inset 0 0 10px #aaa0a065;
+    font-family: var(--Default-font);
+    font-size: 30px
 }
 
-.f_fieldset{
+.f_fieldset {
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
@@ -239,7 +265,7 @@ a:hover {
     margin: 2rem 1rem 0 1rem;
 }
 
-.f_legend{
+.f_legend {
     font-size: 24px;
     font-family: var(--Default-font);
     color: var(--azul-morno);
@@ -256,154 +282,188 @@ a:hover {
     align-items: center;
     margin: 0;
 }
+
 .f_box {
-    width:50px;
-    height:50px;
-    position:absolute;
-    opacity:0;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    opacity: 0;
     display: flex;
     align-items: center;
 }
-.f_label{
-    display:flex;
+
+.f_label {
+    display: flex;
     align-items: center;
     font-size: var(--default-font-size);
 }
-.path1{
-    stroke-dasharray:400;
-    stroke-dashoffset:400;
-    transition:.5s all;
+
+.path1 {
+    stroke-dasharray: 400;
+    stroke-dashoffset: 400;
+    transition: .5s all;
 }
-.path2{
-    stroke-dasharray:1800;
-    stroke-dashoffset:1800;
-    transition:.5s all;
+
+.path2 {
+    stroke-dasharray: 1800;
+    stroke-dashoffset: 1800;
+    transition: .5s all;
 }
-.f_box:checked + label svg g path {
-    stroke-dashoffset:0;
+
+.f_box:checked+label svg g path {
+    stroke-dashoffset: 0;
 }
+
 /* #endregion */
 
 
 
-.hidden{
-display: none !important;
+.hidden {
+    display: none !important;
 }
 
-.m_active{
-color: var(--azul-morno) !important;
-background-color: var(--azul-light) !important;
+.m_active {
+    color: var(--azul-morno) !important;
+    background-color: var(--azul-light) !important;
+}
+
+
+@keyframes jello-diagonal-1 {
+    0% {
+        transform: skew(0deg 0deg);
+    }
+
+    30% {
+        transform: skew(20deg 20deg);
+    }
+
+    40% {
+        transform: skew(-5deg, -5deg);
+    }
+
+    50% {
+        transform: skew(5deg, 5deg);
+    }
+
+    65% {
+        transform: skew(-2deg, -2deg);
+    }
+
+    75% {
+        transform: skew(2deg, 2deg);
+    }
+
+    100% {
+        transform: skew(0deg 0deg);
+    }
+}
+
+@keyframes wobble-ver-left {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0);
+        font-size: large;
+        transform-origin: 50% 50%;
+    }
+
+    15% {
+        transform: translateY(-10px) rotate(-2deg);
+        font-size: larger;
+    }
+
+    30% {
+        transform: translateY(5px) rotate(2deg);
+        font-size: larger;
+    }
+
+    45% {
+        transform: translateY(-5px) rotate(-1.2deg);
+        font-size: larger;
+    }
+
+    60% {
+        transform: translateY(3px) rotate(0.8deg);
+        font-size: larger;
+    }
+
+    75% {
+        transform: translateY(-2px) rotate(-0.4deg);
+        font-size: larger;
+    }
 }
 
 @keyframes jello-diagonal-1 {
     0% {
         transform: skew(0deg 0deg);
     }
+
     30% {
         transform: skew(20deg 20deg);
     }
+
     40% {
         transform: skew(-5deg, -5deg);
     }
+
     50% {
         transform: skew(5deg, 5deg);
     }
+
     65% {
         transform: skew(-2deg, -2deg);
     }
+
     75% {
         transform: skew(2deg, 2deg);
     }
+
     100% {
         transform: skew(0deg 0deg);
     }
 }
+
 @keyframes wobble-ver-left {
+
     0%,
     100% {
-      transform: translateY(0) rotate(0);
-      font-size: large;
-      transform-origin: 50% 50%;
+        transform: translateY(0) rotate(0);
+        font-size: large;
+        transform-origin: 50% 50%;
     }
+
     15% {
-      transform: translateY(-10px) rotate(-2deg);
-      font-size: larger;
+        transform: translateY(-10px) rotate(-2deg);
+        font-size: larger;
     }
+
     30% {
-      transform: translateY(5px) rotate(2deg);
-      font-size: larger;
+        transform: translateY(5px) rotate(2deg);
+        font-size: larger;
     }
+
     45% {
-      transform: translateY(-5px) rotate(-1.2deg);
-      font-size: larger;
+        transform: translateY(-5px) rotate(-1.2deg);
+        font-size: larger;
     }
+
     60% {
-      transform: translateY(3px) rotate(0.8deg);
-      font-size: larger;
+        transform: translateY(3px) rotate(0.8deg);
+        font-size: larger;
     }
+
     75% {
-      transform: translateY(-2px) rotate(-0.4deg);
-      font-size: larger;
+        transform: translateY(-2px) rotate(-0.4deg);
+        font-size: larger;
     }
 }
-  
- @keyframes jello-diagonal-1 { 
-     0% { 
-         transform: skew(0deg 0deg); 
-     } 
-     30% { 
-         transform: skew(20deg 20deg); 
-     } 
-     40% { 
-         transform: skew(-5deg, -5deg); 
-     } 
-     50% { 
-         transform: skew(5deg, 5deg); 
-     } 
-     65% { 
-         transform: skew(-2deg, -2deg); 
-     } 
-     75% { 
-         transform: skew(2deg, 2deg); 
-     } 
-     100% { 
-         transform: skew(0deg 0deg); 
-     } 
- } 
- @keyframes wobble-ver-left { 
-     0%, 
-     100% { 
-       transform: translateY(0) rotate(0); 
-       font-size: large; 
-       transform-origin: 50% 50%; 
-     } 
-     15% { 
-       transform: translateY(-10px) rotate(-2deg); 
-       font-size: larger; 
-     } 
-     30% { 
-       transform: translateY(5px) rotate(2deg); 
-       font-size: larger; 
-     } 
-     45% { 
-       transform: translateY(-5px) rotate(-1.2deg); 
-       font-size: larger; 
-     } 
-     60% { 
-       transform: translateY(3px) rotate(0.8deg); 
-       font-size: larger; 
-     } 
-     75% { 
-       transform: translateY(-2px) rotate(-0.4deg); 
-       font-size: larger; 
-     } 
-   }
-   @keyframes scale-up-center {
+
+@keyframes scale-up-center {
     0% {
-      transform: scale(0.5);
+        transform: scale(0.5);
     }
+
     100% {
-      transform: scale(1);
+        transform: scale(1);
     }
-  }
-  
+}
