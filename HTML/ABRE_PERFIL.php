@@ -146,14 +146,53 @@
             <section class="m_body">
                 <header class="u_head mu_head">
                     <h5><i class="fa-solid fa-users-gear"></i> Dados do novo usuário </h5>
-                    <label>Nome:</label>
-                    <input type="text" placeholder="Digite seu nome" name="nome" required>
-                    <label>Email:</label>
-                    <input type="text" placeholder="Digite seu email" name="Email" required>
-
                     <hr />
                 </header>
+                <form class="f_body" action="../PHP/PRODUCT_INSERT.php" method="post">
+                    
+                <div class="form_group">
+                    <label>Nome:</label>
+                    <input type="text" placeholder="Digite seu nome" name="nome" required>
+                </div>
 
+                <div class="form_group">
+                    <label>Email:</label>
+                    <input type="text" placeholder="Digite seu email" name="Email" required>
+                </div>
+
+                    <div class="form_group">
+                        <label class="form_label" for="BOOK_TITULO">Cpf:</label>
+                        <input class="form_field" type="text" name="BOOK_TITULO" id="BOOK_TITULO" placeholder="Digite seu cpf" required>
+                    </div>
+                    <div class="form_group">
+                        <label class="form_label" for="BOOK_AUTOR">Rg:</label>
+                        <input class="form_field" type="text" name="BOOK_AUTOR" id="BOOK_AUTOR" placeholder="Digite seu rg" required>
+                        
+                    </div>
+                    <div class="form_group">
+                        <label class="form_label" for="BOOK_EDITORA">Idade:</label>
+                        <input class="form_field" type="text" name="BOOK_EDITORA" id="BOOK_EDITORA" placeholder="Digite seu rg" required>
+                       
+                    </div>
+                    <div class="form_group">
+                        <label class="form_label" for="BOOK_ANO_PUBLICACAO">Data de nascimento:</label>
+                        <input class="form_field" type="text" name="BOOK_ANO_PUBLICACAO" id="BOOK_ANO_PUBLICACAO" placeholder="DD/MM/AAAA" required onfocus="changeInputType('BOOK_ANO_PUBLICACAO', 'month')" onblur="changeInputType('BOOK_ANO_PUBLICACAO', 'text')">
+                       
+                    </div>
+                    <div class="form_group">
+                        <label class="form_label" for="BOOK_PRECO">Preço</label>
+                        <input class="form_field" type="number" name="BOOK_PRECO" id="BOOK_PRECO" placeholder="R$ 000.00" step="0.01" pattern="\d{3}\.\d{2}">
+                       
+                    </div>
+                    <div class="form_group">
+                        <label class="form_label" for="BOOK_PRECO_DESC">Preço do Desconto</label>
+                        <input class="form_field" type="number" name="BOOK_PRECO_DESC" id="BOOK_PRECO_DESC" placeholder="R$ 000.00" step="0.01" pattern="\d{3}\.\d{2}">
+                    </div>
+                    
+                    <div class="f_btn_div">
+                        <button class="menu_btn f_btn_s" type="submit">Adicionar</button>
+                    </div>
+                </form>
             </section>
         </div>
     </modal>
