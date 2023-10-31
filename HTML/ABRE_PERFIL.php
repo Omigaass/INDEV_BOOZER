@@ -1,3 +1,24 @@
+<?php
+    session_start();
+
+    require '../PHP/USER_VALIDATION.php';
+
+    // Verificar se o usuário está logado
+    if (!isset($_SESSION['USER_ID'])) {
+        $login_btn = "<a href=../index.html class=header_btn><button>Login</button></a>";
+    } else {
+        $login_btn = "<a href=../PHP/LOGOUT.php class=header_btn><button>Sair</button></a>";
+    }
+
+    function OpenAlert($message) {
+        global $Alert_Msg;
+        global $OpenAlert;
+        
+        $Alert_Msg = $message;
+        $OpenAlert = 'a_modal.classList.add("a_active");';
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -36,7 +57,9 @@
                 <a href="ABRE_MENU.php">Boozer</a>
             </div>
             <div class="header_btn_sec">
-
+                <?php 
+                    echo $login_btn;
+                ?>
             </div>
         </header>
         <div class="navbar_outline">
@@ -60,7 +83,7 @@
                         <i class="fa-solid fa-user"></i>
                         <a>Meu Perfil</a>
                     </div>
-
+                    <?php echo $DefaultConfigNav ?>
                 </div>
             </nav>
             <div class="blue_square">

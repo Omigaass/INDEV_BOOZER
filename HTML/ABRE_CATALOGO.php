@@ -625,7 +625,7 @@
                         <legend class="f_legend">Formato</legend>
                         <div class="f_checkbox">
                             <input class="f_box" type="checkbox" name="capa-dura" id="capa-dura">
-                            <label for="espanhol" class="f_label">
+                            <label for="capa-dura" class="f_label">
                                 <svg width="45" height="45" viewbox="0 0 100 100">
                                 <rect x="30" y="20" width="45" height="45" stroke="black" fill="none" rx="10" ry="10" />
                                     <g transform="translate(0,-952.36222)">

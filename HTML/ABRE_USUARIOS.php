@@ -3,7 +3,6 @@
 
     require '../PHP/USER_VALIDATION.php';
 
-    // Verificar se o usuário está logado
     if (!isset($_SESSION['USER_ID'])) {
         $login_btn = "<button class='header_btn'><a href=../index.html>Login</a></button>";
     } else {
@@ -72,9 +71,7 @@
             $USER_SELECT_VAR .= "<tr><td colspan='5'>Nenhum usuário encontrado.</td></tr>";
         }
 
-        // Close the database connection
         $conn->close();
-
     }
 ?>
 
