@@ -9,6 +9,12 @@
     background-color: var(--claro-light);
 }
 
+.table_action_btn{
+    display: flex;
+    width: 100%;
+    gap: 2%;
+}
+
 .u_filter{
     width: calc(100% - 10vh);
 }

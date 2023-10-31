@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 16/10/2023 às 22:46
+-- Tempo de geração: 31/10/2023 às 21:40
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -44,14 +44,6 @@ CREATE TABLE `bz_book` (
   `IMG_ID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Despejando dados para a tabela `bz_book`
---
-
-INSERT INTO `bz_book` (`BOOK_ID`, `BOOK_TITULO`, `BOOK_AUTOR`, `BOOK_ANO_PUBLICACAO`, `BOOK_PRECO`, `BOOK_PRECO_DESC`, `BOOK_EDITORA`, `BOOK_GENERO`, `BOOK_CLASSIFICACAO`, `BOOK_IDIOMA`, `BOOK_FORMATO`, `BOOK_DISPONIBILIDADE`, `BOOK_PUBLICO_ALVO`, `IMG_ID`) VALUES
-(1, 'teste', 'autor teste', '2023-01-01', 200.00, NULL, 'editora teste', 'romance', 0, 'Português', 'E-book', 'Em Estoque', 'Adolescentes', NULL),
-(3, 'B', 'B', '2023-10-01', 1000.00, 2000.00, 'B', 'ficcao', 0, 'Inglês', 'Capa Dura', 'Em Estoque', 'Crianças', NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -74,6 +66,8 @@ CREATE TABLE `bz_image` (
 CREATE TABLE `bz_user` (
   `USER_ID` int(11) NOT NULL,
   `USER_TYPE` tinyint(1) NOT NULL,
+  `USER_STATUS` varchar(50) DEFAULT NULL,
+  `USER_CPFCNPJ` varchar(14) DEFAULT NULL,
   `USER_NAME` varchar(255) DEFAULT NULL,
   `USER_EMAIL` varchar(255) DEFAULT NULL,
   `USER_PASSWORD` varchar(255) DEFAULT NULL,
@@ -84,9 +78,25 @@ CREATE TABLE `bz_user` (
 -- Despejando dados para a tabela `bz_user`
 --
 
-INSERT INTO `bz_user` (`USER_ID`, `USER_TYPE`, `USER_NAME`, `USER_EMAIL`, `USER_PASSWORD`, `USER_REGISTER_TIME`) VALUES
-(3, 1, 'admin.teste', 'admin@gmail', '$2y$10$hxOudpePkkRAdJOBqTs58Ojatb2Yz4PoX8tjp8Lel1SwWOYAqIEZK', '2023-10-16 19:17:36'),
-(4, 0, 'user.teste', 'user@gmail', '$2y$10$z7N6Wg342jiaBs6p3lohT.4cDmor2nI5BrEr0nR8b/1YsDfzj.1uK', '2023-10-16 19:21:27');
+INSERT INTO `bz_user` (`USER_ID`, `USER_TYPE`, `USER_STATUS`, `USER_CPFCNPJ`, `USER_NAME`, `USER_EMAIL`, `USER_PASSWORD`, `USER_REGISTER_TIME`) VALUES
+(3, 1, '1', NULL, 'admin.teste', 'admin@gmail', '$2y$10$hxOudpePkkRAdJOBqTs58Ojatb2Yz4PoX8tjp8Lel1SwWOYAqIEZK', '2023-10-16 19:17:36'),
+(19, 1, '1', '2147483647', 'tereza', 'aa@rr', '$2y$10$/uXheRDwxnwCqC0sHTidauDo9FzisDAQWRiZsyqsN0.8oBjAXqJeq', '2023-10-27 19:24:19'),
+(20, 0, '1', '2147483647', 'Miguel', 'miguelanperibeiro@gmail.com', '$2y$10$HtVuuW35CQTo0FAUDqclh.1RWXIasr.K3ZUtkjQ6pW34KlB0MHbni', '2023-10-27 19:28:45'),
+(30, 1, '1', '2147483647', 'admin', 'admin@gmail.com', '$2y$10$CSUiSyITl0tR48StzwJgsuaM9Up2K1U03iQq.kzNQobyt4pD2/c6u', '2023-10-30 18:41:31'),
+(31, 1, '1', '22333444111100', 'teste', 'teste@teste', '$2y$10$0QH/V7nn6Hd9uNh4TmJCDuncUsW4MtgnWdTxA64/.5g0eBTRiVoz2', '2023-10-30 18:47:02'),
+(32, 1, '1', '33333333333333', 'CNPJ', 'cnpj@gmail', '$2y$10$ZkDXuhBGWge9RbvHFneR1O.CW0zfSlLipWuY5hokaPnAzzNY9aKEm', '2023-10-30 18:58:54'),
+(33, 1, '1', '23232323232323', 'teste2', 'teste2@teste', '$2y$10$LoxpWH4kK6ygAj38lC8UOONQw3Zmeu8LAD.D.IJC..KShg9ElwdFe', '2023-10-30 20:38:47'),
+(34, 1, '1', '44444444444444', 'Miguel', 'miguel@gmail', '$2y$10$8a6SVMKTlTS5ff6qmAmUx.FTwhTwTtXhK1tnkx.Mqu3CzldbKqNna', '2023-10-30 20:39:58');
+
+--
+-- Acionadores `bz_user`
+--
+DELIMITER $$
+CREATE TRIGGER `set_user_status` BEFORE INSERT ON `bz_user` FOR EACH ROW BEGIN
+    SET NEW.USER_STATUS = 1;
+END
+$$
+DELIMITER ;
 
 --
 -- Índices para tabelas despejadas
@@ -131,7 +141,7 @@ ALTER TABLE `bz_image`
 -- AUTO_INCREMENT de tabela `bz_user`
 --
 ALTER TABLE `bz_user`
-  MODIFY `USER_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `USER_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- Restrições para tabelas despejadas

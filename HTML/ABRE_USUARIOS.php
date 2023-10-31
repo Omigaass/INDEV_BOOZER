@@ -58,12 +58,22 @@
                 $USER_SELECT_VAR .= "<tr>";
                 $USER_SELECT_VAR .= "<th scope='row'>" . $row['USER_ID'] . "</th>";
                 $USER_SELECT_VAR .= "<td>" . $row['USER_TYPE'] . "</td>";
-                $USER_SELECT_VAR .= "<td>" . $row['USER_STATUS'] . "</td>";
+                $USER_STATUS = $row['USER_STATUS'];
+                if ($USER_STATUS == 1) {
+                    $USER_SELECT_VAR .= "<td>Ativo</td>";
+                } elseif ($USER_STATUS == 2) {
+                    $USER_SELECT_VAR .= "<td>Inativo</td>";
+                } elseif ($USER_STATUS == 3) {
+                    $USER_SELECT_VAR .= "<td>Suspenso</td>";
+                } else {
+                    $USER_SELECT_VAR .= "<td>Desconhecido</td>";
+                }
                 $USER_SELECT_VAR .= "<td class='user_identify'>" . $row['USER_CPFCNPJ'] . "</td>";
                 $USER_SELECT_VAR .= "<td>" . $row['USER_NAME'] . "</td>";
-                $USER_SELECT_VAR .= "<td id='" . $row['USER_ID']. "'>";
-                $USER_SELECT_VAR .= "<button type='submit' class='user_view btn btn-sm btn-outline-primary'><i class='fa-solid fa-user-magnifying-glass'></i></button>";
-                $USER_SELECT_VAR .= "<button type='submit' class='user_buy btn btn-sm btn-outline-success'><i class='fa-solid fa-basket-shopping'></i></button>";
+                $USER_SELECT_VAR .= "<td class='table_action_btn' id='" . $row['USER_ID']. "'>";
+                $USER_SELECT_VAR .= "<button type='submit' id='user_view' class='user_view btn btn-sm btn-outline-primary'><i class='fa-solid fa-user-magnifying-glass'></i></button>";
+                $USER_SELECT_VAR .= "<button type='submit' id='user_buy' class='user_buy btn btn-sm btn-outline-success'><i class='fa-solid fa-basket-shopping'></i></button>";
+                $USER_SELECT_VAR .= "<button type='submit' id='user_delete' class='user_delete btn btn-sm btn-outline-danger'><i class='fa-solid fa-user-minus'></i></button>";
                 $USER_SELECT_VAR .= "</td>";
                 $USER_SELECT_VAR .= "</tr>";
             }
@@ -72,6 +82,18 @@
         }
 
         $conn->close();
+    }
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['user_view'])) {
+
+    }
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['user_buy'])) {
+
+    }
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['user_delete'])) {
+
     }
 ?>
 
@@ -100,71 +122,6 @@
             <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-regular.css">
             <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-light.css">
             <title>Boozer</title>
-            <script>
-               // Store search values for different inputs in separate variables
-var inputTextValue = "";
-var selectbox1Value = "";
-var selectbox2Value = "";
-var selectbox3Value = "";
-
-// Store search values in their respective variables
-function storeInputTextValue() {
-    var searchInput = document.getElementById("input_text_type");
-    inputTextValue = searchInput.value;
-}
-
-function storeSelectbox1Value() {
-    var searchInput = document.getElementById("selectbox1");
-    selectbox1Value = searchInput.value;
-}
-
-function storeSelectbox2Value() {
-    var searchInput = document.getElementById("selectbox2");
-    selectbox2Value = searchInput.value;
-}
-
-function storeSelectbox3Value() {
-    var searchInput = document.getElementById("selectbox3");
-    selectbox3Value = searchInput.value;
-}
-
-// Restore search values from their respective variables
-function restoreInputTextValue() {
-    var searchInput = document.getElementById("input_text_type");
-    searchInput.value = inputTextValue;
-}
-
-function restoreSelectbox1Value() {
-    var searchInput = document.getElementById("selectbox1");
-    searchInput.value = selectbox1Value;
-}
-
-function restoreSelectbox2Value() {
-    var searchInput = document.getElementById("selectbox2");
-    searchInput.value = selectbox2Value;
-}
-
-function restoreSelectbox3Value() {
-    var searchInput = document.getElementById("selectbox3");
-    searchInput.value = selectbox3Value;
-}
-
-// Attach event handlers to store and restore search values
-window.onbeforeunload = function () {
-    storeInputTextValue();
-    storeSelectbox1Value();
-    storeSelectbox2Value();
-    storeSelectbox3Value();
-};
-
-window.onload = function () {
-    restoreInputTextValue();
-    restoreSelectbox1Value();
-    restoreSelectbox2Value();
-    restoreSelectbox3Value();
-};
-
-            </script>
         </head>
     <body>
         <div class="fullscreen">
