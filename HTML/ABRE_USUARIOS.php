@@ -85,7 +85,19 @@
     }
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['user_view'])) {
+        $parent_id = $_POST['parent_id'];
 
+        $sql = "SELECT USER_ID, USER_TYPE, USER_STATUS, USER_CPFCNPJ, USER_CEP, USER_NAME, USER_PASSWORD, USER_EMAIL, USER_RG, USER_IDADE, USER_DTNASC, USER_END, USER_ENDNUM, USER_BAIRRO, USER_CIDADE, USER_CEL, USER_TEL, USER_REGISTER_TIME FROM user_bz WHERE USER_ID = '$parent_id'";
+        
+        $result = $conn->query($sql);
+        
+        if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                echo "USER_ID: " . $row["USER_ID"]. " - USER_NAME: " . $row["USER_NAME"]. "<br>";
+            }
+        }
+        
+        $conn->close();
     }
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['user_buy'])) {
@@ -173,7 +185,7 @@
                 -->
                 <section class="u_filter">
                     <header class="u_head">
-                        <div class=""><h2><i class="fa-solid fa-users-gear"></i> Usuários </h2> <button class="btn btn-primary user_create"><i class="fa-solid fa-user-plus"></i></button></div>
+                        <div class=""><h2><i class="fa-solid fa-users-gear"></i> Usuários </h2> <button class="btn btn-primary u_btn user_create"><i class="fa-solid fa-user-plus"></i></button></div>
                         <hr />
                     </header>
                     <form action="" method="post">
@@ -210,7 +222,7 @@
                                 <label for="input_text_type">Text</label>
                                 <div class="input-group mb-2 mr-sm-2">
                                     <div class="input-group-prepend">
-                                    <div class="user_search_bar input-group-text"><button type="submit" name="userListBtn" class="user_search btn btn-primary"><i class="fa-solid fa-magnifying-glass"></i></button></div>
+                                    <div class="user_search_bar input-group-text"><button type="submit" name="userListBtn" class="u_btn user_search btn btn-primary"><i class="fa-solid fa-magnifying-glass"></i></button></div>
                                     </div>
                                     <input type="text" class="form-control" name="input_text_type" id="input_text_type" placeholder="Username" autocomplete="off">
                                 </div>
