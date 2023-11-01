@@ -31,6 +31,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../CSS/MAIN.CSS">
     <link rel="stylesheet" href="../CSS/ABRE_CATALOGO.CSS">
+    <link rel="stylesheet" href="../CSS/MODAL.CSS">
+    <link rel="stylesheet" href="../CSS/FORMS.CSS">
     <link rel="stylesheet" href="../CSS/HEADER.CSS">
     <link rel="stylesheet" href="../CSS/NAVBAR.CSS">
     <link rel="stylesheet" href="../CSS/FOOTER.CSS">
@@ -877,7 +879,106 @@
                 <i class="m_close m_book_edit_close fa-regular fa-circle-xmark fa-xl"></i>
             </section>
             <section class="m_body">
-                
+                <form class="f_body" action="../PHP/PRODUCT_INSERT.php" method="post">
+                    <div class="form_group">
+                        <input class="form_field" type="text" name="BOOK_TITULO" id="BOOK_TITULO" placeholder="Título" required>
+                        <label class="form_label" for="BOOK_TITULO">Título</label>
+                    </div>
+                    <div class="form_group">
+                        <input class="form_field" type="text" name="BOOK_AUTOR" id="BOOK_AUTOR" placeholder="Autor" required>
+                        <label class="form_label" for="BOOK_AUTOR">Autor</label>
+                    </div>
+                    <div class="form_group">
+                        <input class="form_field" type="text" name="BOOK_EDITORA" id="BOOK_EDITORA" placeholder="Editora" required>
+                        <label class="form_label" for="BOOK_EDITORA">Editora</label>
+                    </div>
+                    <div class="form_group">
+                        <input class="form_field" type="text" name="BOOK_ANO_PUBLICACAO" id="BOOK_ANO_PUBLICACAO" placeholder="MM/AAAA" required onfocus="changeInputType('BOOK_ANO_PUBLICACAO', 'month')" onblur="changeInputType('BOOK_ANO_PUBLICACAO', 'text')">
+                        <label class="form_label" for="BOOK_ANO_PUBLICACAO">Ano de Publicação</label>
+                    </div>
+                    <div class="form_group">
+                        <input class="form_field" type="number" name="BOOK_PRECO" id="BOOK_PRECO" placeholder="R$ 000.00" step="0.01" pattern="\d{3}\.\d{2}">
+                        <label class="form_label" for="BOOK_PRECO">Preço</label>
+                    </div>
+                    <div class="form_group">
+                        <input class="form_field" type="number" name="BOOK_PRECO_DESC" id="BOOK_PRECO_DESC" placeholder="R$ 000.00" step="0.01" pattern="\d{3}\.\d{2}">
+                        <label class="form_label" for="BOOK_PRECO_DESC">Preço do Desconto</label>
+                    </div>
+                    <div class="form_group form_group_select">
+                        <label class="form_label_s" for="BOOK_GENERO">Gênero</label>
+                        <select class="f_select" name="BOOK_GENERO" id="selectbox1">
+                            <option value="">Selecione uma Opção&hellip;</option>
+                            <option value="ficcao">Ficção</option>
+                            <option value="romance">Romance</option>
+                            <option value="misterio-suspense">Mistério / Suspense</option>
+                            <option value="fantasia">Fantasia</option>
+                            <option value="aventura">Aventura</option>
+                            <option value="ficcao-cientifica">Ficção Científica</option>
+                            <option value="amizade">Amizade</option>
+                            <option value="amor">Amor</option>
+                            <option value="historia">História</option>
+                            <option value="biografia">Biografia</option>
+                            <option value="autoajuda">Autoajuda</option>
+                            <option value="crescimento-pessoal">Crescimento Pessoal</option>
+                            <option value="religiao">Religião</option>
+                            <option value="politica">Política</option>
+                        </select>
+                    </div>
+                    <div class="form_group form_group_select">
+                        <label class="form_label_s" for="BOOK_CLASSIFICACAO">Classificação</label>
+                        <select class="f_select" name="BOOK_CLASSIFICACAO" id="selectbox2">
+                            <option value="">Selecione uma Opção&hellip;</option>
+                            <option value="uma-estrela">1 Estrela</option>
+                            <option value="duas-estrelas">2 Estrela</option>
+                            <option value="tres-estrelas">3 Estrela</option>
+                            <option value="quatro-estrelas">4 Estrela</option>
+                            <option value="cinco-estrelas">5 Estrela</option>
+                        </select>
+                    </div>
+                    <div class="form_group form_group_select">
+                        <label class="form_label_s" for="BOOK_IDIOMA">Idioma</label>
+                        <select class="f_select" name="BOOK_IDIOMA" id="selectbox3">
+                            <option value="">Selecione uma Opção&hellip;</option>
+                            <option value="portugues">Português</option>
+                            <option value="ingles">Inglês</option>
+                            <option value="espanhol">Espanhol</option>
+                        </select>
+                    </div>
+                    <div class="form_group form_group_select">
+                        <label class="form_label_s" for="BOOK_FORMATO">Formato</label>
+                        <select class="f_select" name="BOOK_FORMATO" id="selectbox4">
+                            <option value="">Selecione uma Opção&hellip;</option>
+                            <option value="capa-dura">Capa Dura</option>
+                            <option value="capa-flexivel">Capa Flexível</option>
+                            <option value="e-book">E-book</option>
+                            <option value="audio-book">Áudio-Book</option>
+                        </select>
+                    </div>
+                    <div class="form_group form_group_select">
+                        <label class="form_label_s" for="BOOK_DISPONIBILIDADE">Disponibilidade</label>
+                        <select class="f_select" name="BOOK_DISPONIBILIDADE" id="selectbox5">
+                            <option value="">Selecione uma Opção&hellip;</option>
+                            <option value="estoque">Em Estoque</option>
+                            <option value="pre-venda">Pré-Venda</option>
+                        </select>
+                    </div>
+                    <div class="form_group form_group_select">
+                        <label class="form_label_s" for="BOOK_PUBLICO_ALVO">Público-Alvo</label>
+                        <select class="f_select" name="BOOK_PUBLICO_ALVO" id="selectbox6">
+                            <option value="">Selecione uma Opção&hellip;</option>
+                            <option value="criancas">Crianças</option>
+                            <option value="adolecentes">Adolecentes</option>
+                            <option value="adultos">Adultos</option>
+                        </select>
+                    </div>
+                    <div class="form_group form_group_img">
+                        <input class="form_field form_field_img" type="file" name="BOOK_IMAGE" id="BOOK_IMAGE">
+                        <label class="form_label" for="BOOK_IMAGE">Selecione uma Imagem</label>
+                    </div>
+                    <div class="f_btn_div">
+                        <button class="menu_btn f_btn_s" type="submit">Adicionar</button>
+                    </div>
+                </form>
             </section>
         </div>
     </modal>

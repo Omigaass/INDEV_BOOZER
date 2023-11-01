@@ -66,7 +66,7 @@
                 } elseif ($USER_STATUS == 3) {
                     $USER_SELECT_VAR .= "<td>Suspenso</td>";
                 } else {
-                    $USER_SELECT_VAR .= "<td>Desconhecido</td>";
+                    $USER_SELECT_VAR .= "<td>Nulo</td>";
                 }
                 $USER_SELECT_VAR .= "<td class='user_identify'>" . $row['USER_CPFCNPJ'] . "</td>";
                 $USER_SELECT_VAR .= "<td>" . $row['USER_NAME'] . "</td>";
@@ -116,6 +116,8 @@
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="stylesheet" href="../CSS/MAIN.CSS">
             <link rel="stylesheet" href="../CSS/ABRE_USUARIOS.CSS">
+            <link rel="stylesheet" href="../CSS/MODAL.CSS">
+            <link rel="stylesheet" href="../CSS/FORMS.CSS">
             <link rel="stylesheet" href="../CSS/HEADER.CSS">
             <link rel="stylesheet" href="../CSS/NAVBAR.CSS">
             <link rel="stylesheet" href="../CSS/FOOTER.CSS">
@@ -314,14 +316,179 @@
             </modal>
         <!-- #endregion -->
         <!-- #region -->
-            <modal class="userView_modal m_start hidden">
+            <modal class="userView_modal m_start ">
                 <div class="m_wrap">
                     <section class="m_head">
                         <span class="m_title"><span><i class="fa-solid fa-book"></i>Dados do Usuário</span></span>
                         <i class="m_close m_userView_close fa-regular fa-circle-xmark fa-xl"></i>
                     </section>
                     <section class="m_body">
-                        
+                        <form class="f_body" action="" method="post">
+                            <div class="f_navbar">
+                                <hr />
+                                <div class="f_nav_btn userBasic active"><i class="fa-solid fa-address-card fa-xl"></i></div>
+                                <div class="f_nav_btn userAddress"><i class="fa-solid fa-map-location-dot fa-xl"></i></div>
+                                <div class="f_nav_btn userContact"><i class="fa-solid fa-address-book fa-xl"></i></div>
+                                <div class="f_nav_btn userConfirmChange"><i class="fa-sharp fa-solid fa-badge-check fa-xl"></i></div>
+                            </div>
+                            <div class="userEditForm userBasic_form active">
+                                <div class="userEditForm_body">
+                                    <div class="u_row form-row">
+                                        <div class="u_col form-group col-md-2">
+                                            <label for="USER_TYPE">Tipo</label>
+                                            <select class="form-control" name="USER_TYPE" id="selectbox4">
+                                                <option value="">Selecione uma Opção&hellip;</option>
+                                                <option value="0">Cliente</option>
+                                                <option value="1">Administrador</option>
+                                            </select>
+                                        </div>
+                                        <div class="u_col form-group col-md-2">
+                                            <label for="USER_TYPE">Status</label>
+                                            <select class="form-control" name="USER_TYPE" id="selectbox4">
+                                                <option value="">Selecione uma Opção&hellip;</option>
+                                                <option value="0">Cliente</option>
+                                                <option value="1">Administrador</option>
+                                            </select>
+                                        </div>
+                                        <div class="u_col form-group col-md-3">
+                                            <label for="USER_CPFCNPJ" class="form-label">Senha</label>
+                                            <input type="text" class="form-control" name="USER_CPFCNPJ">
+                                        </div>
+                                        <div class="u_col form-group col-md-3">
+                                            <label for="USER_NAME" class="form-label">Login</label>
+                                            <input type="text" class="form-control" name="USER_NAME">
+                                        </div>
+                                    </div>
+                                    <div class="u_row form-row">
+                                        <div class="u_col form-group col-md-2">
+                                            <label for="USER_CPFCNPJ" class="form-label">CPF / CNPJ</label>
+                                            <input type="text" class="form-control" name="USER_CPFCNPJ" maxlength="18" placeholder="000.000.000-00 ou 00.000.000/0000-00" oninput="formatarCPF(this)">
+                                        </div>
+                                        <div class="u_col form-group col-md-2">
+                                            <label for="USER_NAME" class="form-label">RG</label>
+                                            <input type="text" class="form-control" name="USER_NAME">
+                                        </div>
+                                        <div class="u_col form-group col-md-4">
+                                            <label for="USER_CPFCNPJ" class="form-label">Nome</label>
+                                            <input type="text" class="form-control" name="USER_CPFCNPJ">
+                                        </div>
+                                        <div class="u_col form-group col-md-2">
+                                            <label for="USER_NAME" class="form-label">Data de Nascimento</label>
+                                            <input type="text" class="form-control" name="USER_NAME">
+                                        </div>
+                                    </div>
+                                    <div class="btn-group" role="group" aria-label="Basic example">
+                                        <div class="userBasicNext userEdit_btn btn btn-outline-success">Próximo</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="userEditForm userAddress_form">   
+                                <div class="u_row form-row">
+                                    <div class="u_col form-group col-md-2">
+                                        <label for="USER_TYPE">Tipo</label>
+                                        <select class="form-control" name="USER_TYPE" id="selectbox4">
+                                            <option value="">Selecione uma Opção&hellip;</option>
+                                            <option value="0">Cliente</option>
+                                            <option value="1">Administrador</option>
+                                        </select>
+                                    </div>
+                                    <div class="u_col form-group col-md-2">
+                                        <label for="USER_TYPE">Status</label>
+                                        <select class="form-control" name="USER_TYPE" id="selectbox4">
+                                            <option value="">Selecione uma Opção&hellip;</option>
+                                            <option value="0">Cliente</option>
+                                            <option value="1">Administrador</option>
+                                        </select>
+                                    </div>
+                                    <div class="u_col form-group col-md-3">
+                                        <label for="USER_CPFCNPJ" class="form-label">Senha</label>
+                                        <input type="text" class="form-control" name="USER_CPFCNPJ">
+                                    </div>
+                                    <div class="u_col form-group col-md-3">
+                                        <label for="USER_NAME" class="form-label">Login</label>
+                                        <input type="text" class="form-control" name="USER_NAME">
+                                    </div>
+                                </div>
+                                <div class="u_row form-row">
+                                    <div class="u_col form-group col-md-2">
+                                        <label for="USER_CPFCNPJ" class="form-label">CPF / CNPJ</label>
+                                        <input type="text" class="form-control" name="USER_CPFCNPJ" maxlength="18" placeholder="000.000.000-00 ou 00.000.000/0000-00" oninput="formatarCPF(this)">
+                                    </div>
+                                    <div class="u_col form-group col-md-2">
+                                        <label for="USER_NAME" class="form-label">RG</label>
+                                        <input type="text" class="form-control" name="USER_NAME">
+                                    </div>
+                                    <div class="u_col form-group col-md-4">
+                                        <label for="USER_CPFCNPJ" class="form-label">Nome</label>
+                                        <input type="text" class="form-control" name="USER_CPFCNPJ">
+                                    </div>
+                                    <div class="u_col form-group col-md-2">
+                                        <label for="USER_NAME" class="form-label">Data de Nascimento</label>
+                                        <input type="text" class="form-control" name="USER_NAME">
+                                    </div>
+                                </div>
+                                <div class="btn-group" role="group" aria-label="Basic example">
+                                    <div class="userAddressPrev userEdit_btn btn btn-outline-secondary">Anterior</div>
+                                    <div class="userAddressNext userEdit_btn btn btn-outline-success">Próximo</div>
+                                </div>
+                            </div>
+                            <div class="userEditForm userContact_form">
+                                <div class="u_row form-row">
+                                    <div class="u_col form-group col-md-2">
+                                        <label for="USER_TYPE">Tipo</label>
+                                        <select class="form-control" name="USER_TYPE" id="selectbox4">
+                                            <option value="">Selecione uma Opção&hellip;</option>
+                                            <option value="0">Cliente</option>
+                                            <option value="1">Administrador</option>
+                                        </select>
+                                    </div>
+                                    <div class="u_col form-group col-md-2">
+                                        <label for="USER_TYPE">Status</label>
+                                        <select class="form-control" name="USER_TYPE" id="selectbox4">
+                                            <option value="">Selecione uma Opção&hellip;</option>
+                                            <option value="0">Cliente</option>
+                                            <option value="1">Administrador</option>
+                                        </select>
+                                    </div>
+                                    <div class="u_col form-group col-md-3">
+                                        <label for="USER_CPFCNPJ" class="form-label">Senha</label>
+                                        <input type="text" class="form-control" name="USER_CPFCNPJ">
+                                    </div>
+                                    <div class="u_col form-group col-md-3">
+                                        <label for="USER_NAME" class="form-label">Login</label>
+                                        <input type="text" class="form-control" name="USER_NAME">
+                                    </div>
+                                </div>
+                                <div class="u_row form-row">
+                                    <div class="u_col form-group col-md-2">
+                                        <label for="USER_CPFCNPJ" class="form-label">CPF / CNPJ</label>
+                                        <input type="text" class="form-control" name="USER_CPFCNPJ" maxlength="18" placeholder="000.000.000-00 ou 00.000.000/0000-00" oninput="formatarCPF(this)">
+                                    </div>
+                                    <div class="u_col form-group col-md-2">
+                                        <label for="USER_NAME" class="form-label">RG</label>
+                                        <input type="text" class="form-control" name="USER_NAME">
+                                    </div>
+                                    <div class="u_col form-group col-md-4">
+                                        <label for="USER_CPFCNPJ" class="form-label">Nome</label>
+                                        <input type="text" class="form-control" name="USER_CPFCNPJ">
+                                    </div>
+                                    <div class="u_col form-group col-md-2">
+                                        <label for="USER_NAME" class="form-label">Data de Nascimento</label>
+                                        <input type="text" class="form-control" name="USER_NAME">
+                                    </div>
+                                </div>
+                                <div class="btn-group" role="group" aria-label="Basic example">
+                                    <div class="userContactPrev userEdit_btn btn btn-outline-secondary">Anterior</div>
+                                    <div class="userContactNext userEdit_btn btn btn-outline-success">Próximo</div>
+                                </div>
+                            </div>
+                            <div class="userEditForm userConfirmChange_form">
+                                <div class="btn-group" role="group" aria-label="Basic example">
+                                    <div class="userConfirmChangePrev userEdit_btn btn btn-outline-secondary">Anterior</div>
+                                    <button id="userConfirmChange" class="userEdit_btn btn btn-outline-success">Gravar</button>
+                                </div>
+                            </div>
+                        </form>
                     </section>
                 </div>
             </modal>
@@ -332,6 +499,33 @@
                     <section class="m_head">
                         <span class="m_title"><span><i class="fa-solid fa-book"></i>Dados de Vendas</span></span>
                         <i class="m_close m_userBuy_close fa-regular fa-circle-xmark fa-xl"></i>
+                    </section>
+                    <section class="m_body">
+                        <table class="table table-hover ">
+                            <thead class="thead-light">
+                                <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Tipo</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">CPF</th>
+                                <th scope="col">Nome</th>
+                                <th scope="col">Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                    </section>
+                </div>
+            </modal>
+        <!-- #endregion -->
+        <!-- #region -->
+            <modal class="userDelete_modal m_start hidden">
+                <div class="m_wrap">
+                    <section class="m_head">
+                        <span class="m_title"><span><i class="fa-solid fa-book"></i>Deseja excluir esse usuário?</span></span>
+                        <i class="m_close m_userDelete_close fa-regular fa-circle-xmark fa-xl"></i>
                     </section>
                     <section class="m_body">
                         

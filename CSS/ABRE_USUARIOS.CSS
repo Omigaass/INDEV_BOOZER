@@ -1,3 +1,13 @@
+:root{
+    --btn1-color: #9999ff;
+
+    --btn2-color: #d9bbf6;
+
+    --btn3-color: #ff9999;
+
+    --btn4-color: #6fca6f;
+}
+
 .main_sec {
     display: flex;
     flex-direction: column;
@@ -106,133 +116,6 @@
     text-decoration: none;
 }
 
-.back_screen{
-    position: fixed;
-    width: 100%;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    background-color: #0c0c0c7c;
-}
-
-.m_start{
-    position: fixed;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}    
-
-.m_wrap{
-    width: calc(100% - 10vh);
-    height: calc(100% - 10vh);
-    margin: 5vh;
-    background-color: var(--claro-light);
-    border-radius: var(--border-radius-default);
-    animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-}
-
-.m_head{
-    width: 100%;
-    height: 12%;
-    border-radius: 16px 16px 0 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.m_title{
-    width: 90%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--Default-font);
-    font-size: var(--default-font-size);
-    color: var(--azul-morno);
-}   .m_title span{
-    margin-left: 5%;
-}   .m_title i{
-    margin-right: 0.5rem;
-}
-
-.m_close{
-    color: var(--azul-morno-light);
-    transition: color 0.3s ease;
-    cursor: pointer;
-}
-.m_close:hover{
-    color: var(--azul-morno-dark);
-}
-
-.m_body{
-    width: calc(100% - 4rem);
-    height: 88%;
-    margin: 0 2rem;
-    box-shadow: inset 0 0 10px #a6a6a665;
-}
-
-.f_fieldset{
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    flex: content;
-    gap: 1rem;
-    border: 0;
-    position: relative;
-    padding: 1rem 1rem 0 1rem;
-    margin: 2rem 1rem 0 1rem;
-}
-
-.f_legend{
-    font-size: 24px;
-    font-family: var(--Default-font);
-    color: var(--azul-morno);
-    position: absolute;
-    top: -1rem;
-}
-
-.f_checkbox {
-    font-family: var(--Default-font);
-    position: relative;
-    padding: 0;
-    margin-top: 0;
-    display: flex;
-    align-items: center;
-    margin: 0;
-}
-.f_box {
-    width:50px;
-    height:50px;
-    position:absolute;
-    opacity:0;
-    display: flex;
-    align-items: center;
-}
-.f_label{
-    display:flex;
-    align-items: center;
-    font-size: var(--default-font-size);
-}
-.path1{
-    stroke-dasharray:400;
-    stroke-dashoffset:400;
-    transition:.5s all;
-}
-.path2{
-    stroke-dasharray:1800;
-    stroke-dashoffset:1800;
-    transition:.5s all;
-}
-.f_box:checked + label svg g path {
-    stroke-dashoffset:0;
-}
-/* #endregion */
-
-
-
 .hidden{
 display: none !important;
 }
@@ -241,3 +124,148 @@ display: none !important;
 color: var(--azul-morno) !important;
 background-color: var(--azul-light) !important;
 }
+
+/* #region */
+    .f_navbar{
+        width: 100%;
+        height: 8rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        position: relative;
+    }
+
+    .f_navbar hr{
+        width: 60%;
+        border: 1.5px solid #aeaeae9c;
+        margin: 0;
+        position: absolute;
+    }
+
+    .f_nav_btn{
+        width: 5rem !important;
+        height: 5rem !important;
+        border-radius: 50px !important;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: color 0.2s cubic-bezier(0.46, 0.03, 0.52, 0.96), background-color 0.2s cubic-bezier(0.46, 0.03, 0.52, 0.96), border 0.2s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+        margin: 0!important;
+    }
+
+    .userBasic{
+        border: 2px solid var(--btn1-color);
+        color: var(--btn1-color);
+        background-color: #fff;
+    }
+    .userBasic:hover{
+        color: #fff;
+        background-color: var(--btn1-color);
+    }
+    .userBasic:focus{
+        box-shadow: 0 0 0 0.2rem var(--btn1-color);
+    }
+    .userBasic.active{
+        color: #fff;
+        background-color: var(--btn1-color);
+    }
+
+    .userAddress{
+        border: 2px solid var(--btn2-color);
+        color: var(--btn2-color);
+        background-color: #fff;
+    }
+    .userAddress:hover{
+        color: #fff;
+        background-color: var(--btn2-color);
+    }
+    .userAddress.active{
+        color: #fff;
+        background-color: var(--btn2-color);
+    }
+    .userContact{
+        border: 2px solid var(--btn3-color);
+        color: var(--btn3-color);
+        background-color: #fff;
+    }
+    .userContact:hover{
+        color: #fff;
+        background-color: var(--btn3-color);
+    }
+    .userContact.active{
+        color: #fff;
+        background-color: var(--btn3-color);
+    }
+
+    .userConfirmChange{
+        border: 2px solid var(--btn4-color);
+        color: var(--btn4-color);
+        background-color: #fff;
+    }
+
+    .userConfirmChange:hover{
+        color: #fff;
+        background-color: var(--btn4-color);
+    }
+
+    .userBasic_form{
+        display: none;
+    }
+    .userBasic_form.active{
+        display: flex;
+    }
+
+    .userAddress_form{
+        display: none;
+    }
+    .userAddress_form.active{
+        display: flex;
+    }
+
+    .userContact_form{
+        display: none;
+    }
+    .userContact_form.active{
+        display: flex;
+    }
+
+    .userConfirmChange_form{
+        display: none;
+    }
+    .userConfirmChange_form.active{
+        display: flex;
+    }
+    
+    .userEditForm{
+        width: 100%;
+        height: calc(100% - 8rem);
+        overflow-y: auto;
+        flex-direction: column;
+    }
+
+    .userEdit_btn{
+        width: 8rem;
+        height: 2.5rem;
+        text-align: center;
+    }
+
+    .userEditForm_body{
+        width: 100%;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .btn-group{
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+
+    .u_row{
+        display: flex;
+        justify-content: center;
+    }
+/* #endregion */
