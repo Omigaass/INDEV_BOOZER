@@ -124,6 +124,16 @@ display: none !important;
 color: var(--azul-morno) !important;
 background-color: var(--azul-light) !important;
 }
+.m_body{
+    padding-top: 1rem!important;
+}
+
+.t_userBuy{
+    width: calc(100% - 5rem)!important;
+    height: calc(100% - 1rem)!important;
+    margin: 0 2.5rem!important;
+    overflow-y: auto;
+}
 
 /* #region */
     .f_navbar{
@@ -136,7 +146,7 @@ background-color: var(--azul-light) !important;
     }
 
     .f_navbar hr{
-        width: 60%;
+        width: 50%;
         border: 1.5px solid #aeaeae9c;
         margin: 0;
         position: absolute;
@@ -264,8 +274,33 @@ background-color: var(--azul-light) !important;
         margin-top: 1rem;
     }
 
-    .u_row{
+    .userInfo_row{
         display: flex;
         justify-content: center;
+    }
+
+    .form-row{
+        margin: 0!important;
+    }
+/* #endregion */
+/* #region */
+    .userDelete_wrap{
+        width: 25%!important;
+        height: 30%!important;
+    }
+
+    .userDelete_head{
+        height: 25%!important;
+    }
+
+    .userDelete_body{
+        height: calc(75% - 1.5rem)!important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: none!important;
+        padding-top: 0!important;
+        gap: 1rem;
+        margin-bottom: 1rem!important;
     }
 /* #endregion */

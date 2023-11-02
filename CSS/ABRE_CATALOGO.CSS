@@ -6,35 +6,6 @@
 ?███████    ██       ██    ███████ ███████ 
 */
 
-:root{
-    --Default-font: snigletRegular;
-    --Boozer-font: BilboSwashCapsRegular;
-
-    --border-radius-default: 16px;
-
-    --azul-escuro: #223440;
-    --azul-morno: #4E8DA6;
-    --azul-morno-dark: #387b95;
-    --azul-morno-light: #639eb6;
-    --azul-light: #d6e9f5;
-    --black: #0c0c0c;
-    --gray: #5e5e5e;
-
-    --xl-font-size: 65px;
-
-    --default-font-size: 20px;
-    --sm-font-size: 14px;
-    
-    --descount-font-size: 14px;
-    --descount-sm-font-size: 10px;
-
-    --list-default-font-size: 24px;
-    --list-sm-font-size: 18px;
-    
-    --list-descount-font-size: 18px;
-    --list-descount-sm-font-size: 14px;
-}
-
 .catalogo_sec{
     width: 100%;
     height: calc(100% - 25vh);

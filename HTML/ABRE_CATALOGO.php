@@ -9,17 +9,6 @@
     } else {
         $login_btn = "<a href=../PHP/LOGOUT.php class=header_btn><button>Sair</button></a>";
     }
-    
-    global $Alert_Msg;
-    global $OpenAlert;
-
-    function OpenAlert($message) {
-        global $Alert_Msg;
-        global $OpenAlert;
-        
-        $Alert_Msg = $message;
-        $OpenAlert = 'a_modal.classList.add("a_active");';
-    }
 ?>
 
 <!DOCTYPE html>
@@ -1021,8 +1010,6 @@
 
     const a_btn = document.querySelector(".a_btn")
     const a_modal = document.querySelector(".a_modal");
-    
-    <?php echo $OpenAlert ?>
     
     a_btn.addEventListener("click", () =>{
         AlertClose();

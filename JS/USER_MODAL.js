@@ -12,20 +12,7 @@ const userBuy = document.querySelectorAll(".user_buy");
 const userBuy_modal = document.querySelector(".userBuy_modal");
 const userBuy_close = document.querySelector(".m_userBuy_close");
 
-const userDelete = document.querySelectorAll(".user_delete");
-const userDelete_modal = document.querySelector(".userDelete_modal");
-const userDelete_close = document.querySelector(".m_userDelete_close");
 userView.forEach(button => {
-    button.addEventListener("click", function() {
-        const parentElementID = this.parentElement.id;
-        // Faça o que você precisa com o parentElementID
-        // Por exemplo, console.log(parentElementID);
-        
-        // Aqui, "this" se refere ao botão que foi clicado.
-    });
-});
-
-userBuy.forEach(button => {
     button.addEventListener("click", function() {
         const parentElementID = this.parentElement.id;
         // Faça o que você precisa com o parentElementID
@@ -79,35 +66,21 @@ userBuy_close.addEventListener("click", () => {
     back_screen.classList.toggle("hidden");
 });
 
-userDelete.forEach(button => {
-    button.addEventListener("click", () => {
-        userDelete_modal.classList.toggle("hidden");
-        back_screen.classList.toggle("hidden");
-    });
-});
-
-userDelete_close.addEventListener("click", () => {
-    userDelete_modal.classList.toggle("hidden");
-    back_screen.classList.toggle("hidden");
-});
 
 document.querySelector(".userBasic").addEventListener("click", f_showBasic);
 document.querySelector(".userAddress").addEventListener("click", f_showAddress);
 document.querySelector(".userContact").addEventListener("click", f_showContact);
-document.querySelector(".userConfirmChange").addEventListener("click", f_showConfirm);
 
 function f_hideAll() {
     document.querySelector(".userBasic_form").classList.remove("active");
     document.querySelector(".userAddress_form").classList.remove("active");
     document.querySelector(".userContact_form").classList.remove("active");
-    document.querySelector(".userConfirmChange_form").classList.remove("active");
 }
 
 function f_activateTab(tab) {
     document.querySelector(".userBasic").classList.remove("active");
     document.querySelector(".userAddress").classList.remove("active");
     document.querySelector(".userContact").classList.remove("active");
-    document.querySelector(".userConfirmChange").classList.remove("active");
     tab.classList.add("active");
 }
 
@@ -129,9 +102,47 @@ function f_showContact() {
     document.querySelector(".userContact_form").classList.add("active");
 }
 
-function f_showConfirm() {
-    f_hideAll();
-    f_activateTab(document.querySelector(".userConfirmChange"));
-    document.querySelector(".userConfirmChange_form").classList.add("active");
+//--------------------------------------------------------------------------
+
+const userPrev = document.querySelectorAll(".userPrev");
+const userNext = document.querySelectorAll(".userNext");
+
+function navigate(button, direction) {
+    // Encontrar o formulário ativo atualmente
+    const currentForm = document.querySelector(".userEditForm.active");
+    const currentBtn = document.querySelector(".f_nav_btn.active");
+
+    if (direction === 'next') {
+        const targetForm = currentForm.nextElementSibling;
+        const targetBtn = currentBtn.nextElementSibling;
+        if (targetForm) {
+            // Esconder o formulário atual e mostrar o próximo
+            currentForm.classList.remove("active");
+            targetForm.classList.add("active");
+            currentBtn.classList.remove("active");
+            targetBtn.classList.add("active");
+        }
+    } else if (direction === 'prev') {
+        const targetForm = currentForm.previousElementSibling;
+        const targetBtn = currentBtn.previousElementSibling;
+        if (targetForm) {
+            // Esconder o formulário atual e mostrar o anterior
+            currentForm.classList.remove("active");
+            targetForm.classList.add("active");
+            currentBtn.classList.remove("active");
+            targetBtn.classList.add("active");
+        }
+    }
 }
 
+userPrev.forEach(button => {
+    button.addEventListener("click", () => {
+        navigate(button, 'prev');
+    });
+});
+
+userNext.forEach(button => {
+    button.addEventListener("click", () => {
+        navigate(button, 'next');
+    });
+});

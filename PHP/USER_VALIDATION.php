@@ -1,4 +1,8 @@
 <?php
+    function OpenAlert($message) {
+        echo "<script>alert('$message');</script>";
+    }
+
     if (isset($_SESSION['USER_ID'])) {
         // Replace with your database connection details.
         

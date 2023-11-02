@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Consulta SQL para inserir usuário
         $query_insert = "INSERT INTO bz_user (USER_NAME, USER_PASSWORD, USER_EMAIL) VALUES (?, ?, ?)";
-        $stmt_insert = $mysqli->prepare($query_insert);
+        $stmt_insert = $conn->prepare($query_insert);
 
         // Hash da senha
         $hashed_password = password_hash($user_pw, PASSWORD_DEFAULT);
@@ -50,8 +50,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
+    function OpenAlert($message) {
+        echo "<script>alert('$message');</script>";
+    }
+
     // Fechar a conexão
     $stmt->close();
     $stmt_insert->close();
     $conn->close();
+    
 }
