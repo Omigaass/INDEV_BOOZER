@@ -9,15 +9,6 @@
     } else {
         $login_btn = "<a href=../PHP/LOGOUT.php class=header_btn><button>Sair</button></a>";
     }
-
-    
-    function OpenAlert($message) {
-        global $Alert_Msg;
-        global $OpenAlert;
-        
-        $Alert_Msg = $message;
-        $OpenAlert = 'a_modal.classList.add("a_active");';
-    }
 ?>
 
 <html lang="pt-br">

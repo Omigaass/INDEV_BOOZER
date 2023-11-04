@@ -71,7 +71,7 @@
                 $USER_SELECT_VAR .= "<td class='user_identify'>" . $row['USER_CPFCNPJ'] . "</td>";
                 $USER_SELECT_VAR .= "<td>" . $row['USER_NAME'] . "</td>";
                 $USER_SELECT_VAR .= "<td class='table_action_btn'>";
-                $USER_SELECT_VAR .= "<button type='submit' id='" . $row['USER_ID']. "' class='user_view btn btn-sm btn-outline-primary'><i class='fa-solid fa-user-magnifying-glass'></i></button>";
+                $USER_SELECT_VAR .= "<button type='submit' id='" . $row['USER_ID']. "' class='user_view btn btn-sm btn-outline-primary' onclick='ViewId(this.id)'><i class='fa-solid fa-user-magnifying-glass'></i></button>";
                 $USER_SELECT_VAR .= "<button type='submit' id='" . $row['USER_ID']. "' class='user_buy btn btn-sm btn-outline-success'><i class='fa-solid fa-basket-shopping'></i></button>";
                 $USER_SELECT_VAR .= "<button type='submit' id='" . $row['USER_ID']. "' class='user_delete btn btn-sm btn-outline-danger' onclick='deleteUser(this.id)'><i class='fa-solid fa-user-minus'></i></button>";
                 $USER_SELECT_VAR .= "</td>";
@@ -84,17 +84,22 @@
         $conn->close();
     }
 
-    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['user_view'])) {
-        $parent_id = $_POST['parent_id'];
-
-        $sql = "SELECT USER_ID, USER_TYPE, USER_STATUS, USER_CPFCNPJ, USER_CEP, USER_NAME, USER_PASSWORD, USER_EMAIL, USER_RG, USER_IDADE, USER_DTNASC, USER_END, USER_ENDNUM, USER_BAIRRO, USER_CIDADE, USER_CEL, USER_TEL, USER_REGISTER_TIME FROM user_bz WHERE USER_ID = '$parent_id'";
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['userViewId'])) {
+        $user_id = $_POST['userViewId'];
+    
+        $query = "SELECT USER_ID, USER_TYPE, USER_STATUS, USER_CPFCNPJ, USER_NAME, USER_PASSWORD, USER_RG, USER_DTNASC, USER_CEP, USER_END, USER_ENDNUM, USER_UF, USER_CIDADE, USER_BAIRRO, USER_COMPLE, USER_TEL, USER_CEL, USER_EMAIL_CON, USER_EMAIL2_CON FROM bz_user WHERE USER_ID = ?";
         
-        $result = $conn->query($sql);
-        
-        if ($result->num_rows > 0) {
-            while($row = $result->fetch_assoc()) {
-                echo "USER_ID: " . $row["USER_ID"]. " - USER_NAME: " . $row["USER_NAME"]. "<br>";
-            }
+        $stmt = mysqli_prepare($conn, $query);
+        mysqli_stmt_bind_param($stmt, 'i', $user_id);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+    
+        if ($result) {
+            $row = mysqli_fetch_assoc($result);
+    
+            echo json_encode($row);
+        } else {
+            echo json_encode(array('error' => 'Erro na consulta.'));
         }
         
         $conn->close();
@@ -104,8 +109,8 @@
 
     }
 
-    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['user_id'])) {
-        $userId = $_POST['user_id'];
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['userDeleteId'])) {
+        $userId = $_POST['userDeleteId'];
         $sql = "DELETE FROM bz_user WHERE USER_ID = ?";
     
         $stmt = $conn->prepare($sql);
@@ -133,6 +138,7 @@
             <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/bilbo" type="text/css" />
             <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/sniglet" type="text/css"/>
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
             <!--
             ?███████  ██████  ███    ██ ████████      █████  ██     ██ ███████ ███████  ██████  ███    ███ ███████ 
             ?██      ██    ██ ████   ██    ██        ██   ██ ██     ██ ██      ██      ██    ██ ████  ████ ██      
@@ -202,7 +208,7 @@
                     <form action="" method="post">
                         <div class="u_row form-row">
                             <div class="u_col form-group col-md-2">
-                                <label for="USER_STATUS">Status</label>
+                                <label for="selectbox1">Status</label>
                                 <select class="form-control" name="USER_STATUS" id="selectbox1">
                                     <option value="">Selecione uma Opção&hellip;</option>
                                     <option value="1">Ativo</option>
@@ -211,7 +217,7 @@
                                 </select>
                             </div>
                             <div class="u_col form-group col-md-2">
-                                <label for="USER_TYPE">Tipo</label>
+                                <label for="selectbox2">Tipo</label>
                                 <select class="form-control" name="USER_TYPE" id="selectbox2">
                                     <option value="">Selecione uma Opção&hellip;</option>
                                     <option value="false">Cliente</option>
@@ -221,7 +227,7 @@
                         </div>
                         <div class="u_row form-row">
                             <div class="u_col form-group col-md-2">
-                                <label for="SEARCH_TYPE">Pesquisa</label>
+                                <label for="selectbox3">Pesquisa</label>
                                 <select class="form-control" name="SEARCH_TYPE" id="selectbox3">
                                     <option value="">Selecione uma Opção&hellip;</option>
                                     <option value="name">Nome</option>
@@ -282,7 +288,7 @@
                     <form action="../PHP/USER_INSERT.php" method="post">
                         <div class="u_row form-row">
                             <div class="u_col form-group col-md-3">
-                                <label for="USER_TYPE">Tipo</label>
+                                <label for="selectbox4">Tipo</label>
                                 <select class="form-control" name="USER_TYPE" id="selectbox4">
                                     <option value="">Selecione uma Opção&hellip;</option>
                                     <option value="0">Cliente</option>
@@ -291,11 +297,11 @@
                             </div>
                             <div class="u_col form-group col-md-3">
                                 <label for="USER_CPFCNPJ" class="form-label">CPF / CNPJ</label>
-                                <input type="text" class="form-control" name="USER_CPFCNPJ" maxlength="18" placeholder="000.000.000-00 ou 00.000.000/0000-00" oninput="formatarCPF(this)">
+                                <input type="text" class="form-control" id="USER_CPFCNPJ" name="USER_CPFCNPJ" maxlength="18" placeholder="000.000.000-00 ou 00.000.000/0000-00" oninput="formatarCPF(this)">
                             </div>
                             <div class="u_col form-group col-md-4">
                                 <label for="USER_NAME" class="form-label">Nome</label>
-                                <input type="text" class="form-control" name="USER_NAME">
+                                <input type="text" class="form-control" id="USER_NAME" name="USER_NAME">
                             </div>
                         </div>
                         <div class="u_row form-row">
@@ -303,14 +309,14 @@
                                 <label for="USER_EMAIL" class="form-label">Email</label>
                                 <div class="input-group">
                                     <div class="input-group-text"><i class="fa-solid fa-envelope"></i></div>
-                                    <input type="email" class="form-control" name="USER_EMAIL" placeholder="exemplo@gmail.com">
+                                    <input type="email" class="form-control" id="USER_EMAIL" name="USER_EMAIL" placeholder="exemplo@gmail.com">
                                 </div>
                             </div>
                             <div class="u_col form-group col-md-3">
                                 <label for="USER_PASSWORD" class="form-label">Password</label>
                                 <div class="input-group">
                                     <div class="input-group-text"><i class="fa-solid fa-key"></i></div>
-                                    <input type="password" class="form-control" name="USER_PASSWORD" placeholder="**********">
+                                    <input type="password" class="form-control" id="USER_PASSWORD" name="USER_PASSWORD" placeholder="**********">
                                 </div>
                             </div>
                             <div class="u_col form-group col-md-3" style="display: flex; align-items: flex-end;">
@@ -343,46 +349,47 @@
                                 <div class="userEditForm_body">
                                     <div class="u_row form-row userInfo_row">
                                         <div class="u_col form-group col-md-2">
-                                            <label for="USER_TYPE">Tipo</label>
-                                            <select class="form-control" name="USER_TYPE" id="selectbox5">
+                                            <label for="selectbox5">Tipo</label>
+                                            <select class="form-control" name="USER_TYPE_EDIT" id="selectbox5">
                                                 <option value="">Selecione uma Opção&hellip;</option>
                                                 <option value="0">Cliente</option>
                                                 <option value="1">Administrador</option>
                                             </select>
                                         </div>
                                         <div class="u_col form-group col-md-2">
-                                            <label for="USER_TYPE">Status</label>
-                                            <select class="form-control" name="USER_TYPE" id="selectbox6">
+                                            <label for="selectbox6">Status</label>
+                                            <select class="form-control" name="USER_STATUS_EDIT" id="selectbox6">
                                                 <option value="">Selecione uma Opção&hellip;</option>
-                                                <option value="0">Cliente</option>
-                                                <option value="1">Administrador</option>
+                                                <option value="1">Ativo</option>
+                                                <option value="2">Suspenso</option>
+                                                <option value="3">Inativo</option>
                                             </select>
                                         </div>
                                         <div class="u_col form-group col-md-3">
-                                            <label for="USER_NAME" class="form-label">Login</label>
-                                            <input type="text" class="form-control" name="USER_NAME">
+                                            <label for="USER_EMAIL_EDIT" class="form-label">Login</label>
+                                            <input type="text" class="form-control" id="USER_EMAIL_EDIT" name="USER_EMAIL_EDIT">
                                         </div>
                                         <div class="u_col form-group col-md-3">
-                                            <label for="USER_CPFCNPJ" class="form-label">Senha</label>
-                                            <input type="text" class="form-control" name="USER_CPFCNPJ">
+                                            <label for="USER_PASSWORD_EDIT" class="form-label">Senha</label>
+                                            <input type="text" class="form-control" id="USER_PASSWORD_EDIT" name="USER_PASSWORD_EDIT">
                                         </div>
                                     </div>
                                     <div class="u_row form-row userInfo_row">
                                         <div class="u_col form-group col-md-2">
-                                            <label for="USER_CPFCNPJ" class="form-label">CPF / CNPJ</label>
-                                            <input type="text" class="form-control" name="USER_CPFCNPJ" maxlength="18" placeholder="000.000.000-00 ou 00.000.000/0000-00" oninput="formatarCPF(this)">
+                                            <label for="USER_CPFCNPJ_EDIT" class="form-label">CPF / CNPJ</label>
+                                            <input type="text" class="form-control" id="USER_CPFCNPJ_EDIT" name="USER_CPFCNPJ_EDIT" maxlength="18" placeholder="000.000.000-00 ou 00.000.000/0000-00" oninput="formatarCPF(this)">
                                         </div>
                                         <div class="u_col form-group col-md-2">
-                                            <label for="USER_NAME" class="form-label">RG</label>
-                                            <input type="text" class="form-control" name="USER_NAME">
+                                            <label for="USER_RG_EDIT" class="form-label">RG</label>
+                                            <input type="text" class="form-control" id="USER_RG_EDIT" name="USER_RG_EDIT" maxlength="12" placeholder="00.000.000-0" oninput="formatarRG(this)">
                                         </div>
                                         <div class="u_col form-group col-md-4">
-                                            <label for="USER_CPFCNPJ" class="form-label">Nome</label>
-                                            <input type="text" class="form-control" name="USER_CPFCNPJ">
+                                            <label for="USER_NAME_EDIT" class="form-label">Nome</label>
+                                            <input type="text" class="form-control" id="USER_NAME_EDIT" name="USER_NAME_EDIT">
                                         </div>
                                         <div class="u_col form-group col-md-2">
-                                            <label for="USER_NAME" class="form-label">Data de Nascimento</label>
-                                            <input type="text" class="form-control" name="USER_NAME">
+                                            <label for="USER_DTNASC_EDIT" class="form-label">Data de Nascimento</label>
+                                            <input type="text" class="form-control" id="USER_DTNASC_EDIT" name="USER_DTNASC_EDIT">
                                         </div>
                                     </div>
                                     <div class="btn-group" role="group" aria-label="Basic example">
@@ -393,38 +400,63 @@
                             <div class="userEditForm userAddress_form">   
                                 <div class="u_row form-row userInfo_row">
                                     <div class="u_col form-group col-md-2">
-                                        <label for="USER_CPFCNPJ" class="form-label">CEP</label>
-                                        <input type="text" class="form-control" name="USER_CPFCNPJ">
+                                        <label for="USER_CEP_EDIT" class="form-label">CEP</label>
+                                        <input type="text" class="form-control" id="USER_CEP_EDIT" name="USER_CEP_EDIT" maxlength="9" placeholder="00000-000" oninput="formatarCEP(this)">
                                     </div>
                                     <div class="u_col form-group col-md-5">
-                                        <label for="USER_CPFCNPJ" class="form-label">Endereço</label>
-                                        <input type="text" class="form-control" name="USER_CPFCNPJ">
+                                        <label for="USER_END_EDIT" class="form-label">Endereço</label>
+                                        <input type="text" class="form-control" id="USER_END_EDIT" name="USER_END_EDIT">
                                     </div>
                                     <div class="u_col form-group col-md-1">
-                                        <label for="USER_NAME" class="form-label">Número</label>
-                                        <input type="text" class="form-control" name="USER_NAME">
+                                        <label for="USER_ENDNUM_EDIT" class="form-label">Número</label>
+                                        <input type="text" class="form-control" id="USER_ENDNUM_EDIT" name="USER_ENDNUM_EDIT">
                                     </div>
                                 </div>
                                 <div class="u_row form-row userInfo_row">
                                     <div class="u_col form-group col-md-2">
-                                        <label for="USER_TYPE">UF</label>
-                                        <select class="form-control" name="USER_TYPE" id="selectbox7">
+                                        <label for="selectbox7">UF</label>
+                                        <select class="form-control" name="USER_UF_EDIT" id="selectbox7">
                                             <option value="">Selecione uma Opção&hellip;</option>
-                                            <option value="0">Cliente</option>
-                                            <option value="1">Administrador</option>
+                                            <option value="AC">Acre (AC)</option>
+                                            <option value="AL">Alagoas (AL)</option>
+                                            <option value="AP">Amapá (AP)</option>
+                                            <option value="AM">Amazonas (AM)</option>
+                                            <option value="BA">Bahia (BA)</option>
+                                            <option value="CE">Ceará (CE)</option>
+                                            <option value="DF">Distrito Federal (DF)</option>
+                                            <option value="ES">Espírito Santo (ES)</option>
+                                            <option value="GO">Goiás (GO)</option>
+                                            <option value="MA">Maranhão (MA)</option>
+                                            <option value="MT">Mato Grosso (MT)</option>
+                                            <option value="MS">Mato Grosso do Sul (MS)</option>
+                                            <option value="MG">Minas Gerais (MG)</option>
+                                            <option value="PA">Pará (PA)</option>
+                                            <option value="PB">Paraíba (PB)</option>
+                                            <option value="PR">Paraná (PR)</option>
+                                            <option value="PE">Pernambuco (PE)</option>
+                                            <option value="PI">Piauí (PI)</option>
+                                            <option value="RJ">Rio de Janeiro (RJ)</option>
+                                            <option value="RN">Rio Grande do Norte (RN)</option>
+                                            <option value="RS">Rio Grande do Sul (RS)</option>
+                                            <option value="RO">Rondônia (RO)</option>
+                                            <option value="RR">Roraima (RR)</option>
+                                            <option value="SC">Santa Catarina (SC)</option>
+                                            <option value="SP">São Paulo (SP)</option>
+                                            <option value="SE">Sergipe (SE)</option>
+                                            <option value="TO">Tocantins (TO)</option>
                                         </select>
                                     </div>
                                     <div class="u_col form-group col-md-2">
-                                        <label for="USER_CPFCNPJ" class="form-label">Cidade</label>
-                                        <input type="text" class="form-control" name="USER_CPFCNPJ">
+                                        <label for="USER_CIDADE_EDIT" class="form-label">Cidade</label>
+                                        <input type="text" class="form-control" id="USER_CIDADE_EDIT" name="USER_CIDADE_EDIT">
                                     </div>
                                     <div class="u_col form-group col-md-2">
-                                        <label for="USER_NAME" class="form-label">Bairro</label>
-                                        <input type="text" class="form-control" name="USER_NAME">
+                                        <label for="USER_BAIRRO_EDIT" class="form-label">Bairro</label>
+                                        <input type="text" class="form-control" id="USER_BAIRRO_EDIT" name="USER_BAIRRO_EDIT">
                                     </div>
                                     <div class="u_col form-group col-md-2">
-                                        <label for="USER_NAME" class="form-label">Complemento</label>
-                                        <input type="text" class="form-control" name="USER_NAME">
+                                        <label for="USER_COMPLE_EDIT" class="form-label">Complemento</label>
+                                        <input type="text" class="form-control" id="USER_COMPLE_EDIT" name="USER_COMPLE_EDIT">
                                     </div>
                                 </div>
                                 <div class="btn-group" role="group" aria-label="Basic example">
@@ -435,22 +467,22 @@
                             <div class="userEditForm userContact_form">
                                 <div class="u_row form-row userInfo_row">
                                     <div class="u_col form-group col-md-4">
-                                        <label for="USER_CPFCNPJ" class="form-label">Telefone</label>
-                                        <input type="text" class="form-control" name="USER_CPFCNPJ">
+                                        <label for="USER_TEL_EDIT" class="form-label">Telefone</label>
+                                        <input type="text" class="form-control" id="USER_TEL_EDIT" name="USER_TEL_EDIT" maxlength="14" placeholder="(00) 00000-0000" oninput="formatarTEL(this)">
                                     </div>
                                     <div class="u_col form-group col-md-4">
-                                        <label for="USER_NAME" class="form-label">Celular</label>
-                                        <input type="text" class="form-control" name="USER_NAME">
+                                        <label for="USER_CEL_EDIT" class="form-label">Celular</label> 
+                                        <input type="text" class="form-control" id="USER_CEL_EDIT" name="USER_CEL_EDIT" maxlength="14" placeholder="(00) 00000-0000" oninput="formatarCEL(this)">
                                     </div>
                                 </div>
                                 <div class="u_row form-row userInfo_row">
                                     <div class="u_col form-group col-md-4">
-                                        <label for="USER_CPFCNPJ" class="form-label">Email Principal</label>
-                                        <input type="text" class="form-control" name="USER_CPFCNPJ">
+                                        <label for="USER_EMAIL_CON" class="form-label">Email Principal</label>
+                                        <input type="email" class="form-control" id="USER_EMAIL_CON" name="USER_EMAIL_CON">
                                     </div>
                                     <div class="u_col form-group col-md-4">
-                                        <label for="USER_NAME" class="form-label">Email Secundário</label>
-                                        <input type="text" class="form-control" name="USER_NAME">
+                                        <label for="USER_EMAIL2_CON" class="form-label">Email Secundário</label>
+                                        <input type="email" class="form-control" id="USER_EMAIL2_CON" name="USER_EMAIL2_CON">
                                     </div>
                                 </div>
                                 <div class="btn-group" role="group" aria-label="Basic example">
@@ -495,25 +527,44 @@
     <script src="../JS/USER_MODAL.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-        function deleteUser(userId) {
-            console.log('Deletando usuário com ID ' + userId);
-            $.ajax({
-                url: 'ABRE_USUARIOS.php',
-                type: 'POST',
-                data: {user_id: userId},
-                success: function(response) {
-                    console.log('Resposta recebida: ' + response);
-                    if (response == "success") {
-                        location.reload();
-                    } else {
-                        alert("usuario deletado.");
-                        location.reload();
+            function deleteUser(userDeleteId) {
+                console.log('Deletando usuário com ID ' + userDeleteId);
+                $.ajax({
+                    url: 'ABRE_USUARIOS.php',
+                    type: 'POST',
+                    data: {userDeleteId: userDeleteId},
+                    success: function(response) {
+                        console.log('Resposta recebida: ' + response);
+                        if (response == "success") {
+                            location.reload();
+                        } else {
+                            alert("usuario deletado.");
+                            location.reload();
+                        }
                     }
-                }
-            });
-        }
-    </script>
-    <script>
+                });
+            }
+            function ViewId(userId) {
+                getUserData(userId, function(data) {
+                    document.getElementsByName('USER_TYPE_EDIT')[0].value = data.USER_TYPE;
+                    document.getElementsByName('USER_STATUS_EDIT')[0].value = data.USER_STATUS;
+                    document.getElementsByName('USER_EMAIL_EDIT').value = data.USER_EMAIL;
+                });
+            }
+            
+            function getUserData(userId, callback) {
+                $.ajax({
+                    url: 'ABRE_USUARIOS.php',
+                    type: 'POST',
+                    data: { userViewId: userId },
+                    dataType: 'json',
+                    success: function(data) {
+                        callback(data);
+                    }
+                });
+            }
+
+            
         function formatarCPF(campo) {
             // Remove todos os caracteres não numéricos
             const valor = campo.value.replace(/\D/g, '');
@@ -527,13 +578,44 @@
             }
         }
 
-        const elements = document.querySelectorAll('.user_identify');
+        function formatarRG(campo) {
+            // Remove todos os caracteres não numéricos
+            const valor = campo.value.replace(/\D/g, '');
 
-        elements.forEach(element => {
-            const text = element.textContent;
-            const formattedText = userIdentify(text); // Chame a função de formatação
-            element.textContent = formattedText; // Atualize o conteúdo formatado
-        });
+            campo.value = valor.replace(/(\d{2})(\d{3})(\d{3})(\d{1,2})/, '$1.$2.$3-$4');
+        }
+
+        function formatarCEP(campo) {
+            // Remove todos os caracteres não numéricos
+            const valor = campo.value.replace(/\D/g, '');
+
+            // Adiciona a máscara de CEP
+            campo.value = valor.replace(/(\d{5})(\d{3})/, '$1-$2');
+        }
+
+        function formatarTEL(campo) {
+            // Remove todos os caracteres não numéricos
+            const valor = campo.value.replace(/\D/g, '');
+
+            // Adiciona a máscara de telefone
+            if (valor.length === 10) {
+                campo.value = valor.replace(/(\d{2})(\d{4})(\d{4})/, '($1) $2-$3');
+            } else {
+                campo.value = valor.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
+            }
+        }
+
+        function formatarCEL(campo) {
+            // Remove todos os caracteres não numéricos
+            const valor = campo.value.replace(/\D/g, '');
+
+            // Adiciona a máscara de celular
+            if (valor.length === 11) {
+                campo.value = valor.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
+            } else {
+                campo.value = valor.replace(/(\d{2})(\d{4})(\d{4})/, '($1) $2-$3');
+            }
+        }
 
         function userIdentify(text) {
             if (text.length <= 11) {
@@ -542,6 +624,14 @@
                 return text.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5');
             }
         }
+
+        const elements = document.querySelectorAll('.user_identify');
+
+        elements.forEach(element => {
+            const text = element.textContent;
+            const formattedText = userIdentify(text); // Chame a função de formatação
+            element.textContent = formattedText; // Atualize o conteúdo formatado
+        });
 
         function abre_login() {
             window.location.href = "../index.html";

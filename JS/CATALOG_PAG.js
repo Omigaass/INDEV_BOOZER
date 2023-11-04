@@ -5,7 +5,7 @@
 
     // Configurações iniciais
     let currentPage = 1;
-    const itemsPerPage = 5;
+    const itemsPerPage = 20;
 
     // Função para atualizar a exibição com base na página atual
     function updatePage() {
