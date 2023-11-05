@@ -141,7 +141,8 @@
                         $PRODUCT_SELECT_VAR .= '</div></div>';
                         $PRODUCT_SELECT_VAR .= '<hr class="p_line">'; 
                     } else {
-                        $PRODUCT_SELECT_VAR .= '</div>';
+                        $PRODUCT_SELECT_VAR .= '<div class="p_menu">';
+                        $PRODUCT_SELECT_VAR .= '</div></div>';
                         $PRODUCT_SELECT_VAR .= '<hr class="p_line">'; 
                     }
                 }  
@@ -150,7 +151,26 @@
             $PRODUCT_SELECT_VAR .= '<span class="EmptyMsg">Nenhum Produto encontrado.</span>';
         }
 
-
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['DeleteID'])) {
+            $DeleteID = $_POST['DeleteID'];
+            
+            // Conecte-se ao banco de dados (substitua as informações pelo seu banco de dados)
+            $conn = new PDO("mysql:host=localhost;dbname=boozer_db", "root", "");
+            
+            // Execute o comando SQL para excluir a linha com base no ID
+            $stmt = $conn->prepare("DELETE FROM bz_book WHERE BOOK_ID = :id");
+            $stmt->bindParam(':id', $DeleteID, PDO::PARAM_INT);
+            
+            if ($stmt->execute()) {
+                OpenAlert("Livro deletado!");
+                echo json_encode(["message" => "Exclusão bem-sucedida"]);
+                http_response_code(200);
+            } else {
+                OpenAlert("Erro ao deletar Livro!");
+                echo json_encode(["message" => "Erro ao excluir registro"]);
+                http_response_code(500);
+            }
+        }
 
         $conn->close();
 ?>
@@ -977,7 +997,7 @@
                         <label class="form_label" for="BOOK_IMAGE_EDIT">Selecione uma Imagem</label>
                     </div>
                     <div class="f_btn_div">
-                        <button class="menu_btn f_btn_s" type="submit" name="bookCreate">Adicionar</button>
+                        <button class="menu_btn f_btn_s" type="submit" name="bookCreate">Salvar</button>
                     </div>
                 </form>
             </section>
@@ -1013,14 +1033,14 @@
                 document.querySelector(".bookDeleteModal").classList.toggle("hidden");
                 document.querySelector(".back_screen").classList.toggle("hidden");
 
-                const id = this.getAttribute("data-id");
+                const DeleteID = this.getAttribute("data-id");
                 // Envie uma solicitação POST para o servidor PHP
                 fetch("ABRE_CATALOGO.php", {
                     method: "POST",
                     headers: {
                     "Content-Type": "application/x-www-form-urlencoded",
                     },
-                    body: "id=" + id,
+                    body: "DeleteID=" + DeleteID,
                 })
                 .then(response => {
                     if (response.ok) {
@@ -1040,6 +1060,58 @@
                 document.querySelector(".bookDeleteModal").classList.toggle("hidden");
                 document.querySelector(".back_screen").classList.toggle("hidden");
         })
+            
+            const editButtons = document.querySelectorAll(".p_BookEdit");
+
+            editButtons.forEach(button => {
+                button.addEventListener("click", function() {
+                    document.querySelector(".book_edit_modal").classList.toggle("hidden");
+                    document.querySelector(".back_screen").classList.toggle("hidden");
+
+                    const EditID = this.getAttribute("data-id");
+                    
+                    fetch("../PHP/PRODUCT_EDIT.php", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json", // Corrigido para "application/json"
+                        },
+                        body: JSON.stringify({ }),
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            return response.json();
+                        } else {
+                            console.error("Erro ao buscar dados.");
+                        }
+                    })
+                    .then(data => {
+                        // Preencha os inputs com os dados retornados
+                        document.getElementById("BOOK_TITULO_EDIT").value = data.BOOK_TITULO;
+                        document.getElementById("BOOK_AUTOR_EDIT").value = data.BOOK_AUTOR;
+                        document.getElementById("BOOK_EDITORA_EDIT").value = data.BOOK_EDITORA;
+                        document.getElementById("BOOK_ANO_PUBLICACAO_EDIT").value = data.BOOK_ANO_PUBLICACAO;
+                        document.getElementById("BOOK_PRECO_EDIT").value = data.BOOK_PRECO;
+                        document.getElementById("BOOK_PRECO_DESC_EDIT").value = data.BOOK_PRECO_DESC;
+                        document.getElementById("selectbox7").value = data.BOOK_GENERO;
+                        document.getElementById("selectbox8").value = data.BOOK_CLASSIFICACAO;
+                        document.getElementById("selectbox9").value = data.BOOK_IDIOMA;
+                        document.getElementById("selectbox10").value = data.BOOK_FORMATO;
+                        document.getElementById("selectbox11").value = data.BOOK_DISPONIBILIDADE;
+                        document.getElementById("selectbox12").value = data.BOOK_PUBLICO_ALVO;
+                    })
+                    .catch(error => {
+                        console.error("Erro na solicitação: " + error);
+                    });
+                });
+            });
+
+                
+        const bookEditModal_close = document.querySelector(".m_book_edit_close");
+
+        bookEditModal_close.addEventListener("click", () => {
+            document.querySelector(".book_edit_modal").classList.toggle("hidden");
+            document.querySelector(".back_screen").classList.toggle("hidden");
+        });   
     });
 
     function abre_login() {
