@@ -71,17 +71,15 @@
                 $USER_SELECT_VAR .= "<td class='user_identify'>" . $row['USER_CPFCNPJ'] . "</td>";
                 $USER_SELECT_VAR .= "<td>" . $row['USER_NAME'] . "</td>";
                 $USER_SELECT_VAR .= "<td class='table_action_btn'>";
-                $USER_SELECT_VAR .= "<button type='submit' id='" . $row['USER_ID']. "' class='user_view btn btn-sm btn-outline-primary' onclick='ViewId(this.id)'><i class='fa-solid fa-user-magnifying-glass'></i></button>";
-                $USER_SELECT_VAR .= "<button type='submit' id='" . $row['USER_ID']. "' class='user_buy btn btn-sm btn-outline-success'><i class='fa-solid fa-basket-shopping'></i></button>";
-                $USER_SELECT_VAR .= "<button type='submit' id='" . $row['USER_ID']. "' class='user_delete btn btn-sm btn-outline-danger' onclick='deleteUser(this.id)'><i class='fa-solid fa-user-minus'></i></button>";
+                $USER_SELECT_VAR .= "<button type='submit' data-id='" . $row['USER_ID']. "' class='user_view btn btn-sm btn-outline-primary'><i class='fa-solid fa-user-magnifying-glass'></i></button>";
+                $USER_SELECT_VAR .= "<button type='submit' data-id='" . $row['USER_ID']. "' class='user_buy btn btn-sm btn-outline-success'><i class='fa-solid fa-basket-shopping'></i></button>";
+                $USER_SELECT_VAR .= "<button type='submit' data-id='" . $row['USER_ID']. "' class='user_delete btn btn-sm btn-outline-danger'><i class='fa-solid fa-user-minus'></i></button>";
                 $USER_SELECT_VAR .= "</td>";
                 $USER_SELECT_VAR .= "</tr>";
             }
         } else {
             $USER_SELECT_VAR .= "<tr><td colspan='5'>Nenhum usuário encontrado.</td></tr>";
         }
-
-        $conn->close();
     }
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['userViewId'])) {
@@ -109,18 +107,28 @@
 
     }
 
-    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['userDeleteId'])) {
-        $userId = $_POST['userDeleteId'];
-        $sql = "DELETE FROM bz_user WHERE USER_ID = ?";
-    
-        $stmt = $conn->prepare($sql);
-        if ($stmt) {
-            $stmt->bind_param('i', $userId);
-            $stmt->execute();
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['DeleteID'])) {
+        $DeleteID = $_POST['DeleteID'];
+        
+        // Conecte-se ao banco de dados (substitua as informações pelo seu banco de dados)
+        $conn = new PDO("mysql:host=localhost;dbname=boozer_db", "root", "");
+        
+        // Execute o comando SQL para excluir a linha com base no ID
+        $stmt = $conn->prepare("DELETE FROM bz_user WHERE USER_ID = :id");
+        $stmt->bindParam(':id', $DeleteID, PDO::PARAM_INT);
+        
+        if ($stmt->execute()) {
+            OpenAlert("Usuário deletado!");
+            echo json_encode(["message" => "Exclusão bem-sucedida"]);
+            http_response_code(200);
+        } else {
+            OpenAlert("Erro ao deletar usuário!");
+            echo json_encode(["message" => "Erro ao excluir registro"]);
+            http_response_code(500);
         }
     }
 
-
+    $conn->close();
 ?>
 
     <html lang="pt-br">
@@ -520,6 +528,19 @@
                     </section>
                 </div>
             </modal>
+            <modal class="userDeleteModal m_start hidden">
+                <div class="m_wrapDel">
+                    <section class="m_headDel">
+                        <span class="m_title"><i class="fa-solid fa-triangle-exclamation"></i><span>Deseja deletar esse Livro?</span></span>
+                    </section>
+                    <section class="m_bodyDel">
+                        <form action="" method="post">
+                            <div class="userDeleteBtn userDeleteModal_close btn btn-outline-danger"><i class="fa-regular fa-circle-xmark fa-xl"></i></div>
+                            <button class="userDeleteBtn btn btn-outline-success" type="submit"><i class="fa-solid fa-trash-check fa-xl"></i></button>
+                        </form>
+                    </section>
+                </div>
+            </modal>
         <!-- #endregion -->
     </body>
     <script src="../JS/CONFIG_NAV.JS"></script>
@@ -527,41 +548,45 @@
     <script src="../JS/USER_MODAL.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-            function deleteUser(userDeleteId) {
-                console.log('Deletando usuário com ID ' + userDeleteId);
-                $.ajax({
-                    url: 'ABRE_USUARIOS.php',
-                    type: 'POST',
-                    data: {userDeleteId: userDeleteId},
-                    success: function(response) {
-                        console.log('Resposta recebida: ' + response);
-                        if (response == "success") {
-                            location.reload();
+        document.addEventListener("DOMContentLoaded", function() {
+            const deleteButtons = document.querySelectorAll(".user_delete");
+
+            deleteButtons.forEach(button => {
+                button.addEventListener("click", function() {
+                    document.querySelector(".userDeleteModal").classList.toggle("hidden");
+                    document.querySelector(".back_screen").classList.toggle("hidden");
+
+                    const DeleteID = this.getAttribute("data-id");
+                    // Envie uma solicitação POST para o servidor PHP
+                    fetch("ABRE_USUARIOS.php", {
+                        method: "POST",
+                        headers: {
+                        "Content-Type": "application/x-www-form-urlencoded",
+                        },
+                        body: "DeleteID=" + DeleteID,
+                    })
+                    .then(response => {
+                        if (response.ok) {
                         } else {
-                            alert("usuario deletado.");
-                            location.reload();
+                        console.error("Erro ao excluir registro.");
                         }
-                    }
+                    })
+                    .catch(error => {
+                        console.error("Erro na solicitação: " + error);
+                    });
                 });
-            }
-            function ViewId(userId) {
-                getUserData(userId, function(data) {
-                    document.getElementsByName('USER_TYPE_EDIT')[0].value = data.USER_TYPE;
-                    document.getElementsByName('USER_STATUS_EDIT')[0].value = data.USER_STATUS;
-                    document.getElementsByName('USER_EMAIL_EDIT').value = data.USER_EMAIL;
-                });
-            }
+            });
             
-            function getUserData(userId, callback) {
-                $.ajax({
-                    url: 'ABRE_USUARIOS.php',
-                    type: 'POST',
-                    data: { userViewId: userId },
-                    dataType: 'json',
-                    success: function(data) {
-                        callback(data);
-                    }
-                });
+            const userDeleteModal_close = document.querySelector(".userDeleteModal_close");
+
+            userDeleteModal_close.addEventListener("click", ()=>{
+                    document.querySelector(".userDeleteModal").classList.toggle("hidden");
+                    document.querySelector(".back_screen").classList.toggle("hidden");
+            })
+        });
+
+            async function userViewId(userId) {
+                console.log(userId)
             }
 
             

@@ -283,24 +283,58 @@ background-color: var(--azul-light) !important;
         margin: 0!important;
     }
 /* #endregion */
-/* #region */
-    .userDelete_wrap{
-        width: 25%!important;
-        height: 30%!important;
-    }
+.m_wrapDel{
+    width: 30%;
+    height: 40%;
+    margin: 0;
+    background-color: var(--claro-light);
+    border-radius: var(--border-radius-default);
+    animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
 
-    .userDelete_head{
-        height: 25%!important;
-    }
+.m_headDel{
+    width: 100%;
+    height: 20%;
+    border-radius: 16px 16px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-    .userDelete_body{
-        height: calc(75% - 1.5rem)!important;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: none!important;
-        padding-top: 0!important;
-        gap: 1rem;
-        margin-bottom: 1rem!important;
-    }
+.m_bodyDel{
+    width: calc(100% - 4rem);
+    height: 80%;
+    margin: 0 2rem;
+    box-shadow: inset 0 0 20px #a6a6a63f;
+}
+
+.m_bodyDel form{
+    width: 100%;
+    height: calc(100% - 1.5rem);
+    margin: 0 0 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.userDeleteBtn{
+    background-color: transparent;
+    width: 8rem!important;
+    height: 3.5rem!important;
+    display: flex!important;
+    align-items: center!important;
+    justify-content: center!important;
+    margin: 0!important;
+    outline: none;
+}
+.userDeleteBtn i{
+    width: 24px;
+    height: 24px;
+    line-height: 1;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 /* #endregion */
