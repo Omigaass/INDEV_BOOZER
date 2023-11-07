@@ -1,49 +1,49 @@
 <?php
-session_start();
+    session_start();
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $user_email = $_POST['login_email_input'];
-    $user_pw = $_POST['login_password_input'];
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // Get user input
+        $user_email = $_POST['login_email_input'];
+        $user_pw = $_POST['login_password_input'];
 
-    // Conexão com o banco de dados usando MySQLi
-    
-    include 'CONFIG.php';
+        // Include the database connection configuration
+        include 'CONFIG.php';
 
-    // Consulta SQL para obter o usuário com base no email
-    $query_select = "SELECT USER_ID, USER_NAME, USER_PASSWORD FROM bz_user WHERE USER_EMAIL = ?";
-    $stmt = $conn->prepare($query_select);
-    $stmt->bind_param("s", $user_email);
+        // Query to get the user based on email
+        $query_select = "SELECT USER_ID, USER_PASSWORD FROM bz_user WHERE USER_EMAIL = ?";
+        $stmt = $conn->prepare($query_select);
+        $stmt->bind_param("s", $user_email);
+        $stmt->execute();
 
-    // Executar a consulta
-    $stmt->execute();
+        // Get the result of the query
+        $result = $stmt->get_result();
 
-    // Obter o resultado da consulta
-    $result = $stmt->get_result();
+        // Check if the user exists
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $user_id = $row['USER_ID'];
+            $hashed_password = $row['USER_PASSWORD'];
 
-    // Verificar se o usuário existe
-    if ($result->num_rows > 0) {
-        $row = $result->fetch_assoc();
-        $user_id = $row['USER_ID'];
-        $hashed_password = $row['USER_PASSWORD'];
-
-        // Verificar a senha
-        if (password_verify($user_pw, $hashed_password)) {
-            // Senha correta, armazenar USER_ID na sessão e redirecionar
-            $_SESSION['USER_ID'] = $user_id;
-            header('Location: ../HTML/ABRE_MENU.php');
+            // Verify the password
+            if (password_verify($user_pw, $hashed_password)) {
+                // Correct password, store USER_ID in the session and redirect
+                $_SESSION['USER_ID'] = $user_id;
+                header('Location: ../HTML/ABRE_MENU.php');
+            } else {
+                // Incorrect password
+                openAlert('Senha incorreta');
+            }
         } else {
-            // Senha incorreta
-            echo "<script language='javascript' type='text/javascript'>
-            alert('Senha incorreta');window.location.href='../index.html';</script>";
+            // User not found
+            openAlert('Usuário não encontrado');
         }
-    } else {
-        // Usuário não encontrado
-        echo "<script language='javascript' type='text/javascript'>
-        alert('Usuário não encontrado');window.location.href='../index.html';</script>";
+
+        // Close the database connection
+        $stmt->close();
+        $conn->close();
     }
 
-    // Fechar a conexão
-    $stmt->close();
-    $conn->close();
-}
+    function openAlert($message) {
+        echo "<script>alert('$message');window.location.href='../index.html';</script>";
+    }
 ?>
