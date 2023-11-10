@@ -19,7 +19,6 @@ Administração da Biblioteca: Os administradores têm a capacidade de gerenciar
 
 Tecnologias Utilizadas
 
-Front-end: HTML, CSS, JavaScript, React.js
-Back-end: Node.js, Express.js, MongoDB
-Autenticação: JWT (JSON Web Tokens) para autenticação de usuários
+Front-end: HTML, CSS, JavaScript
+Back-end: APACHE, MySQL, PHP
 Hospedagem: O website está hospedado na plataforma GitHub Pages
