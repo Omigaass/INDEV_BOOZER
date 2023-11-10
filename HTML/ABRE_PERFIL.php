@@ -9,6 +9,26 @@
     } else {
         $login_btn = "<a href=../PHP/LOGOUT.php class=header_btn><button>Sair</button></a>";
     }
+
+    include '../PHP/CONFIG.php';
+
+    $userID = mysqli_real_escape_string($conn, $_SESSION['USER_ID']);
+
+    $sql = "SELECT * FROM bz_user WHERE USER_ID = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param('s', $userID);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $USERINFO = '';
+            $USER_NAME_INFO = $row['USER_NAME'];
+        }
+    } else {
+        $USERINFO = "Nenhum usuário encontrado.";
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -20,6 +40,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../CSS/MAIN.CSS">
     <link rel="stylesheet" href="../CSS/ABRE_PERFIL.CSS">
+    <link rel="stylesheet" href="../CSS/MODAL.CSS">
     <link rel="stylesheet" href="../CSS/HEADER.CSS">
     <link rel="stylesheet" href="../CSS/NAVBAR.CSS">
     <link rel="stylesheet" href="../CSS/FOOTER.CSS">
@@ -90,44 +111,34 @@
                 ?██      ██    ██ ██  ██ ██    ██    ██      ██    ██ ██   ██ ██    ██ 
                  ?██████  ██████  ██   ████    ██    ███████  ██████  ██████   ██████   
             -->
-            <div class="profile-container">
-                <div class="profile-container-img">
-                    <img class="profile-picture" src="https://www.promoview.com.br/uploads/2017/04/b72a1cfe.png"
-                        alt="Imagem de Perfil">
-                </div>
-                <div class="profile-container-info">
-                    <h1>Nome do Usuário</h1>
-                    <p>Desenvolvedor Web</p>
-                    <p>Email: exemplo@email.com</p>
-                    <div class="userUpdate_btn">
-                        <button class="userUpdate" id="button"><i class="fa-solid fa-pen"
-                                style="color: #4465ca;"></i></button>
+            <section class="pfl_container">
+                <div class="pfl_photo_sec">
+                    <img class="pfl_photo" src="../IMG/Profile_photo.png" alt="">
+                    <div class="changePfl_photo">
+                        <i class="fa-regular fa-camera-rotate fa-xl"></i>
                     </div>
                 </div>
-            </div>
+                <div class="pfl_info_sec">
+                    <?= $USERINFO ?>
+                    <h1><?= $USER_NAME_INFO ?></h1>
+                </div>
+            </section>
+            <section class="pfl_menuSec">
+                <a class="pfl_btn pfl_btn-items">Meus items<span></span></a>
+                <a class="pfl_btn pfl_btn-edit">Editar Perfil<span></span></a>
+                <a class="pfl_btn pfl_btn-hist">Histórico<span></span></a>
+                <a class="pfl_btn pfl_btn-gold">Boozer Gold<span></span></a>
+            </section>
 
-
-            <div class="navbar_card" id="botao_teste">
-                <i class="fa-solid fa-cart-shopping fa-lg"></i>
-                <a>Carrinho</a>
-            </div>
-
-            <div class="navbar_card" id="botao_teste">
-                <i class="fa-solid fa-cart-shopping fa-lg"></i>
-                <a>Carrinho</a>
-            </div>
         </main>
         <footer class="footer_sec">
             <p>&copy; 2023 Boozer - Todos os direitos reservados.</p>
         </footer>
     </div>
-    <!-- #region -->
-    <div class="a_modal">
-        <span class="a_span">
-        </span>
-        <span class="m_close a_btn"><i class="fa-regular fa-circle-xmark"></i></span>
+    <div class="userUpdate_btn">
+        <button class="userUpdate" id="button"><i class="fa-solid fa-pen" style="color: #4465ca;"></i></button>
     </div>
-    <!-- #endregion -->
+
     <div class="back_screen hidden"></div>
     <modal class="userUpdate_modal m_start hidden">
         <div class="m_wrap">
@@ -194,6 +205,77 @@
 <script src="../JS/ABRE_NAV_RESPONSIVE.js"></script>
 <script src="../JS/perfil.js"></script>
 <script>
+
+var $wrap = $('.pfl_photo'),
+    lFollowX = 5,
+    lFollowY = 10,
+    x = 0,
+    y = 0,
+    friction = 1 / 12,
+    xMax = 30, // Valor máximo de rotação em graus
+    xMin = -30, // Valor mínimo de rotação em graus
+    yMax = 30, // Valor máximo de rotação em graus
+    yMin = -30; // Valor mínimo de rotação em graus
+
+function animate() {
+    x += (lFollowX - x) * friction;
+    y += (lFollowY - y) * friction;
+
+    // Limita a rotação dentro dos valores permitidos
+    x = Math.min(xMax, Math.max(xMin, x));
+    y = Math.min(yMax, Math.max(yMin, y));
+
+    $wrap.css({
+        'transform': 'perspective(600px) rotateY(' + -x + 'deg) rotateX(' + y + 'deg)'
+    });
+
+    window.requestAnimationFrame(animate);
+}
+
+$(window).on('mousemove click', function(e) {
+    var lMouseX = e.pageX - $wrap.offset().left - $wrap.width() / 2;
+    var lMouseY = e.pageY - $wrap.offset().top - $wrap.height() / 2;
+
+    lFollowX = -(12 * lMouseX) / $wrap.width();
+    lFollowY = -(10 * lMouseY) / $wrap.height();
+});
+
+animate();
+
+$(function() {  
+  $('.pfl_btn').on('mouseenter mouseout', function(e) {
+    var parentOffset = $(this).offset(),
+        relX = e.pageX - parentOffset.left,
+        relY = e.pageY - parentOffset.top;
+
+    $(this).find('span').css({top: relY, left: relX});
+  });
+});
+
+
+
+
+
+function atualizarAlturaElementos() {
+    var pPS = document.querySelector('.pfl_photo_sec');
+    var pIS = document.querySelector('.pfl_info_sec');
+    var pp = document.querySelector('.pfl_photo');
+
+    var pW = pPS.clientWidth;
+    var iW = pIS.clientWidth;
+    var ppW = pp.clientWidth;
+
+    pPS.style.height = pW + 'px';
+    pIS.style.height = iW + 'px';
+    pp.style.height = ppW + 'px';
+}
+
+atualizarAlturaElementos();
+
+window.addEventListener('resize', function() {
+    atualizarAlturaElementos();
+});
+
 
     const userUpdate = document.querySelector(".userUpdate");
     const userUpdate_modal = document.querySelector(".userUpdate_modal");

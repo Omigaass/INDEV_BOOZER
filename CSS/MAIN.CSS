@@ -3,6 +3,11 @@
     padding: 0;
 }
 
+body{
+  width: 100%;
+  height: 100%;
+}
+
 /* 
 ?██████   █████  ██      ███████ ████████  █████  
 ?██   ██ ██   ██ ██      ██         ██    ██   ██ 
@@ -165,4 +170,8 @@
 
 .a_active{
   transform: translateY(0) !important;
+}
+
+.hidden{
+  display: none!important;
 }

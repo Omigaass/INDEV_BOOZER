@@ -51,7 +51,7 @@
                 // Sucesso no cadastro
                 $_SESSION['USER_ID'] = $session_id_select;
                 OpenAlert("Usuário Cadastrado.");
-                echo "<script language='javascript' type='text/javascript'>window.location.href'index.html';</script>";
+                echo "<script language='javascript' type='text/javascript'>window.location.href='../HTML/ABRE_CATALOGO.php';</script>";
             } else {
                 // Erro na inserção
                 OpenAlert("Erro ao Cadastrar.");
