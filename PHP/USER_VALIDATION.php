@@ -32,7 +32,6 @@ if (isset($_SESSION['USER_ID'])) {
         echo "Error: " . $sql . "<br>" . $stmt->error;
     }
 } else {
-    openAlert("Usuário não encontrado.");
 }
 
 if (isset($isNotDefault) && $isNotDefault) {

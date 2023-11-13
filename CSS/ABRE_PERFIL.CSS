@@ -9,6 +9,10 @@
     background-color: var(--claro-light);
 }
 
+.logo_body a:hover{
+    text-decoration: none;
+}
+
 .pfl_container{
     position: relative;
     width: 80%;
@@ -16,7 +20,9 @@
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    margin: 0 0 5%;
+    margin: 0;
+    padding: 0 0 2.5%;
+    z-index: 0;
 }
 
 .pfl_photo_sec{
@@ -30,7 +36,7 @@
     border-radius: 25px;
     position: absolute;
     left: 4%;    
-    top: 15%;
+    top: 10%;
 }
 
 .pfl_photo{
@@ -66,22 +72,66 @@
     min-width: 400px;
     max-height: 75%;
     display: flex;
+    flex-direction: column;
     margin: 0;
     background-color: #F6FAFE;
     box-shadow: 0 0 20px #c3c3c376;
     border-radius: 25px;
 }
 
+.pfl_info_sec p{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(100% - 25%);
+    height: 10%;
+    margin-left: 25%;
+    font-weight: 700;
+    font-size: large;
+}
+
+.pfl_info_body{
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - 25%);
+    margin-left: 25%;
+}
+
+.pfl_info_body hr{
+    border: 0;
+    height: 1px;
+    width: 90%;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
+}
+
+.pfl_info{
+    display: flex;
+    width: calc(100% - 3.5rem);
+    margin: 0 0 0 3.5rem;
+}
+
+.pfl_info span:first-child {
+    text-transform: uppercase;
+    width: 25%;
+}
+
+
+.pfl_info span{
+    margin: 0;
+    line-height: 2.5;
+    font-weight: 700;
+    font-size: large;
+}
+
 .pfl_menuSec{
     position: fixed;
     right: 5%;
     width: 20%;
-    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    position: relative;
     margin: 0;
 }
 
@@ -113,8 +163,12 @@
 }
 
 .pfl_btn {
-    transition: .5s ease-in-out!important;
+    transition: background-color .5s ease-in-out, color .3s ease-in-out!important;
     color: #387b95!important;
+    cursor: pointer;
+}
+.pfl_btn:hover {
+    color: #F6FAFE!important;
 }
 .pfl_btn span {
     position: absolute;
@@ -135,38 +189,86 @@
     background-color: #387b95;
 }
 .pfl_btn-items:active {
-    background-color: #8ca962;
-}
-.pfl_btn-items:hover {
-    color: #e2ead8!important;
+    background-color: #77b0c6;
 }
 
 .pfl_btn-edit span{
     background-color: #387b95;
 }
 .pfl_btn-edit:active {
-    background-color: #8ca962;
-}
-.pfl_btn-items:hover {
-    color: #e2ead8!important;
+    background-color: #77b0c6;
 }
 
 .pfl_btn-hist span{
     background-color: #387b95;
 }
 .pfl_btn-hist:active {
-    background-color: #8ca962;
-}
-.pfl_btn-items:hover {
-    color: #e2ead8!important;
+    background-color: #77b0c6;
 }
 
 .pfl_btn-gold span{
-    background-color: #ffec80;
+    background-color: #387b95;
 }
 .pfl_btn-gold:active {
-    background-color: #ffe44d;
+    background-color: #77b0c6;
 }
-.pfl_btn-gold:hover {
-    color: #665e00!important;
+
+.pfl_infoNone{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 76%;
+    margin: 0 0 0 24%;
+    height: 100%;
 }
+
+.infoNone_text{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: x-large;
+    font-family: snigletRegular;
+    font-weight: 600;
+    color: #387b95;
+    transition: .3s ease-in-out;
+}
+
+.infoNone_btn{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.infoNoneBtn{
+    width: 30%;
+    height: 50%;
+    cursor: pointer;
+    border: 0;
+    border-radius: 25px;
+    color: #fff;
+    background-color: var(--azul);
+    font-size: large;
+    font-family: snigletRegular;
+    transition: .2s ease-in-out;
+}
+
+.infoNoneBtn:hover{
+    color: var(--azul-escuro);
+    background-color: var(--azul-light);
+}
+
+@keyframes pulsate-fwd {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.01);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
