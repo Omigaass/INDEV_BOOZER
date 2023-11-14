@@ -59,6 +59,23 @@
                                 <button class="infoNoneBtn">Fazer Login</button>
                             </div>
                         </div>';
+                        
+        $USERINFO .= '  <script>
+                            document.addEventListener("DOMContentLoaded", () => {
+                                    const back_screen = document.querySelector(".back_screen");
+                                    const modal_account = document.querySelector(".userAccountNone");
+
+                                    document.querySelector(".infoNoneBtn").addEventListener("click", () => {
+                                        modal_account.classList.toggle("hidden");
+                                        back_screen.classList.toggle("hidden");
+                                    });
+                                    document.querySelector(".m_userAccountNone_close").addEventListener("click", () => {
+                                        modal_account.classList.toggle("hidden");
+                                        back_screen.classList.toggle("hidden");
+                                    });
+
+                            });
+                        </script>';
         }
 ?>
 
@@ -96,48 +113,6 @@
     </head>
 
     <body>
-        <div class="blurScreen"></div>
-        <div class="BlurScreenAlert">
-            <span>Faça login para acessar sua conta!</span>
-            <div class="rightside_sec">
-                <div class="login_form_sec">
-                    <form class="signup_body" action="PHP/SIGN-UP.php" method="post">
-                        <div class="inputbox">
-                            <i class="fa-regular fa-user fa-xl"></i>
-                            <input name="signup_user_input" type="text" placeholder="#" required>
-                            <label>Usuário</label>
-                        </div>
-                        <div class="inputbox">
-                            <i class="fa-regular fa-envelope fa-xl"></i>
-                            <input name="signup_email_input" type="email" placeholder="#" required>
-                            <label>Email</label>
-                        </div>
-                        <div class="inputbox">
-                            <i class="fa-regular fa-lock fa-xl"></i>
-                            <input name="signup_password_input" type="password" placeholder="#" required>
-                            <label>Senha</label>
-                        </div>
-                        <button type="submit">Sign-Up</button>
-                        <span onclick="slide()">Já possuo conta.</span>
-                    </form>
-                    <form class="signin_body" action="PHP/SIGN-IN.php" method="post">
-                        <div class="inputbox">
-                            <i class="fa-regular fa-envelope fa-xl"></i>
-                            <input name="login_email_input" type="email" placeholder="#" required>
-                            <label>Email</label>
-                        </div>
-                        <div class="inputbox">
-                            <i class="fa-regular fa-lock fa-xl"></i>
-                            <input name="login_password_input" type="password" placeholder="#" required>
-                            <label>Senha</label>
-                        </div>
-                        <button type="submit" value="login">Sign-In</button>
-                        <span onclick="slide()">Não tenho conta.</span>
-                    </form>
-                </div>
-            </div>
-        </div>
-
         <div class="fullscreen">
             <header class="header_sec">
                 <div class="logo_body">
@@ -188,7 +163,21 @@
                 -->
                 <section class="pfl_container">
                     <div class="pfl_photo_sec">
-                        <img class="pfl_photo" src="../IMG/Profile_photo.png" alt="">
+                        <?php
+                            if (!isset($_SESSION['USER_ID'])) {
+                                echo '<img class="pfl_photo" src="../IMG/PROFILE_DEFAULT.svg" alt="Imagem">';
+                            } else {
+                                $sql = "SELECT USER_PROFILE_IMAGE FROM bz_user WHERE USER_ID = $userID";
+                                $result = $conn->query($sql);
+    
+                                if ($result->num_rows > 0) {
+                                    $row = $result->fetch_assoc();
+                                    echo '<img class="pfl_photo" src="data:image/jpeg;base64,' . base64_encode($row['USER_PROFILE_IMAGE']) . '" alt="Imagem">';
+                                } else {
+                                    echo 'Nenhuma imagem encontrada.';
+                                }
+                            }
+                        ?>
                         <div class="changePfl_photo">
                             <i class="fa-regular fa-camera-rotate fa-xl"></i>
                         </div>
@@ -208,6 +197,66 @@
                 <p>&copy; 2023 Boozer - Todos os direitos reservados.</p>
             </footer>
         </div>
+        <div class="back_screen hidden"></div>
+        <modal class="userAccountNone m_start hidden">
+            <div class="m_AccountNone_wrap">
+                <i class="m_userAccountNone_close fa-regular fa-xmark fa-xl"></i>
+                <div class="leftside_sec">
+                    <img src="../IMG/library_background3.jpg" alt="">
+                </div>
+                <div class="rightside_sec">
+                    <div class="login_form_sec">
+                        <form class="signup_body" action="../PHP/PROFILE_SIGN-UP.php" method="post">
+                            <div class="inputbox">
+                                <i class="fa-regular fa-user fa-xl"></i>
+                                <input name="signup_user_input" type="text" placeholder="#" required>
+                                <label>Usuário</label>
+                            </div>
+                            <div class="inputbox">
+                                <i class="fa-regular fa-envelope fa-xl"></i>
+                                <input name="signup_email_input" type="email" placeholder="#" required>
+                                <label>Email</label>
+                            </div>
+                            <div class="inputbox">
+                                <i class="fa-regular fa-lock fa-xl"></i>
+                                <input name="signup_password_input" type="password" placeholder="#" required>
+                                <label>Senha</label>
+                            </div>
+                            <button class="submitBtn" type="submit">Sign-Up</button>
+                            <span onclick="slide()">Já possuo conta.</span>
+                        </form>
+                        <form class="signin_body" action="../PHP/PROFILE_SIGN-IN.php" method="post">
+                            <div class="inputbox">
+                                <i class="fa-regular fa-envelope fa-xl"></i>
+                                <input name="login_email_input" type="email" placeholder="#" required>
+                                <label>Email</label>
+                            </div>
+                            <div class="inputbox">
+                                <i class="fa-regular fa-lock fa-xl"></i>
+                                <input name="login_password_input" type="password" placeholder="#" required>
+                                <label>Senha</label>
+                            </div>
+                            <button class="submitBtn" type="submit" value="login">Sign-In</button>
+                            <span onclick="slide()">Não tenho conta.</span>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </modal>
+        <modal class="userChangeImage m_start hidden">
+                <div class="m_wrapChange">
+                    <section class="m_headChange">
+                        <span class="m_title"><i class="fa-regular fa-camera-rotate"></i><span>Escolha sua nova imagem de perfil:</span></span>
+                        <i class="m_userChangeImage_close fa-regular fa-xmark fa-xl"></i>
+                    </section>
+                    <section class="m_bodyChange">
+                        <form action="../PHP/USER_IMAGE.php" method="post" enctype="multipart/form-data">
+                            <input type="file" name="profile_image" accept="image/*">
+                            <input type="submit" value="Upload Image">
+                        </form>
+                    </section>
+                </div>
+            </modal>
     </body>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="../JS/CONFIG_NAV.JS"></script>
@@ -215,16 +264,32 @@
     <script src="../JS/perfil.js"></script>
     <script>
 
+    const back_screen = document.querySelector(".back_screen");
+
+    const changePfl_photo = document.querySelector(".changePfl_photo");
+    const userChangeImage = document.querySelector(".userChangeImage");
+    const m_userChangeImage_close = document.querySelector(".m_userChangeImage_close");
+
+    changePfl_photo.addEventListener("click", () => {
+        userChangeImage.classList.toggle("hidden");
+        back_screen.classList.toggle("hidden");
+    });
+
+    m_userChangeImage_close.addEventListener("click", () => {
+        userChangeImage.classList.toggle("hidden");
+        back_screen.classList.toggle("hidden");
+    });
+
     var $wrap = $('.pfl_photo'),
         lFollowX = 5,
         lFollowY = 10,
         x = 0,
         y = 0,
         friction = 1 / 12,
-        xMax = 30, // Valor máximo de rotação em graus
-        xMin = -30, // Valor mínimo de rotação em graus
-        yMax = 30, // Valor máximo de rotação em graus
-        yMin = -30; // Valor mínimo de rotação em graus
+        xMax = 10, // Valor máximo de rotação em graus
+        xMin = -10, // Valor mínimo de rotação em graus
+        yMax = 10, // Valor máximo de rotação em graus
+        yMin = -10; // Valor mínimo de rotação em graus
 
     function animate() {
         x += (lFollowX - x) * friction;
@@ -280,6 +345,20 @@
     window.addEventListener('resize', function() {
         atualizarAlturaElementos();
     });
+
+    const register = document.querySelector(".signup_body");
+    const login = document.querySelector(".signin_body");
+    const form = document.querySelector(".login_form_sec");
+
+    function slide() {
+        const toggleClass = (element, className, slideClassName) => {
+            element.classList.toggle(className);
+            element.classList.toggle(slideClassName);
+        };
+
+        toggleClass(register, "signup_body", "signup_body_slide");
+        toggleClass(login, "signin_body", "signin_body_slide");
+    }
 
     </script>
     <script>
