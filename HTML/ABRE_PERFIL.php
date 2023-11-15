@@ -3,13 +3,10 @@
 
     require '../PHP/USER_VALIDATION.php';
     include '../PHP/CONFIG.php';
-    
-    $USERID_UNDEFINED = '';
 
     // Verificar se o usuário está logado
     if (!isset($_SESSION['USER_ID'])) {
         $login_btn = "<a href=../index.html class=header_btn><button>Login</button></a>";
-        $USERID_UNDEFINED .= '';
     } else {
         $login_btn = "<a href=../PHP/LOGOUT.php class=header_btn><button>Sair</button></a>";
         $userID = mysqli_real_escape_string($conn, $_SESSION['USER_ID']);
@@ -23,6 +20,7 @@
     $result = $stmt->get_result();
 
     $USERINFO = '';
+    $USERSYSTEMINFO = '';
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
             $USERINFO .= '<section class="pfl_info_body">';
@@ -153,7 +151,6 @@
                 </div>
             </div>
             <main class="main_sec">
-                <?= $USERID_UNDEFINED ?>
                 <!--             
                     ?██████  ██████  ███    ██ ████████ ███████ ██    ██ ██████   ██████  
                     ?██      ██    ██ ████   ██    ██    ██      ██    ██ ██   ██ ██    ██ 
@@ -161,7 +158,7 @@
                     ?██      ██    ██ ██  ██ ██    ██    ██      ██    ██ ██   ██ ██    ██ 
                     ?██████  ██████  ██   ████    ██    ███████  ██████  ██████   ██████   
                 -->
-                <section class="pfl_container">
+                <section class="pfl_mainSec">
                     <div class="pfl_photo_sec">
                         <?php
                             if (!isset($_SESSION['USER_ID'])) {
@@ -169,7 +166,7 @@
                             } else {
                                 $sql = "SELECT USER_PROFILE_IMAGE FROM bz_user WHERE USER_ID = $userID";
                                 $result = $conn->query($sql);
-    
+
                                 if ($result->num_rows > 0) {
                                     $row = $result->fetch_assoc();
                                     echo '<img class="pfl_photo" src="data:image/jpeg;base64,' . base64_encode($row['USER_PROFILE_IMAGE']) . '" alt="Imagem">';
@@ -182,15 +179,49 @@
                             <i class="fa-regular fa-camera-rotate fa-xl"></i>
                         </div>
                     </div>
-                    <div class="pfl_info_sec">
-                        <?= $USERINFO ?>
+                    <div class="pfl_systemInfo_sec">
+                        <section class="pfl_systemInfo">
+                            <div class="pfl_info">
+                                <span>Livros Favoritados: </span><span> 5 </span>
+                            </div>
+                            <hr>
+                            <div class="pfl_info">
+                                <span>Livros Comprados:</span><span>10</span>
+                            </div>
+                            <hr>
+                            <div class="pfl_info">
+                                <span>Se juntou ao Boozer: </span><span>30/10/2023</span>
+                            </div>
+                            <hr>
+                        </section>
+                    </div>
+                    <div class="pfl_userInfo_sec">
+                        <div class="pfl_info_sec">
+                            <?= $USERINFO ?>
+                        </div>
+                    </div>
+                    <div class="pfl_userHistory">
+                        <table class="table table-hover ">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">Qtd. Livros</th>
+                                    <th scope="col">Data de Venda</th>
+                                    <th scope="col">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
                     </div>
                 </section>
+                
                 <section class="pfl_menuSec">
-                    <a class="pfl_btn pfl_btn-items">Meus items<span></span></a>
+                    <!-- <a class="pfl_btn pfl_btn-items">Meus items<span></span></a>
                     <a class="pfl_btn pfl_btn-edit">Editar Perfil<span></span></a>
                     <a class="pfl_btn pfl_btn-hist">Histórico<span></span></a>
-                    <a class="pfl_btn pfl_btn-gold">Boozer Gold<span></span></a>
+                    <a class="pfl_btn pfl_btn-gold">Boozer Gold<span></span></a> -->
+                    <img src="../IMG/BANNER_ADS.svg" alt="" srcset="">
                 </section>
             </main>
             <footer class="footer_sec">
@@ -246,7 +277,7 @@
         <modal class="userChangeImage m_start hidden">
                 <div class="m_wrapChange">
                     <section class="m_headChange">
-                        <span class="m_title"><i class="fa-regular fa-camera-rotate"></i><span>Escolha sua nova imagem de perfil:</span></span>
+                        <span class="m_title"><i class="fa-regular fa-camera-rotate"></i><span>Escolha sua nova imagem:</span></span>
                         <i class="m_userChangeImage_close fa-regular fa-xmark fa-xl"></i>
                     </section>
                     <section class="m_bodyChange">
@@ -327,16 +358,13 @@
     });
 
     function atualizarAlturaElementos() {
-        var pPS = document.querySelector('.pfl_photo_sec');
-        var pIS = document.querySelector('.pfl_info_sec');
+        // var pIS = document.querySelector('.pfl_info_sec');
         var pp = document.querySelector('.pfl_photo');
 
-        var pW = pPS.clientWidth;
-        var iW = pIS.clientWidth;
+        // var iW = pIS.clientWidth;
         var ppW = pp.clientWidth;
 
-        pPS.style.height = pW + 'px';
-        pIS.style.height = iW + 'px';
+        // pIS.style.height = iW + 'px';
         pp.style.height = ppW + 'px';
     }
 
