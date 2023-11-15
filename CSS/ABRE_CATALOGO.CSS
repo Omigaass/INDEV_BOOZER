@@ -488,6 +488,9 @@
     font-family: snigletRegular;
 }
 
+.logo_body a:hover{
+    text-decoration: none;
+}
 
 /* 
 ?██████  ███████ ███████ ██████   ██████  ███    ██ ███████ ██ ██    ██ ██ ██████   █████  ██████  ███████ 

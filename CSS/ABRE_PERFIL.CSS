@@ -1,3 +1,13 @@
+:root{
+    --btn1-color: #9999ff;
+
+    --btn2-color: #d9bbf6;
+
+    --btn3-color: #ff9999;
+
+    --btn4-color: #6fca6f;
+}
+
 .main_sec {
     position: fixed;
     top: 15vh;
@@ -18,7 +28,7 @@
     grid-template-rows: repeat(2, 50%);
     grid-column-gap: 0px;
     grid-row-gap: 0px;
-    background-color: blue;
+    background-color: #F6FAFE;
     border-radius: 25px;
     }
     
@@ -63,7 +73,7 @@
 .pfl_photo{
     border-radius: 50%;
     width: 60%;
-    box-shadow: 0 0 5px #5252526d;
+    box-shadow: 0 0 5px #8585856d;
     margin: 0;
 }
 
@@ -99,65 +109,63 @@
 .pfl_systemInfo .pfl_info{
     width: calc(100% - 1rem);
     margin: 0 0 0 1rem;
+    display: flex;
 }
 
 .pfl_systemInfo .pfl_info span{
     line-height: 1;
+    font-size: medium;
 }
 
 .pfl_systemInfo .pfl_info span:first-child{
     width: 50%;
 }
 
+
 .pfl_systemInfo hr{
     margin-top: 0.2rem;
     margin-bottom: 1rem;
-    width: 100%;
+    width: 80%;
     height: 1;
 }
 
 .pfl_info_sec{
-    width: 70%;
-    min-width: 400px;
-    max-height: 75%;
-    display: flex;
-    flex-direction: column;
+    width: calc(100% - 1rem);
+    height: calc(100% - 1rem);
     margin: 0;
     background-color: #F6FAFE;
-    box-shadow: 0 0 20px #c3c3c376;
     border-radius: 25px;
+    margin: 0.5rem;
+    box-shadow: 0 0 8px #83838320;
+}
+
+.pfl_info_sec table{
+    width: calc(100% - 1rem);
+    margin: 0.5rem;
+    text-align: center;
+}
+
+.pfl_userHistory .pfl_info_sec table thead tr th{
+    border-top: 0;
+}
+
+.pfl_info_sec tbody tr:first-child th, .pfl_info_sec tbody tr:first-child td{
+    border: 0;
+}
+
+.userUpdateBtn{
+    margin: .8rem 0 0 .8rem;
+    letter-spacing: 1;
 }
 
 .pfl_info_sec p{
     display: flex;
     align-items: center;
     justify-content: center;
-    width: calc(100% - 25%);
+    width: 100%;
     height: 10%;
-    margin-left: 25%;
     font-weight: 700;
     font-size: large;
-}
-
-.pfl_info_body{
-    display: flex;
-    flex-direction: column;
-    width: calc(100% - 25%);
-    margin: 5% 0 0 25%;
-}
-
-.pfl_info_body hr{
-    border: 0;
-    height: 1px;
-    width: 90%;
-    background: #333;
-    background-image: linear-gradient(to right, #ccc, #333, #ccc);
-}
-
-.pfl_info{
-    display: flex;
-    width: calc(100% - 3.5rem);
-    margin: 0 0 0 3.5rem;
 }
 
 .pfl_info span:first-child {
@@ -543,6 +551,152 @@ input:not(:placeholder-shown) ~ label {
     align-items: center;
     justify-content: center;
     gap: 1rem;
+}
+.f_navbar{
+    width: 100%;
+    height: 8rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    position: relative;
+}
+
+.f_navbar hr{
+    width: 50%;
+    border: 1.5px solid #aeaeae9c;
+    margin: 0;
+    position: absolute;
+}
+
+.f_nav_btn{
+    width: 5rem !important;
+    height: 5rem !important;
+    border-radius: 50px !important;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: color 0.2s cubic-bezier(0.46, 0.03, 0.52, 0.96), background-color 0.2s cubic-bezier(0.46, 0.03, 0.52, 0.96), border 0.2s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+    margin: 0!important;
+}
+
+.userBasic{
+    border: 2px solid var(--btn1-color);
+    color: var(--btn1-color);
+    background-color: #fff;
+}
+.userBasic:hover{
+    color: #fff;
+    background-color: var(--btn1-color);
+}
+.userBasic:focus{
+    box-shadow: 0 0 0 0.2rem var(--btn1-color);
+}
+.userBasic.active{
+    color: #fff;
+    background-color: var(--btn1-color);
+}
+
+.userAddress{
+    border: 2px solid var(--btn2-color);
+    color: var(--btn2-color);
+    background-color: #fff;
+}
+.userAddress:hover{
+    color: #fff;
+    background-color: var(--btn2-color);
+}
+.userAddress.active{
+    color: #fff;
+    background-color: var(--btn2-color);
+}
+.userContact{
+    border: 2px solid var(--btn3-color);
+    color: var(--btn3-color);
+    background-color: #fff;
+}
+.userContact:hover{
+    color: #fff;
+    background-color: var(--btn3-color);
+}
+.userContact.active{
+    color: #fff;
+    background-color: var(--btn3-color);
+}
+
+.userConfirmChange{
+    border: 2px solid var(--btn4-color);
+    color: var(--btn4-color);
+    background-color: #fff;
+}
+
+.userConfirmChange:hover{
+    color: #fff;
+    background-color: var(--btn4-color);
+}
+
+.userBasic_form{
+    display: none;
+}
+.userBasic_form.active{
+    display: flex;
+}
+
+.userAddress_form{
+    display: none;
+}
+.userAddress_form.active{
+    display: flex;
+}
+
+.userContact_form{
+    display: none;
+}
+.userContact_form.active{
+    display: flex;
+}
+
+.userConfirmChange_form{
+    display: none;
+}
+.userConfirmChange_form.active{
+    display: flex;
+}
+
+.userEditForm{
+    width: 100%;
+    height: calc(100% - 8rem);
+    overflow-y: auto;
+    flex-direction: column;
+}
+
+.userEdit_btn{
+    width: 8rem;
+    height: 2.5rem;
+    text-align: center;
+}
+
+.userEditForm_body{
+    width: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.btn-group{
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.userInfo_row{
+    display: flex;
+    justify-content: center;
+}
+
+.form-row{
+    margin: 0!important;
 }
 
 
