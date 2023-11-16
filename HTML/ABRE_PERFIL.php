@@ -20,6 +20,7 @@
     $result = $stmt->get_result();
 
     $USERINFO = '';
+    $USERSYSTEMINFO = '';
     $USERINFOEDIT_1 = '';
     $USERINFOEDIT_2 = '';
     $USERINFOEDIT_3 = '';
@@ -36,27 +37,27 @@
                 $USERINFO .= '<tr><th scope="row">Email:</th><td>null</td></tr>';
             }
             if($row['USER_CPFCNPJ'] > 0){
-                $USERINFO .= '<tr><th scope="row">CPF/CNPJ:</th><td oninput="formatarCPF(this)">' . $row['USER_CPFCNPJ'] . '</td></tr>';
+                $USERINFO .= '<tr><th scope="row">CPF/CNPJ:</th><td class="USER_CPFCNPJ">' . $row['USER_CPFCNPJ'] . '</td></tr>';
             } else{
                 $USERINFO .= '<tr><th scope="row">CPF/CNPJ:</th><td>null</td></tr>';
             }
             if($row['USER_RG'] > 0){
-                $USERINFO .= '<tr><th scope="row">RG:</th><td oninput="formatarRG(this)">' . $row['USER_RG'] . '</td></tr>';
+                $USERINFO .= '<tr><th scope="row">RG:</th><td class="USER_RG">' . $row['USER_RG'] . '</td></tr>';
             } else{
                 $USERINFO .= '<tr><th scope="row">RG:</th><td>null</td></tr>';
             }
             if($row['USER_TEL'] > 0){
-                $USERINFO .= '<tr><th scope="row">Telefone:</th><td oninput="formatarTEL(this)">' . $row['USER_TEL'] . '</td></tr>';
+                $USERINFO .= '<tr><th scope="row">Telefone:</th><td class="USER_TEL">' . $row['USER_TEL'] . '</td></tr>';
             } else{
                 $USERINFO .= '<tr><th scope="row">Telefone:</th><td>null</td></tr>';
             }
             if($row['USER_CEL'] > 0){
-                $USERINFO .= '<tr><th scope="row">Celular:</th><td oninput="formatarCEL(this)">' . $row['USER_CEL'] . '</td></tr>';
+                $USERINFO .= '<tr><th scope="row">Celular:</th><td class="USER_CEL">' . $row['USER_CEL'] . '</td></tr>';
             } else{
                 $USERINFO .= '<tr><th scope="row">Celular:</th><td>null</td></tr>';
             }
             if($row['USER_CEP'] > 0){
-                $USERINFO .= '<tr><th scope="row">CEP:</th><td oninput="formatarCEP(this)">' . $row['USER_CEP'] . '</td></tr>';
+                $USERINFO .= '<tr><th scope="row">CEP:</th><td class="USER_CEP">' . $row['USER_CEP'] . '</td></tr>';
             } else{
                 $USERINFO .= '<tr><th scope="row">CEP:</th><td>null</td></tr>';
             }
@@ -84,7 +85,7 @@
                 $USERINFOEDIT_1 .= '  <div class="u_row form-row userInfo_row">
                                         <div class="u_col form-group col-md-4">
                                             <label for="USER_EMAIL_EDIT" class="form-label">Login</label>
-                                            <input type="text" class="form-control" id="USER_EMAIL_EDIT" name="USER_EMAIL_EDIT" value="NULL">
+                                            <input type="text" class="form-control" id="USER_EMAIL_EDIT" name="USER_EMAIL_EDIT" placeholder="null">
                                         </div>';
             }
 
@@ -104,7 +105,7 @@
                 $USERINFOEDIT_1 .= ' <div class="u_row form-row userInfo_row">
                                         <div class="u_col form-group col-md-2">
                                             <label for="USER_CPFCNPJ_EDIT" class="form-label">CPF / CNPJ</label>
-                                            <input type="text" class="form-control" id="USER_CPFCNPJ_EDIT" name="USER_CPFCNPJ_EDIT" value="NULL" maxlength="18" placeholder="000.000.000-00 ou 00.000.000/0000-00" oninput="formatarCPF(this)">
+                                            <input type="text" class="form-control" id="USER_CPFCNPJ_EDIT" name="USER_CPFCNPJ_EDIT" placeholder="null" maxlength="18" placeholder="000.000.000-00 ou 00.000.000/0000-00" oninput="formatarCPF(this)">
                                         </div>';
             } 
             
@@ -116,7 +117,7 @@
             } else{
                 $USERINFOEDIT_1 .= '  <div class="u_col form-group col-md-2">
                                         <label for="USER_RG_EDIT" class="form-label">RG</label>
-                                        <input type="text" class="form-control" id="USER_RG_EDIT" name="USER_RG_EDIT" value="NULL" maxlength="12" placeholder="00.000.000-0" oninput="formatarRG(this)">
+                                        <input type="text" class="form-control" id="USER_RG_EDIT" name="USER_RG_EDIT" placeholder="null" maxlength="12" placeholder="00.000.000-0" oninput="formatarRG(this)">
                                     </div>';
             }
             
@@ -128,7 +129,7 @@
             } else{
                 $USERINFOEDIT_1 .= '  <div class="u_col form-group col-md-4">
                                         <label for="USER_NAME_EDIT" class="form-label">Nome</label>
-                                        <input type="text" class="form-control" id="USER_NAME_EDIT" name="USER_NAME_EDIT" value="NULL">
+                                        <input type="text" class="form-control" id="USER_NAME_EDIT" name="USER_NAME_EDIT" placeholder="null">
                                     </div>';
             }                    
             
@@ -156,7 +157,7 @@
                 $USERINFOEDIT_2 .= '    <div class="u_row form-row userInfo_row">
                                             <div class="u_col form-group col-md-2">
                                                 <label for="USER_CEP_EDIT" class="form-label">CEP</label>
-                                                <input type="text" class="form-control" id="USER_CEP_EDIT" name="USER_CEP_EDIT" value="NULL"maxlength="9" placeholder="00000-000" oninput="formatarCEP(this)">
+                                                <input type="text" class="form-control" id="USER_CEP_EDIT" name="USER_CEP_EDIT" placeholder="null"maxlength="9" placeholder="00000-000" oninput="formatarCEP(this)">
                                             </div>';
             }   
             if($row['USER_END'] > 0){
@@ -167,7 +168,7 @@
             } else{
                 $USERINFOEDIT_2 .= '    <div class="u_col form-group col-md-5">
                                             <label for="USER_END_EDIT" class="form-label">Endereço</label>
-                                            <input type="text" class="form-control" id="USER_END_EDIT" name="USER_END_EDIT" value="NULL">
+                                            <input type="text" class="form-control" id="USER_END_EDIT" name="USER_END_EDIT" placeholder="null">
                                         </div>';
             }   
             if($row['USER_ENDNUM'] > 0){
@@ -179,7 +180,7 @@
             } else{
                 $USERINFOEDIT_2 .= '    <div class="u_col form-group col-md-1">
                                             <label for="USER_ENDNUM_EDIT" class="form-label">Número</label>
-                                            <input type="text" class="form-control" id="USER_ENDNUM_EDIT" name="USER_ENDNUM_EDIT" value="NULL">
+                                            <input type="text" class="form-control" id="USER_ENDNUM_EDIT" name="USER_ENDNUM_EDIT" placeholder="null">
                                         </div>
                                     </div>';
             } 
@@ -262,7 +263,7 @@
             } else{
                 $USERINFOEDIT_2 .= '    <div class="u_col form-group col-md-2">
                                             <label for="USER_CIDADE_EDIT" class="form-label">Cidade</label>
-                                            <input type="text" class="form-control" id="USER_CIDADE_EDIT" name="USER_CIDADE_EDIT" value="NULL">
+                                            <input type="text" class="form-control" id="USER_CIDADE_EDIT" name="USER_CIDADE_EDIT" placeholder="null">
                                         </div>';
             } 
             if($row['USER_BAIRRO'] > 0){
@@ -273,7 +274,7 @@
             } else{
                 $USERINFOEDIT_2 .= '    <div class="u_col form-group col-md-2">
                                             <label for="USER_BAIRRO_EDIT" class="form-label">Bairro</label>
-                                            <input type="text" class="form-control" id="USER_BAIRRO_EDIT" name="USER_BAIRRO_EDIT" value="NULL">
+                                            <input type="text" class="form-control" id="USER_BAIRRO_EDIT" name="USER_BAIRRO_EDIT" placeholder="null">
                                         </div>';
             } 
             if($row['USER_COMPLE'] > 0){
@@ -285,7 +286,7 @@
             } else{
                 $USERINFOEDIT_2 .= '    <div class="u_col form-group col-md-2">
                                             <label for="USER_COMPLE_EDIT" class="form-label">Complemento</label>
-                                            <input type="text" class="form-control" id="USER_COMPLE_EDIT" name="USER_COMPLE_EDIT" value="NULL">
+                                            <input type="text" class="form-control" id="USER_COMPLE_EDIT" name="USER_COMPLE_EDIT" placeholder="null">
                                         </div>
                                     </div>';
             }
@@ -294,26 +295,26 @@
                 $USERINFOEDIT_3 .= '    <div class="u_row form-row userInfo_row">
                                             <div class="u_col form-group col-md-4">
                                                 <label for="USER_TEL_EDIT" class="form-label">Telefone</label>
-                                                <input type="text" class="form-control" id="USER_TEL_EDIT" name="USER_TEL_EDIT" value="' . $row['USER_TEL'] . '" maxlength="14" placeholder="(00) 00000-0000" oninput="formatarTEL(this)">
+                                                <input type="text" class="form-control" id="USER_TEL_EDIT" name="USER_TEL_EDIT" value="' . $row['USER_TEL'] . '" maxlength="15" placeholder="(00) 00000-0000" oninput="formatarTEL(this)">
                                             </div>';
             } else{
                 $USERINFOEDIT_3 .= '    <div class="u_row form-row userInfo_row">
                                             <div class="u_col form-group col-md-4">
                                                 <label for="USER_TEL_EDIT" class="form-label">Telefone</label>
-                                                <input type="text" class="form-control" id="USER_TEL_EDIT" name="USER_TEL_EDIT" value="NULL" maxlength="14" placeholder="(00) 00000-0000" oninput="formatarTEL(this)">
+                                                <input type="text" class="form-control" id="USER_TEL_EDIT" name="USER_TEL_EDIT" placeholder="null" maxlength="15" placeholder="(00) 00000-0000" oninput="formatarTEL(this)">
                                             </div>';
             }
             
             if($row['USER_CEL'] > 0){
                 $USERINFOEDIT_3 .= '    <div class="u_col form-group col-md-4">
                                             <label for="USER_CEL_EDIT" class="form-label">Celular</label> 
-                                            <input type="text" class="form-control" id="USER_CEL_EDIT" name="USER_CEL_EDIT" value="' . $row['USER_CEL'] . '" maxlength="14" placeholder="(00) 00000-0000" oninput="formatarCEL(this)">
+                                            <input type="text" class="form-control" id="USER_CEL_EDIT" name="USER_CEL_EDIT" value="' . $row['USER_CEL'] . '" maxlength="15" placeholder="(00) 00000-0000" oninput="formatarCEL(this)">
                                         </div>
                                     </div>';
             } else{
                 $USERINFOEDIT_3 .= '    <div class="u_col form-group col-md-4">
                                             <label for="USER_CEL_EDIT" class="form-label">Celular</label> 
-                                            <input type="text" class="form-control" id="USER_CEL_EDIT" name="USER_CEL_EDIT" value="NULL" maxlength="14" placeholder="(00) 00000-0000" oninput="formatarCEL(this)">
+                                            <input type="text" class="form-control" id="USER_CEL_EDIT" name="USER_CEL_EDIT" placeholder="null" maxlength="15" placeholder="(00) 00000-0000" oninput="formatarCEL(this)">
                                         </div>
                                     </div>';
             } 
@@ -321,30 +322,62 @@
                 $USERINFOEDIT_3 .= '    <div class="u_row form-row userInfo_row">
                                             <div class="u_col form-group col-md-4">
                                                 <label for="USER_EMAIL_CON" class="form-label">Email Principal</label>
-                                                <input type="email" class="form-control" id="USER_EMAIL_CON" name="USER_EMAIL_CON" value="' . $row['USER_EMAIL_CON'] . '">
+                                                <input type="text" class="form-control" id="USER_EMAIL_CON" name="USER_EMAIL_CON" value="' . $row['USER_EMAIL_CON'] . '">
                                             </div>';
             } else{
                 $USERINFOEDIT_3 .= '    <div class="u_row form-row userInfo_row">
                                             <div class="u_col form-group col-md-4">
                                                 <label for="USER_EMAIL_CON" class="form-label">Email Principal</label>
-                                                <input type="email" class="form-control" id="USER_EMAIL_CON" name="USER_EMAIL_CON" value="NULL">
+                                                <input type="text" class="form-control" id="USER_EMAIL_CON" name="USER_EMAIL_CON" placeholder="null">
                                             </div>';
             } 
             if($row['USER_EMAIL2_CON'] > 0){
                 $USERINFOEDIT_3 .= '    <div class="u_col form-group col-md-4">
                                             <label for="USER_EMAIL2_CON" class="form-label">Email Secundário</label>
-                                            <input type="email" class="form-control" id="USER_EMAIL2_CON" name="USER_EMAIL2_CON" value="' . $row['USER_EMAIL2_CON'] . '">
+                                            <input type="text" class="form-control" id="USER_EMAIL2_CON" name="USER_EMAIL2_CON" value="' . $row['USER_EMAIL2_CON'] . '">
                                         </div>
                                     </div>';
             } else{
                 $USERINFOEDIT_3 .= '    <div class="u_col form-group col-md-4">
                                             <label for="USER_EMAIL2_CON" class="form-label">Email Secundário</label>
-                                            <input type="email" class="form-control" id="USER_EMAIL2_CON" name="USER_EMAIL2_CON" value="NULL">
+                                            <input type="text" class="form-control" id="USER_EMAIL2_CON" name="USER_EMAIL2_CON" placeholder="null">
                                         </div>
                                     </div>';
             } 
+
+            //?--------------------------------------------------------------------------?
+
+            if($row['USER_FAVBOOKNUM'] > 0){
+                $USERSYSTEMINFO .= '<div class="pfl_info">
+                                    <span>Livros Favoritados: </span><span> <br> ' . $row['USER_FAVBOOKNUM'] . ' </span>
+                                </div>
+                                <hr>';
+            } else{
+                $USERSYSTEMINFO .= '<div class="pfl_info">
+                                    <span>Livros Favoritados: </span><span> <br> 0 </span>
+                                </div>
+                                <hr>';
+            } 
+            if($row['USER_BUYBOOKNUM'] > 0){
+                $USERSYSTEMINFO .= '<div class="pfl_info">
+                                    <span>Livros Comprados:</span><span><br> ' . $row['USER_BUYBOOKNUM'] . ' </span>
+                                </div>
+                                <hr>';
+            } else{
+                $USERSYSTEMINFO .= '<div class="pfl_info">
+                                    <span>Livros Comprados:</span><span><br> 0 </span>
+                                </div>
+                                <hr>';
+            }
+            
+            $USERSYSTEMINFO .= '<div class="pfl_info">
+                                    <span>Se juntou ao Boozer: </span><span><br>' . $row['USER_REGISTER_TIME'] . '</span>
+                                </div>
+                                <hr>';
         }
     } else {
+        $USERSYSTEMINFO = '';
+
         $USERINFO .= '  <div class="pfl_infoNone">
                             <div class="infoNone_text">
                                 <span> Faça login para ver os detalhes de sua conta!</span>
@@ -477,18 +510,7 @@
                     </div>
                     <div class="pfl_systemInfo_sec">
                         <section class="pfl_systemInfo">
-                            <div class="pfl_info">
-                                <span>Livros Favoritados: </span><span> <br> 5 </span>
-                            </div>
-                            <hr>
-                            <div class="pfl_info">
-                                <span>Livros Comprados:</span><span><br>10</span>
-                            </div>
-                            <hr>
-                            <div class="pfl_info">
-                                <span>Se juntou ao Boozer: </span><span><br>30/10/2023</span>
-                            </div>
-                            <hr>
+                            <?= $USERSYSTEMINFO ?>
                         </section>
                     </div>
                     <div class="pfl_userInfo_sec">
@@ -544,25 +566,6 @@
                 </div>
                 <div class="rightside_sec">
                     <div class="login_form_sec">
-                        <form class="signup_body" action="../PHP/PROFILE_SIGN-UP.php" method="post">
-                            <div class="inputbox">
-                                <i class="fa-regular fa-user fa-xl"></i>
-                                <input name="signup_user_input" type="text" placeholder="#" required>
-                                <label>Usuário</label>
-                            </div>
-                            <div class="inputbox">
-                                <i class="fa-regular fa-envelope fa-xl"></i>
-                                <input name="signup_email_input" type="email" placeholder="#" required>
-                                <label>Email</label>
-                            </div>
-                            <div class="inputbox">
-                                <i class="fa-regular fa-lock fa-xl"></i>
-                                <input name="signup_password_input" type="password" placeholder="#" required>
-                                <label>Senha</label>
-                            </div>
-                            <button class="submitBtn" type="submit">Sign-Up</button>
-                            <span onclick="slide()">Já possuo conta.</span>
-                        </form>
                         <form class="signin_body" action="../PHP/PROFILE_SIGN-IN.php" method="post">
                             <div class="inputbox">
                                 <i class="fa-regular fa-envelope fa-xl"></i>
@@ -575,7 +578,7 @@
                                 <label>Senha</label>
                             </div>
                             <button class="submitBtn" type="submit" value="login">Sign-In</button>
-                            <span onclick="slide()">Não tenho conta.</span>
+                            <span href="../index.html">Não tenho conta.</span>
                         </form>
                     </div>
                 </div>
@@ -641,7 +644,8 @@
             </div>
         </modal>
     </body>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <script src="../JS/CONFIG_NAV.JS"></script>
     <script src="../JS/ABRE_NAV_RESPONSIVE.js"></script>
     <script src="../JS/perfil.js"></script>
@@ -660,20 +664,6 @@
 
     m_userChangeImage_close.addEventListener("click", () => {
         userChangeImage.classList.toggle("hidden");
-        back_screen.classList.toggle("hidden");
-    });
-    
-    const userUpdateBtn = document.querySelector(".userUpdateBtn");
-    const userUpdateBtn_modal = document.querySelector(".userUpdateBtn_modal");
-    const m_userUpdateBtn_close = document.querySelector(".m_userUpdateBtn_close");
-
-    userUpdateBtn.addEventListener("click", () => {
-        userUpdateBtn_modal.classList.toggle("hidden");
-        back_screen.classList.toggle("hidden");
-    });
-
-    m_userUpdateBtn_close.addEventListener("click", () => {
-        userUpdateBtn_modal.classList.toggle("hidden");
         back_screen.classList.toggle("hidden");
     });
 
@@ -895,6 +885,12 @@ userNext.forEach(button => {
                 return text.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5');
             }
         }
+
+        $('.USER_CPFCNPJ').mask('000.000.000-00');
+        $('.USER_RG').mask('00.000.000-0');
+        $('.USER_TEL').mask('(00) 00000-0000');
+        $('.USER_CEL').mask('(00) 00000-0000');
+        $('.USER_CEP').mask('00000-000');
     </script>
     <script>
         function abre_login() {

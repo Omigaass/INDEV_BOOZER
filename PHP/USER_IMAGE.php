@@ -25,7 +25,7 @@ if (!isset($_SESSION['USER_ID'])) {
                 }
 
                 // Verifica o tamanho do arquivo (opcional, dependendo da configuração do seu banco de dados)
-                $max_size = 5 * 1024 * 1024; // 5 MB em bytes
+                $max_size = 5 * 1024 * 1024 * 1024; // 5 MB em bytes
                 if ($profile_image_size > $max_size) {
                     echo "Erro: Tamanho do arquivo excede o limite permitido.";
                     echo "<br>";
