@@ -21,6 +21,7 @@
 
     $USERINFO = '';
     $USERSYSTEMINFO = '';
+    $USERINFOSCRIPT = '';
     $USERINFOEDIT_1 = '';
     $USERINFOEDIT_2 = '';
     $USERINFOEDIT_3 = '';
@@ -375,8 +376,25 @@
                                 </div>
                                 <hr>';
         }
+            
+        $USERINFOSCRIPT =   '
+                            const userUpdateBtn = document.querySelector(".userUpdateBtn");
+                            const userUpdateBtn_modal = document.querySelector(".userUpdateBtn_modal");
+                            const m_userUpdateBtn_close = document.querySelector(".m_userUpdateBtn_close");
+                        
+                            userUpdateBtn.addEventListener("click", () => {
+                                userUpdateBtn_modal.classList.toggle("hidden");
+                                back_screen.classList.toggle("hidden");
+                            });
+                        
+                            m_userUpdateBtn_close.addEventListener("click", () => {
+                                userUpdateBtn_modal.classList.toggle("hidden");
+                                back_screen.classList.toggle("hidden");
+                            });
+                            ';
     } else {
         $USERSYSTEMINFO = '';
+        $USERINFOSCRIPT = '';
 
         $USERINFO .= '  <div class="pfl_infoNone">
                             <div class="infoNone_text">
@@ -666,6 +684,8 @@
         userChangeImage.classList.toggle("hidden");
         back_screen.classList.toggle("hidden");
     });
+
+    <?= $USERINFOSCRIPT ?>
 
     
 document.querySelector(".userBasic").addEventListener("click", f_showBasic);
