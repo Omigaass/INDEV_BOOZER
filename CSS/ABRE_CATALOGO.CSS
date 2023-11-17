@@ -223,90 +223,84 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1rem;
+    gap: 1.5rem;
     margin: 0;
+}
+
+.p_menu_div{
+    width: 2.4rem!important;
+    height: 2.4rem!important;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
 }
 
 .p_btn{
-    margin: 0;
-    width: 2.4rem;
-    height: 2.4rem;
-    border: 0;
-    cursor: pointer;
-    border-radius: 50%;
-    background-color: var(--claro-dark);
-    position: relative;
-    transition: all 0.3s ease;
-}
-
-.p_btn:focus{
-    outline: none;
-}
-
-.p_btn_cap {
-    display: none;
-    background-color: #cececeaf;
-    border-radius: 4px;
-    color: var(--azul-escuro);
-    font-weight: 700;
-    font-size: 12px;
-    padding: 5px;
+    width: 2.4rem!important;
+    height: 2.4rem!important;
     position: absolute;
-    top: -20px;
-    left: 1.5rem;
-    width: 50px;
-    text-align: center;
-    transition: all 0.3s ease;
-    z-index: 100;
+    top: 0;
+    height: 0;
+    border: 1px solid #b9b9b9;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: #ffffff;
+}
+
+.p_label{
+    width: 2.4rem!important;
+    height: 2.4rem!important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 0;
+    margin: 0;
+    cursor: pointer;
+}
+
+.p_BookEdit_l i{
+    color: rgb(50, 164, 60)
+}
+
+.p_BookRemove_l i{
+    color: rgb(198, 60, 60)
+}
+
+.p_BookHidden_l i{
+    color: rgb(47, 125, 177)
+}
+
+
+.p_label:hover > .p_btn_cap{
+    display: flex;
+    opacity: 1;
+}
+
+.p_btn_cap{
+    display: none;
     opacity: 0;
-    transition: opacity 1s ease;
+    position: absolute;
+    top: -30%;
+    right: -100%;
+    z-index: 1;
+    background-color: #dadada;
+    border-radius: 4px;
+    padding: .1rem .2rem;
 }
 
-.p_BookEdit{
-    color: rgb(14, 208, 14);
+.p_BookRemove_l .p_btn_cap{
+    right: -150%!important;
 }
 
-.p_BookEdit:hover {
-    background-color: var(--azul-light);
-    color: var(--azul-escuro);
+.p_BookHidden_l .p_btn_cap{
+    right: -120%!important;
 }
 
-.p_BookEdit:hover > .p_btn_cap {
-    display: flex;
-    opacity: 1;
-    transition: opacity 1s ease;
-}
-
-
-.p_BookRemove{
-    color: rgb(202, 15, 15);
-}
-
-.p_BookRemove:hover {
-    background-color: var(--azul-light);
-    color: var(--azul-escuro);
-}
-
-.p_BookRemove:hover > .p_btn_cap {
-    display: flex;
-    opacity: 1;
-    transition: opacity 1s ease;
-}
-
-.p_BookHidden{
-    color: rgb(130, 130, 130);
-}
-
-.p_BookHidden:hover {
-    background-color: var(--azul-light);
-    color: var(--azul-escuro);
-}
-
-.p_BookHidden:hover > .p_btn_cap {
-    display: flex;
-    opacity: 1;
-    transition: opacity 1s ease;
-}
 
 
 /* #region */
