@@ -63,7 +63,9 @@ if (isset($isNotDefault) && $isNotDefault) {
         book_add_close.addEventListener("click", () => {
             book_add_modal.classList.toggle("hidden");
             back_screen.classList.toggle("hidden");
-        });';
+        });
+        
+        ';
     $DefaultConfigBookMenuStyle = 'DefaultConfig';
 } else {
     $DefaultConfigMenu = '';

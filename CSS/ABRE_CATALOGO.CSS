@@ -275,6 +275,9 @@
     color: rgb(47, 125, 177)
 }
 
+.icon-hover{
+    color: var(--azul-escuro)!important;
+}
 
 .p_label:hover > .p_btn_cap{
     display: flex;

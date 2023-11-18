@@ -13,6 +13,7 @@
     include '../PHP/CONFIG.php';
 
     $PRODUCT_SELECT_VAR = "";
+    $PRODUCT_SCRIPT = "";
 
         $sql = "SELECT * FROM bz_book WHERE 1 = 1";
 
@@ -133,21 +134,25 @@
                     $PRODUCT_SELECT_VAR .= '<span class="p_title">' . $row['BOOK_TITULO'] . '</span>';
                     $PRODUCT_SELECT_VAR .= '<span class="p_autor">' . $row['BOOK_AUTOR'] . '</span>';
                     $PRODUCT_SELECT_VAR .= '<span class="p_date">' . $row['BOOK_ANO_PUBLICACAO'] . '</span></div></div>';
-                    $PRODUCT_SELECT_VAR .= '<input type="hidden" name="USER_ID" value="' . $user_id . '">';
-                    $PRODUCT_SELECT_VAR .= '<input type="hidden" name="BOOK_ID" value="' . $row['BOOK_ID'] . '">';
                     if (isset($isNotDefault) && $isNotDefault) {
                         $PRODUCT_SELECT_VAR .= '<div class="p_menu">';
-                        $PRODUCT_SELECT_VAR .= '<div class="p_menu_div">';
+                        $PRODUCT_SELECT_VAR .= '<form class="p_menu_div" method="post" action="">';
+                        $PRODUCT_SELECT_VAR .= '<input type="hidden" name="USER_ID" value="' . $user_id . '">';
+                        $PRODUCT_SELECT_VAR .= '<input type="hidden" name="BOOK_ID" value="' . $row['BOOK_ID'] . '">';
                         $PRODUCT_SELECT_VAR .= '<input type="submit" name="p_BookEdit" id="p_BookEdit" class="p_btn p_BookEdit" value="">';
-                        $PRODUCT_SELECT_VAR .= '<label class=" p_label p_BookEdit_l" for="p_BookEdit"><i class="fa-solid fa-pen-to-square fa-lg"></i><span class="p_btn_cap">Editar</span></label></div>';
+                        $PRODUCT_SELECT_VAR .= '<label class=" p_label p_BookEdit_l" for="p_BookEdit"><i class="icon fa-solid fa-pen-to-square fa-lg"></i><span class="p_btn_cap">Editar</span></label></form>';
 
-                        $PRODUCT_SELECT_VAR .= '<div class="p_menu_div">';
+                        $PRODUCT_SELECT_VAR .= '<form class="p_menu_div" method="post" action="">';
+                        $PRODUCT_SELECT_VAR .= '<input type="hidden" name="USER_ID" value="' . $user_id . '">';
+                        $PRODUCT_SELECT_VAR .= '<input type="hidden" name="BOOK_ID" value="' . $row['BOOK_ID'] . '">';
                         $PRODUCT_SELECT_VAR .= '<input type="submit" name="p_BookRemove" id="p_BookRemove" class="p_btn p_BookRemove" value="">';
-                        $PRODUCT_SELECT_VAR .= '<label class=" p_label p_BookRemove_l" for="p_BookRemove"><i class="fa-solid fa-file-xmark fa-lg"></i><span class="p_btn_cap">Remover</span></label></div>';
+                        $PRODUCT_SELECT_VAR .= '<label class=" p_label p_BookRemove_l" for="p_BookRemove"><i class="icon fa-solid fa-file-xmark fa-lg"></i><span class="p_btn_cap">Remover</span></label></form>';
 
-                        $PRODUCT_SELECT_VAR .= '<div class="p_menu_div">';
+                        $PRODUCT_SELECT_VAR .= '<form class="p_menu_div" method="post" action="../PHP/PRODUCT_VISIBLE.php">';
+                        $PRODUCT_SELECT_VAR .= '<input type="hidden" name="USER_ID" value="' . $user_id . '">';
+                        $PRODUCT_SELECT_VAR .= '<input type="hidden" name="BOOK_ID" value="' . $row['BOOK_ID'] . '">';
                         $PRODUCT_SELECT_VAR .= '<input type="submit" name="p_BookHidden" id="p_BookHidden" class="p_btn p_BookHidden" value="">';
-                        $PRODUCT_SELECT_VAR .= '<label class=" p_label p_BookHidden_l" for="p_BookHidden"><i class="fa-solid fa-eye-slash fa-lg"></i><span class="p_btn_cap">Ocultar</span></label></div>';
+                        $PRODUCT_SELECT_VAR .= '<label class=" p_label p_BookHidden_l" for="p_BookHidden"><i class="icon fa-solid fa-eye-slash fa-lg"></i><span class="p_btn_cap">Ocultar</span></label></form>';
 
                         $PRODUCT_SELECT_VAR .= '</div></div>';
                         $PRODUCT_SELECT_VAR .= '<hr class="p_line">'; 
@@ -156,11 +161,40 @@
                         $PRODUCT_SELECT_VAR .= '</div></div>';
                         $PRODUCT_SELECT_VAR .= '<hr class="p_line">'; 
                     }
+                    
+                    $PRODUCT_SCRIPT = " 
+                    var parentContainers = document.querySelectorAll('.p_menu_div');
+
+                    parentContainers.forEach(function(parentContainer) {
+                        parentContainer.addEventListener('mouseover', function(event) {
+                            if (event.target.classList.contains('p_btn') || event.target.classList.contains('p_label') || event.target.classList.contains('icon')) {
+                                var buttons = parentContainer.querySelectorAll('.p_btn');
+                                var icons = parentContainer.querySelectorAll('.icon');
+                                buttons.forEach(function(button, index) {
+                                    button.style.backgroundColor = '#d6e9f5';
+                                    icons[index].classList.add('icon-hover');
+                                });
+                            }
+                        });
+
+                        parentContainer.addEventListener('mouseout', function(event) {
+                            var buttons = parentContainer.querySelectorAll('.p_btn');
+                            var icons = parentContainer.querySelectorAll('.icon');
+                            buttons.forEach(function(button, index) {
+                                button.style.backgroundColor = 'initial';
+                                icons[index].classList.remove('icon-hover');
+                            });
+                        });
+                    });
+                    ";
                 }  
             }
         } else {
             $PRODUCT_SELECT_VAR .= '<span class="EmptyMsg">Nenhum Produto encontrado.</span>';
         }
+
+        include '../PHP/PRODUCT_REMOVE.php';
+        include '../PHP/PRODUCT_UPDATE.php';
 
         $conn->close();
 ?>
@@ -1012,7 +1046,7 @@
 <script src="../JS/CATALOG_PAG.js"></script>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
-        
+        <?= $PRODUCT_SCRIPT ?>
     });
 
     function abre_login() {
