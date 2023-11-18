@@ -136,25 +136,22 @@
                     $PRODUCT_SELECT_VAR .= '<span class="p_date">' . $row['BOOK_ANO_PUBLICACAO'] . '</span></div></div>';
                     if (isset($isNotDefault) && $isNotDefault) {
                         $PRODUCT_SELECT_VAR .= '<div class="p_menu">';
-                        $PRODUCT_SELECT_VAR .= '<form class="p_menu_div" method="post" action="">';
+                        $PRODUCT_SELECT_VAR .= '<form method="POST" action="../PHP/PRODUCT_MENU.php">';
                         $PRODUCT_SELECT_VAR .= '<input type="hidden" name="USER_ID" value="' . $user_id . '">';
                         $PRODUCT_SELECT_VAR .= '<input type="hidden" name="BOOK_ID" value="' . $row['BOOK_ID'] . '">';
+                        $PRODUCT_SELECT_VAR .= '<div class="p_menu_div">';
                         $PRODUCT_SELECT_VAR .= '<input type="submit" name="p_BookEdit" id="p_BookEdit" class="p_btn p_BookEdit" value="">';
-                        $PRODUCT_SELECT_VAR .= '<label class=" p_label p_BookEdit_l" for="p_BookEdit"><i class="icon fa-solid fa-pen-to-square fa-lg"></i><span class="p_btn_cap">Editar</span></label></form>';
+                        $PRODUCT_SELECT_VAR .= '<label class=" p_label p_BookEdit_l" for="p_BookEdit"><i class="icon fa-solid fa-pen-to-square fa-lg"></i><span class="p_btn_cap">Editar</span></label></div>';
 
-                        $PRODUCT_SELECT_VAR .= '<form class="p_menu_div" method="post" action="">';
-                        $PRODUCT_SELECT_VAR .= '<input type="hidden" name="USER_ID" value="' . $user_id . '">';
-                        $PRODUCT_SELECT_VAR .= '<input type="hidden" name="BOOK_ID" value="' . $row['BOOK_ID'] . '">';
+                        $PRODUCT_SELECT_VAR .= '<div class="p_menu_div">';
                         $PRODUCT_SELECT_VAR .= '<input type="submit" name="p_BookRemove" id="p_BookRemove" class="p_btn p_BookRemove" value="">';
-                        $PRODUCT_SELECT_VAR .= '<label class=" p_label p_BookRemove_l" for="p_BookRemove"><i class="icon fa-solid fa-file-xmark fa-lg"></i><span class="p_btn_cap">Remover</span></label></form>';
+                        $PRODUCT_SELECT_VAR .= '<label class=" p_label p_BookRemove_l" for="p_BookRemove"><i class="icon fa-solid fa-file-xmark fa-lg"></i><span class="p_btn_cap">Remover</span></label></div>';
 
-                        $PRODUCT_SELECT_VAR .= '<form class="p_menu_div" method="post" action="../PHP/PRODUCT_VISIBLE.php">';
-                        $PRODUCT_SELECT_VAR .= '<input type="hidden" name="USER_ID" value="' . $user_id . '">';
-                        $PRODUCT_SELECT_VAR .= '<input type="hidden" name="BOOK_ID" value="' . $row['BOOK_ID'] . '">';
+                        $PRODUCT_SELECT_VAR .= '<div class="p_menu_div">';
                         $PRODUCT_SELECT_VAR .= '<input type="submit" name="p_BookHidden" id="p_BookHidden" class="p_btn p_BookHidden" value="">';
-                        $PRODUCT_SELECT_VAR .= '<label class=" p_label p_BookHidden_l" for="p_BookHidden"><i class="icon fa-solid fa-eye-slash fa-lg"></i><span class="p_btn_cap">Ocultar</span></label></form>';
+                        $PRODUCT_SELECT_VAR .= '<label class=" p_label p_BookHidden_l" for="p_BookHidden"><i class="icon fa-solid fa-eye-slash fa-lg"></i><span class="p_btn_cap">Ocultar</span></label></div>';
 
-                        $PRODUCT_SELECT_VAR .= '</div></div>';
+                        $PRODUCT_SELECT_VAR .= '</form></div></div>';
                         $PRODUCT_SELECT_VAR .= '<hr class="p_line">'; 
                     } else {
                         $PRODUCT_SELECT_VAR .= '<div class="p_menu">';
@@ -192,9 +189,6 @@
         } else {
             $PRODUCT_SELECT_VAR .= '<span class="EmptyMsg">Nenhum Produto encontrado.</span>';
         }
-
-        include '../PHP/PRODUCT_REMOVE.php';
-        include '../PHP/PRODUCT_UPDATE.php';
 
         $conn->close();
 ?>
@@ -1033,6 +1027,17 @@
                     <div class="bookDeleteBtn bookDeleteModal_close btn btn-outline-danger"><i class="fa-regular fa-circle-xmark fa-xl"></i></div>
                     <button class="bookDeleteBtn btn btn-outline-success" type="submit"><i class="fa-solid fa-trash-check fa-xl"></i></button>
                 </form>
+            </section>
+        </div>
+    </modal>
+    <modal class="bookVisibleTable m_start hidden">
+        <div class="m_wrap">
+            <section class="m_head">
+                <span class="m_title"><span><i class="fa-solid fa-book"></i>Livros Ocultos</span></span>
+                <i class="m_close m_bookVisibleTable_close fa-regular fa-circle-xmark fa-xl"></i>
+            </section>
+            <section class="m_body">
+                
             </section>
         </div>
     </modal>

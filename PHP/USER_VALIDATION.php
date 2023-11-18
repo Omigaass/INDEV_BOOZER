@@ -46,9 +46,14 @@ if (isset($isNotDefault) && $isNotDefault) {
             <a>Usuarios</a>
         </div>';
     $DefaultConfigBookBtn = '
-        <div class="menu_div" style="width: 20%;">
+        <div class="menu_div" style="width: 15%;">
             <button class="menu_btn book_menu_btn">
                 <i class="fa-solid fa-file-plus fa-xl"></i>
+            </button>
+        </div>
+        <div class="menu_div" style="width: 15%;">
+            <button class="menu_btn book_menu_visible">
+                <i class="icon fa-solid fa-eye-slash fa-lg"></i>
             </button>
         </div>';
     $DefaultConfigBookScript = '
@@ -62,6 +67,20 @@ if (isset($isNotDefault) && $isNotDefault) {
         });
         book_add_close.addEventListener("click", () => {
             book_add_modal.classList.toggle("hidden");
+            back_screen.classList.toggle("hidden");
+        });
+
+        const book_menu_visible = document.querySelector(".book_menu_visible");
+        const bookVisibleTable = document.querySelector(".bookVisibleTable");
+        const m_bookVisibleTable_close = document.querySelector(".m_bookVisibleTable_close");
+        
+        book_menu_visible.addEventListener("click", () => {
+            bookVisibleTable.classList.toggle("hidden");
+            back_screen.classList.toggle("hidden");
+        });
+        
+        m_bookVisibleTable_close.addEventListener("click", () => {
+            bookVisibleTable.classList.toggle("hidden");
             back_screen.classList.toggle("hidden");
         });
         
