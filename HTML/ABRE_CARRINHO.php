@@ -102,11 +102,11 @@
                     <tr class="tr">
                         <td>
                         <div class="product">
-                            <img src="https://picsum.photos/100/120" alt="" />
+                            <img src="../IMG/livro_capa.jpg" alt="" />
                             <div class="info">
-                            <div class="name">Nome do produto</div>
-                            <div class="category">Categoria</div>
-                            <div class="author">Autor</div>
+                            <div class="name">Livro 1</div>
+                            <div class="category">Ficção</div>
+                            <div class="author">Miguel</div>
                             </div>
                         </div>
                         </td>
@@ -123,6 +123,30 @@
                         <button class="remove"><i class="fa-solid fa-trash-xmark"></i></button>
                         </td>
                     </tr>
+                    <tr>
+                    <td>
+                        <div class="product">
+                            <img src="../IMG/livro_capa.jpg" alt="" />
+                            <div class="info">
+                            <div class="name">Livro 2</div>
+                            <div class="category">Drama</div>
+                            <div class="author">Kaike</div>
+                            </div>
+                        </div>
+                        </td>
+                        <td>R$ 90</td>
+                        <td>
+                        <div class="qty">
+                            <button><i class="bx bx-minus"><i class="fa-solid fa-minus fa-sm"></i></i></button>
+                            <span>3</span>
+                            <button><i class="bx bx-plus"><i class="fa-solid fa-plus fa-sm"></i></i></button>
+                        </div>
+                        </td>
+                        <td>R$ 270</td>
+                        <td>
+                        <button class="remove"><i class="fa-solid fa-trash-xmark"></i></button>
+                        </td>
+                    </tr>
                     </tbody>
                 </table>
                 </section>
@@ -130,7 +154,7 @@
                     <div class="box">
                         <header>Resumo da compra</header>
                         <div class="info">
-                        <div><span>Sub-total</span><span>R$ 418</span></div>
+                        <div><span>Sub-total</span><span>R$ 510</span></div>
                         <div>
                             <button>
                                 Adicionar cupom de desconto
@@ -140,7 +164,7 @@
                         </div>
                         <footer>
                         <span>Total</span>
-                        <span>R$ 418</span>
+                        <span>R$ 510</span>
                         </footer>
                     </div>
                     <button>Finalizar Compra</button>

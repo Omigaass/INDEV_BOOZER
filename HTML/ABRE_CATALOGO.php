@@ -135,27 +135,38 @@
                     $PRODUCT_SELECT_VAR .= '<span class="p_autor">' . $row['BOOK_AUTOR'] . '</span>';
                     $PRODUCT_SELECT_VAR .= '<span class="p_date">' . $row['BOOK_ANO_PUBLICACAO'] . '</span></div></div>';
                     if (isset($isNotDefault) && $isNotDefault) {
+                        $index = $row['BOOK_ID'];
                         $PRODUCT_SELECT_VAR .= '<div class="p_menu">';
                         $PRODUCT_SELECT_VAR .= '<form method="POST" action="../PHP/PRODUCT_MENU.php">';
-                        $PRODUCT_SELECT_VAR .= '<input type="hidden" name="USER_ID" value="' . $user_id . '">';
-                        $PRODUCT_SELECT_VAR .= '<input type="hidden" name="BOOK_ID" value="' . $row['BOOK_ID'] . '">';
+                        $PRODUCT_SELECT_VAR .= '<input type="hidden" name="user_index" value="' . $user_id . '">';
+                        $PRODUCT_SELECT_VAR .= '<input type="hidden" name="button_index" value="' . $index . '">';
                         $PRODUCT_SELECT_VAR .= '<div class="p_menu_div">';
-                        $PRODUCT_SELECT_VAR .= '<input type="submit" name="p_BookEdit" id="p_BookEdit" class="p_btn p_BookEdit" value="">';
+                        $PRODUCT_SELECT_VAR .= '<input type="submit" name="p_BookEdit_' . $index . '" id="p_BookEdit_' . $index . '" class="p_btn p_BookEdit" value="">';
                         $PRODUCT_SELECT_VAR .= '<label class=" p_label p_BookEdit_l" for="p_BookEdit"><i class="icon fa-solid fa-pen-to-square fa-lg"></i><span class="p_btn_cap">Editar</span></label></div>';
 
                         $PRODUCT_SELECT_VAR .= '<div class="p_menu_div">';
-                        $PRODUCT_SELECT_VAR .= '<input type="submit" name="p_BookRemove" id="p_BookRemove" class="p_btn p_BookRemove" value="">';
+                        $PRODUCT_SELECT_VAR .= '<input type="submit" name="p_BookRemove_' . $index . '" id="p_BookRemove_' . $index . '" class="p_btn p_BookRemove" value="">';
                         $PRODUCT_SELECT_VAR .= '<label class=" p_label p_BookRemove_l" for="p_BookRemove"><i class="icon fa-solid fa-file-xmark fa-lg"></i><span class="p_btn_cap">Remover</span></label></div>';
 
                         $PRODUCT_SELECT_VAR .= '<div class="p_menu_div">';
-                        $PRODUCT_SELECT_VAR .= '<input type="submit" name="p_BookHidden" id="p_BookHidden" class="p_btn p_BookHidden" value="">';
+                        $PRODUCT_SELECT_VAR .= '<input type="submit" name="p_BookHidden_' . $index . '" id="p_BookHidden_' . $index . '" class="p_btn p_BookHidden" value="">';
                         $PRODUCT_SELECT_VAR .= '<label class=" p_label p_BookHidden_l" for="p_BookHidden"><i class="icon fa-solid fa-eye-slash fa-lg"></i><span class="p_btn_cap">Ocultar</span></label></div>';
 
                         $PRODUCT_SELECT_VAR .= '</form></div></div>';
                         $PRODUCT_SELECT_VAR .= '<hr class="p_line">'; 
                     } else {
+                        $index = $row['BOOK_ID'];
                         $PRODUCT_SELECT_VAR .= '<div class="p_menu">';
-                        $PRODUCT_SELECT_VAR .= '</div></div>';
+                        $PRODUCT_SELECT_VAR .= '<div class="p_menu_div">';
+                        $PRODUCT_SELECT_VAR .= '<form method="POST" action="../PHP/PRODUCT_BUY.php">';
+                        $PRODUCT_SELECT_VAR .= '<input type="hidden" name="user_index" value="' . $user_id . '">';
+                        $PRODUCT_SELECT_VAR .= '<input type="hidden" name="button_index" value="' . $index . '">';
+                        $PRODUCT_SELECT_VAR .= '<input type="submit" name="p_BookBuy_' . $index . '" id="p_BookBuy_' . $index . '" class="p_btn p_btn_buy" value="">';
+                        $PRODUCT_SELECT_VAR .= '<label class="p_label p_BookBuy_l" for="p_BookBuy"><i class="icon fa-solid fa-cart-shopping fa-lg"></i><span class="p_btn_cap">Adicionar</span></label></div>';
+                        $PRODUCT_SELECT_VAR .= '<div class="p_menu_div">';
+                        $PRODUCT_SELECT_VAR .= '<input type="submit" name="p_BookFav_' . $index . '" id="p_BookFav_' . $index . '" class="p_btn p_btn_fav" value="">';
+                        $PRODUCT_SELECT_VAR .= '<label class=" p_label p_BookFav_l" for="p_BookFav"><i class="icon fa-solid fa-star fa-lg"></i><span class="p_btn_cap">Favoritar</span></label></div>';
+                        $PRODUCT_SELECT_VAR .= '</form></div></div>';
                         $PRODUCT_SELECT_VAR .= '<hr class="p_line">'; 
                     }
                     

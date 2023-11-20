@@ -553,10 +553,16 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <th scope="row">001</th>
-                                        <td>4</td>
+                                        <th scope="row">002</th>
+                                        <td>2</td>
                                         <td>30/03/2023</td>
                                         <td>R$ 345.45</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">001</th>
+                                        <td>4</td>
+                                        <td>11/06/2023</td>
+                                        <td>R$ 410.90</td>
                                     </tr>
                             </table>
                         </div>
